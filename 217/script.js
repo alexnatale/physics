@@ -1,9 +1,12 @@
 let homework = null;
 let rng = null;
+let questionToShow = null;
 
 async function loadHomework() {
     const urlParams = new URLSearchParams(window.location.search);
     const studentId = urlParams.get('canvas_user_id');
+    questionToShow = urlParams.get('q'); // Get the question number from URL
+
     if (!studentId) {
         alert('Student ID is missing in the URL');
         return;
@@ -45,17 +48,21 @@ function generateProblems() {
         console.error('Homework data is missing or incorrectly formatted');
         return;
     }
+
     homework.problems.forEach((problem, index) => {
-        const problemDiv = document.createElement('div');
-        problemDiv.className = 'problem';
-        
-        let questionText = problem.question;
-        problem.variables?.forEach(variable => {
-            const value = variable.min + rng() * (variable.max - variable.min);
-            questionText = questionText.replace(`{${variable.name}}`, value.toFixed(2));
-        });
-        problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
-        problemsDiv.appendChild(problemDiv);
+        // If questionToShow is null or matches the current index + 1, display the question
+        if (questionToShow === null || parseInt(questionToShow) === index + 1) {
+            const problemDiv = document.createElement('div');
+            problemDiv.className = 'problem';
+
+            let questionText = problem.question;
+            problem.variables?.forEach(variable => {
+                const value = variable.min + rng() * (variable.max - variable.min);
+                questionText = questionText.replace(`{${variable.name}}`, value.toFixed(2));
+            });
+            problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
+            problemsDiv.appendChild(problemDiv);
+        }
     });
 }
 
