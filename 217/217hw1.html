@@ -50,7 +50,7 @@
 
             try {
                 // Adjust this URL to point to your GitHub raw content
-                const response = await fetch(`https://raw.githubusercontent.com/your-username/your-repo/main/course${courseNumber}_hw${homeworkNumber}.json`);
+                const response = await fetch(`https://raw.githubusercontent.com/alexnatale/physics/main/course${courseNumber}_hw${homeworkNumber}.json`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
