@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Physics Homework System</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <style>
         .problem { margin-bottom: 20px; }
+        .numerical-input { display: flex; align-items: center; }
+        .numerical-input input { margin-right: 10px; }
     </style>
 </head>
 <body>
-    <h1 id="homework-title"></h1>
+    <h1 id="homework-title">Homework - Physics 217</h1>
     <div id="student-input">
-        <label for="student-id">Enter your Student ID:</label>
+        <label for="student-id">Please Enter your Student ID:</label>
         <input type="text" id="student-id">
-        <button id="load-homework-button">Load Homework</button>
+        <button onclick="loadHomework()">Load Homework</button>
     </div>
     <div id="homework-problems"></div>
 </body>
