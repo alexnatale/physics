@@ -13,8 +13,14 @@ async function loadHomework() {
 
     // Extract course and homework numbers from the HTML file name
     const fileName = window.location.pathname.split('/').pop(); // Get the current HTML file name
-    const [courseNumber, homeworkNumber] = fileName.match(/(\d+)hw(\d+)/).slice(1); // Extract numbers
+    const match = fileName.match(/(\d+)hw(\d+)/);
 
+    if (!match) {
+        alert('Invalid file name format');
+        return;
+    }
+
+    const [_, courseNumber, homeworkNumber] = match; // Extract numbers
     const jsonFileName = `course${courseNumber}_hw${homeworkNumber}.json`;
     
     try {
@@ -24,9 +30,10 @@ async function loadHomework() {
         }
         homework = await response.json();
         generateProblems();
+        document.querySelector('#homework-problems').style.display = 'block';
     } catch (error) {
         console.error('Error loading homework:', error);
-        alert('Error loading homework. Please try again.');
+        alert('Error loading homework. Please make sure the JSON file exists and is named correctly.');
     }
 }
 
@@ -69,10 +76,5 @@ function generateProblems() {
     });
 }
 
-// Load homework when enter is pressed in the student ID input
-document.getElementById('student-id').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        loadHomework();
-    }
-});
+// Ensure to bind loadHomework to the button click event
+document.querySelector('button').addEventListener('click', loadHomework);
