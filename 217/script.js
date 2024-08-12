@@ -1,15 +1,9 @@
-let homework = null;
-let studentId = '';
-let rng = null;
-
 async function loadHomework() {
-    studentId = document.getElementById('student-id').value.trim();
+    const studentId = document.getElementById('student-id').value.trim();
     if (!studentId) {
         alert('Please enter a Student ID');
         return;
     }
-
-    rng = new Math.seedrandom(studentId);
 
     // Extract course and homework numbers from the HTML file name
     const fileName = window.location.pathname.split('/').pop(); // Get the current HTML file name
@@ -22,22 +16,21 @@ async function loadHomework() {
 
     const [_, courseNumber, homeworkNumber] = match; // Extract numbers
     const jsonFileName = `course${courseNumber}_hw${homeworkNumber}.json`;
-    
+
     try {
         const response = await fetch(jsonFileName);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        homework = await response.json();
-        generateProblems();
-        document.querySelector('#homework-problems').style.display = 'block';
+        const homework = await response.json();
+        generateProblems(homework);
     } catch (error) {
         console.error('Error loading homework:', error);
         alert('Error loading homework. Please make sure the JSON file exists and is named correctly.');
     }
 }
 
-function generateProblems() {
+function generateProblems(homework) {
     const problemsDiv = document.getElementById('homework-problems');
     problemsDiv.innerHTML = '';
 
@@ -53,20 +46,15 @@ function generateProblems() {
 
         problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
 
-        if (problem.type === 'numerical') {
-            problemDiv.innerHTML += `
-                <div class="numerical-input">
-                    <input type="text" id="answer-${index}-value" placeholder="Value (in scientific notation)">
-                    <input type="text" id="answer-${index}-unit" placeholder="Unit">
-                </div>
-            `;
-        } else if (problem.type === 'multiple-choice') {
+        if (problem.type === 'multiple-choice') {
             problem.choices.forEach((choice, choiceIndex) => {
                 const letter = String.fromCharCode(97 + choiceIndex); // a, b, c, d, e, f
                 problemDiv.innerHTML += `
                     <div>
-                        <input type="radio" id="answer-${index}-${letter}" name="answer-${index}" value="${letter}">
-                        <label for="answer-${index}-${letter}">${letter}) ${choice}</label>
+                        <label for="answer-${index}-${letter}">
+                            <input type="radio" id="answer-${index}-${letter}" name="answer-${index}" value="${letter}">
+                            ${letter}) ${choice}
+                        </label>
                     </div>
                 `;
             });
