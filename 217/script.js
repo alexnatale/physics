@@ -16,13 +16,15 @@ async function loadHomework() {
 
     // Derive the filename for the JSON based on the current HTML file's name
     const filename = document.location.pathname.split('/').pop().replace('.html', '.json');
+    console.log('Fetching JSON file:', filename); // Debugging log
 
     try {
         const response = await fetch(filename);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
         homework = await response.json();
+        console.log('Homework loaded:', homework); // Debugging log
         generateProblems();
     } catch (error) {
         console.error('Error loading homework:', error);
@@ -33,6 +35,11 @@ async function loadHomework() {
 function generateProblems() {
     const problemsDiv = document.getElementById('homework-problems');
     problemsDiv.innerHTML = '';
+
+    if (!homework || !homework.problems) {
+        console.error('Homework data is missing or incorrectly formatted');
+        return;
+    }
 
     homework.problems.forEach((problem, index) => {
         const problemDiv = document.createElement('div');
