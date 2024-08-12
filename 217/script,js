@@ -3,18 +3,16 @@ let studentId = '';
 let rng = null;
 let autosaveInterval = null;
 
-// Function to get current homework number from URL
 function getCurrentHomework() {
-    return '1'; // Hardcoded to 1 for now, you can make this dynamic later
+    return '1'; // Hardcoded to 1 for now
 }
 
-// Function to get course number
 function getCourseNumber() {
-    return '217'; // Hardcoded to 217 for now, you can make this dynamic later
+    return '217'; // Hardcoded to 217 for now
 }
 
 async function loadHomework() {
-    studentId = document.getElementById('student-id').value;
+    studentId = document.getElementById('student-id').value.trim();
     if (!studentId) {
         alert('Please enter a Student ID');
         return;
@@ -76,7 +74,6 @@ function generateProblems() {
         problemsDiv.appendChild(problemDiv);
     });
 
-    // Add event listeners for input changes
     document.querySelectorAll('input').forEach(input => {
         input.addEventListener('change', saveProgress);
     });
@@ -84,15 +81,9 @@ function generateProblems() {
 
 function submitAnswers() {
     const answers = getAnswers();
-
-    // Here you would typically send the answers to a server
-    // For now, we'll just save them locally and display an alert
     localStorage.setItem(`submitted-answers-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
-    
     alert('Your answers have been submitted!');
     console.log('Student Answers:', answers);
-
-    // Clear the autosave after submission
     localStorage.removeItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
 }
 
@@ -134,7 +125,6 @@ function loadSavedProgress() {
 }
 
 function startAutosave() {
-    // Autosave every 30 seconds
     autosaveInterval = setInterval(saveProgress, 30000);
 }
 
@@ -150,8 +140,26 @@ window.addEventListener('load', () => {
         document.getElementById('homework-title').textContent = `Homework ${homeworkNumber} - Physics ${courseNumber}`;
     }
 
-    // Automatically load homework when the page loads
-    loadHomework();
+    const studentIdInput = document.getElementById('student-id');
+    const loadButton = document.querySelector('button');
+
+    // Load homework when enter is pressed in the student ID input
+    studentIdInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            loadHomework();
+        }
+    });
+
+    // Load homework when the button is clicked
+    loadButton.addEventListener('click', loadHomework);
+
+    // Handle form submission
+    document.querySelector('#submission button').addEventListener('click', function(event) {
+        event.preventDefault();
+        submitAnswers();
+        stopAutosave();
+    });
 });
 
 // Save progress when the user leaves the page
