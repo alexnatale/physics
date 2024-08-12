@@ -34,7 +34,7 @@ async function loadHomework() {
     }
 
     try {
-        const response = await fetch(`/${courseNumber}/homework${homeworkNumber}.json`);
+        const response = await fetch(`/course${courseNumber}_hw${homeworkNumber}.json`);
         homework = await response.json();
         generateProblems();
         document.querySelector('#submission button').style.display = 'block';
