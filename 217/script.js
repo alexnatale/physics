@@ -1,43 +1,43 @@
+let homework = null;
+let rng = null;
+
 async function loadHomework() {
-    const studentId = document.getElementById('student-id').value.trim();
+    // Get the student ID from the URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const studentId = urlParams.get('canvas_user_id');
+
     if (!studentId) {
-        alert('Please enter a Student ID');
+        alert('Student ID is missing in the URL');
         return;
     }
 
-    // Extract course and homework numbers from the HTML file name
-    const fileName = window.location.pathname.split('/').pop(); // Get the current HTML file name
-    const match = fileName.match(/(\d+)hw(\d+)/);
+    // Initialize the RNG with the student ID as the seed
+    rng = new Math.seedrandom(studentId);
 
-    if (!match) {
-        alert('Invalid file name format');
-        return;
-    }
-
-    const [_, courseNumber, homeworkNumber] = match; // Extract numbers
-    const jsonFileName = `course${courseNumber}_hw${homeworkNumber}.json`;
+    // Derive the filename for the JSON based on the current HTML file's name
+    const filename = document.location.pathname.split('/').pop().replace('.html', '.json');
 
     try {
-        const response = await fetch(jsonFileName);
+        const response = await fetch(filename);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error('Network response was not ok');
         }
-        const homework = await response.json();
-        generateProblems(homework);
+        homework = await response.json();
+        generateProblems();
     } catch (error) {
         console.error('Error loading homework:', error);
-        alert('Error loading homework. Please make sure the JSON file exists and is named correctly.');
+        alert('Error loading homework. Please try again.');
     }
 }
 
-function generateProblems(homework) {
+function generateProblems() {
     const problemsDiv = document.getElementById('homework-problems');
     problemsDiv.innerHTML = '';
 
     homework.problems.forEach((problem, index) => {
         const problemDiv = document.createElement('div');
         problemDiv.className = 'problem';
-
+        
         let questionText = problem.question;
         problem.variables?.forEach(variable => {
             const value = variable.min + rng() * (variable.max - variable.min);
@@ -45,24 +45,8 @@ function generateProblems(homework) {
         });
 
         problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
-
-        if (problem.type === 'multiple-choice') {
-            problem.choices.forEach((choice, choiceIndex) => {
-                const letter = String.fromCharCode(97 + choiceIndex); // a, b, c, d, e, f
-                problemDiv.innerHTML += `
-                    <div>
-                        <label for="answer-${index}-${letter}">
-                            <input type="radio" id="answer-${index}-${letter}" name="answer-${index}" value="${letter}">
-                            ${letter}) ${choice}
-                        </label>
-                    </div>
-                `;
-            });
-        }
-
         problemsDiv.appendChild(problemDiv);
     });
 }
 
-// Ensure to bind loadHomework to the button click event
-document.querySelector('button').addEventListener('click', loadHomework);
+document.addEventListener('DOMContentLoaded', loadHomework);
