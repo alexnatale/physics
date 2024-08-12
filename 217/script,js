@@ -132,4 +132,47 @@ function getAnswers() {
 
 function saveProgress() {
     const answers = getAnswers();
-    localStorage.setItem(`saved-pro
+    localStorage.setItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
+    console.log('Progress saved');
+}
+
+function startAutosave() {
+    autosaveInterval = setInterval(saveProgress, 30000);
+}
+
+function stopAutosave() {
+    clearInterval(autosaveInterval);
+}
+
+// Event Listeners
+window.addEventListener('load', () => {
+    const homeworkNumber = getCurrentHomework();
+    const courseNumber = getCourseNumber();
+    if (homeworkNumber && courseNumber) {
+        document.getElementById('homework-title').textContent = `Homework ${homeworkNumber} - Physics ${courseNumber}`;
+    }
+
+    const studentIdInput = document.getElementById('student-id');
+    const loadButton = document.getElementById('load-homework-button');
+
+    // Load homework when enter is pressed in the student ID input
+    studentIdInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            loadHomework();
+        }
+    });
+
+    // Load homework when the button is clicked
+    loadButton.addEventListener('click', loadHomework);
+
+    // Handle form submission
+    document.getElementById('submit-answers-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        submitAnswers();
+        stopAutosave();
+    });
+});
+
+// Save progress when the user leaves the page
+window.addEventListener('beforeunload', saveProgress);
