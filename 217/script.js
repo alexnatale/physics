@@ -2,7 +2,6 @@ let homework = null;
 let rng = null;
 
 async function loadHomework() {
-    // Get the student ID from the URL parameter
     const urlParams = new URLSearchParams(window.location.search);
     const studentId = urlParams.get('canvas_user_id');
     if (!studentId) {
@@ -10,25 +9,19 @@ async function loadHomework() {
         return;
     }
 
-    // Initialize the RNG with the student ID as the seed
     rng = new Math.seedrandom(studentId);
 
-    // Get the current HTML filename
     const htmlFilename = document.location.pathname.split('/').pop();
-    
-    // Extract course name and homework number
     const match = htmlFilename.match(/(\d+)hw(\d+)\.html/);
     if (!match) {
         alert('Invalid file name format. Expected format: NNNhwM.html');
         return;
     }
-    
+
     const courseName = match[1];
     const homeworkNumber = match[2];
-    
-    // Construct the JSON filename
     const jsonFilename = `course${courseName}hw${homeworkNumber}.json`;
-    
+
     console.log('Fetching JSON file:', jsonFilename); // Debugging log
 
     try {
@@ -41,7 +34,7 @@ async function loadHomework() {
         generateProblems();
     } catch (error) {
         console.error('Error loading homework:', error);
-        alert('Error loading homework. Please try again.');
+        alert('Error loading homework. Please check the console for more details.');
     }
 }
 
