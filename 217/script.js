@@ -5,7 +5,6 @@ async function loadHomework() {
     // Get the student ID from the URL parameter
     const urlParams = new URLSearchParams(window.location.search);
     const studentId = urlParams.get('canvas_user_id');
-
     if (!studentId) {
         alert('Student ID is missing in the URL');
         return;
@@ -14,12 +13,26 @@ async function loadHomework() {
     // Initialize the RNG with the student ID as the seed
     rng = new Math.seedrandom(studentId);
 
-    // Derive the filename for the JSON based on the current HTML file's name
-    const filename = document.location.pathname.split('/').pop().replace('.html', '.json');
-    console.log('Fetching JSON file:', filename); // Debugging log
+    // Get the current HTML filename
+    const htmlFilename = document.location.pathname.split('/').pop();
+    
+    // Extract course name and homework number
+    const match = htmlFilename.match(/(\d+)hw(\d+)\.html/);
+    if (!match) {
+        alert('Invalid file name format. Expected format: NNNhwM.html');
+        return;
+    }
+    
+    const courseName = match[1];
+    const homeworkNumber = match[2];
+    
+    // Construct the JSON filename
+    const jsonFilename = `course${courseName}hw${homeworkNumber}.json`;
+    
+    console.log('Fetching JSON file:', jsonFilename); // Debugging log
 
     try {
-        const response = await fetch(filename);
+        const response = await fetch(jsonFilename);
         if (!response.ok) {
             throw new Error('Network response was not ok: ' + response.statusText);
         }
@@ -35,12 +48,10 @@ async function loadHomework() {
 function generateProblems() {
     const problemsDiv = document.getElementById('homework-problems');
     problemsDiv.innerHTML = '';
-
     if (!homework || !homework.problems) {
         console.error('Homework data is missing or incorrectly formatted');
         return;
     }
-
     homework.problems.forEach((problem, index) => {
         const problemDiv = document.createElement('div');
         problemDiv.className = 'problem';
@@ -50,7 +61,6 @@ function generateProblems() {
             const value = variable.min + rng() * (variable.max - variable.min);
             questionText = questionText.replace(`{${variable.name}}`, value.toFixed(2));
         });
-
         problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
         problemsDiv.appendChild(problemDiv);
     });
