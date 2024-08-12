@@ -5,15 +5,12 @@ let autosaveInterval = null;
 
 // Function to get current homework number from URL
 function getCurrentHomework() {
-    const path = window.location.pathname;
-    const match = path.match(/hw(\d+)\.html/);
-    return match ? match[1] : null;
+    return '1'; // Hardcoded to 1 for now, you can make this dynamic later
 }
 
-// Function to get course number from URL parameter
+// Function to get course number
 function getCourseNumber() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('course');
+    return '217'; // Hardcoded to 217 for now, you can make this dynamic later
 }
 
 async function loadHomework() {
@@ -28,13 +25,8 @@ async function loadHomework() {
     const homeworkNumber = getCurrentHomework();
     const courseNumber = getCourseNumber();
 
-    if (!homeworkNumber || !courseNumber) {
-        alert('Unable to determine homework or course number');
-        return;
-    }
-
     try {
-        const response = await fetch(`/course${courseNumber}_hw${homeworkNumber}.json`);
+        const response = await fetch(`course${courseNumber}_hw${homeworkNumber}.json`);
         homework = await response.json();
         generateProblems();
         document.querySelector('#submission button').style.display = 'block';
@@ -150,45 +142,6 @@ function stopAutosave() {
     clearInterval(autosaveInterval);
 }
 
-function isValidScientificNotation(value) {
-    // Regular expression to match scientific notation
-    const scientificNotationRegex = /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/;
-    return scientificNotationRegex.test(value);
-}
-
-function validateAnswers() {
-    let isValid = true;
-    homework.problems.forEach((problem, index) => {
-        if (problem.type === 'numerical') {
-            const valueInput = document.getElementById(`answer-${index}-value`);
-            const unitInput = document.getElementById(`answer-${index}-unit`);
-            
-            if (!isValidScientificNotation(valueInput.value)) {
-                valueInput.style.borderColor = 'red';
-                isValid = false;
-            } else {
-                valueInput.style.borderColor = '';
-            }
-            
-            if (unitInput.value.trim() === '') {
-                unitInput.style.borderColor = 'red';
-                isValid = false;
-            } else {
-                unitInput.style.borderColor = '';
-            }
-        } else if (problem.type === 'multiple-choice') {
-            const selected = document.querySelector(`input[name="answer-${index}"]:checked`);
-            if (!selected) {
-                document.querySelector(`input[name="answer-${index}"]`).parentElement.style.color = 'red';
-                isValid = false;
-            } else {
-                document.querySelector(`input[name="answer-${index}"]`).parentElement.style.color = '';
-            }
-        }
-    });
-    return isValid;
-}
-
 // Event Listeners
 window.addEventListener('load', () => {
     const homeworkNumber = getCurrentHomework();
@@ -197,17 +150,8 @@ window.addEventListener('load', () => {
         document.getElementById('homework-title').textContent = `Homework ${homeworkNumber} - Physics ${courseNumber}`;
     }
 
-    document.getElementById('student-id').addEventListener('change', loadHomework);
-});
-
-document.querySelector('#submission button').addEventListener('click', function(event) {
-    event.preventDefault();
-    if (validateAnswers()) {
-        submitAnswers();
-        stopAutosave();
-    } else {
-        alert('Please correct the highlighted fields before submitting.');
-    }
+    // Automatically load homework when the page loads
+    loadHomework();
 });
 
 // Save progress when the user leaves the page
