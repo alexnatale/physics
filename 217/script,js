@@ -79,27 +79,35 @@ function generateProblems() {
     });
 }
 
-function submitAnswers() {
+async function submitAnswers() {
     const answers = getAnswers();
-    localStorage.setItem(`submitted-answers-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
-    alert('Your answers have been submitted!');
-    console.log('Student Answers:', answers);
-    localStorage.removeItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
+    const data = {
+        studentId: studentId,
+        courseNumber: getCourseNumber(),
+        homeworkNumber: getCurrentHomework(),
+        answers: answers
+    };
+
+    try {
+        const response = await fetch('https://your-backend-service-url/submit-answers', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            alert('Your answers have been submitted!');
+            console.log('Student Answers:', answers);
+            localStorage.removeItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
+        } else {
+            alert('Error submitting your answers. Please try again later.');
+        }
+    } catch (error) {
+        console.error('Error submitting answers:', error);
+        alert('Error submitting your answers. Please try again later.');
+    }
 }
 
-function getAnswers() {
-    return homework.problems.map((problem, index) => {
-        if (problem.type === 'numerical') {
-            return {
-                value: document.getElementById(`answer-${index}-value`).value,
-                unit: document.getElementById(`answer-${index}-unit`).value
-            };
-        } else if (problem.type === 'multiple-choice') {
-            const selected = document.querySelector(`input[name="answer-${index}"]:checked`);
-            return selected ? selected.value : null;
-        }
-    });
-}
 
 function saveProgress() {
     const answers = getAnswers();
@@ -107,22 +115,27 @@ function saveProgress() {
     console.log('Progress saved');
 }
 
-function loadSavedProgress() {
-    const savedProgress = localStorage.getItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
-    if (savedProgress) {
-        const answers = JSON.parse(savedProgress);
-        homework.problems.forEach((problem, index) => {
-            if (problem.type === 'numerical') {
-                document.getElementById(`answer-${index}-value`).value = answers[index]?.value || '';
-                document.getElementById(`answer-${index}-unit`).value = answers[index]?.unit || '';
-            } else if (problem.type === 'multiple-choice') {
-                const radio = document.getElementById(`answer-${index}-${answers[index]}`);
-                if (radio) radio.checked = true;
-            }
-        });
-        console.log('Progress loaded');
+async function loadSavedProgress() {
+    try {
+        const response = await fetch(`https://your-backend-service-url/get-answers?studentId=${studentId}&courseNumber=${getCourseNumber()}&homeworkNumber=${getCurrentHomework()}`);
+        if (response.ok) {
+            const savedAnswers = await response.json();
+            homework.problems.forEach((problem, index) => {
+                if (problem.type === 'numerical') {
+                    document.getElementById(`answer-${index}-value`).value = savedAnswers[index]?.value || '';
+                    document.getElementById(`answer-${index}-unit`).value = savedAnswers[index]?.unit || '';
+                } else if (problem.type === 'multiple-choice') {
+                    const radio = document.getElementById(`answer-${index}-${savedAnswers[index]}`);
+                    if (radio) radio.checked = true;
+                }
+            });
+            console.log('Progress loaded');
+        }
+    } catch (error) {
+        console.error('Error loading saved progress:', error);
     }
 }
+
 
 function startAutosave() {
     autosaveInterval = setInterval(saveProgress, 30000);
