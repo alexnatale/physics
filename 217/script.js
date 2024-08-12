@@ -1,34 +1,27 @@
+// Global variables
 let homework = null;
 let studentId = '';
 let rng = null;
-let autosaveInterval = null;
 
+// Function to get the current homework number (you might want to pass this as a parameter)
 function getCurrentHomework() {
     return '1'; // Hardcoded to 1 for now
 }
 
+// Function to get the course number (you might want to pass this as a parameter)
 function getCourseNumber() {
     return '217'; // Hardcoded to 217 for now
 }
 
+// Function to load homework data
 async function loadHomework() {
-    console.log('Load Homework button pressed');
-
-    studentId = document.getElementById('student-id').value.trim();
-    if (!studentId) {
-        alert('Please enter a Student ID');
-        return;
-    }
-
-    console.log('Student ID:', studentId);
-    rng = new Math.seedrandom(studentId);
-
     const homeworkNumber = getCurrentHomework();
     const courseNumber = getCourseNumber();
     console.log(`Loading homework for course ${courseNumber}, homework ${homeworkNumber}`);
 
     try {
-        const response = await fetch(`course${courseNumber}_hw${homeworkNumber}.json`);
+        // Adjust this URL to point to your GitHub raw content
+        const response = await fetch(`https://raw.githubusercontent.com/your-username/your-repo/main/course${courseNumber}_hw${homeworkNumber}.json`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -36,19 +29,20 @@ async function loadHomework() {
         console.log('Homework JSON:', homework);
 
         generateProblems();
-        document.querySelector('#submission button').style.display = 'block';
-        
-        loadSavedProgress();
-        startAutosave();
     } catch (error) {
         console.error('Error loading homework:', error);
-        alert('Error loading homework. Please try again.');
+        document.getElementById('homework-problems').innerHTML = 'Error loading homework. Please try again.';
     }
 }
 
+// Function to generate problems
 function generateProblems() {
     const problemsDiv = document.getElementById('homework-problems');
     problemsDiv.innerHTML = '';
+
+    // Use Canvas's user ID if available, otherwise use a random seed
+    studentId = typeof ENV !== 'undefined' && ENV.current_user_id ? ENV.current_user_id : Math.random().toString(36).substring(7);
+    rng = new Math.seedrandom(studentId);
 
     homework.problems.forEach((problem, index) => {
         const problemDiv = document.createElement('div');
@@ -60,119 +54,26 @@ function generateProblems() {
             questionText = questionText.replace(`{${variable.name}}`, value.toFixed(2));
         });
 
-        problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
+        problemDiv.innerHTML = `<p><strong>Problem ${index + 1}:</strong> ${questionText}</p>`;
 
         if (problem.type === 'numerical') {
             problemDiv.innerHTML += `
-                <div class="numerical-input">
-                    <input type="text" id="answer-${index}-value" placeholder="Value (in scientific notation)">
-                    <input type="text" id="answer-${index}-unit" placeholder="Unit">
-                </div>
+                <p>Enter your answer (value and unit) in the corresponding Canvas question below.</p>
             `;
         } else if (problem.type === 'multiple-choice') {
-            problem.choices.forEach((choice, choiceIndex) => {
-                const letter = String.fromCharCode(97 + choiceIndex); // a, b, c, d, e, f
-                problemDiv.innerHTML += `
-                    <div>
-                        <input type="radio" id="answer-${index}-${letter}" name="answer-${index}" value="${letter}">
-                        <label for="answer-${index}-${letter}">${letter}) ${choice}</label>
-                    </div>
-                `;
-            });
+            problemDiv.innerHTML += `
+                <p>Choose your answer in the corresponding Canvas multiple-choice question below.</p>
+                <ul>
+                    ${problem.choices.map((choice, choiceIndex) => `
+                        <li>${String.fromCharCode(97 + choiceIndex)}) ${choice}</li>
+                    `).join('')}
+                </ul>
+            `;
         }
 
         problemsDiv.appendChild(problemDiv);
     });
-
-    document.querySelectorAll('input').forEach(input => {
-        input.addEventListener('change', saveProgress);
-    });
 }
 
-function loadSavedProgress() {
-    const savedProgress = localStorage.getItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
-    if (savedProgress) {
-        const answers = JSON.parse(savedProgress);
-        homework.problems.forEach((problem, index) => {
-            if (problem.type === 'numerical') {
-                document.getElementById(`answer-${index}-value`).value = answers[index]?.value || '';
-                document.getElementById(`answer-${index}-unit`).value = answers[index]?.unit || '';
-            } else if (problem.type === 'multiple-choice') {
-                const radio = document.getElementById(`answer-${index}-${answers[index]}`);
-                if (radio) radio.checked = true;
-            }
-        });
-        console.log('Progress loaded');
-    } else {
-        console.log('No saved progress found, proceeding without loading.');
-    }
-}
-
-function submitAnswers() {
-    const answers = getAnswers();
-    localStorage.setItem(`submitted-answers-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
-    alert('Your answers have been submitted!');
-    console.log('Student Answers:', answers);
-    localStorage.removeItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
-}
-
-function getAnswers() {
-    return homework.problems.map((problem, index) => {
-        if (problem.type === 'numerical') {
-            return {
-                value: document.getElementById(`answer-${index}-value`).value,
-                unit: document.getElementById(`answer-${index}-unit`).value
-            };
-        } else if (problem.type === 'multiple-choice') {
-            const selected = document.querySelector(`input[name="answer-${index}"]:checked`);
-            return selected ? selected.value : null;
-        }
-    });
-}
-
-function saveProgress() {
-    const answers = getAnswers();
-    localStorage.setItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
-    console.log('Progress saved');
-}
-
-function startAutosave() {
-    autosaveInterval = setInterval(saveProgress, 30000);
-}
-
-function stopAutosave() {
-    clearInterval(autosaveInterval);
-}
-
-// Event Listeners
-window.addEventListener('load', () => {
-    const homeworkNumber = getCurrentHomework();
-    const courseNumber = getCourseNumber();
-    if (homeworkNumber && courseNumber) {
-        document.getElementById('homework-title').textContent = `Homework ${homeworkNumber} - Physics ${courseNumber}`;
-    }
-
-    const studentIdInput = document.getElementById('student-id');
-    const loadButton = document.getElementById('load-homework-button');
-
-    // Load homework when enter is pressed in the student ID input
-    studentIdInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            loadHomework();
-        }
-    });
-
-    // Load homework when the button is clicked
-    loadButton.addEventListener('click', loadHomework);
-
-    // Handle form submission
-    document.getElementById('submit-answers-button').addEventListener('click', function(event) {
-        event.preventDefault();
-        submitAnswers();
-        stopAutosave();
-    });
-});
-
-// Save progress when the user leaves the page
-window.addEventListener('beforeunload', saveProgress);
+// Load homework when the script runs
+window.addEventListener('load', loadHomework);
