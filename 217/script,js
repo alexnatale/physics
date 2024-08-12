@@ -1,0 +1,214 @@
+let homework = null;
+let studentId = '';
+let rng = null;
+let autosaveInterval = null;
+
+// Function to get current homework number from URL
+function getCurrentHomework() {
+    const path = window.location.pathname;
+    const match = path.match(/hw(\d+)\.html/);
+    return match ? match[1] : null;
+}
+
+// Function to get course number from URL parameter
+function getCourseNumber() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('course');
+}
+
+async function loadHomework() {
+    studentId = document.getElementById('student-id').value;
+    if (!studentId) {
+        alert('Please enter a Student ID');
+        return;
+    }
+
+    rng = new Math.seedrandom(studentId);
+
+    const homeworkNumber = getCurrentHomework();
+    const courseNumber = getCourseNumber();
+
+    if (!homeworkNumber || !courseNumber) {
+        alert('Unable to determine homework or course number');
+        return;
+    }
+
+    try {
+        const response = await fetch(`/${courseNumber}/homework${homeworkNumber}.json`);
+        homework = await response.json();
+        generateProblems();
+        document.querySelector('#submission button').style.display = 'block';
+        loadSavedProgress();
+        startAutosave();
+    } catch (error) {
+        console.error('Error loading homework:', error);
+        alert('Error loading homework. Please try again.');
+    }
+}
+
+function generateProblems() {
+    const problemsDiv = document.getElementById('homework-problems');
+    problemsDiv.innerHTML = '';
+
+    homework.problems.forEach((problem, index) => {
+        const problemDiv = document.createElement('div');
+        problemDiv.className = 'problem';
+        
+        let questionText = problem.question;
+        problem.variables?.forEach(variable => {
+            const value = variable.min + rng() * (variable.max - variable.min);
+            questionText = questionText.replace(`{${variable.name}}`, value.toFixed(2));
+        });
+
+        problemDiv.innerHTML = `<p>${index + 1}. ${questionText}</p>`;
+
+        if (problem.type === 'numerical') {
+            problemDiv.innerHTML += `
+                <div class="numerical-input">
+                    <input type="text" id="answer-${index}-value" placeholder="Value (in scientific notation)">
+                    <input type="text" id="answer-${index}-unit" placeholder="Unit">
+                </div>
+            `;
+        } else if (problem.type === 'multiple-choice') {
+            problem.choices.forEach((choice, choiceIndex) => {
+                const letter = String.fromCharCode(97 + choiceIndex); // a, b, c, d, e, f
+                problemDiv.innerHTML += `
+                    <div>
+                        <input type="radio" id="answer-${index}-${letter}" name="answer-${index}" value="${letter}">
+                        <label for="answer-${index}-${letter}">${letter}) ${choice}</label>
+                    </div>
+                `;
+            });
+        }
+
+        problemsDiv.appendChild(problemDiv);
+    });
+
+    // Add event listeners for input changes
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', saveProgress);
+    });
+}
+
+function submitAnswers() {
+    const answers = getAnswers();
+
+    // Here you would typically send the answers to a server
+    // For now, we'll just save them locally and display an alert
+    localStorage.setItem(`submitted-answers-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
+    
+    alert('Your answers have been submitted!');
+    console.log('Student Answers:', answers);
+
+    // Clear the autosave after submission
+    localStorage.removeItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
+}
+
+function getAnswers() {
+    return homework.problems.map((problem, index) => {
+        if (problem.type === 'numerical') {
+            return {
+                value: document.getElementById(`answer-${index}-value`).value,
+                unit: document.getElementById(`answer-${index}-unit`).value
+            };
+        } else if (problem.type === 'multiple-choice') {
+            const selected = document.querySelector(`input[name="answer-${index}"]:checked`);
+            return selected ? selected.value : null;
+        }
+    });
+}
+
+function saveProgress() {
+    const answers = getAnswers();
+    localStorage.setItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`, JSON.stringify(answers));
+    console.log('Progress saved');
+}
+
+function loadSavedProgress() {
+    const savedProgress = localStorage.getItem(`saved-progress-${studentId}-${getCourseNumber()}-${getCurrentHomework()}`);
+    if (savedProgress) {
+        const answers = JSON.parse(savedProgress);
+        homework.problems.forEach((problem, index) => {
+            if (problem.type === 'numerical') {
+                document.getElementById(`answer-${index}-value`).value = answers[index]?.value || '';
+                document.getElementById(`answer-${index}-unit`).value = answers[index]?.unit || '';
+            } else if (problem.type === 'multiple-choice') {
+                const radio = document.getElementById(`answer-${index}-${answers[index]}`);
+                if (radio) radio.checked = true;
+            }
+        });
+        console.log('Progress loaded');
+    }
+}
+
+function startAutosave() {
+    // Autosave every 30 seconds
+    autosaveInterval = setInterval(saveProgress, 30000);
+}
+
+function stopAutosave() {
+    clearInterval(autosaveInterval);
+}
+
+function isValidScientificNotation(value) {
+    // Regular expression to match scientific notation
+    const scientificNotationRegex = /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/;
+    return scientificNotationRegex.test(value);
+}
+
+function validateAnswers() {
+    let isValid = true;
+    homework.problems.forEach((problem, index) => {
+        if (problem.type === 'numerical') {
+            const valueInput = document.getElementById(`answer-${index}-value`);
+            const unitInput = document.getElementById(`answer-${index}-unit`);
+            
+            if (!isValidScientificNotation(valueInput.value)) {
+                valueInput.style.borderColor = 'red';
+                isValid = false;
+            } else {
+                valueInput.style.borderColor = '';
+            }
+            
+            if (unitInput.value.trim() === '') {
+                unitInput.style.borderColor = 'red';
+                isValid = false;
+            } else {
+                unitInput.style.borderColor = '';
+            }
+        } else if (problem.type === 'multiple-choice') {
+            const selected = document.querySelector(`input[name="answer-${index}"]:checked`);
+            if (!selected) {
+                document.querySelector(`input[name="answer-${index}"]`).parentElement.style.color = 'red';
+                isValid = false;
+            } else {
+                document.querySelector(`input[name="answer-${index}"]`).parentElement.style.color = '';
+            }
+        }
+    });
+    return isValid;
+}
+
+// Event Listeners
+window.addEventListener('load', () => {
+    const homeworkNumber = getCurrentHomework();
+    const courseNumber = getCourseNumber();
+    if (homeworkNumber && courseNumber) {
+        document.getElementById('homework-title').textContent = `Homework ${homeworkNumber} - Physics ${courseNumber}`;
+    }
+
+    document.getElementById('student-id').addEventListener('change', loadHomework);
+});
+
+document.querySelector('#submission button').addEventListener('click', function(event) {
+    event.preventDefault();
+    if (validateAnswers()) {
+        submitAnswers();
+        stopAutosave();
+    } else {
+        alert('Please correct the highlighted fields before submitting.');
+    }
+});
+
+// Save progress when the user leaves the page
+window.addEventListener('beforeunload', saveProgress);
