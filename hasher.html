@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 URL Hasher</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <h1>S3 URL Hasher</h1>
+    <input type="text" id="s3Url" placeholder="Enter S3 URL" size="50">
+    <button onclick="hashUrl()">Hash URL</button>
+    <p>Hashed URL Parameter: <span id="hashedUrl"></span></p>
+
+    <script>
+        function hashUrl() {
+            const s3Url = document.getElementById('s3Url').value;
+            const hashedUrl = CryptoJS.SHA256(s3Url).toString();
+            const urlParam = `?roster=${encodeURIComponent(hashedUrl)}`;
+            document.getElementById('hashedUrl').textContent = urlParam;
+        }
+    </script>
+</body>
+</html>
