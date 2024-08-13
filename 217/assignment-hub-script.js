@@ -65,18 +65,6 @@ async function loadStudentRoster() {
     }
 }
 
-    try {
-        const response = await fetch(rosterUrl);
-        if (!response.ok) {
-            throw new Error(`Failed to load roster. Status: ${response.status}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Error loading student roster:', error);
-        throw new Error('Failed to load student roster. Please check the roster URL.');
-    }
-}
-
 // Function to generate a problem based on student ID
 function generateProblem(problem, studentId) {
     let questionText = problem.question;
@@ -209,14 +197,19 @@ async function initAssignmentHub() {
     }
 }
 
-// Initialize the assignment hub when the page loads
-window.addEventListener('load', function() {
-    console.log('Window loaded, initializing assignment hub...');
-    initAssignmentHub().catch(error => {
+// Async wrapper function for initializing the hub
+async function initializeHub() {
+    try {
+        console.log('Window loaded, initializing assignment hub...');
+        await initAssignmentHub();
+    } catch (error) {
         console.error('Uncaught error in initAssignmentHub:', error);
         displayError(`An unexpected error occurred: ${error.message}`);
-    });
-});
+    }
+}
+
+// Initialize the assignment hub when the page loads
+window.addEventListener('load', initializeHub);
 
 // Debug function to check URL parameters
 function debugUrlParameters() {
