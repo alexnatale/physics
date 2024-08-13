@@ -114,30 +114,37 @@
             if (file) processFile(file);
         });
 
-        function processFile(file) {
-            const salt = saltInput.value;
-            if (!salt) {
-                alert('Please enter a secret salt before uploading a file.');
-                return;
-            }
+  function processFile(file) {
+    const salt = saltInput.value;
+    if (!salt) {
+        alert('Please enter a secret salt before uploading a file.');
+        return;
+    }
 
-            Papa.parse(file, {
-                complete: function(results) {
-                    const studentIds = results.data.flat().filter(id => id.trim() !== '');
-                    const hashSet = new Set();
+    Papa.parse(file, {
+        header: true, // Enables parsing with headers
+        complete: function(results) {
+            // Extract the 'Student ID' column values
+            const studentIds = results.data
+                .map(row => row['Student ID']?.trim()) // Safely access the 'Student ID' field
+                .filter(id => id !== ''); // Filter out empty or undefined values
 
-                    studentIds.forEach(id => {
-                        const hash = CryptoJS.SHA256(id + salt).toString();
-                        hashSet.add(hash);
-                    });
+            const hashSet = new Set();
 
-                    const jsonOutput = JSON.stringify(Array.from(hashSet), null, 2);
-                    output.textContent = jsonOutput;
-                    output.style.display = 'block';
-                    downloadBtn.style.display = 'block';
-                }
+            studentIds.forEach(id => {
+                const hash = CryptoJS.SHA256(id + salt).toString();
+                hashSet.add(hash);
             });
+
+            const jsonOutput = JSON.stringify(Array.from(hashSet), null, 2);
+            output.textContent = jsonOutput;
+            output.style.display = 'block';
+            downloadBtn.style.display = 'block';
         }
+    });
+}
+
+
 
         downloadBtn.addEventListener('click', () => {
             const jsonContent = output.textContent;
