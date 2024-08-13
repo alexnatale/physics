@@ -39,6 +39,7 @@ async function verifyStudentId(studentId) {
     }
 
     const apiUrl = `${replitUrl}/verify?id=${encodeURIComponent(studentId)}`;
+    console.log('Student ID:', encodeURIComponent(studentId));
     const response = await fetch(apiUrl, { method: 'GET' });
     
     if (!response.ok) {
@@ -121,17 +122,12 @@ async function initAssignmentHub() {
         const studentForm = document.getElementById('student-form');
         const assignmentContent = document.getElementById('assignment-content');
         const questionsDiv = document.getElementById('questions');
-        const errorMessageDiv = document.getElementById('error-message');
 
         console.log('Adding event listener to student form...');
         studentForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             setLoading(true);
             try {
-                // Clear previous error messages
-                errorMessageDiv.style.display = 'none';
-                errorMessageDiv.textContent = '';
-                
                 const studentId = document.getElementById('student-id').value;
                 const flagCheck = getUrlParameter('fl');
 
@@ -170,9 +166,6 @@ async function initAssignmentHub() {
             } catch (error) {
                 console.error('Error in form submission:', error);
                 displayError(`An error occurred during form submission: ${error.message}`);
-                // Keep the form visible on error
-                studentForm.style.display = 'block';
-                assignmentContent.style.display = 'none';
             } finally {
                 setLoading(false);
             }
