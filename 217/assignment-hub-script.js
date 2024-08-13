@@ -121,15 +121,17 @@ async function initAssignmentHub() {
         const studentForm = document.getElementById('student-form');
         const assignmentContent = document.getElementById('assignment-content');
         const questionsDiv = document.getElementById('questions');
+        const errorMessageDiv = document.getElementById('error-message');
 
         console.log('Adding event listener to student form...');
         studentForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             setLoading(true);
             try {
-                // clears previous error messages
+                // Clear previous error messages
                 errorMessageDiv.style.display = 'none';
                 errorMessageDiv.textContent = '';
+                
                 const studentId = document.getElementById('student-id').value;
                 const flagCheck = getUrlParameter('fl');
 
