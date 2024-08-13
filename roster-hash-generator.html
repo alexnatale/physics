@@ -3,108 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roster Hash Generator</title>
+    <title>Student ID Hash Set Generator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <style>
-        #drop-area {
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #file-drop {
             border: 2px dashed #ccc;
             border-radius: 20px;
-            width: 480px;
-            margin: 50px auto;
             padding: 20px;
-        }
-        #drop-area.highlight {
-            border-color: purple;
-        }
-        p {
-            margin-top: 0;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px;
-            background: #ccc;
+            text-align: center;
+            margin-bottom: 20px;
             cursor: pointer;
+        }
+        #file-drop.highlight {
+            border-color: #666;
+            background-color: #f0f0f0;
+        }
+        #salt-input {
+            margin-bottom: 20px;
+        }
+        #salt-input input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        #output {
+            white-space: pre-wrap;
+            background-color: #eee;
+            padding: 10px;
             border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .button:hover {
-            background: #ddd;
-        }
-        #fileElem {
             display: none;
+        }
+        #download-btn {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #download-btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div id="drop-area">
-        <form class="my-form">
-            <p>Upload a CSV file with student roster by dragging and dropping or clicking to select</p>
-            <input type="file" id="fileElem" accept=".csv" onchange="handleFiles(this.files)">
-            <label class="button" for="fileElem">Select a file</label>
-        </form>
+    <div class="container">
+        <h1>Student ID Hash Set Generator</h1>
+        <div id="salt-input">
+            <label for="salt">Enter a secret salt (keep this consistent and secure):</label>
+            <input type="text" id="salt" required>
+        </div>
+        <div id="file-drop">
+            Drag and drop a CSV file here, or click to select a file
+            <input type="file" id="file-input" style="display: none;" accept=".csv">
+        </div>
+        <pre id="output"></pre>
+        <button id="download-btn">Download JSON</button>
     </div>
-    <div id="result" style="width: 480px; margin: 20px auto; word-wrap: break-word;"></div>
 
     <script>
-        let dropArea = document.getElementById('drop-area');
+        const fileDrop = document.getElementById('file-drop');
+        const fileInput = document.getElementById('file-input');
+        const saltInput = document.getElementById('salt');
+        const output = document.getElementById('output');
+        const downloadBtn = document.getElementById('download-btn');
 
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, preventDefaults, false);
-        });
-
-        function preventDefaults(e) {
+        fileDrop.addEventListener('dragover', (e) => {
             e.preventDefault();
-            e.stopPropagation();
-        }
-
-        ['dragenter', 'dragover'].forEach(eventName => {
-            dropArea.addEventListener(eventName, highlight, false);
+            fileDrop.classList.add('highlight');
         });
 
-        ['dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, unhighlight, false);
+        fileDrop.addEventListener('dragleave', () => {
+            fileDrop.classList.remove('highlight');
         });
 
-        function highlight(e) {
-            dropArea.classList.add('highlight');
-        }
+        fileDrop.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileDrop.classList.remove('highlight');
+            const file = e.dataTransfer.files[0];
+            if (file) processFile(file);
+        });
 
-        function unhighlight(e) {
-            dropArea.classList.remove('highlight');
-        }
+        fileDrop.addEventListener('click', () => {
+            fileInput.click();
+        });
 
-        dropArea.addEventListener('drop', handleDrop, false);
-
-        function handleDrop(e) {
-            let dt = e.dataTransfer;
-            let files = dt.files;
-
-            handleFiles(files);
-        }
-
-        function handleFiles(files) {
-            ([...files]).forEach(processFile);
-        }
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) processFile(file);
+        });
 
         function processFile(file) {
+            const salt = saltInput.value;
+            if (!salt) {
+                alert('Please enter a secret salt before uploading a file.');
+                return;
+            }
+
             Papa.parse(file, {
-                header: true,
                 complete: function(results) {
-                    const studentIds = results.data.map(row => row['Student ID']).filter(id => id); // Filter out empty IDs
-                    const sortedIds = studentIds.sort().join(',');
-                    const hash = CryptoJS.SHA256(sortedIds).toString();
-                    
-                    const baseUrl = 'https://alexnatale.github.io/physics/217/hub.html';
-                    const urlWithHash = `${baseUrl}?course_id=217&hw=1&fl=1&roster=${hash}`;
-                    
-                    document.getElementById('result').innerHTML = `
-                        <p>Roster Hash: ${hash}</p>
-                        <p>URL with Hash: ${urlWithHash}</p>
-                    `;
+                    const studentIds = results.data.flat().filter(id => id.trim() !== '');
+                    const hashSet = new Set();
+
+                    studentIds.forEach(id => {
+                        const hash = CryptoJS.SHA256(id + salt).toString();
+                        hashSet.add(hash);
+                    });
+
+                    const jsonOutput = JSON.stringify(Array.from(hashSet), null, 2);
+                    output.textContent = jsonOutput;
+                    output.style.display = 'block';
+                    downloadBtn.style.display = 'block';
                 }
             });
         }
+
+        downloadBtn.addEventListener('click', () => {
+            const jsonContent = output.textContent;
+            const blob = new Blob([jsonContent], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'student_id_hashset.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
     </script>
 </body>
 </html>
