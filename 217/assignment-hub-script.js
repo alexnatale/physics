@@ -59,7 +59,6 @@ async function loadStudentRoster() {
 
     return {
         includes: async function(studentId) {
-            // Replace with logic to verify student ID using API
             const isValid = await verifyStudentId(studentId);
             return isValid;
         }
@@ -150,9 +149,13 @@ async function initAssignmentHub() {
                 // Load problems
                 const problems = await loadProblems();
 
+                // Handle roster check if `fl` is '1'
                 if (flagCheck === '1') {
                     const roster = await loadStudentRoster();
-                    if (roster && !await roster.includes(studentId)) {
+                    if (roster === null) {
+                        throw new Error('Roster hash not provided, roster check cannot be performed.');
+                    }
+                    if (!await roster.includes(studentId)) {
                         throw new Error('Student ID not found in the roster, please try again or contact your professor!');
                     }
                 }
