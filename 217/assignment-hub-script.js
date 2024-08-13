@@ -128,6 +128,9 @@ async function initAssignmentHub() {
             e.preventDefault();
             setLoading(true);
             try {
+                // clears previous error messages
+                errorMessageDiv.style.display = 'none';
+                errorMessageDiv.textContent = '';
                 const studentId = document.getElementById('student-id').value;
                 const flagCheck = getUrlParameter('fl');
 
