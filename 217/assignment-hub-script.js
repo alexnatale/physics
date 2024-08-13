@@ -39,7 +39,6 @@ async function verifyStudentId(studentId) {
     }
 
     const apiUrl = `${replitUrl}/verify?id=${encodeURIComponent(studentId)}`;
-    console.log('Student ID:', encodeURIComponent(studentId));
     const response = await fetch(apiUrl, { method: 'GET' });
     
     if (!response.ok) {
@@ -169,6 +168,9 @@ async function initAssignmentHub() {
             } catch (error) {
                 console.error('Error in form submission:', error);
                 displayError(`An error occurred during form submission: ${error.message}`);
+                // Keep the form visible on error
+                studentForm.style.display = 'block';
+                assignmentContent.style.display = 'none';
             } finally {
                 setLoading(false);
             }
