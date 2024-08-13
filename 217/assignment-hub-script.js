@@ -46,7 +46,7 @@ async function verifyStudentId(studentId) {
 async function initAssignmentHub() {
     try {
         console.log('Initializing assignment hub...');
-        checkRequiredElements();
+        //checkRequiredElements();
         setPageTitle();
         
         const studentForm = document.getElementById('student-form');
