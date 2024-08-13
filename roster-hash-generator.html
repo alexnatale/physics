@@ -114,7 +114,7 @@
             if (file) processFile(file);
         });
 
-  function processFile(file) {
+ function processFile(file) {
     const salt = saltInput.value;
     if (!salt) {
         alert('Please enter a secret salt before uploading a file.');
@@ -122,13 +122,8 @@
     }
 
     Papa.parse(file, {
-        header: true, // Enables parsing with headers
         complete: function(results) {
-            // Extract the 'Student ID' column values
-            const studentIds = results.data
-                .map(row => row['Student ID']?.trim()) // Safely access the 'Student ID' field
-                .filter(id => id !== ''); // Filter out empty or undefined values
-
+            const studentIds = results.data.flat().filter(id => id.trim() !== '');
             const hashSet = new Set();
 
             studentIds.forEach(id => {
@@ -143,6 +138,7 @@
         }
     });
 }
+
 
 
 
