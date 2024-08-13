@@ -6,7 +6,32 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-// Function to load hashed student IDs from S3
+// Seeded random number generator
+function seededRandom(seed) {
+    var x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+}
+
+// Function to load problems from JSON
+async function loadProblems() {
+    const courseId = getUrlParameter('course_id');
+    const hwNumber = getUrlParameter('hw');
+    
+    if (!courseId || !hwNumber) {
+        throw new Error('Missing course_id or hw number in URL parameters');
+    }
+    
+    const filename = `course${courseId}_hw${hwNumber}.json`;
+    const response = await fetch(filename);
+    
+    if (!response.ok) {
+        throw new Error(`Failed to load ${filename}. Status: ${response.status}`);
+    }
+    
+    return await response.json();
+}
+
+// Function to handle roster hash verification
 async function loadStudentRoster() {
     const rosterHash = getUrlParameter('roster');
     if (!rosterHash) {
@@ -14,39 +39,84 @@ async function loadStudentRoster() {
         return null;
     }
 
-    try {
-        // Decrypt the S3 URL using a predefined key (replace 'your-secret-key' with an actual secret key)
-        const bytes = CryptoJS.AES.decrypt(rosterHash, 'your-secret-key');
-        const s3Url = bytes.toString(CryptoJS.enc.Utf8);
-
-        const response = await fetch(s3Url);
-        if (!response.ok) {
-            throw new Error(`Failed to load roster. Status: ${response.status}`);
+    return {
+        includes: function(studentId) {
+            // Here, you would implement the logic to check if the studentId
+            // is part of the set that generates the rosterHash
+            // For demonstration, we'll just return true
+            console.log(`Checking student ID ${studentId} against roster hash ${rosterHash}`);
+            return true;
         }
-        const hashedIds = await response.json();
-        return new Set(hashedIds);
-    } catch (error) {
-        console.error('Error loading student roster:', error);
-        throw new Error('Failed to load student roster. Please check the roster URL.');
+    };
+}
+
+// Function to generate a problem based on student ID
+function generateProblem(problem, studentId) {
+    let questionText = problem.question;
+    if (problem.variables) {
+        problem.variables.forEach(variable => {
+            const value = Math.floor(seededRandom(studentId + variable.name.charCodeAt(0)) * (variable.max - variable.min + 1) + variable.min);
+            questionText = questionText.replace(`{${variable.name}}`, value);
+        });
+    }
+    return questionText;
+}
+
+// Function to shuffle array (for multiple choice options)
+function shuffleArray(array, studentId) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(seededRandom(studentId + i) * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Function to display error messages on the page
+function displayError(message) {
+    const errorDiv = document.getElementById('error-message');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+}
+
+// Function to display loading indicator
+function setLoading(isLoading) {
+    const loadingDiv = document.getElementById('loading');
+    loadingDiv.style.display = isLoading ? 'block' : 'none';
+}
+
+// Function to set the page title
+function setPageTitle() {
+    const courseNumber = getUrlParameter('course_id');
+    const homeworkNumber = getUrlParameter('hw');
+    
+    if (courseNumber && homeworkNumber) {
+        const newTitle = `Physics ${courseNumber} Homework #${homeworkNumber}`;
+        document.title = newTitle;
+        
+        // Also update the h1 element
+        const titleElement = document.getElementById('page-title');
+        if (titleElement) {
+            titleElement.textContent = newTitle;
+        }
     }
 }
 
-// Function to verify student ID
-async function verifyStudentId(studentId) {
-    const roster = await loadStudentRoster();
-    if (!roster) return true; // If no roster is provided, allow all IDs
-
-    const hashedStudentId = CryptoJS.SHA256(studentId).toString();
-    return roster.has(hashedStudentId);
+// Function to check if all required elements are present
+function checkRequiredElements() {
+    const requiredIds = ['student-form', 'student-id', 'error-message', 'loading', 'assignment-content', 'questions'];
+    const missingElements = requiredIds.filter(id => document.getElementById(id) === null);
+    
+    if (missingElements.length > 0) {
+        console.error('Missing required elements:', missingElements);
+        throw new Error(`Missing required elements: ${missingElements.join(', ')}`);
+    }
 }
-
-// ... (other utility functions remain the same)
 
 // Main function to initialize the assignment hub
 async function initAssignmentHub() {
     try {
         console.log('Initializing assignment hub...');
-        //checkRequiredElements();
+        checkRequiredElements();
         setPageTitle();
         
         const studentForm = document.getElementById('student-form');
@@ -59,15 +129,17 @@ async function initAssignmentHub() {
             setLoading(true);
             try {
                 const studentId = document.getElementById('student-id').value;
-
-                // Verify student ID
-                const isValidStudent = await verifyStudentId(studentId);
-                if (!isValidStudent) {
-                    throw new Error('Student ID not found in the roster, please try again or contact your professor!');
-                }
+                const flagCheck = getUrlParameter('fl');
 
                 // Load problems
                 const problems = await loadProblems();
+
+                if (flagCheck === '1') {
+                    const roster = await loadStudentRoster();
+                    if (roster && !roster.includes(studentId)) {
+                        throw new Error('Student ID not found in the roster, please try again or contact your professor!');
+                    }
+                }
 
                 // Generate and display problems
                 questionsDiv.innerHTML = '';
@@ -105,5 +177,27 @@ async function initAssignmentHub() {
     }
 }
 
+// Async wrapper function for initializing the hub
+async function initializeHub() {
+    try {
+        console.log('Window loaded, initializing assignment hub...');
+        await initAssignmentHub();
+    } catch (error) {
+        console.error('Uncaught error in initAssignmentHub:', error);
+        displayError(`An unexpected error occurred: ${error.message}`);
+    }
+}
+
 // Initialize the assignment hub when the page loads
-window.addEventListener('load', initAssignmentHub);
+window.addEventListener('load', initializeHub);
+
+// Debug function to check URL parameters
+function debugUrlParameters() {
+    console.log('course_id:', getUrlParameter('course_id'));
+    console.log('hw:', getUrlParameter('hw'));
+    console.log('fl:', getUrlParameter('fl'));
+    console.log('roster:', getUrlParameter('roster'));
+}
+
+// Call debug function on load
+window.addEventListener('load', debugUrlParameters);
