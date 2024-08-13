@@ -44,6 +44,32 @@ async function loadStudentRoster() {
         if (!response.ok) {
             throw new Error(`Failed to load roster. Status: ${response.status}`);
         }
+        const csvText = await response.text();
+        
+        return new Promise((resolve, reject) => {
+            Papa.parse(csvText, {
+                header: true,
+                complete: function(results) {
+                    // Extract student IDs from the parsed CSV
+                    const studentIds = results.data.map(row => row['Student ID']);
+                    resolve(studentIds);
+                },
+                error: function(error) {
+                    reject(new Error('Failed to parse CSV: ' + error.message));
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Error loading student roster:', error);
+        throw new Error('Failed to load student roster. Please check the roster URL.');
+    }
+}
+
+    try {
+        const response = await fetch(rosterUrl);
+        if (!response.ok) {
+            throw new Error(`Failed to load roster. Status: ${response.status}`);
+        }
         return await response.json();
     } catch (error) {
         console.error('Error loading student roster:', error);
@@ -139,7 +165,7 @@ async function initAssignmentHub() {
                 if (flagCheck === '1') {
                     const roster = await loadStudentRoster();
                     if (roster && !roster.includes(studentId)) {
-                        throw new Error('Student ID not found in the roster.');
+                        throw new Error('Student ID not found in the roster, please try again or contact your professor!');
                     }
                 }
 
