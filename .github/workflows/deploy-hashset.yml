@@ -1,0 +1,35 @@
+name: Deploy Hash Set
+
+on:
+  push:
+    branches:
+      - main  # or whatever your default branch is named
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout public repository
+      uses: actions/checkout@v2
+      with:
+        path: public-repo
+
+    - name: Checkout private repository
+      uses: actions/checkout@v2
+      with:
+        repository: alexnatale/rosters
+        token: ${{ secrets.ACCESS_TOKEN }}
+        path: private-repo
+
+    - name: Copy hash set file
+      run: |
+        cp private-repo/student_id_hashset.json public-repo/
+
+    - name: Commit and push if changed
+      run: |
+        cd public-repo
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add student_id_hashset.json
+        git commit -m "Update student ID hash set" || exit 0
+        git push
