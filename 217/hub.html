@@ -18,7 +18,23 @@
 </head>
 <body>
     <h1 id="page-title">Physics Assignment Hub</h1>
-    <!-- Rest of the HTML remains the same -->
+    <form id="student-form">
+        <label for="student-id">Enter your Student ID:</label>
+        <input type="text" id="student-id" required>
+        <button type="submit">Access Assignments</button>
+    </form>
+    <div id="error-message"></div>
+    <div id="loading">Loading...</div>
+    <div id="assignment-content" style="display:none;">
+        <h2>Your Personalized Assignment</h2>
+        <div id="questions"></div>
+        <div id="canvas-instructions">
+            <h3>Instructions:</h3>
+            <p>Please answer these questions in the corresponding Canvas quiz. Your answers will be automatically saved in Canvas.</p>
+            <p>You can return to this page at any time to review your personalized questions.</p>
+            <a id="canvas-link" href="#" target="_blank">Go to Canvas Quiz</a>
+        </div>
+    </div>
     <script src="./assignment-hub-script.js"></script>
 </body>
 </html>
