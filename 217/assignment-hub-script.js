@@ -39,6 +39,7 @@ async function verifyStudentId(studentId) {
     }
 
     const apiUrl = `${replitUrl}/verify?id=${encodeURIComponent(studentId)}`;
+    console.log('Student ID:', studentId);
     const response = await fetch(apiUrl);
     
     if (!response.ok) {
