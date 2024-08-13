@@ -40,7 +40,7 @@ async function verifyStudentId(studentId) {
 
     const apiUrl = `${replitUrl}/verify?id=${encodeURIComponent(studentId)}`;
     console.log('Student ID:', encodeURIComponent(studentId));
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl, { method: 'GET' });
     
     if (!response.ok) {
         throw new Error(`Failed to verify student ID. Status: ${response.status}`);
