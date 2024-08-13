@@ -31,10 +31,24 @@ async function loadProblems() {
     return await response.json();
 }
 
-// Function to load student roster
+// Function to load student roster from a dynamic URL
 async function loadStudentRoster() {
-    const response = await fetch('student_roster.json');
-    return await response.json();
+    const rosterUrl = getUrlParameter('roster');
+    if (!rosterUrl) {
+        console.log('No roster URL provided. Skipping roster check.');
+        return null;
+    }
+
+    try {
+        const response = await fetch(rosterUrl);
+        if (!response.ok) {
+            throw new Error(`Failed to load roster. Status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error loading student roster:', error);
+        throw new Error('Failed to load student roster. Please check the roster URL.');
+    }
 }
 
 // Function to generate a problem based on student ID
@@ -88,74 +102,102 @@ function setPageTitle() {
     }
 }
 
+// Function to check if all required elements are present
+function checkRequiredElements() {
+    const requiredIds = ['student-form', 'student-id', 'error-message', 'loading', 'assignment-content', 'questions', 'canvas-link'];
+    const missingElements = requiredIds.filter(id => document.getElementById(id) === null);
+    
+    if (missingElements.length > 0) {
+        console.error('Missing required elements:', missingElements);
+        throw new Error(`Missing required elements: ${missingElements.join(', ')}`);
+    }
+}
+
 // Main function to initialize the assignment hub
 async function initAssignmentHub() {
-    setPageTitle(); // Set the page title based on URL parameters
-    
-    const studentForm = document.getElementById('student-form');
-    const assignmentContent = document.getElementById('assignment-content');
-    const questionsDiv = document.getElementById('questions');
-  
+    try {
+        console.log('Initializing assignment hub...');
+        checkRequiredElements();
+        setPageTitle();
+        
+        const studentForm = document.getElementById('student-form');
+        const assignmentContent = document.getElementById('assignment-content');
+        const questionsDiv = document.getElementById('questions');
+        const canvasLink = document.getElementById('canvas-link');
 
-    studentForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            const studentId = document.getElementById('student-id').value;
-            const flagCheck = getUrlParameter('fl');
+        console.log('Adding event listener to student form...');
+        studentForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            setLoading(true);
+            try {
+                const studentId = document.getElementById('student-id').value;
+                const flagCheck = getUrlParameter('fl');
 
-            // Load problems
-            const problems = await loadProblems();
+                // Load problems
+                const problems = await loadProblems();
 
-            if (flagCheck === '1') {
-                const roster = await loadStudentRoster();
-                if (!roster.includes(studentId)) {
-                    throw new Error('Student ID not found in the roster.');
+                if (flagCheck === '1') {
+                    const roster = await loadStudentRoster();
+                    if (roster && !roster.includes(studentId)) {
+                        throw new Error('Student ID not found in the roster.');
+                    }
                 }
+
+                // Generate and display problems
+                questionsDiv.innerHTML = '';
+                problems.problems.forEach((problem, index) => {
+                    const questionText = generateProblem(problem, studentId + index);
+                    const questionElement = document.createElement('div');
+                    questionElement.innerHTML = `<h3>Question ${index + 1}</h3><p>${questionText}</p>`;
+
+                    if (problem.type === 'multiple-choice') {
+                        const choicesHtml = shuffleArray([...problem.choices], studentId + index)
+                            .map((choice, i) => `<li>${String.fromCharCode(65 + i)}. ${choice}</li>`)
+                            .join('');
+                        questionElement.innerHTML += `<ul>${choicesHtml}</ul>`;
+                    }
+
+                    questionsDiv.appendChild(questionElement);
+                });
+
+                // Show assignment content and hide the form
+                assignmentContent.style.display = 'block';
+                studentForm.style.display = 'none';
+
+                // Update Canvas quiz link
+                const courseId = getUrlParameter('course_id');
+                const hwNumber = getUrlParameter('hw');
+                canvasLink.href = `https://your-canvas-instance.instructure.com/courses/${courseId}/quizzes/${hwNumber}`;
+            } catch (error) {
+                console.error('Error in form submission:', error);
+                displayError(`An error occurred during form submission: ${error.message}`);
+            } finally {
+                setLoading(false);
             }
+        });
 
-            // Generate and display problems
-            questionsDiv.innerHTML = '';
-            problems.problems.forEach((problem, index) => {
-                const questionText = generateProblem(problem, studentId + index);
-                const questionElement = document.createElement('div');
-                questionElement.innerHTML = `<h3>Question ${index + 1}</h3><p>${questionText}</p>`;
-
-                if (problem.type === 'multiple-choice') {
-                    const choicesHtml = shuffleArray([...problem.choices], studentId + index)
-                        .map((choice, i) => `<li>${String.fromCharCode(65 + i)}. ${choice}</li>`)
-                        .join('');
-                    questionElement.innerHTML += `<ul>${choicesHtml}</ul>`;
-                }
-
-                questionsDiv.appendChild(questionElement);
-            });
-
-            // Show assignment content and hide the form
-            assignmentContent.style.display = 'block';
-            studentForm.style.display = 'none';
-
-            // Update Canvas quiz link
-            const courseId = getUrlParameter('course_id');
-            const hwNumber = getUrlParameter('hw');
-         
-        } catch (error) {
-            console.error('Error in assignment hub:', error);
-            displayError(`An error occurred: ${error.message}`);
-        } finally {
-            setLoading(false);
-        }
-    });
+        console.log('Assignment hub initialized successfully.');
+    } catch (error) {
+        console.error('Error in initAssignmentHub:', error);
+        displayError(`Failed to initialize assignment hub: ${error.message}`);
+    }
 }
 
 // Initialize the assignment hub when the page loads
-window.addEventListener('load', initAssignmentHub);
+window.addEventListener('load', function() {
+    console.log('Window loaded, initializing assignment hub...');
+    initAssignmentHub().catch(error => {
+        console.error('Uncaught error in initAssignmentHub:', error);
+        displayError(`An unexpected error occurred: ${error.message}`);
+    });
+});
 
 // Debug function to check URL parameters
 function debugUrlParameters() {
     console.log('course_id:', getUrlParameter('course_id'));
     console.log('hw:', getUrlParameter('hw'));
     console.log('fl:', getUrlParameter('fl'));
+    console.log('roster:', getUrlParameter('roster'));
 }
 
 // Call debug function on load
