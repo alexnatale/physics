@@ -114,7 +114,7 @@
             if (file) processFile(file);
         });
 
- function processFile(file) {
+function processFile(file) {
     const salt = saltInput.value;
     if (!salt) {
         alert('Please enter a secret salt before uploading a file.');
@@ -123,7 +123,7 @@
 
     Papa.parse(file, {
         complete: function(results) {
-            const studentIds = results.data.flat().filter(id => id.trim() !== '');
+            const studentIds = results.data.map(row => row[0].trim()).filter(id => id !== '');
             const hashSet = new Set();
 
             studentIds.forEach(id => {
@@ -138,6 +138,7 @@
         }
     });
 }
+
 
 
 
