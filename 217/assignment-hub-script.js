@@ -58,25 +58,59 @@ function shuffleArray(array, studentId) {
     return array;
 }
 
+// Function to display error messages on the page
+function displayError(message) {
+    const errorDiv = document.getElementById('error-message');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+}
+
+// Function to display loading indicator
+function setLoading(isLoading) {
+    const loadingDiv = document.getElementById('loading');
+    loadingDiv.style.display = isLoading ? 'block' : 'none';
+}
+
+// Function to set the page title
+function setPageTitle() {
+    const courseNumber = getUrlParameter('course_id');
+    const homeworkNumber = getUrlParameter('hw');
+    
+    if (courseNumber && homeworkNumber) {
+        const newTitle = `Physics ${courseNumber} Homework #${homeworkNumber}`;
+        document.title = newTitle;
+        
+        // Also update the h1 element
+        const titleElement = document.getElementById('page-title');
+        if (titleElement) {
+            titleElement.textContent = newTitle;
+        }
+    }
+}
+
 // Main function to initialize the assignment hub
 async function initAssignmentHub() {
-    try {
-        const problems = await loadProblems();
-        const studentForm = document.getElementById('student-form');
-        const assignmentContent = document.getElementById('assignment-content');
-        const questionsDiv = document.getElementById('questions');
-        const canvasLink = document.getElementById('canvas-link');
+    setPageTitle(); // Set the page title based on URL parameters
+    
+    const studentForm = document.getElementById('student-form');
+    const assignmentContent = document.getElementById('assignment-content');
+    const questionsDiv = document.getElementById('questions');
+    const canvasLink = document.getElementById('canvas-link');
 
-        studentForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+    studentForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        setLoading(true);
+        try {
             const studentId = document.getElementById('student-id').value;
             const flagCheck = getUrlParameter('fl');
+
+            // Load problems
+            const problems = await loadProblems();
 
             if (flagCheck === '1') {
                 const roster = await loadStudentRoster();
                 if (!roster.includes(studentId)) {
-                    alert('Error: Student ID not found in the roster.');
-                    return;
+                    throw new Error('Student ID not found in the roster.');
                 }
             }
 
@@ -105,12 +139,24 @@ async function initAssignmentHub() {
             const courseId = getUrlParameter('course_id');
             const hwNumber = getUrlParameter('hw');
             canvasLink.href = `https://your-canvas-instance.instructure.com/courses/${courseId}/quizzes/${hwNumber}`;
-        });
-    } catch (error) {
-        console.error('Error initializing assignment hub:', error);
-        alert('An error occurred while loading the assignment. Please check the URL parameters and try again.');
-    }
+        } catch (error) {
+            console.error('Error in assignment hub:', error);
+            displayError(`An error occurred: ${error.message}`);
+        } finally {
+            setLoading(false);
+        }
+    });
 }
 
 // Initialize the assignment hub when the page loads
 window.addEventListener('load', initAssignmentHub);
+
+// Debug function to check URL parameters
+function debugUrlParameters() {
+    console.log('course_id:', getUrlParameter('course_id'));
+    console.log('hw:', getUrlParameter('hw'));
+    console.log('fl:', getUrlParameter('fl'));
+}
+
+// Call debug function on load
+window.addEventListener('load', debugUrlParameters);
