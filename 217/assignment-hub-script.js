@@ -31,6 +31,24 @@ async function loadProblems() {
     return await response.json();
 }
 
+// Function to verify student ID with Flask API
+async function verifyStudentId(studentId) {
+    const replitUrl = getUrlParameter('replit');
+    if (!replitUrl) {
+        throw new Error('Replit URL not provided.');
+    }
+
+    const apiUrl = `${replitUrl}/verify?id=${encodeURIComponent(studentId)}`;
+    const response = await fetch(apiUrl);
+    
+    if (!response.ok) {
+        throw new Error(`Failed to verify student ID. Status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data.isValid;
+}
+
 // Function to handle roster hash verification
 async function loadStudentRoster() {
     const rosterHash = getUrlParameter('roster');
@@ -40,12 +58,10 @@ async function loadStudentRoster() {
     }
 
     return {
-        includes: function(studentId) {
-            // Here, you would implement the logic to check if the studentId
-            // is part of the set that generates the rosterHash
-            // For demonstration, we'll just return true
-            console.log(`Checking student ID ${studentId} against roster hash ${rosterHash}`);
-            return true;
+        includes: async function(studentId) {
+            // Replace with logic to verify student ID using API
+            const isValid = await verifyStudentId(studentId);
+            return isValid;
         }
     };
 }
@@ -136,7 +152,7 @@ async function initAssignmentHub() {
 
                 if (flagCheck === '1') {
                     const roster = await loadStudentRoster();
-                    if (roster && !roster.includes(studentId)) {
+                    if (roster && !await roster.includes(studentId)) {
                         throw new Error('Student ID not found in the roster, please try again or contact your professor!');
                     }
                 }
@@ -197,6 +213,7 @@ function debugUrlParameters() {
     console.log('hw:', getUrlParameter('hw'));
     console.log('fl:', getUrlParameter('fl'));
     console.log('roster:', getUrlParameter('roster'));
+    console.log('replit:', getUrlParameter('replit'));
 }
 
 // Call debug function on load
