@@ -95,7 +95,7 @@ async function initAssignmentHub() {
     const studentForm = document.getElementById('student-form');
     const assignmentContent = document.getElementById('assignment-content');
     const questionsDiv = document.getElementById('questions');
-    const canvasLink = document.getElementById('canvas-link');
+  
 
     studentForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -138,7 +138,7 @@ async function initAssignmentHub() {
             // Update Canvas quiz link
             const courseId = getUrlParameter('course_id');
             const hwNumber = getUrlParameter('hw');
-            canvasLink.href = `https://your-canvas-instance.instructure.com/courses/${courseId}/quizzes/${hwNumber}`;
+         
         } catch (error) {
             console.error('Error in assignment hub:', error);
             displayError(`An error occurred: ${error.message}`);
