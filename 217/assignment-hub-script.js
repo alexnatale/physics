@@ -137,7 +137,7 @@ async function initAssignmentHub() {
         const studentForm = document.getElementById('student-form');
         const assignmentContent = document.getElementById('assignment-content');
         const questionsDiv = document.getElementById('questions');
-        const canvasLink = document.getElementById('canvas-link');
+        //const canvasLink = document.getElementById('canvas-link');
 
         console.log('Adding event listener to student form...');
         studentForm.addEventListener('submit', async function(e) {
@@ -181,7 +181,7 @@ async function initAssignmentHub() {
                 // Update Canvas quiz link
                 const courseId = getUrlParameter('course_id');
                 const hwNumber = getUrlParameter('hw');
-                canvasLink.href = `https://your-canvas-instance.instructure.com/courses/${courseId}/quizzes/${hwNumber}`;
+                //canvasLink.href = `https://your-canvas-instance.instructure.com/courses/${courseId}/quizzes/${hwNumber}`;
             } catch (error) {
                 console.error('Error in form submission:', error);
                 displayError(`An error occurred during form submission: ${error.message}`);
