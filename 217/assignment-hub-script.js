@@ -49,22 +49,6 @@ async function verifyStudentId(studentId) {
     return data.isValid;
 }
 
-// Function to handle roster hash verification
-async function loadStudentRoster() {
-    const rosterHash = getUrlParameter('roster');
-    if (!rosterHash) {
-        console.log('No roster hash provided. Skipping roster check.');
-        return null;
-    }
-
-    return {
-        includes: async function(studentId) {
-            const isValid = await verifyStudentId(studentId);
-            return isValid;
-        }
-    };
-}
-
 // Function to generate a problem based on student ID
 function generateProblem(problem, studentId) {
     let questionText = problem.question;
@@ -151,12 +135,9 @@ async function initAssignmentHub() {
 
                 // Handle roster check if `fl` is '1'
                 if (flagCheck === '1') {
-                    const roster = await loadStudentRoster();
-                    if (roster === null) {
-                        throw new Error('Roster hash not provided, roster check cannot be performed.');
-                    }
-                    if (!await roster.includes(studentId)) {
-                        throw new Error('Student ID not found in the roster, please try again or contact your professor!');
+                    const isValid = await verifyStudentId(studentId);
+                    if (!isValid) {
+                        throw new Error('Student ID not found, please try again or contact your professor!');
                     }
                 }
 
@@ -215,7 +196,6 @@ function debugUrlParameters() {
     console.log('course_id:', getUrlParameter('course_id'));
     console.log('hw:', getUrlParameter('hw'));
     console.log('fl:', getUrlParameter('fl'));
-    console.log('roster:', getUrlParameter('roster'));
     console.log('replit:', getUrlParameter('replit'));
 }
 
