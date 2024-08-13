@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roster Hash Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            width: 480px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        #drop-area.highlight {
+            border-color: purple;
+        }
+        p {
+            margin-top: 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px;
+            background: #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .button:hover {
+            background: #ddd;
+        }
+        #fileElem {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="drop-area">
+        <form class="my-form">
+            <p>Upload a CSV file with student roster by dragging and dropping or clicking to select</p>
+            <input type="file" id="fileElem" accept=".csv" onchange="handleFiles(this.files)">
+            <label class="button" for="fileElem">Select a file</label>
+        </form>
+    </div>
+    <div id="result" style="width: 480px; margin: 20px auto; word-wrap: break-word;"></div>
+
+    <script>
+        let dropArea = document.getElementById('drop-area');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight(e) {
+            dropArea.classList.remove('highlight');
+        }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            ([...files]).forEach(processFile);
+        }
+
+        function processFile(file) {
+            Papa.parse(file, {
+                header: true,
+                complete: function(results) {
+                    const studentIds = results.data.map(row => row['Student ID']).filter(id => id); // Filter out empty IDs
+                    const sortedIds = studentIds.sort().join(',');
+                    const hash = CryptoJS.SHA256(sortedIds).toString();
+                    
+                    const baseUrl = 'https://alexnatale.github.io/physics/217/hub.html';
+                    const urlWithHash = `${baseUrl}?course_id=217&hw=1&fl=1&roster=${hash}`;
+                    
+                    document.getElementById('result').innerHTML = `
+                        <p>Roster Hash: ${hash}</p>
+                        <p>URL with Hash: ${urlWithHash}</p>
+                    `;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
