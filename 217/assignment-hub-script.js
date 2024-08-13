@@ -118,7 +118,7 @@ function setPageTitle() {
 
 // Function to check if all required elements are present
 function checkRequiredElements() {
-    const requiredIds = ['student-form', 'student-id', 'error-message', 'loading', 'assignment-content', 'questions', 'canvas-link'];
+    const requiredIds = ['student-form', 'student-id', 'error-message', 'loading', 'assignment-content', 'questions'];
     const missingElements = requiredIds.filter(id => document.getElementById(id) === null);
     
     if (missingElements.length > 0) {
@@ -137,7 +137,6 @@ async function initAssignmentHub() {
         const studentForm = document.getElementById('student-form');
         const assignmentContent = document.getElementById('assignment-content');
         const questionsDiv = document.getElementById('questions');
-        //const canvasLink = document.getElementById('canvas-link');
 
         console.log('Adding event listener to student form...');
         studentForm.addEventListener('submit', async function(e) {
@@ -178,10 +177,6 @@ async function initAssignmentHub() {
                 assignmentContent.style.display = 'block';
                 studentForm.style.display = 'none';
 
-                // Update Canvas quiz link
-                const courseId = getUrlParameter('course_id');
-                const hwNumber = getUrlParameter('hw');
-                //canvasLink.href = `https://your-canvas-instance.instructure.com/courses/${courseId}/quizzes/${hwNumber}`;
             } catch (error) {
                 console.error('Error in form submission:', error);
                 displayError(`An error occurred during form submission: ${error.message}`);
