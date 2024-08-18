@@ -1,0 +1,142 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Physics Problems</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .problem {
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .answer {
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #spacecraft-illustration {
+            max-width: 100%;
+            margin: 20px 0;
+        }
+        .illustration-description {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Physics Problems</h1>
+    
+    
+
+
+
+    <div id="problems"><div class="problem">
+                    <p><strong>Problem 1:</strong> Starting with the definition 1.00 in. = 2.54 cm, find the number of (a) kilometers in 6.739 miles and (b) number of feet in 1.00 km.</p>
+                    
+                </div><div class="problem">
+                    <p><strong>Problem 2:</strong> A plot of land has an area of 16.7 acres. If 1 acre is 4047 m², and a hectare has the same area as a plot of 100.0 m by 100.0 m, how many hectares are in this plot?</p>
+                    
+                </div><div class="problem">
+                    <p><strong>Problem 3:</strong> Determine the percent error in the approximate value of π×10⁷ s for the number of seconds in a year, given that there are 365.24 days in a year.</p>
+                    
+                </div><div class="problem">
+                    <p><strong>Problem 4:</strong> Four astronauts are in a spherical space station. If each of them typically breathes about 552 cm³ of air with each breath, and take 18 breaths per minute, what is the volume of air you would need in the space station if these four astronauts stayed for a full year? If the density of air is 1.25 kg/m³ and it costs $86.7/kg to send objects to the space station, how much money would the astronaut air supply cost?</p>
+                    
+                </div><div class="problem">
+                    <p><strong>Problem 5:</strong> If 1 au is 1.49 × 10¹¹ m, and a light-year is the distance light travels in 1 year (light travels at c = 3.0 × 10⁸ m/s), then how many au is it to get to Alpha Centauri if it is 4.367 light years away?</p>
+                    
+                </div><div class="problem">
+                    <p><strong>Problem 6:</strong> (a) The recommended daily allowance (RDA) of the trace metal magnesium is 33 mg/day for newborns. Express this quantity in μg/day. (b) For adults, the RDA of the amino acid lysine is 12 mg per kg of body mass. How many grams per day should a 60 kg adult receive? (c) A typical multivitamin tablet can contain 2.1 mg of vitamin B₂ (riboflavin), and the RDA is 0.0030 g/day. How many such tablets should a person take each day to get the proper amount of this vitamin, if they get none from other sources? (d) The RDA for the trace element of selenium is 6.6e-5 g/day. Express that dose in mg/day.</p>
+                    
+                </div><div class="problem">
+                    <p><strong>Problem 7:</strong> A particular type of hypothetical spacecraft rotates around a central point to create artificial gravity, and is like a hollow, long, cylinder. To be comfortable, people need at least 20 m³ of space per person. If the outer diameter of this space craft is 16.1 m, the inner diameter is 10.1 m, and the cylindrical spin section is 11 m long, how many people (round to nearest whole person) can comfortably fit in the spacecraft?</p>
+                    
+                </div></div>
+
+    <h2>Problem 7 Illustration</h2>
+    <div id="spacecraft-illustration">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" aria-labelledby="spacecraftTitle spacecraftDesc">
+          <title id="spacecraftTitle">Rotating Cylinder Spacecraft</title>
+          <desc id="spacecraftDesc">A cutaway view of a rotating cylinder spacecraft showing the outer diameter, inner diameter, length, and the habitable volume between the inner and outer walls.</desc>
+          
+          <!-- Background -->
+          <rect width="400" height="300" fill="#f0f0f0"></rect>
+          
+          <!-- Spacecraft body -->
+          <g transform="translate(200 150)">
+            <!-- Front face (ellipse) -->
+            <ellipse cx="0" cy="0" rx="150" ry="50" fill="#d0d0d0" stroke="#333" stroke-width="2"></ellipse>
+            
+            <!-- Outer cylinder -->
+            <path d="M-150 0 L-150 100 A150 50 0 0 0 150 100 L150 0" fill="#a0a0a0" stroke="#333" stroke-width="2"></path>
+            
+            <!-- Habitable volume (highlighted) -->
+            <path d="M-150 0 L-150 100 A150 50 0 0 0 150 100 L150 0 M-100 0 L-100 100 A100 33 0 0 1 100 100 L100 0" fill="#b3e0ff" fill-opacity="0.5" stroke="none"></path>
+            
+            <!-- Inner cylinder (cutaway view) -->
+            <path d="M-100 0 L-100 100 A100 33 0 0 0 100 100 L100 0" fill="#e0e0e0" stroke="#333" stroke-width="2" stroke-dasharray="5,5"></path>
+            
+            <!-- Back face (partial ellipse to show depth) -->
+            <path d="M-150 100 A150 50 0 0 0 150 100" fill="none" stroke="#333" stroke-width="2"></path>
+            
+            <!-- Rotation arrows -->
+            <path d="M-180 0 A180 60 0 0 1 0 -60" fill="none" stroke="#007bff" stroke-width="3" marker-end="url(#arrowhead)"></path>
+            <path d="M180 0 A180 60 0 0 0 0 -60" fill="none" stroke="#007bff" stroke-width="3" marker-end="url(#arrowhead)"></path>
+          </g>
+          
+          <!-- Arrowhead marker definition -->
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"></polygon>
+            </marker>
+          </defs>
+          
+          <!-- Labels -->
+          <text x="200" y="20" text-anchor="middle" font-size="16" font-weight="bold">Rotating Cylinder Spacecraft</text>
+          <text x="50" y="150" text-anchor="middle" font-size="14">Outer Diameter</text>
+          <text x="350" y="150" text-anchor="middle" font-size="14">Inner Diameter</text>
+          <text x="200" y="290" text-anchor="middle" font-size="14">Length</text>
+        </svg>
+        </div>
+    <div class="illustration-description">
+        <h3>Description of the Illustration</h3>
+        <p>The image above illustrates a rotating cylinder spacecraft, similar to the one described in Problem 7. It shows a cutaway view of a hollow cylinder with the following key features:</p>
+        <ul>
+            <li>Outer Diameter: The full width of the cylinder, shown by the outer edge.</li>
+            <li>Inner Diameter: Represented by the dashed line inside the cylinder, showing the hollow interior.</li>
+            <li>Length: The depth of the cylinder, shown by the perspective view.</li>
+            <li>Habitable Volume: The space between the outer and inner diameters (highlighted in light blue), extending the full length of the cylinder. This is the volume we are calculating to determine how many people can comfortably fit in the spacecraft.</li>
+        </ul>
+        <p>The blue arrows indicate the rotation of the cylinder, which creates artificial gravity for the inhabitants. This rotation is crucial for long-term space habitation but doesn't affect our volume calculation.</p>
+    </div>
+
+    
+
+</body></html>
