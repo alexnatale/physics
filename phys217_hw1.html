@@ -49,31 +49,35 @@
             margin-top: 20px;
         }
     </style>
-     <script>
-    // Function to show a specific problem and hide others
-    function showProblem(problemId) {
-      const problems = document.querySelectorAll('.problem');
-      problems.forEach(problem => problem.style.display = 'none'); // Hide all problems initially
+  <script>
+  // Function to show a specific problem and hide others
+  function showProblem(problemId) {
+    const problems = document.querySelectorAll('.problem');
+    problems.forEach(problem => problem.style.display = 'none'); // Hide all problems
 
-      const selectedProblem = document.getElementById(problemId);
-      if (selectedProblem) {
-        selectedProblem.style.display = 'block'; // Show the selected problem
-      }
+    const selectedProblem = document.getElementById(problemId);
+    if (selectedProblem) {
+      selectedProblem.style.display = 'block'; // Show the selected problem
     }
+  }
 
-    // Check the URL fragment on page load
-    window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.hash.substr(1));
-      const problemToShow = urlParams.get('question');
+  // Check the URL fragment on page load
+  window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.hash.substr(1));
+    const problemToShow = urlParams.get('question');
 
-      if (problemToShow) {
-        showProblem(`problem${problemToShow}`);
-      } else {
-        // Default to showing the first problem
-        showProblem('problem1');
-      }
-    };
-  </script>
+    // Initially hide all problems
+    const allProblems = document.querySelectorAll('.problem');
+    allProblems.forEach(problem => problem.style.display = 'none'); 
+
+    if (problemToShow) {
+      showProblem(`problem${problemToShow}`);
+    } else {
+      // Default to showing the first problem
+      showProblem('problem1');
+    }
+  };
+</script>
 </head>
 <body>
     <h1>Interactive Physics Problems</h1>
