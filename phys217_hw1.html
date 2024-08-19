@@ -49,12 +49,36 @@
             margin-top: 20px;
         }
     </style>
+     <script>
+        // Function to show a specific problem and hide others
+        function showProblem(problemId) {
+            const problems = document.querySelectorAll('.problem');
+            problems.forEach(problem => problem.style.display = 'none');
+
+            const selectedProblem = document.getElementById(problemId);
+            if (selectedProblem) {
+                selectedProblem.style.display = 'block';
+            }
+        }
+
+        // Check if there's a fragment identifier in the URL
+        const urlParams = new URLSearchParams(window.location.hash.substr(1));
+        const problemToShow = urlParams.get('question');
+
+        // If there is, show the corresponding problem
+        if (problemToShow) {
+            showProblem(`problem${problemToShow}`);
+        } else {
+            // If not, show the first problem by default
+            showProblem('problem1');
+        }
+    </script>
 </head>
 <body>
     <h1>Interactive Physics Problems</h1>
     
     
-
+  
 
 
     <div id="problems"><div class="problem" id="problem1">
@@ -80,29 +104,6 @@
                     
                 </div></div>
 
-      <script>
-        // Function to show a specific problem and hide others
-        function showProblem(problemId) {
-            const problems = document.querySelectorAll('.problem');
-            problems.forEach(problem => problem.style.display = 'none');
-
-            const selectedProblem = document.getElementById(problemId);
-            if (selectedProblem) {
-                selectedProblem.style.display = 'block';
-            }
-        }
-
-        // Check if there's a fragment identifier in the URL
-        const urlParams = new URLSearchParams(window.location.hash.substr(1));
-        const problemToShow = urlParams.get('question');
-
-        // If there is, show the corresponding problem
-        if (problemToShow) {
-            showProblem(`problem${problemToShow}`);
-        } else {
-            // If not, show the first problem by default
-            showProblem('problem1');
-        }
-    </script>
+   
 
 </body></html>
