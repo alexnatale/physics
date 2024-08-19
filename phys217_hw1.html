@@ -137,6 +137,29 @@
         <p>The blue arrows indicate the rotation of the cylinder, which creates artificial gravity for the inhabitants. This rotation is crucial for long-term space habitation but doesn't affect our volume calculation.</p>
     </div>
 
-    
+      <script>
+        // Function to show a specific problem and hide others
+        function showProblem(problemId) {
+            const problems = document.querySelectorAll('.problem');
+            problems.forEach(problem => problem.style.display = 'none');
+
+            const selectedProblem = document.getElementById(problemId);
+            if (selectedProblem) {
+                selectedProblem.style.display = 'block';
+            }
+        }
+
+        // Check if there's a fragment identifier in the URL
+        const urlParams = new URLSearchParams(window.location.hash.substr(1));
+        const problemToShow = urlParams.get('question');
+
+        // If there is, show the corresponding problem
+        if (problemToShow) {
+            showProblem(`problem${problemToShow}`);
+        } else {
+            // If not, show the first problem by default
+            showProblem('problem1');
+        }
+    </script>
 
 </body></html>
