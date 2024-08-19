@@ -61,9 +61,11 @@
     }
   }
 
- window.onload = function() {
+window.onload = function() {
   const urlParams = new URLSearchParams(window.location.hash.substr(1));
   const problemToShow = urlParams.get('problem');
+
+  console.log("problemToShow:", problemToShow); // Log the value of problemToShow
 
   // Initially hide all problems
   const allProblems = document.querySelectorAll('.problem');
