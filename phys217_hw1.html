@@ -61,22 +61,21 @@
     }
   }
 
-  // Check the URL fragment on page load
-  window.onload = function() {
-    const urlParams = new URLSearchParams(window.location.hash.substr(1));
-    const problemToShow = urlParams.get('question');
+ window.onload = function() {
+  const urlParams = new URLSearchParams(window.location.hash.substr(1));
+  const problemToShow = urlParams.get('question');
 
-    // Initially hide all problems
-    const allProblems = document.querySelectorAll('.problem');
-    allProblems.forEach(problem => problem.style.display = 'none'); 
+  // Initially hide all problems
+  const allProblems = document.querySelectorAll('.problem');
+  allProblems.forEach(problem => problem.style.display = 'none'); 
 
-    if (problemToShow) {
-      showProblem(`problem${problemToShow}`);
-    } else {
-      // Default to showing the first problem
-      showProblem('problem1');
-    }
-  };
+  if (problemToShow) {
+    showProblem(`problem${problemToShow}`);
+  } else {
+    // Default to showing the first problem
+    showProblem('problem1');
+  }
+};
 </script>
 </head>
 <body>
