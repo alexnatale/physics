@@ -62,23 +62,23 @@
   }
 
 window.onload = function() {
-  const urlParams = new URLSearchParams(window.location.hash.substr(1));
-  const problemToShow = urlParams.get('problem');
+  const hash = window.location.hash; // Get the entire fragment, including the '#'
 
-  console.log("problemToShow:", problemToShow); // Log the value of problemToShow
+  // Check if the fragment starts with '#problem'
+  if (hash.startsWith('#problem')) {
+    const problemToShow = hash.substring(1); // Extract 'problem2', 'problem3', etc.
+    console.log("problemToShow:", problemToShow);
 
-  // Initially hide all problems
-  const allProblems = document.querySelectorAll('.problem');
-  allProblems.forEach(problem => problem.style.display = 'none'); 
+    // Initially hide all problems
+    const allProblems = document.querySelectorAll('.problem');
+    allProblems.forEach(problem => problem.style.display = 'none');
 
-  if (problemToShow) {
-    showProblem(`problem${problemToShow}`);
+    showProblem(problemToShow); 
   } else {
     // Default to showing the first problem
     showProblem('problem1');
   }
-};
-</script>
+};</script>
 </head>
 <body>
     <h1>Interactive Physics Problems</h1>
