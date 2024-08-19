@@ -80,63 +80,6 @@
                     
                 </div></div>
 
-    <h2>Problem 7 Illustration</h2>
-    <div id="problem7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" aria-labelledby="spacecraftTitle spacecraftDesc">
-          <title id="spacecraftTitle">Rotating Cylinder Spacecraft</title>
-          <desc id="spacecraftDesc">A cutaway view of a rotating cylinder spacecraft showing the outer diameter, inner diameter, length, and the habitable volume between the inner and outer walls.</desc>
-          
-          <!-- Background -->
-          <rect width="400" height="300" fill="#f0f0f0"></rect>
-          
-          <!-- Spacecraft body -->
-          <g transform="translate(200 150)">
-            <!-- Front face (ellipse) -->
-            <ellipse cx="0" cy="0" rx="150" ry="50" fill="#d0d0d0" stroke="#333" stroke-width="2"></ellipse>
-            
-            <!-- Outer cylinder -->
-            <path d="M-150 0 L-150 100 A150 50 0 0 0 150 100 L150 0" fill="#a0a0a0" stroke="#333" stroke-width="2"></path>
-            
-            <!-- Habitable volume (highlighted) -->
-            <path d="M-150 0 L-150 100 A150 50 0 0 0 150 100 L150 0 M-100 0 L-100 100 A100 33 0 0 1 100 100 L100 0" fill="#b3e0ff" fill-opacity="0.5" stroke="none"></path>
-            
-            <!-- Inner cylinder (cutaway view) -->
-            <path d="M-100 0 L-100 100 A100 33 0 0 0 100 100 L100 0" fill="#e0e0e0" stroke="#333" stroke-width="2" stroke-dasharray="5,5"></path>
-            
-            <!-- Back face (partial ellipse to show depth) -->
-            <path d="M-150 100 A150 50 0 0 0 150 100" fill="none" stroke="#333" stroke-width="2"></path>
-            
-            <!-- Rotation arrows -->
-            <path d="M-180 0 A180 60 0 0 1 0 -60" fill="none" stroke="#007bff" stroke-width="3" marker-end="url(#arrowhead)"></path>
-            <path d="M180 0 A180 60 0 0 0 0 -60" fill="none" stroke="#007bff" stroke-width="3" marker-end="url(#arrowhead)"></path>
-          </g>
-          
-          <!-- Arrowhead marker definition -->
-          <defs>
-            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"></polygon>
-            </marker>
-          </defs>
-          
-          <!-- Labels -->
-          <text x="200" y="20" text-anchor="middle" font-size="16" font-weight="bold">Rotating Cylinder Spacecraft</text>
-          <text x="50" y="150" text-anchor="middle" font-size="14">Outer Diameter</text>
-          <text x="350" y="150" text-anchor="middle" font-size="14">Inner Diameter</text>
-          <text x="200" y="290" text-anchor="middle" font-size="14">Length</text>
-        </svg>
-        </div>
-    <div class="illustration-description">
-        <h3>Description of the Illustration</h3>
-        <p>The image above illustrates a rotating cylinder spacecraft, similar to the one described in Problem 7. It shows a cutaway view of a hollow cylinder with the following key features:</p>
-        <ul>
-            <li>Outer Diameter: The full width of the cylinder, shown by the outer edge.</li>
-            <li>Inner Diameter: Represented by the dashed line inside the cylinder, showing the hollow interior.</li>
-            <li>Length: The depth of the cylinder, shown by the perspective view.</li>
-            <li>Habitable Volume: The space between the outer and inner diameters (highlighted in light blue), extending the full length of the cylinder. This is the volume we are calculating to determine how many people can comfortably fit in the spacecraft.</li>
-        </ul>
-        <p>The blue arrows indicate the rotation of the cylinder, which creates artificial gravity for the inhabitants. This rotation is crucial for long-term space habitation but doesn't affect our volume calculation.</p>
-    </div>
-
       <script>
         // Function to show a specific problem and hide others
         function showProblem(problemId) {
