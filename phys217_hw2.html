@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Problems - Homework 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .problem {
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .answer {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .vector {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.5em;
+        }
+        .vector::before {
+            content: '\2192';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.8em;
+        }
+    </style>
+    <script>
+  // Function to show a specific problem and hide others
+  function showProblem(problemId) {
+    const problems = document.querySelectorAll('.problem');
+    problems.forEach(problem => problem.style.display = 'none'); // Hide all problems
+
+    const selectedProblem = document.getElementById(problemId);
+    if (selectedProblem) {
+      selectedProblem.style.display = 'block'; // Show the selected problem
+    }
+  }
+
+window.onload = function() {
+  const hash = window.location.hash; // Get the entire fragment, including the '#'
+
+  // Check if the fragment starts with '#problem'
+  if (hash.startsWith('#problem')) {
+    const problemToShow = hash.substring(1); // Extract 'problem2', 'problem3', etc.
+    console.log("problemToShow:", problemToShow);
+
+    // Initially hide all problems
+    const allProblems = document.querySelectorAll('.problem');
+    allProblems.forEach(problem => problem.style.display = 'none');
+
+    showProblem(problemToShow); 
+  } else {
+    // Default to showing the first problem
+    showProblem('problem1');
+  }
+};</script>
+</head>
+<body>
+    <h1>Physics Problems - Homework 2</h1>
+    <div id="problems">
+
+        <div class="problem" id="problem1" style="display: none;">
+            <p><strong>Problem 1:</strong> Vector <span class='vector'>A</span> is 3.17 cm long and is 67.8° above the x axis in the first quadrant. Vector <span class='vector'>B</span> is 2.13 cm long and is 48.7° below the x axis in the fourth quadrant. Use components to find the magnitude and direction of (a) <span class='vector'>A</span> + <span class='vector'>B</span>, (b) <span class='vector'>A</span> − <span class='vector'>B</span>, (c) and <span class='vector'>B</span> − <span class='vector'>A</span>.</p>
+            
+        </div>
+
+        <div class="problem" id="problem2" style="display: none;">
+            <p><strong>Problem 2:</strong> If <span class='vector'>d</span><sub>1</sub> = -3î + -1ĵ, <span class='vector'>d</span><sub>2</sub> = -5î + -3ĵ + -5k̂, then what is (<span class='vector'>d</span><sub>1</sub> + <span class='vector'>d</span><sub>2</sub>) &middot; (<span class='vector'>d</span><sub>1</sub> &times; 4<span class='vector'>d</span><sub>2</sub>)?</p>
+            
+        </div>
+
+        <div class="problem" id="problem3" style="display: none;">
+            <p><strong>Problem 3:</strong> Three vectors are given by <span class='vector'>a</span> = -5î + -3ĵ + 4k̂, <span class='vector'>b</span> = 4î + 2ĵ + -3k̂, and <span class='vector'>c</span> = -5î + 0ĵ + -4k̂. Find (a) <span class='vector'>a</span> &middot; (<span class='vector'>b</span> &times; <span class='vector'>c</span>), (b) <span class='vector'>a</span> &middot; (<span class='vector'>b</span> + <span class='vector'>c</span>), and <span class='vector'>a</span> &times; (<span class='vector'>b</span> + <span class='vector'>c</span>).</p>
+            
+        </div>
+
+        <div class="problem" id="problem4" style="display: none;">
+            <p><strong>Problem 4:</strong> The position of a particle moving along the x axis is given by x(t) = 10t² - 1.8t³, where x is in meters and t is in seconds. Determine (a) the position, (b) velocity, and (c) acceleration at t = 3.5 s. (d) What is the maximum positive coordinate reached by the particle, (e) and when does it reach that position? (f) What is the maximum positive velocity reached by the particle and (g) when does it reach it? (h) What is the acceleration of the particle at the instant the particle is not moving (when t ≠ 0)? (i) Determine the average velocity of the particle between t = 0.0 and {t} s.</p>
+            
+        </div>
+
+        <div class="problem" id="problem5" style="display: none;">
+            <p><strong>Problem 5:</strong> An electron with an initial velocity of v<sub>0</sub> = 1.1 &times; 10<sup>5</sup> m/s enters a region of length L = 0.95 cm where it is electrically accelerated in a straight line. It emerges from the device with a velocity of 5.9 &times; 10<sup>6</sup> m/s. What was the electron's acceleration if we assume the acceleration was constant?</p>
+            
+        </div>
+
+        <div class="problem" id="problem6" style="display: none;">
+            <p><strong>Problem 6:</strong> You throw a small rock straight up from the edge of a highway bridge that crosses a river. The rock passes you on its way down, 5.7 s after it was thrown. What is the speed of the rock just before it reaches the water 27 m below the point where the rock left your hand? Ignore air resistance.</p>
+            
+        </div>
+
+        <div class="problem" id="problem7" style="display: none;">
+            <p><strong>Problem 7:</strong> In the vertical jump, an athlete starts from a crouch and jumps upward as high as possible. Even the best athletes spend little more than 0.987 s in the air (their 'hang time'). Treat the athlete as a particle and let y<sub>max</sub> be their maximum height above the floor. To explain why they seem to hang in the air, calculate the ratio of the time they are above y<sub>max</sub>/2 to the time it takes them to go from the floor to that height. Ignore air resistance.</p>
+            
+        </div>
+
+    </div>
+</body>
+</html>
