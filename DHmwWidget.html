@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galactic Radial Velocity Measurement</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1), transparent 25%), 
+                              radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1), transparent 25%), 
+                              radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent 25%);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            margin-left: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+        button {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 25px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        #warning, #arma, #armb, #armc, #armd {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Galactic Radial Velocity Measurement</h1>
+        <p>To measure carbon monoxide emission from the Milky Way along the galactic plane, type in a galactic longitude.</p>
+        <p>The galactic longitude must be a number of degrees between 0 and 360.</p>
+        <p>
+            Galactic longitude:
+            <input id="userglonl" type="number" min="0" max="360">
+            degrees
+            <button type="button" id="submitbutton" onclick="find_velocities()">Measure Velocity</button>
+        </p>
+        <div id="warning"></div>
+        <div id="arma"></div>
+        <div id="armb"></div>
+        <div id="armc"></div>
+        <div id="armd"></div>
+    </div>
+    <script>
+        const arma_data_glonl = [-11.73718615, -10.65440296, -8.630368094, -6.147347587, -3.305340937, 0.0, 3.5898151, 7.381299927, 11.44454786, 15.72031284, 19.95300828, 24.56717132, 29.3450285, 33.96322769, 39.06847308, 44.84106621, 50.9657776, 58.21274688, 65.73972696, 74.46057883, 85.61993954, 103.2781959, 132.4959492, 180.0];
+        const arma_data_vrad = [-91.10434884, -67.36731711, -47.1615214, -29.13859, -12.98657292, 0.0, 10.61813978, 19.78467725, 26.35609273, 30.86800403, 34.94863826, 35.98707433, 35.37675891, 35.38184521, 32.15181741, 25.50104771, 17.75474135, 6.841543149, -2.332226108, -11.77545548, -21.00231057, -30.27939751, -28.3476446, 0.0];
+        const armb_data_glonl = [-180.0, -142.5190664, -121.9022638, -108.7443487, -98.08058138, -89.54346959, -81.7882022, -74.47811928, -67.48772732, -60.62423458, -53.87737003];
+        const armb_data_vrad = [0.0, 32.27209372, 51.08216827, 63.18253521, 70.87653668, 77.24945611, 81.65411439, 84.18914177, 84.91344521, 83.7949558, 80.87926935];
+        const armc_data_glonl = [-50.83316269, -50.75928297, -48.78447991, -43.44690641, -32.99084025, -17.31164611, 0.0, 14.34573825, 24.22774532, 29.90395549, 31.64662979, 32.43102232];
+        const armc_data_vrad = [-41.08578014, -45.77613089, -54.30206929, -59.52395937, -55.76481746, -35.70827225, 0.0, 36.33996415, 63.19616031, 80.58156899, 93.32586475, 100.0286002];
+        const armd_data_glonl = [-50.83316269, -50.47455598, -48.82590303, -46.17232845, -42.90474744, -39.4178655, -35.47152733, -31.31620348, -26.61189972, -21.69741342, -16.54000624, -11.25700608, -5.701923343, 0.0, 5.871676339, 11.93428136, 18.092075, 24.49728336, 31.14911598, 38.02311362, 45.10677546, 52.65196706, 60.62423458, 69.1564721];
+        const armd_data_vrad = [-41.08578014, -36.36326743, -27.22138794, -18.79504232, -11.37508436, -3.366113603, 2.934842057, 8.700342746, 11.29194144, 12.20025879, 11.44213756, 9.456056154, 5.416065652, 0.0, -6.696052477, -14.55798873, -22.95121299, -32.48092427, -42.67454083, -53.23821229, -63.21315645, -73.76411614, -83.7949558, -92.85262389];
+
+        const data_glonl_all = [arma_data_glonl, armb_data_glonl, armc_data_glonl, armd_data_glonl];
+        const data_vrad_all = [arma_data_vrad, armb_data_vrad, armc_data_vrad, armd_data_vrad];
+
+        function below_ceiling(data_glonl) {
+            return data_glonl > this;
+        }
+
+        function collect_data(glonl, arm_glonl_array, arm_vrad_array) {
+            let vrad_interpolated = NaN;
+            const arm_ceiling_index = arm_glonl_array.findIndex(below_ceiling, glonl);
+            const arm_floor_index = arm_ceiling_index - 1;
+            if (arm_ceiling_index > 0 && arm_floor_index >= 0) {
+                const step_length_glonl = arm_glonl_array[arm_ceiling_index] - arm_glonl_array[arm_floor_index];
+                if (step_length_glonl != 0) {
+                    const step_progress = (glonl - arm_glonl_array[arm_floor_index]) / step_length_glonl;
+                    const step_length_vrad = arm_vrad_array[arm_ceiling_index] - arm_vrad_array[arm_floor_index];
+                    vrad_interpolated = Math.round(arm_vrad_array[arm_floor_index] + step_progress * step_length_vrad);
+                }
+            }
+            return vrad_interpolated;
+        }
+
+        function find_velocities() {
+            const arm_div_ids_all = ["arma", "armb", "armc", "armd"];
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(arm_div_ids_all[i]).innerHTML = "";
+            }
+            let glonl = parseFloat(document.getElementById("userglonl").value);
+            document.getElementById("userglonl").value = "";
+            if (isNaN(glonl) || glonl < 0 || glonl > 360) {
+                document.getElementById("warning").innerHTML = "The galactic longitude entered is not between 0 and 360 degrees. Please enter a valid galactic longitude.<br><br>";
+            } else if (glonl == 0 || glonl == 360) {
+                document.getElementById("warning").innerHTML = "The galactic center makes measurements difficult. Please enter a galactic longitude other than 0 degrees.<br><br>";
+            } else if (glonl == 180) {
+                document.getElementById("warning").innerHTML = "No radial velocity can be detected in the direction opposite the galactic center. Please enter a galactic longitude other than 180 degrees.<br><br>";
+            } else {
+                document.getElementById("warning").innerHTML = "The galactic longitude at which the measurement will be taken is " + glonl + " degrees.<br><br>";
+                if (glonl > 180) {
+                    glonl = glonl - 360;
+                }
+                var vrad_all = [0, 0, 0, 0];
+                for (let i = 0; i < 4; i++) {
+                    vrad_all[i] = collect_data(glonl, data_glonl_all[i], data_vrad_all[i]);
+                }
+                const arm_names = ["A", "B", "C", "D"];
+                for (let i = 0; i < 4; i++) {
+                    if (!isNaN(vrad_all[i])) {
+                        document.getElementById(arm_div_ids_all[i]).innerHTML = "Emission from feature " + arm_names[i] + " is detected with a radial velocity of " + vrad_all[i] + " km s<sup>-1</sup>.<br><br>";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
