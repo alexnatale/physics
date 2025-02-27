@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phys 227 Homework 1 Solutions – Electric Charges &amp; Electric Fields</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #fefefe;
+    }
+    h1 {
+      text-align: center;
+    }
+    .solution {
+      border: 2px solid #444;
+      padding: 15px;
+      margin: 20px 0;
+      background-color: #f9f9f9;
+    }
+    .problem-solution {
+      border: 1px dashed #888;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #fff;
+    }
+    ol, ul {
+      margin-left: 20px;
+    }
+  </style>
+  <!-- Include MathJax to render LaTeX expressions -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body>
+
+  <h1>Phys 227 Homework 1 Solutions<br>(Electric Charges &amp; Electric Fields)</h1>
+
+  <div class="solution" id="hw1-solutions">
+
+    <!-- Problem 1 -->
+    <div class="problem-solution" id="hw1-prob1-solution">
+      <h3>Problem 1: Advanced Vector Operations</h3>
+      <ol>
+        <li>
+          <strong>(a) Magnitude and Unit Vector of \(\mathbf{A}\)</strong>
+          <ul>
+            <li>
+              Given \(\mathbf{A} = (3\,\hat{i} - 4\,\hat{j} + 2\,\hat{k})\), the magnitude is 
+              \[
+              |\mathbf{A}| = \sqrt{3^2 + (-4)^2 + 2^2} = \sqrt{29} \approx 5.39\,.
+              \]
+            </li>
+            <li>
+              The unit vector is 
+              \[
+              \hat{A} = \frac{\mathbf{A}}{|\mathbf{A}|} \approx \langle 0.557,\, -0.743,\, 0.371 \rangle\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Dot Product \(\mathbf{A}\cdot\mathbf{B}\) and Its Sign</strong>
+          <ul>
+            <li>
+              Given \(\mathbf{B} = (1\,\hat{i} + 2\,\hat{j} - 2\,\hat{k})\), we have 
+              \[
+              \mathbf{A}\cdot\mathbf{B} = 3(1) + (-4)(2) + 2(-2) = -9\,.
+              \]
+            </li>
+            <li>
+              The negative sign indicates that the angle between \(\mathbf{A}\) and \(\mathbf{B}\) is obtuse.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Cross Product \(\mathbf{A}\times\mathbf{B}\) and Verification</strong>
+          <ul>
+            <li>
+              The cross product is 
+              \[
+              \mathbf{A}\times\mathbf{B} = \langle 4,\, 8,\, 10 \rangle\,.
+              \]
+            </li>
+            <li>
+              Verification: \(\mathbf{A}\cdot(\mathbf{A}\times\mathbf{B}) = 0\) and \(\mathbf{B}\cdot(\mathbf{A}\times\mathbf{B}) = 0\), confirming that \(\mathbf{A}\times\mathbf{B}\) is perpendicular to both \(\mathbf{A}\) and \(\mathbf{B}\).
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( |\mathbf{A}| \approx 5.39 \)</li>
+        <li>\( \hat{A} \approx \langle 0.557,\, -0.743,\, 0.371 \rangle \)</li>
+        <li>\( \mathbf{A}\cdot\mathbf{B} = -9 \)</li>
+        <li>\( \mathbf{A}\times\mathbf{B} = \langle 4,\, 8,\, 10 \rangle \)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem-solution" id="hw1-prob2-solution">
+      <h3>Problem 2: Vector Addition &amp; Decomposition</h3>
+      <ol>
+        <li>
+          <strong>(a) Resultant Vector \(\mathbf{R} = \mathbf{C} + \mathbf{D}\)</strong>
+          <ul>
+            <li>
+              Given \(\mathbf{C} = (2\,\hat{i} + 3\,\hat{j})\) and \(\mathbf{D} = (-1\,\hat{i} + 4\,\hat{j})\), we have
+              \[
+              \mathbf{R} = (2-1)\,\hat{i} + (3+4)\,\hat{j} = \langle 1,\, 7 \rangle\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Polar Form (Magnitude and Angle)</strong>
+          <ul>
+            <li>
+              Magnitude:
+              \[
+              |\mathbf{R}| = \sqrt{1^2 + 7^2} = \sqrt{50} \approx 7.07\,.
+              \]
+            </li>
+            <li>
+              Angle from the \(+x\)-axis:
+              \[
+              \theta = \arctan\!\left(\frac{7}{1}\right) \approx 81.87^\circ\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Verification</strong>
+          <ul>
+            <li>
+              The magnitude computed from the components confirms the result.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( \mathbf{R} = \langle 1,\, 7 \rangle \)</li>
+        <li>\( |\mathbf{R}| \approx 7.07 \)</li>
+        <li>\( \theta \approx 81.87^\circ \)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem-solution" id="hw1-prob3-solution">
+      <h3>Problem 3: Electric Field from Two Point Charges</h3>
+      <ol>
+        <li>
+          <strong>(a) Expressions for the Electric Fields at the Midpoint</strong>
+          <ul>
+            <li>
+              Charges: \(q_1 = -2.00\times10^{-7}\,C\) at \(x = 6.00\,\text{cm}\) and \(q_2 = +2.00\times10^{-7}\,C\) at \(x = 21.0\,\text{cm}\). Converting positions to meters: \(x_1=0.06\,m\) and \(x_2=0.21\,m\).
+            </li>
+            <li>
+              The midpoint is 
+              \[
+              x_m = \frac{0.06 + 0.21}{2} = 0.135\,m\,.
+              \]
+            </li>
+            <li>
+              Distance from each charge to the midpoint: 
+              \[
+              r = 0.135 - 0.06 = 0.075\,m\,.
+              \]
+            </li>
+            <li>
+              Field magnitude from one charge:
+              \[
+              E = \frac{k|q|}{r^2} = \frac{8.99\times10^9 \times 2.00\times10^{-7}}{(0.075)^2}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Net Electric Field Calculation</strong>
+          <ul>
+            <li>
+              Both fields point to the left (negative \(x\)) so that
+              \[
+              E_{\text{net}} = 2E \approx 6.39\times10^{5}\, \text{N/C}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Effect of the Charge Signs</strong>
+          <ul>
+            <li>
+              The negative charge attracts the field toward itself and the positive charge repels the field, both contributing to a leftward net field.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( r = 0.075\,m \)</li>
+        <li>\( E \approx 3.20\times10^{5}\, \text{N/C} \) (from one charge)</li>
+        <li>\( E_{\text{net}} \approx 6.39\times10^{5}\, \text{N/C} \) directed in the \(-\hat{i}\) direction</li>
+      </ul>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem-solution" id="hw1-prob4-solution">
+      <h3>Problem 4: Field at the Center of a Square</h3>
+      <ol>
+        <li>
+          <strong>(a) Geometry Setup</strong>
+          <ul>
+            <li>
+              A square with edge \(a=5.00\,cm\) (or \(0.05\,m\)) is centered at the origin. The four charges (in \(nC\)) are located at:
+              <br>
+              Top Right: \(+10.00\,nC\) at \((+0.025, +0.025)\,m\)  
+              <br>Top Left: \(-20.00\,nC\) at \((-0.025, +0.025)\,m\)  
+              <br>Bottom Left: \(+20.00\,nC\) at \((-0.025, -0.025)\,m\)  
+              <br>Bottom Right: \(-10.00\,nC\) at \((+0.025, -0.025)\,m\)
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Net Electric Field Calculation</strong>
+          <ul>
+            <li>
+              Each charge produces a field of magnitude 
+              \[
+              E = \frac{k|q|}{r^2}\,,
+              \]
+              with distance 
+              \[
+              r = \sqrt{(0.025)^2 + (0.025)^2} \approx 0.03536\,m\,.
+              \]
+            </li>
+            <li>
+              After summing the vector contributions (with proper sign conventions), the net field at the center is found to be approximately 
+              \[
+              \mathbf{E}_{net} \approx \langle 0,\, 1.02\times10^{5} \rangle\, \text{N/C}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( \mathbf{E}_{net} \approx \langle 0,\, 1.02\times10^{5} \rangle \, \text{N/C} \) (upward)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="problem-solution" id="hw1-prob5-solution">
+      <h3>Problem 5: Electric Field Due to a Charged Arc</h3>
+      <ol>
+        <li>
+          <strong>(a) Derivation of the Expression</strong>
+          <ul>
+            <li>
+              For an arc of radius \(r=2.00\,cm = 0.02\,m\) with four segments having central angles \(\theta_1\), \(\theta_2\), \(\theta_3\), \(\theta_4\) (in radians), the field from a small segment is 
+              \[
+              dE=\frac{k\lambda}{r}\,d\theta\,.
+              \]
+            </li>
+            <li>
+              Summing over the segments, the net field is given by
+              \[
+              \mathbf{E}_{net}=\frac{k\lambda}{r}\sum_{i=1}^{4}\theta_i(\cos\alpha_i\,\hat{i}+\sin\alpha_i\,\hat{j})\,,
+              \]
+              where \(\alpha_i\) is the midpoint angle for each segment.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Numerical Evaluation</strong>
+          <ul>
+            <li>
+              Assuming the segments cover the following intervals with midpoints:
+              \[
+              \theta_1=0.5236\,rad\ (\alpha_1=15^\circ),\quad \theta_2=0.8727\,rad\ (\alpha_2=55^\circ),
+              \]
+              \[
+              \theta_3=0.5236\,rad\ (\alpha_3=95^\circ),\quad \theta_4=0.3491\,rad\ (\alpha_4=120^\circ)\,.
+              \]
+            </li>
+            <li>
+              The summed components are approximately:
+              \[
+              \sum \theta_i\cos\alpha_i \approx 0.787,\quad \sum \theta_i\sin\alpha_i \approx 1.674\,.
+              \]
+            </li>
+            <li>
+              Hence, the net magnitude is
+              \[
+              |\mathbf{E}_{net}| \approx \frac{8.99\times10^9\,\lambda}{0.02}\times 1.85 \approx 8.32\times10^{11}\,\lambda \quad \text{(N/C)}\,,
+              \]
+              and its direction is 
+              \[
+              \phi \approx \arctan\!\left(\frac{1.674}{0.787}\right) \approx 64.3^\circ\,.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( |\mathbf{E}_{net}| \approx 8.32\times10^{11}\,\lambda \) N/C</li>
+        <li>Direction: \(64.3^\circ\) from the \(+x\)-axis</li>
+      </ul>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="problem-solution" id="hw1-prob6-solution">
+      <h3>Problem 6: Electric Dipole Field</h3>
+      <ol>
+        <li>
+          <strong>(a) Derivation Along the Axial Line</strong>
+          <ul>
+            <li>
+              For a dipole with charges \(+q\) and \(-q\) separated by distance \(d\), the axial field (for \(r \gg d\)) is given by
+              \[
+              E_{\text{axial}} = \frac{1}{4\pi\varepsilon_0}\frac{2qd}{r^3}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Numerical Evaluation at \(r=2d\)</strong>
+          <ul>
+            <li>
+              With \(q=1.00\times10^{-7}\,C\) and \(d=0.05\,m\), setting \(r=2d=0.10\,m\) gives
+              \[
+              E_{\text{axial}} \approx \frac{8.99\times10^9 \times (2\times1.00\times10^{-7}\times0.05)}{(0.10)^3} \approx 8.99\times10^4\, \text{N/C}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Decay with Distance</strong>
+          <ul>
+            <li>
+              The dipole field falls off as \(\propto \frac{1}{r^3}\).
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( E_{\text{axial}} \approx 8.99\times10^4 \, \text{N/C} \) at \( r = 2d \)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="problem-solution" id="hw1-prob7-solution">
+      <h3>Problem 7: Superposition of Potentials</h3>
+      <ol>
+        <li>
+          <strong>(a) Superposition Formula</strong>
+          <ul>
+            <li>
+              The net potential due to several point charges is
+              \[
+              V=\frac{1}{4\pi\varepsilon_0}\sum_{i}\frac{q_i}{r_i}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Numerical Calculation</strong>
+          <ul>
+            <li>
+              With \(q_1=+3.00\times10^{-7}\,C\) at \((0,0)\) and \(q_2=-2.00\times10^{-7}\,C\) at \((0.10,0)\), and evaluating at \((0.05,0)\) (where both distances are \(0.05\,m\)), we have
+              \[
+              V = \frac{8.99\times10^9}{1}\left(\frac{3.00\times10^{-7}}{0.05} + \frac{-2.00\times10^{-7}}{0.05}\right) \approx 1.80\times10^4\, \text{Volts}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Advantage of Superposition</strong>
+          <ul>
+            <li>
+              Because potentials are scalars, they can be directly added without considering vector directions.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( V \approx 1.80\times10^4 \, \text{Volts}\) at \((0.05, 0)\)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="problem-solution" id="hw1-prob8-solution">
+      <h3>Problem 8: Field from the Potential Gradient</h3>
+      <ol>
+        <li>
+          <strong>(a) Relation</strong>
+          <ul>
+            <li>
+              The electric field is given by 
+              \[
+              \mathbf{E}=-\nabla V\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Calculation for \(q=+2.00\times10^{-7}\,C\) at \(r=0.30\,m\)</strong>
+          <ul>
+            <li>
+              The potential is 
+              \[
+              V=\frac{kq}{r} \approx \frac{8.99\times10^9\times2.00\times10^{-7}}{0.30}\approx 5993\,V\,,
+              \]
+              and the field is 
+              \[
+              E=\frac{kq}{r^2} \approx \frac{8.99\times10^9\times2.00\times10^{-7}}{(0.30)^2}\approx 1.9978\times10^4\, \text{N/C}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Discussion</strong>
+          <ul>
+            <li>
+              The potential falls off as \(\frac{1}{r}\) while the electric field falls off as \(\frac{1}{r^2}\).
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( V \approx 5993\,V \)</li>
+        <li>\( E \approx 1.9978\times10^4\, \text{N/C} \)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="problem-solution" id="hw1-prob9-solution">
+      <h3>Problem 9: Potential from Multiple Charges</h3>
+      <ol>
+        <li>
+          <strong>(a) Expression via Superposition</strong>
+          <ul>
+            <li>
+              For two charges, the potential is 
+              \[
+              V=\frac{1}{4\pi\varepsilon_0}\left(\frac{q_1}{r_1}+\frac{q_2}{r_2}\right)\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Calculation at \((0.10\,m,0.05\,m)\)</strong>
+          <ul>
+            <li>
+              With \(q_1=+1.00\times10^{-7}\,C\) at \((0,0)\) and \(q_2=-1.50\times10^{-7}\,C\) at \((0.20,0)\), both distances are approximately 
+              \[
+              r_1 \approx r_2 \approx 0.1118\,m\,.
+              \]
+              Thus,
+              \[
+              V \approx 8.99\times10^9\left(\frac{1.00\times10^{-7} - 1.50\times10^{-7}}{0.1118}\right) \approx -4023\,V\,.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( V \approx -4023\,V \) at \((0.10, 0.05)\)</li>
+      </ul>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="problem-solution" id="hw1-prob10-solution">
+      <h3>Problem 10: Field from the Potential</h3>
+      <ol>
+        <li>
+          <strong>(a) Relation</strong>
+          <ul>
+            <li>
+              For a one-dimensional potential \(V(x)\), 
+              \[
+              E(x)=-\frac{dV}{dx}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Evaluation for \(V(x)=\frac{100}{x}\)</strong>
+          <ul>
+            <li>
+              Differentiating, 
+              \[
+              \frac{dV}{dx} = -\frac{100}{x^2}\,,
+              \]
+              so that 
+              \[
+              E(x)=\frac{100}{x^2}\,.
+              \]
+            </li>
+            <li>
+              At \(x=0.5\,m\):
+              \[
+              E(0.5)=\frac{100}{(0.5)^2}=400~\text{N/C}\,.
+              \]
+            </li>
+            <li>
+              At \(x=1.0\,m\):
+              \[
+              E(1.0)=\frac{100}{1.0^2}=100~\text{N/C}\,.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Asymptotic Behavior</strong>
+          <ul>
+            <li>
+              As \(x\) increases, \(E(x)\) decreases proportional to \(\frac{1}{x^2}\).
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Results Summary:</strong></p>
+      <ul>
+        <li>\( E(0.5\,m)=400~\text{N/C} \)</li>
+        <li>\( E(1.0\,m)=100~\text{N/C} \)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p><strong>End of Homework 1 Solutions.</strong></p>
+  <p>If you’re ready to proceed with the next assignment, just let me know!</p>
+
+</body>
+</html>
