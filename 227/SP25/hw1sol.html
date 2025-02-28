@@ -2,169 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Phys 227 Homework 1 Solutions</title>
+  <title>Homework 1 Solutions: Vectors, Electric Charge, and Coulomb's Law</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background-color: #f5f5f5;
-    }
-    h3 {
-      text-align: center;
-      color: #333;
+      background: #f5f5f5;
     }
     .assignment-solutions {
-      background-color: #fff;
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
       padding: 20px;
       border: 2px solid #444;
-      margin: 20px auto;
-      max-width: 800px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     }
     .solution {
-      margin: 15px 0;
+      background: #fafafa;
       padding: 15px;
-      border: 1px dashed #888;
-      background-color: #f9f9f9;
+      border-left: 3px solid #666;
+      margin: 15px 0;
+    }
+    h3 {
+      color: #333;
+      margin-top: 0;
     }
     p {
       line-height: 1.6;
     }
+    code {
+      background: #eee;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
     em {
       color: #0066cc;
     }
+    .copy-btn {
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
   </style>
   <!-- MathJax for rendering LaTeX equations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script>
+    function copyHTML(divId) {
+      var element = document.getElementById(divId);
+      if (!element) return;
+      var elementHTML = element.outerHTML;
+      navigator.clipboard.writeText(elementHTML)
+        .then(function() { alert("HTML copied to clipboard!"); })
+        .catch(function(err) { alert("Error copying text: " + err); });
+    }
+  </script>
 </head>
 <body>
 
 <div class="assignment-solutions" id="hw1-solutions">
-  <h3>Homework 1 Solutions: Vectors, Electric Charge, and Coulomb's Law</h3>
+  <h1>Homework 1 Solutions: Vectors, Electric Charge, and Coulomb's Law</h1>
   
   <!-- Problem 1 -->
   <div class="solution" id="hw1-sol-prob1">
-    <p><strong>Solution to Problem 1 (Advanced Vector Operations):</strong></p>
+    <h3>Problem 1: Advanced Vector Operations</h3>
     <p>
-      <em>Part (a):</em><br>
-      Given \(\mathbf{A} = 3\hat{i} - 4\hat{j} + 2\hat{k}\).<br>
-      Compute the magnitude:
+      <strong>(a)</strong> Given 
+      \(\mathbf{A} = 3\hat{i} - 4\hat{j} + 2\hat{k}\).<br>
+      Compute its magnitude:
       \[
-      |\mathbf{A}| = \sqrt{3^2+(-4)^2+2^2} = \sqrt{9+16+4} = \sqrt{29} \approx 5.39.
+      |\mathbf{A}| = \sqrt{3^2 + (-4)^2 + 2^2} = \sqrt{9+16+4} = \sqrt{29} \approx 5.39.
       \]
-      The unit vector is:
+      Then, the unit vector is:
       \[
-      \hat{A} = \frac{\mathbf{A}}{|\mathbf{A}|} = \frac{3\hat{i} - 4\hat{j} + 2\hat{k}}{\sqrt{29}} \approx 0.56\hat{i} - 0.74\hat{j} + 0.37\hat{k}.
+      \hat{A} = \frac{\mathbf{A}}{|\mathbf{A}|} \approx 0.56\hat{i} - 0.74\hat{j} + 0.37\hat{k}.
       \]
     </p>
     <p>
-      <em>Part (b):</em><br>
-      For \(\mathbf{B} = \hat{i} + 2\hat{j} - 2\hat{k}\), compute the dot product:
+      <strong>(b)</strong> For 
+      \(\mathbf{B} = \hat{i} + 2\hat{j} - 2\hat{k}\), compute the dot product:
       \[
-      \mathbf{A}\cdot\mathbf{B} = 3\cdot1 + (-4)\cdot2 + 2\cdot(-2) = 3 - 8 - 4 = -9.
+      \mathbf{A}\cdot\mathbf{B} = 3(1) + (-4)(2) + 2(-2) = 3-8-4 = -9.
       \]
-      The negative sign indicates that the angle between \(\mathbf{A}\) and \(\mathbf{B}\) is obtuse.
+      (A negative dot product indicates an obtuse angle between \(\mathbf{A}\) and \(\mathbf{B}\).)
     </p>
     <p>
-      <em>Part (c):</em><br>
-      Compute the cross product \( \mathbf{A}\times\mathbf{B} \) using the formula:
+      <strong>(c)</strong> Compute the cross product:
       \[
       \mathbf{A}\times\mathbf{B} = (a_2b_3 - a_3b_2,\; a_3b_1 - a_1b_3,\; a_1b_2 - a_2b_1).
       \]
-      Substituting \(\mathbf{A} = 3\hat{i} - 4\hat{j} + 2\hat{k}\) and \(\mathbf{B} = \hat{i} + 2\hat{j} - 2\hat{k}\):
+      With the given vectors:
       <br>
-      - \(x\)-component: \((-4)(-2) - (2)(2)=8-4=4\),<br>
-      - \(y\)-component: \((2)(1) - (3)(-2)=2+6=8\),<br>
-      - \(z\)-component: \((3)(2) - (-4)(1)=6+4=10\).<br>
+      - \(x\): \((-4)(-2) - (2)(2) = 8-4 = 4\),<br>
+      - \(y\): \((2)(1) - (3)(-2) = 2+6 = 8\),<br>
+      - \(z\): \((3)(2) - (-4)(1) = 6+4 = 10\).<br>
       Thus, 
-      \[
-      \mathbf{A}\times\mathbf{B} = 4\hat{i} + 8\hat{j} + 10\hat{k}.
-      \]
-      (No further numerical estimation is needed here as the components are exact.)
+      \(\mathbf{A}\times\mathbf{B} = 4\hat{i} + 8\hat{j} + 10\hat{k}\).
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob1')">Copy HTML</button>
   </div>
   
   <!-- Problem 2 -->
   <div class="solution" id="hw1-sol-prob2">
-    <p><strong>Solution to Problem 2 (Vector Addition &amp; Decomposition):</strong></p>
+    <h3>Problem 2: Vector Addition &amp; Decomposition</h3>
     <p>
-      <em>Part (a):</em><br>
-      With \(\mathbf{C} = 2\hat{i} + 3\hat{j}\) and \(\mathbf{D} = -\hat{i} + 4\hat{j}\), add component‑wise:
+      <strong>(a)</strong> Given 
+      \(\mathbf{C} = 2\hat{i} + 3\hat{j}\) and 
+      \(\mathbf{D} = -\hat{i} + 4\hat{j}\), add them:
       \[
-      \mathbf{R}=\mathbf{C}+\mathbf{D}=(2+(-1))\hat{i}+(3+4)\hat{j}=(\hat{i}+7\hat{j}).
+      \mathbf{R} = \mathbf{C} + \mathbf{D} = (2 - 1)\hat{i} + (3 + 4)\hat{j} = \hat{i} + 7\hat{j}.
       \]
     </p>
     <p>
-      <em>Part (b):</em><br>
-      Magnitude of \(\mathbf{R}\):
+      <strong>(b)</strong> The magnitude is:
       \[
-      |\mathbf{R}|=\sqrt{1^2+7^2}=\sqrt{1+49}=\sqrt{50} \approx 7.07.
+      |\mathbf{R}| = \sqrt{1^2+7^2} = \sqrt{50} \approx 7.07,
       \]
-      Direction (angle from the +x‑axis):
+      and the direction (angle from the positive \(\hat{i}\)) is:
       \[
-      \theta=\arctan\left(\frac{7}{1}\right)\approx81.87^\circ.
+      \theta = \arctan\left(\frac{7}{1}\right) \approx 81.87^\circ.
       \]
     </p>
     <p>
-      <em>Part (c):</em><br>
-      The computed magnitude confirms the result in (b).
+      <strong>(c)</strong> The computed magnitude from the components confirms the result in (b).
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob2')">Copy HTML</button>
   </div>
   
   <!-- Problem 3 -->
   <div class="solution" id="hw1-sol-prob3">
-    <p><strong>Solution to Problem 3 (Dot Product and Angle Between Vectors):</strong></p>
+    <h3>Problem 3: Projection and Angle Between Vectors</h3>
     <p>
-      Given \(\mathbf{A} = 4\hat{i} - 2\hat{j} + \hat{k}\) and \(\mathbf{B} = \hat{i} + \hat{j}\) (with no \(\hat{k}\) component), first compute the dot product:
+      <strong>(a)</strong> Given 
+      \(\mathbf{A} = 4\hat{i} - 2\hat{j} + \hat{k}\) and 
+      \(\mathbf{B} = 1\hat{i} + 1\hat{j} + 0\hat{k}\), first compute the dot product:
       \[
-      \mathbf{A}\cdot\mathbf{B}=4\cdot1 + (-2)\cdot1 + 1\cdot0 = 4 - 2 = 2.
+      \mathbf{A}\cdot\mathbf{B} = 4(1) + (-2)(1) + 1(0) = 4-2 = 2.
       \]
+      (Here the “projection” is understood via the dot product value.)
     </p>
     <p>
-      Then, to find the angle \(\theta\) between \(\mathbf{A}\) and \(\mathbf{B}\), we use:
+      <strong>(b)</strong> Next, determine the angle using:
       \[
-      \cos\theta=\frac{\mathbf{A}\cdot\mathbf{B}}{|\mathbf{A}||\mathbf{B}|}.
+      \cos\theta = \frac{\mathbf{A}\cdot\mathbf{B}}{|\mathbf{A}||\mathbf{B}|}.
       \]
-      First, compute:
+      Compute:
       \[
-      |\mathbf{A}|=\sqrt{4^2+(-2)^2+1^2}=\sqrt{16+4+1}=\sqrt{21} \approx 4.58,
+      |\mathbf{A}| = \sqrt{4^2+(-2)^2+1^2} = \sqrt{16+4+1} = \sqrt{21} \approx 4.58,
       \]
-      and
       \[
-      |\mathbf{B}|=\sqrt{1^2+1^2}=\sqrt{2} \approx 1.41.
+      |\mathbf{B}| = \sqrt{1^2+1^2} = \sqrt{2} \approx 1.41.
       \]
-      Thus,
+      Then:
       \[
-      \cos\theta=\frac{2}{4.58 \times 1.41} \approx \frac{2}{6.46} \approx 0.31,
+      \cos\theta \approx \frac{2}{4.58 \times 1.41} \approx \frac{2}{6.46} \approx 0.31,
       \]
       so
-      \[
-      \theta=\arccos(0.31)\approx72.0^\circ.
-      \]
+      \(\theta \approx \arccos(0.31) \approx 72.0^\circ.\)
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob3')">Copy HTML</button>
   </div>
   
   <!-- Problem 4 -->
   <div class="solution" id="hw1-sol-prob4">
-    <p><strong>Solution to Problem 4 (Resultant of Multiple Vectors):</strong></p>
+    <h3>Problem 4: Resultant of Multiple Vectors</h3>
     <p>
-      Given \(\mathbf{P} = 2\hat{i} + 3\hat{k}\) (i.e. \(2\hat{i}+0\hat{j}+3\hat{k}\)), \(\mathbf{Q} = -\hat{i} + 4\hat{j}\) (i.e. \(-\hat{i}+4\hat{j}+0\hat{k}\)), and \(\mathbf{R} = -2\hat{j} + 5\hat{k}\) (i.e. \(0\hat{i}-2\hat{j}+5\hat{k}\)), add them component‑wise:
+      Given:
+      <br>
+      \(\mathbf{P} = 2\hat{i} + 0\hat{j} + 3\hat{k}\),<br>
+      \(\mathbf{Q} = -\hat{i} + 4\hat{j} + 0\hat{k}\), and<br>
+      \(\mathbf{R} = 0\hat{i} - 2\hat{j} + 5\hat{k}\).<br>
+      Their sum is:
       \[
-      \mathbf{S}=\mathbf{P}+\mathbf{Q}+\mathbf{R}=(2-1+0)\hat{i}+(0+4-2)\hat{j}+(3+0+5)\hat{k}=(\hat{i}+2\hat{j}+8\hat{k}).
+      \mathbf{S} = \mathbf{P}+\mathbf{Q}+\mathbf{R} = (2-1+0)\hat{i} + (0+4-2)\hat{j} + (3+0+5)\hat{k} = \hat{i}+2\hat{j}+8\hat{k}.
       \]
-      The magnitude of \(\mathbf{S}\) is:
+      The magnitude is:
       \[
-      |\mathbf{S}|=\sqrt{1^2+2^2+8^2}=\sqrt{1+4+64}=\sqrt{69} \approx 8.31.
+      |\mathbf{S}| = \sqrt{1^2+2^2+8^2} = \sqrt{1+4+64} = \sqrt{69} \approx 8.31.
       \]
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob4')">Copy HTML</button>
   </div>
   
   <!-- Problem 5 -->
   <div class="solution" id="hw1-sol-prob5">
-    <p><strong>Solution to Problem 5 (Cross Product and Area Calculation):</strong></p>
+    <h3>Problem 5: Cross Product and Area Calculation</h3>
     <p>
-      <em>Part (a):</em><br>
-      Given \(\mathbf{U} = \hat{i} + 3\hat{j} - 2\hat{k}\) and \(\mathbf{V} = 4\hat{i} - \hat{j} + 2\hat{k}\), compute the cross product using the determinant method:
+      <strong>(a)</strong> Given 
+      \(\mathbf{U} = 1\hat{i} + 3\hat{j} - 2\hat{k}\) and 
+      \(\mathbf{V} = 4\hat{i} - \hat{j} + 2\hat{k}\), compute:
       \[
       \mathbf{U}\times\mathbf{V} =
       \begin{vmatrix}
@@ -173,182 +203,196 @@
       4 & -1 & 2
       \end{vmatrix}.
       \]
-      Components:<br>
-      - \(x\)-component: \(3\cdot2 - (-2)\cdot(-1)=6-2=4\),<br>
-      - \(y\)-component: \((-2)\cdot4 - 1\cdot2=-8-2=-10\),<br>
-      - \(z\)-component: \(1\cdot(-1)-3\cdot4=-1-12=-13\).<br>
-      Thus, 
-      \[
-      \mathbf{U}\times\mathbf{V} = 4\hat{i} - 10\hat{j} - 13\hat{k}.
-      \]
+      Calculation:
+      <br>
+      - \(x\): \(3\cdot2 - (-2)\cdot(-1) = 6-2 = 4\),<br>
+      - \(y\): \((-2)\cdot4 - 1\cdot2 = -8-2 = -10\),<br>
+      - \(z\): \(1\cdot(-1)-3\cdot4 = -1-12 = -13\).<br>
+      So, \(\mathbf{U}\times\mathbf{V} = 4\hat{i} - 10\hat{j} - 13\hat{k}\).
     </p>
     <p>
-      <em>Part (b):</em><br>
-      The area of the parallelogram defined by \(\mathbf{U}\) and \(\mathbf{V}\) is the magnitude of \(\mathbf{U}\times\mathbf{V}\):
+      <strong>(b)</strong> The area of the parallelogram is:
       \[
-      \text{Area}=\sqrt{4^2+(-10)^2+(-13)^2}=\sqrt{16+100+169}=\sqrt{285} \approx 16.88.
+      \text{Area} = \sqrt{4^2+(-10)^2+(-13)^2} = \sqrt{16+100+169} = \sqrt{285} \approx 16.88.
       \]
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob5')">Copy HTML</button>
   </div>
   
   <!-- Problem 6 -->
   <div class="solution" id="hw1-sol-prob6">
-    <p><strong>Solution to Problem 6 (Coulomb Force Between Two Charges):</strong></p>
+    <h3>Problem 6: Coulomb Force Between Two Charges</h3>
     <p>
-      Given \(q_1=+2.0\times10^{-7}\,C\) and \(q_2=-3.0\times10^{-7}\,C\) with a separation \(r=0.15\,m\).<br>
-      (a) Using Coulomb’s law:
+      Given \(q_1 = +2.0\times10^{-7}\,C\) and \(q_2 = -3.0\times10^{-7}\,C\) separated by \(r = 0.15\,m\).<br>
+      Using Coulomb’s law:
       \[
-      F=k\frac{|q_1q_2|}{r^2},
+      F = k\frac{|q_1q_2|}{r^2},
       \]
-      with \(k\approx8.99\times10^9\,N\cdot m^2/C^2\).<br>
-      Compute:
+      where \(k \approx 8.99\times10^9\,N\cdot m^2/C^2\).<br>
+      Here, 
       \[
-      |q_1q_2| = 2.0\times10^{-7}\times3.0\times10^{-7} = 6.0\times10^{-14}\,C^2,\quad r^2 = 0.15^2 = 0.0225\,m^2.
+      |q_1q_2| = 2.0\times10^{-7}\times3.0\times10^{-7} = 6.0\times10^{-14}\,C^2,\quad r^2 = (0.15)^2 = 0.0225.
       \]
       Thus,
       \[
-      F\approx8.99\times10^9\times\frac{6.0\times10^{-14}}{0.0225}\approx0.0240\,N.
+      F \approx 8.99\times10^9 \times \frac{6.0\times10^{-14}}{0.0225} \approx 0.0240\,N.
       \]
-      (b) Since the charges are opposite in sign, the force is attractive.
+      (The force is attractive.)
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob6')">Copy HTML</button>
   </div>
   
   <!-- Problem 7 -->
   <div class="solution" id="hw1-sol-prob7">
-    <p><strong>Solution to Problem 7 (Superposition of Coulomb Forces):</strong></p>
+    <h3>Problem 7: Superposition of Coulomb Forces</h3>
     <p>
-      Three charges along the x‑axis: \(q_1=+3.0\times10^{-7}\,C\) at \(x=0\), \(q_2=-1.0\times10^{-7}\,C\) at \(x=0.20\,m\), and \(q_3=+2.0\times10^{-7}\,C\) at \(x=0.35\,m\).<br>
-      <em>Force on \(q_2\) due to \(q_1\):</em><br>
+      Three charges are aligned along the x‑axis:
+      <br>
+      \(q_1 = +3.0\times10^{-7}\,C\) at \(x = 0\), 
+      \(q_2 = -1.0\times10^{-7}\,C\) at \(x = 0.20\,m\), and 
+      \(q_3 = +2.0\times10^{-7}\,C\) at \(x = 0.35\,m\).<br>
+      <strong>Force on \(q_2\) due to \(q_1\):</strong>
       \[
-      F_{12}=k\frac{|q_1q_2|}{(0.20)^2}\approx8.99\times10^9\times\frac{(3.0\times10^{-7})(1.0\times10^{-7})}{0.04}\approx6.74\times10^{-3}\,N.
+      F_{12} \approx 8.99\times10^9\times\frac{(3.0\times10^{-7})(1.0\times10^{-7})}{(0.20)^2} \approx 6.74\times10^{-3}\,N,
       \]
-      (Since the force is attractive, it acts toward \(q_1\), i.e. in the negative x‑direction.)<br>
-      <em>Force on \(q_2\) due to \(q_3\):</em><br>
-      The separation between \(q_2\) and \(q_3\) is \(0.35-0.20=0.15\,m\).<br>
+      acting toward \(q_1\) (negative \(\hat{i}\) direction).<br>
+      <strong>Force on \(q_2\) due to \(q_3\):</strong>
+      With separation \(0.35-0.20 = 0.15\,m\):
       \[
-      F_{32}=k\frac{|q_3q_2|}{(0.15)^2}\approx8.99\times10^9\times\frac{(2.0\times10^{-7})(1.0\times10^{-7})}{0.0225}\approx8.00\times10^{-3}\,N.
+      F_{32} \approx 8.99\times10^9\times\frac{(2.0\times10^{-7})(1.0\times10^{-7})}{(0.15)^2} \approx 8.00\times10^{-3}\,N,
       \]
-      (This force is directed toward \(q_3\), i.e. in the positive x‑direction.)<br>
-      <em>Net force on \(q_2\):</em><br>
+      acting toward \(q_3\) (positive \(\hat{i}\) direction).<br>
+      The net force on \(q_2\) is:
       \[
-      F_{net}\approx8.00\times10^{-3}\,N - 6.74\times10^{-3}\,N = 1.26\times10^{-3}\,N,
+      F_{net} \approx 8.00\times10^{-3} - 6.74\times10^{-3} = 1.26\times10^{-3}\,N,
       \]
       directed to the right.
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob7')">Copy HTML</button>
   </div>
   
   <!-- Problem 8 -->
   <div class="solution" id="hw1-sol-prob8">
-    <p><strong>Solution to Problem 8 (Effect of Separation on Coulomb Force):</strong></p>
+    <h3>Problem 8: Effect of Separation on Coulomb Force</h3>
     <p>
-      Given \(q_1=+2.0\times10^{-7}\,C\) and \(q_2=-2.0\times10^{-7}\,C\) with an initial separation \(r=0.10\,m\).<br>
-      (a) Calculate the initial force:
+      Given \(q_1 = +2.0\times10^{-7}\,C\) and \(q_2 = -2.0\times10^{-7}\,C\) initially separated by \(r = 0.10\,m\).<br>
+      <strong>(a)</strong> Initial force:
       \[
-      F=k\frac{|q_1q_2|}{(0.10)^2}=8.99\times10^9\times\frac{4.0\times10^{-14}}{0.01}\approx0.0360\,N.
+      F \approx 8.99\times10^9\times\frac{4.0\times10^{-14}}{(0.10)^2} \approx 0.0360\,N.
       \]
-      (b) If the separation increases by 20%, then \(r=0.10\times1.20=0.12\,m\).<br>
+      <strong>(b)</strong> If the separation increases by 20% to \(r = 0.12\,m\):
       \[
-      F_{new}=8.99\times10^9\times\frac{4.0\times10^{-14}}{(0.12)^2}\approx0.0250\,N.
+      F_{new} \approx 8.99\times10^9\times\frac{4.0\times10^{-14}}{(0.12)^2} \approx 0.0250\,N.
       \]
-      (c) The inverse square law shows that increasing \(r\) reduces the force approximately by a factor of 
-      \(\left(\frac{0.10}{0.12}\right)^2\approx0.69\).
+      <strong>(c)</strong> The force is reduced by approximately 
+      \(\left(\frac{0.10}{0.12}\right)^2 \approx 0.69\).
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob8')">Copy HTML</button>
   </div>
   
   <!-- Problem 9 -->
   <div class="solution" id="hw1-sol-prob9">
-    <p><strong>Solution to Problem 9 (Equilibrium Position for a Test Charge):</strong></p>
+    <h3>Problem 9: Equilibrium Position for a Test Charge</h3>
     <p>
-      Two fixed charges: \(q_1=+3.0\times10^{-7}\,C\) at \(x=0\) and \(q_2=+1.0\times10^{-7}\,C\) at \(x=0.50\,m\).<br>
-      A test charge \(q_0=-1.0\times10^{-7}\,C\) is placed between them. Let the test charge be at a distance \(x\) from \(q_1\) (the origin) and \(0.50-x\) from \(q_2\).<br>
-      The forces on \(q_0\) are:
+      Given two fixed charges: 
+      \(q_1 = +3.0\times10^{-7}\,C\) at \(x = 0\) and 
+      \(q_2 = +1.0\times10^{-7}\,C\) at \(x = 0.50\,m\).<br>
+      A test charge \(q_0 = -1.0\times10^{-7}\,C\) is placed between them. Let its distances from \(q_1\) and \(q_2\) be \(x\) and \(0.50-x\) respectively. For equilibrium:
       \[
-      F_1=k\frac{|q_0q_1|}{x^2}\quad \text{and} \quad F_2=k\frac{|q_0q_2|}{(0.50-x)^2}.
+      k\frac{|q_0q_1|}{x^2} = k\frac{|q_0q_2|}{(0.50-x)^2}.
       \]
-      For equilibrium, set \(F_1=F_2\):
+      Cancel common factors to get:
       \[
-      \frac{3.0\times10^{-7}}{x^2}=\frac{1.0\times10^{-7}}{(0.50-x)^2}.
+      \frac{3.0\times10^{-7}}{x^2} = \frac{1.0\times10^{-7}}{(0.50-x)^2}.
       \]
-      Rearranging:
+      This simplifies to:
       \[
-      3(0.50-x)^2=x^2.
+      3(0.50-x)^2 = x^2.
       \]
       Taking square roots:
       \[
-      \sqrt{3}(0.50-x)=x.
+      \sqrt{3}(0.50-x) = x.
       \]
-      Solving gives:
+      Solving for \(x\):
       \[
-      x=\frac{0.50\sqrt{3}}{1+\sqrt{3}}\approx\frac{0.50\times1.732}{2.732}\approx0.317\,m.
+      x = \frac{0.50\sqrt{3}}{1+\sqrt{3}} \approx \frac{0.50\times1.732}{2.732} \approx 0.317\,m.
       \]
-      Thus, the test charge should be placed about \(0.317\,m\) from \(q_1\) (and \(0.50-0.317\approx0.183\,m\) from \(q_2\)).
+      Thus, the test charge is about \(0.317\,m\) from \(q_1\) and \(0.183\,m\) from \(q_2\).
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob9')">Copy HTML</button>
   </div>
   
   <!-- Problem 10 -->
   <div class="solution" id="hw1-sol-prob10">
-    <p><strong>Solution to Problem 10 (Coulomb Force in a Triangular Charge Configuration):</strong></p>
+    <h3>Problem 10: Coulomb Force in a Triangular Charge Configuration</h3>
     <p>
       <em>Assumptions and Setup:</em><br>
-      Consider an equilateral triangle with side length \(L=0.20\,m\). Place the charges at:
+      Consider an equilateral triangle with side length \(L = 0.20\,m\) and vertices at:
       <br>
-      - \(q_A=+1.0\times10^{-7}\,C\) at vertex A \((0,0)\),<br>
-      - \(q_B=+2.0\times10^{-7}\,C\) at vertex B \((0.20,0)\),<br>
-      - \(q_C=+3.0\times10^{-7}\,C\) at vertex C \((0.10,0.1732)\) (the height of the triangle is \(0.20\sqrt{3}/2\approx0.1732\,m\)).
+      - Vertex A at \((0, 0)\),  
+      - Vertex B at \((0.20, 0)\), and  
+      - Vertex C at \((0.10, 0.1732)\) (since the height \(= 0.20\sqrt{3}/2 \approx 0.1732\,m\)).<br>
+      The charges are:
+      <br>
+      \(q_A = +2.0\times10^{-7}\,C\) (at A),  
+      \(q_B = -2.0\times10^{-7}\,C\) (at B), and  
+      \(q_C = -2.0\times10^{-7}\,C\) (at C).
     </p>
     <p>
-      <strong>Step 1: Force on \(q_A\) due to \(q_B\) (\(\vec{F}_{AB}\))</strong><br>
-      Using Coulomb’s law:
+      <strong>Step 1: Force on \(q_A\) due to \(q_B\)</strong><br>
+      The distance from A to B is \(L = 0.20\,m\). Using Coulomb’s law:
       \[
-      F_{AB}=k\frac{|q_Aq_B|}{L^2}=8.99\times10^9\times\frac{(1.0\times10^{-7})(2.0\times10^{-7})}{(0.20)^2}.
+      F_{AB} = k\frac{|q_Aq_B|}{L^2},
       \]
-      Evaluating:
+      with 
+      \(|q_Aq_B| = (2.0\times10^{-7})(2.0\times10^{-7}) = 4.0\times10^{-14}\,C^2\)
+      and \(L^2 = 0.04\). Thus,
       \[
-      F_{AB}\approx8.99\times10^9\times\frac{2.0\times10^{-14}}{0.04}\approx4.50\times10^{-3}\,N.
+      F_{AB} \approx 8.99\times10^9 \times \frac{4.0\times10^{-14}}{0.04} \approx 8.99\times10^{-3}\,N.
       \]
-      The force is repulsive, acting from \(q_B\) to \(q_A\) (i.e. in the negative \(\hat{i}\) direction):
+      Since \(q_A\) is positive and \(q_B\) is negative, the force is attractive—that is, directed from A toward B (i.e. along the positive \(\hat{i}\)):
       \[
-      \vec{F}_{AB}\approx4.50\times10^{-3}\,N\,(-\hat{i}).
+      \vec{F}_{AB} \approx 8.99\times10^{-3}\,N\,\hat{i}.
       \]
     </p>
     <p>
-      <strong>Step 2: Force on \(q_A\) due to \(q_C\) (\(\vec{F}_{AC}\))</strong><br>
-      Compute the magnitude:
+      <strong>Step 2: Force on \(q_A\) due to \(q_C\)</strong><br>
+      The distance from A to C is also \(0.20\,m\). Similarly,
       \[
-      F_{AC}=k\frac{|q_Aq_C|}{L^2}=8.99\times10^9\times\frac{(1.0\times10^{-7})(3.0\times10^{-7})}{(0.20)^2}\approx6.74\times10^{-3}\,N.
+      F_{AC} \approx 8.99\times10^9 \times \frac{4.0\times10^{-14}}{0.04} \approx 8.99\times10^{-3}\,N.
       \]
-      Determine the direction: The vector from \(q_C\) at \((0.10,0.1732)\) to \(q_A\) at \((0,0)\) is:
+      Since \(q_A\) is positive and \(q_C\) is negative, the force is attractive, directed from A toward C. The vector from A to C is:
       \[
-      \vec{r}_{AC} = -0.10\,\hat{i} - 0.1732\,\hat{j}.
+      \vec{r}_{AC} = (0.10,\, 0.1732).
       \]
-      Its magnitude is \(0.20\,m\), so the unit vector is:
+      Its unit vector is:
       \[
-      \hat{r}_{AC} = -0.5\,\hat{i} - 0.866\,\hat{j}.
+      \hat{r}_{AC} = \left(\frac{0.10}{0.20},\, \frac{0.1732}{0.20}\right) = (0.5,\, 0.866).
       \]
-      Thus,
+      Therefore,
       \[
-      \vec{F}_{AC}\approx6.74\times10^{-3}\,N\,(-0.5\,\hat{i}-0.866\,\hat{j}) \approx -3.37\times10^{-3}\,\hat{i} - 5.84\times10^{-3}\,\hat{j}\,N.
+      \vec{F}_{AC} \approx 8.99\times10^{-3}\,N \times (0.5\hat{i} + 0.866\hat{j}) \approx (4.50\times10^{-3}\,\hat{i} + 7.79\times10^{-3}\,\hat{j})\,N.
       \]
     </p>
     <p>
       <strong>Step 3: Net Force on \(q_A\)</strong><br>
-      Sum the forces component‑wise:
+      Sum the forces:
       <br>
-      \( F_x = -4.50\times10^{-3} + (-3.37\times10^{-3}) = -7.87\times10^{-3}\,N \),<br>
-      \( F_y = 0 + (-5.84\times10^{-3}) = -5.84\times10^{-3}\,N \).<br>
+      \( F_x = 8.99\times10^{-3}\,N + 4.50\times10^{-3}\,N = 13.49\times10^{-3}\,N \),<br>
+      \( F_y = 0 + 7.79\times10^{-3}\,N = 7.79\times10^{-3}\,N \).<br>
       The net force magnitude is:
       \[
-      |\vec{F}_{net}| = \sqrt{(-7.87\times10^{-3})^2+(-5.84\times10^{-3})^2} \approx 9.80\times10^{-3}\,N,
+      |\vec{F}_{net}| = \sqrt{(13.49\times10^{-3})^2 + (7.79\times10^{-3})^2} \approx \sqrt{0.000182 + 0.000061} \approx \sqrt{0.000243} \approx 0.0156\,N.
       \]
-      and the direction (angle measured from the negative \(\hat{i}\) direction) is:
+      The angle (relative to the +\(\hat{i}\) axis) is:
       \[
-      \theta = \arctan\left(\frac{5.84\times10^{-3}}{7.87\times10^{-3}}\right) \approx 36.5^\circ.
+      \theta = \arctan\left(\frac{7.79\times10^{-3}}{13.49\times10^{-3}}\right) \approx \arctan(0.577) \approx 30^\circ.
       \]
     </p>
     <p>
-      <strong>Final Answer:</strong><br>
-      The net force on \(q_A\) is approximately \(9.80\times10^{-3}\,N\), directed \(36.5^\circ\) below the negative \(\hat{i}\) (x‑axis).
+      <strong>Final Answer:</strong> The net force on \(q_A\) is approximately \(0.0156\,N\), directed \(30^\circ\) above the +\(\hat{i}\) axis.
     </p>
+    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob10')">Copy HTML</button>
   </div>
   
 </div>
