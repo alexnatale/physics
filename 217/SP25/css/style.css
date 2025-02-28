@@ -1,0 +1,61 @@
+/* /css/style.css */
+
+/* Global Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f5f5f5;
+}
+
+/* Main Container */
+.assignment-solutions {
+  background: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #444;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Solutions */
+.solution {
+  background: #fafafa;
+  padding: 15px;
+  border-left: 3px solid #666;
+  margin: 15px 0;
+}
+
+/* Headings */
+h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+/* Paragraphs */
+p {
+  line-height: 1.6;
+}
+
+/* Inline Code Blocks */
+code {
+  background: #eee;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* Emphasized Text */
+em {
+  color: #0066cc;
+}
+
+/* (Optional) Copy Button */
+.copy-btn {
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
