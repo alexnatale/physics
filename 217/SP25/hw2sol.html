@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phys 217 Homework 2 Solutions – Vectors & One-Dimensional Motion</title>
+
+  <!-- Inline styles adapted from the desired layout (similar to "second snippet") -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+    .assignment-solutions {
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #444;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .solution {
+      background: #fafafa;
+      padding: 15px;
+      border-left: 3px solid #666;
+      margin: 15px 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    h3 {
+      color: #333;
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    code {
+      background: #eee;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    em {
+      color: #0066cc;
+    }
+    ol, ul {
+      margin-left: 20px;
+    }
+  </style>
+
+  <!-- MathJax for LaTeX rendering -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body>
+
+  <div class="assignment-solutions" id="hw2-solutions">
+
+    <h1>Phys 217 Homework 2 Solutions<br>(Vectors &amp; One-Dimensional Motion)</h1>
+
+    <!-- Problem 1 -->
+    <div class="solution" id="hw2-prob1-solution">
+      <h3>Problem 1: Velocity Integration &amp; Displacement</h3>
+      <ol>
+        <li>
+          <strong>(a) Displacement:</strong>
+          <ul>
+            <li>The velocity is given by: <em>v(t) = 20.0 + 2.0t</em> (m/s).</li>
+            <li>Displacement from <em>t = 0</em> to <em>t = 10</em> s is:
+              <br>
+              \( \Delta x = \int_0^{10} (20.0 + 2.0t) \, dt \).
+            </li>
+            <li>Integrate:
+              <br>
+              \( \int (20.0 + 2.0t) \, dt = 20.0t + t^2 \).
+            </li>
+            <li>Evaluate from 0 to 10:
+              <br>
+              \(20.0(10) + (10)^2 = 200 + 100 = 300 \text{ m}\).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Final Velocity:</strong>
+          <ul>
+            <li>Plug <em>t = 10</em> into <em>v(t)</em>:
+              <br>
+              \(v(10) = 20.0 + 2.0(10) = 20.0 + 20.0 = 40.0\) m/s.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Comparison with Average Velocity:</strong>
+          <ul>
+            <li>The average velocity is
+              \[
+              v_{\text{avg}} = \frac{v(0) + v(10)}{2} = \frac{20.0 + 40.0}{2} = 30.0 \text{ m/s}.
+              \]
+            </li>
+            <li>Over 10 s, displacement = \(30.0 \text{ m/s} \times 10 \text{ s} = 300 \text{ m}\), which agrees with the integration result.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="solution" id="hw2-prob2-solution">
+      <h3>Problem 2: Free-Fall with Integration</h3>
+      <ol>
+        <li>
+          <strong>(a) Acceleration:</strong>
+          <ul>
+            <li>Taking downward as positive, \(a(t) = +9.8\) m/s².</li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Velocity:</strong>
+          <ul>
+            <li>Integrate acceleration:
+              \[
+              v(t) = \int a(t)\, dt = 9.8t + C.
+              \]
+            </li>
+            <li>Given the initial speed \(v(0) = +5.0\) m/s (downward),
+              <br>we have \(C = 5.0\). Thus, \(v(t) = 9.8t + 5.0\) m/s.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Position:</strong>
+          <ul>
+            <li>
+              Define \(y\) as the distance fallen (with \(y = 0\) at the start). Then:
+              \[
+              y(t) = \int v(t)\, dt = \int (9.8t + 5.0) \, dt = 4.9t^2 + 5.0t.
+              \]
+            </li>
+            <li>
+              Since the object is thrown from a height of 80.0 m above the ground, the ground is reached when \(y(t) = 80.0\) m.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(d) Time to Reach the Ground:</strong>
+          <ul>
+            <li>
+              Set \(4.9t^2 + 5.0t = 80.0\):
+              \[
+              4.9t^2 + 5.0t - 80.0 = 0.
+              \]
+            </li>
+            <li>
+              Solve using the quadratic formula:
+              \[
+              t = \frac{-5.0 \pm \sqrt{(5.0)^2 - 4(4.9)(-80.0)}}{2(4.9)}.
+              \]
+            </li>
+            <li>
+              Compute the discriminant:
+              \[
+              25 + 4 \times 4.9 \times 80 = 25 + 1568 = 1593.
+              \]
+            </li>
+            <li>
+              Taking the positive root:
+              \[
+              t \approx \frac{-5.0 + \sqrt{1593}}{9.8} \approx \frac{-5.0 + 39.91}{9.8} \approx \frac{34.91}{9.8} \approx 3.56 \text{ s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(e) Speed at Impact:</strong>
+          <ul>
+            <li>
+              \(v(3.56) = 9.8(3.56) + 5.0 \approx 34.89 + 5.0 \approx 39.89\) m/s.
+            </li>
+            <li>Thus, the impact speed is approximately 39.9 m/s.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="solution" id="hw2-prob3-solution">
+      <h3>Problem 3: Projectile-Like 1D Upward Throw</h3>
+      <ol>
+        <li>
+          <strong>(a) Time to Maximum Height:</strong>
+          <ul>
+            <li>For an upward throw with initial speed 15.0 m/s and acceleration \(a = -9.8\) m/s² (upward positive):
+              <br>Set \(v(t) = 15.0 - 9.8t = 0\).
+            </li>
+            <li>Solve for \(t\):
+              \[
+              t = \frac{15.0}{9.8} \approx 1.53 \text{ s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Maximum Height:</strong>
+          <ul>
+            <li>Use the displacement formula:
+              \[
+              y = v_0t - 4.9t^2.
+              \]
+            </li>
+            <li>At \(t = 1.53\) s:
+              \[
+              y \approx 15.0(1.53) - 4.9(1.53)^2 \approx 22.95 - 11.45 \approx 11.50 \text{ m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Total Time in Air:</strong>
+          <ul>
+            <li>For symmetric projectile motion (ignoring air resistance), time up equals time down.
+              <br>Total time \(\approx 2 \times 1.53 \approx 3.06\) s.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="solution" id="hw2-prob4-solution">
+      <h3>Problem 4: Uniform Acceleration &amp; Displacement</h3>
+      <ol>
+        <li>
+          <strong>(a) Constant Acceleration:</strong>
+          <ul>
+            <li>\(a = \frac{8.0 - 3.0}{5.0} = \frac{5.0}{5.0} = 1.0 \text{ m/s}^2.\)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Displacement via Integration:</strong>
+          <ul>
+            <li>The velocity function: \(v(t) = 3.0 + 1.0t\).</li>
+            <li>Integrate:
+              \[
+              x(t) = \int_0^5 (3.0 + t) \, dt = \left[3.0t + \frac{1}{2}t^2\right]_0^5.
+              \]
+            </li>
+            <li>Evaluate:
+              \[
+              x(5) = 3.0(5) + 0.5(25) = 15 + 12.5 = 27.5 \text{ m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Average Velocity Check:</strong>
+          <ul>
+            <li>\(v_{\text{avg}} = \frac{3.0 + 8.0}{2} = 5.5 \text{ m/s}\).</li>
+            <li>Displacement \(= 5.5 \times 5 = 27.5\) m, which agrees with the integrated value.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="solution" id="hw2-prob5-solution">
+      <h3>Problem 5: Vector Basics</h3>
+      <ol>
+        <li>
+          <strong>(a) Magnitude of A:</strong>
+          <ul>
+            <li>\(A = 3.0\hat{i} + 4.0\hat{j}\) has magnitude \(\sqrt{3.0^2 + 4.0^2} = \sqrt{9 + 16} = 5.0\) m.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Angle with the +x-axis:</strong>
+          <ul>
+            <li>\(\theta = \arctan\left(\frac{4.0}{3.0}\right) \approx 53.13^\circ.\)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Sum with Vector B:</strong>
+          <ul>
+            <li>Given \(B = -2.0\hat{i} + 1.0\hat{j}\), then
+              \[
+              A+B = (3.0 + (-2.0))\hat{i} + (4.0 + 1.0)\hat{j} = 1.0\hat{i} + 5.0\hat{j}.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="solution" id="hw2-prob6-solution">
+      <h3>Problem 6: Vector Addition &amp; Angles</h3>
+      <ol>
+        <li>
+          <strong>(a) Components of \(D_1\):</strong>
+          <ul>
+            <li>\(D_1 = 5.0\) m at 30° above +x:
+              <br>\(D_{1x} = 5.0\cos30^\circ \approx 5.0 \times 0.866 \approx 4.33\) m,
+              <br>\(D_{1y} = 5.0\sin30^\circ = 5.0 \times 0.5 = 2.5\) m.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(a) Components of \(D_2\):</strong>
+          <ul>
+            <li>\(D_2 = 7.0\) m at 110° from +x:
+              <br>\(D_{2x} = 7.0\cos110^\circ \approx 7.0 \times (-0.342) \approx -2.39\) m,
+              <br>\(D_{2y} = 7.0\sin110^\circ \approx 7.0 \times 0.94 \approx 6.58\) m.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Resultant Vector \(D = D_1 + D_2\):</strong>
+          <ul>
+            <li>\(D_x = 4.33 + (-2.39) \approx 1.94\) m,
+              <br>\(D_y = 2.5 + 6.58 \approx 9.08\) m.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Magnitude and Direction of \(D\):</strong>
+          <ul>
+            <li>Magnitude:
+              \[
+              |D| = \sqrt{(1.94)^2 + (9.08)^2} \approx \sqrt{3.76 + 82.46} \approx \sqrt{86.22} \approx 9.29 \text{ m}.
+              \]
+            </li>
+            <li>Direction:
+              \[
+              \theta = \arctan\left(\frac{9.08}{1.94}\right) \approx \arctan(4.68) \approx 78.0^\circ \text{ above the +x-axis}.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="solution" id="hw2-prob7-solution">
+      <h3>Problem 7: Upward Launch from a Platform</h3>
+      <ol>
+        <li>
+          <strong>(a) Equations of Motion:</strong>
+          <ul>
+            <li>Assume upward as positive; the object is launched from a platform 2.0 m above ground with initial speed 12.0 m/s.
+            </li>
+            <li>Acceleration: \(a = -9.8\) m/s².
+            </li>
+            <li>Velocity: \(v(t) = 12.0 - 9.8t\).
+            </li>
+            <li>Position: \(y(t) = 2.0 + 12.0t - 4.9t^2\) (with \(y(0)=2.0\) m).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Time to Hit the Ground:</strong>
+          <ul>
+            <li>Set \(y(t)=0\):
+              \[
+              2.0 + 12.0t - 4.9t^2 = 0 \quad \Longrightarrow \quad 4.9t^2 - 12.0t - 2.0 = 0.
+              \]
+            </li>
+            <li>Solve using the quadratic formula:
+              \[
+              t = \frac{12.0 \pm \sqrt{(12.0)^2 + 4(4.9)(2.0)}}{2(4.9)}.
+              \]
+            </li>
+            <li>Discriminant: \(144 + 39.2 = 183.2\); \(\sqrt{183.2} \approx 13.54\).
+            </li>
+            <li>Taking the positive root:
+              \[
+              t \approx \frac{12.0 + 13.54}{9.8} \approx \frac{25.54}{9.8} \approx 2.61 \text{ s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Maximum Height Above the Platform:</strong>
+          <ul>
+            <li>The maximum height is reached when \(v(t)=0\):
+              \[
+              12.0 - 9.8t = 0 \quad \Longrightarrow \quad t \approx \frac{12.0}{9.8} \approx 1.22 \text{ s}.
+              \]
+            </li>
+            <li>Plug \(t = 1.22\) s into \(y(t)\):
+              \[
+              y(1.22) = 2.0 + 12.0(1.22) - 4.9(1.22)^2.
+              \]
+            </li>
+            <li>Calculation:
+              <br>\(12.0 \times 1.22 \approx 14.64\);
+              <br>\(1.22^2 \approx 1.488\) so \(4.9 \times 1.488 \approx 7.29\);
+              <br>\(y(1.22) \approx 2.0 + 14.64 - 7.29 \approx 9.35\) m.
+            </li>
+            <li>Thus, the maximum height above ground is approximately 9.35 m (which is about 7.35 m above the 2.0 m platform).
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="solution" id="hw2-prob8-solution">
+      <h3>Problem 8: Position Function &amp; Derivatives</h3>
+      <ol>
+        <li>
+          <strong>(a) Velocity:</strong>
+          <ul>
+            <li>Given \(x(t) = 2.0t^2 - 0.5t + 1.0\), differentiate:
+              \[
+              v(t) = \frac{dx}{dt} = 4.0t - 0.5.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Acceleration:</strong>
+          <ul>
+            <li>Differentiate \(v(t)\):
+              \[
+              a(t) = \frac{dv}{dt} = 4.0 \text{ m/s}^2.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Maximum Velocity:</strong>
+          <ul>
+            <li>Since \(v(t)=4.0t - 0.5\) is a linear function (with constant positive acceleration), it increases without bound on an open interval.
+              <br>Thus, over any finite interval the maximum velocity is attained at the upper endpoint.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="solution" id="hw2-prob9-solution">
+      <h3>Problem 9: Deceleration &amp; Distance</h3>
+      <ol>
+        <li>
+          <strong>(a) Constant Deceleration:</strong>
+          <ul>
+            <li>The car decelerates from 30.0 m/s to 0 in 4.0 s:
+              \[
+              a = \frac{0 - 30.0}{4.0} = -7.5 \text{ m/s}^2.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Distance Covered:</strong>
+          <ul>
+            <li>With \(v(t) = 30.0 - 7.5t\), the displacement is:
+              \[
+              x = \int_0^4 (30.0 - 7.5t) \, dt.
+              \]
+            </li>
+            <li>Integrate:
+              \[
+              \int (30.0 - 7.5t) \, dt = 30.0t - 3.75t^2.
+              \]
+            </li>
+            <li>Evaluate from 0 to 4:
+              \[
+              x = 30.0(4) - 3.75(16) = 120 - 60 = 60 \text{ m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Average Velocity Check:</strong>
+          <ul>
+            <li>Average velocity \(=\frac{30.0 + 0}{2} = 15.0\) m/s.</li>
+            <li>Distance \(= 15.0 \times 4.0 = 60\) m, which agrees with the integrated result.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="solution" id="hw2-prob10-solution">
+      <h3>Problem 10: Displacement from Velocity</h3>
+      <ol>
+        <li>
+          <strong>(a) Find \(x(t)\):</strong>
+          <ul>
+            <li>Given \(v(t) = 4t - 2\), integrate:
+              \[
+              x(t) = \int (4t - 2) \, dt = 2t^2 - 2t + C.
+              \]
+            </li>
+            <li>With \(x(0)=0\), we have \(C = 0\). Thus, \(x(t) = 2t^2 - 2t\).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Displacement between \(t=1\) s and \(t=3\) s:</strong>
+          <ul>
+            <li>\(x(3) = 2(9) - 2(3) = 18 - 6 = 12\) m, and \(x(1) = 2(1) - 2(1) = 0\) m.</li>
+            <li>Displacement \(= 12 - 0 = 12\) m.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Time when \(v(t)=0\):</strong>
+          <ul>
+            <li>Solve \(4t - 2 = 0 \Rightarrow t = 0.5\) s.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+  </div> <!-- /assignment-solutions -->
+
+</body>
+</html>
