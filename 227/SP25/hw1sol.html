@@ -2,342 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Phys 227 Homework 1 Solutions</title>
+  <title>Format/Template Description for Homework Solutions</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background-color: #f5f5f5;
+      background: #f5f5f5;
     }
-    h3 {
-      text-align: center;
-      color: #333;
-    }
-    .assignment-solutions {
-      background-color: #fff;
+    .container {
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
       padding: 20px;
       border: 2px solid #444;
-      margin: 20px auto;
-      max-width: 800px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     }
-    .solution {
-      margin: 15px 0;
-      padding: 15px;
-      border: 1px dashed #888;
-      background-color: #f9f9f9;
+    code {
+      background: #eee;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
     }
-    p {
-      line-height: 1.6;
+    .section-title {
+      margin-top: 1.2em;
+      color: #333;
     }
-    em {
-      color: #0066cc;
+    .example {
+      background: #fafafa;
+      padding: 10px;
+      border-left: 3px solid #666;
+      margin: 10px 0;
     }
   </style>
-  <!-- MathJax for rendering LaTeX equations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 </head>
 <body>
 
-<div class="assignment-solutions" id="hw1-solutions">
-  <h3>Homework 1 Solutions: Vectors, Electric Charge, and Coulomb's Law</h3>
-  
-  <!-- Problem 1 -->
-  <div class="solution" id="hw1-sol-prob1">
-    <p><strong>Solution to Problem 1 (Advanced Vector Operations):</strong></p>
-    <p>
-      <em>Part (a):</em><br>
-      Given \(\mathbf{A} = 3\hat{i} - 4\hat{j} + 2\hat{k}\).<br>
-      Compute the magnitude:
-      \[
-      |\mathbf{A}| = \sqrt{3^2+(-4)^2+2^2} = \sqrt{9+16+4} = \sqrt{29}.
-      \]
-      The unit vector is:
-      \[
-      \hat{A} = \frac{\mathbf{A}}{|\mathbf{A}|} = \frac{3\hat{i} - 4\hat{j} + 2\hat{k}}{\sqrt{29}}.
-      \]
-    </p>
-    <p>
-      <em>Part (b):</em><br>
-      For \(\mathbf{B} = \hat{i} + 2\hat{j} - 2\hat{k}\), compute the dot product:
-      \[
-      \mathbf{A}\cdot\mathbf{B} = 3\cdot1 + (-4)\cdot2 + 2\cdot(-2) = 3 - 8 - 4 = -9.
-      \]
-      The negative sign indicates that the angle between \(\mathbf{A}\) and \(\mathbf{B}\) is obtuse.
-    </p>
-    <p>
-      <em>Part (c):</em><br>
-      Compute the cross product \( \mathbf{A}\times\mathbf{B} \) using the formula:
-      \[
-      \mathbf{A}\times\mathbf{B} = (a_2b_3 - a_3b_2,\; a_3b_1 - a_1b_3,\; a_1b_2 - a_2b_1).
-      \]
-      Substituting \(\mathbf{A} = 3\hat{i} - 4\hat{j} + 2\hat{k}\) and \(\mathbf{B} = \hat{i} + 2\hat{j} - 2\hat{k}\):<br>
-      - \(x\)-component: \((-4)(-2) - (2)(2)=8-4=4\),<br>
-      - \(y\)-component: \((2)(1) - (3)(-2)=2+6=8\),<br>
-      - \(z\)-component: \((3)(2) - (-4)(1)=6+4=10\).<br>
-      Thus, 
-      \[
-      \mathbf{A}\times\mathbf{B} = 4\hat{i} + 8\hat{j} + 10\hat{k}.
-      \]
-      Verification: \( \mathbf{A}\cdot(\mathbf{A}\times\mathbf{B})=0 \) and \( \mathbf{B}\cdot(\mathbf{A}\times\mathbf{B})=0 \).
-    </p>
-  </div>
-  
-  <!-- Problem 2 -->
-  <div class="solution" id="hw1-sol-prob2">
-    <p><strong>Solution to Problem 2 (Vector Addition &amp; Decomposition):</strong></p>
-    <p>
-      <em>Part (a):</em><br>
-      With \(\mathbf{C} = 2\hat{i} + 3\hat{j}\) and \(\mathbf{D} = -\hat{i} + 4\hat{j}\), add component‑wise:
-      \[
-      \mathbf{R}=\mathbf{C}+\mathbf{D}=(2+(-1))\hat{i}+(3+4)\hat{j}=(\hat{i}+7\hat{j}).
-      \]
-    </p>
-    <p>
-      <em>Part (b):</em><br>
-      Magnitude of \(\mathbf{R}\):
-      \[
-      |\mathbf{R}|=\sqrt{1^2+7^2}=\sqrt{1+49}=\sqrt{50}=5\sqrt{2}.
-      \]
-      Direction (angle from the +x‑axis):
-      \[
-      \theta=\arctan\left(\frac{7}{1}\right)\approx81.87^\circ.
-      \]
-    </p>
-    <p>
-      <em>Part (c):</em><br>
-      The computed magnitude confirms the result in (b).
-    </p>
-  </div>
-  
-  <!-- Problem 3 -->
-  <div class="solution" id="hw1-sol-prob3">
-    <p><strong>Solution to Problem 3 (Dot Product and Angle Between Vectors):</strong></p>
-    <p>
-      Given \(\mathbf{A} = 4\hat{i} - 2\hat{j} + \hat{k}\) and \(\mathbf{B} = \hat{i} + \hat{j}\) (note: the \(k\)-component of \(\mathbf{B}\) is 0), we first compute the dot product:
-      \[
-      \mathbf{A}\cdot\mathbf{B}=4\cdot1 + (-2)\cdot1 + 1\cdot0 = 4-2=2.
-      \]
-    </p>
-    <p>
-      Then, to find the angle \(\theta\) between \(\mathbf{A}\) and \(\mathbf{B}\), we use:
-      \[
-      \cos\theta=\frac{\mathbf{A}\cdot\mathbf{B}}{|\mathbf{A}||\mathbf{B}|}.
-      \]
-      First, compute \(|\mathbf{A}|=\sqrt{4^2+(-2)^2+1^2}=\sqrt{16+4+1}=\sqrt{21}\) and \(|\mathbf{B}|=\sqrt{1^2+1^2}=\sqrt{2}\). Then,
-      \[
-      \cos\theta=\frac{2}{\sqrt{21}\sqrt{2}}=\frac{2}{\sqrt{42}},
-      \]
-      so
-      \[
-      \theta=\arccos\left(\frac{2}{\sqrt{42}}\right).
-      \]
-    </p>
-  </div>
-  
-  <!-- Problem 4 -->
-  <div class="solution" id="hw1-sol-prob4">
-    <p><strong>Solution to Problem 4 (Resultant of Multiple Vectors):</strong></p>
-    <p>
-      Given \(\mathbf{P} = 2\hat{i} + 3\hat{k}\) (i.e. \(2\hat{i}+0\hat{j}+3\hat{k}\)), \(\mathbf{Q} = -\hat{i} + 4\hat{j}\) (i.e. \(-\hat{i}+4\hat{j}+0\hat{k}\)), and \(\mathbf{R} = -2\hat{j} + 5\hat{k}\) (i.e. \(0\hat{i}-2\hat{j}+5\hat{k}\)), add them component‑wise:
-      \[
-      \mathbf{S}=\mathbf{P}+\mathbf{Q}+\mathbf{R}=(2-1+0)\hat{i}+(0+4-2)\hat{j}+(3+0+5)\hat{k}=(\hat{i}+2\hat{j}+8\hat{k}).
-      \]
-      The magnitude of \(\mathbf{S}\) is:
-      \[
-      |\mathbf{S}|=\sqrt{1^2+2^2+8^2}=\sqrt{1+4+64}=\sqrt{69}.
-      \]
-    </p>
-  </div>
-  
-  <!-- Problem 5 -->
-  <div class="solution" id="hw1-sol-prob5">
-    <p><strong>Solution to Problem 5 (Cross Product and Area Calculation):</strong></p>
-    <p>
-      <em>Part (a):</em><br>
-      Given \(\mathbf{U} = \hat{i} + 3\hat{j} - 2\hat{k}\) and \(\mathbf{V} = 4\hat{i} - \hat{j} + 2\hat{k}\), compute the cross product using the determinant method:
-      \[
-      \mathbf{U}\times\mathbf{V} =
-      \begin{vmatrix}
-      \hat{i} & \hat{j} & \hat{k} \\
-      1 & 3 & -2 \\
-      4 & -1 & 2
-      \end{vmatrix}.
-      \]
-      Components:<br>
-      - \(x\)-component: \(3\cdot2 - (-2)\cdot(-1)=6-2=4\),<br>
-      - \(y\)-component: \((-2)\cdot4 - 1\cdot2=-8-2=-10\),<br>
-      - \(z\)-component: \(1\cdot(-1)-3\cdot4=-1-12=-13\).<br>
-      Thus, 
-      \[
-      \mathbf{U}\times\mathbf{V} = 4\hat{i} - 10\hat{j} - 13\hat{k}.
-      \]
-    </p>
-    <p>
-      <em>Part (b):</em><br>
-      The area of the parallelogram defined by \(\mathbf{U}\) and \(\mathbf{V}\) is the magnitude of \(\mathbf{U}\times\mathbf{V}\):
-      \[
-      \text{Area}=\sqrt{4^2+(-10)^2+(-13)^2}=\sqrt{16+100+169}=\sqrt{285}.
-      \]
-    </p>
-  </div>
-  
-  <!-- Problem 6 -->
-  <div class="solution" id="hw1-sol-prob6">
-    <p><strong>Solution to Problem 6 (Coulomb Force Between Two Charges):</strong></p>
-    <p>
-      Given \(q_1=+2.0\times10^{-7}\,C\) and \(q_2=-3.0\times10^{-7}\,C\) with a separation \(r=0.15\,m\).<br>
-      (a) Using Coulomb’s law:
-      \[
-      F=k\frac{|q_1q_2|}{r^2},
-      \]
-      with \(k\approx8.99\times10^9\,N\cdot m^2/C^2\).<br>
-      Compute \(|q_1q_2|=2.0\times10^{-7}\times3.0\times10^{-7}=6.0\times10^{-14}\) and \(r^2=0.15^2=0.0225\).<br>
-      Thus,
-      \[
-      F\approx8.99\times10^9\times\frac{6.0\times10^{-14}}{0.0225}\approx0.0240\,N.
-      \]
-      (b) Because the charges have opposite signs, the force is attractive.
-    </p>
-  </div>
-  
-  <!-- Problem 7 -->
-  <div class="solution" id="hw1-sol-prob7">
-    <p><strong>Solution to Problem 7 (Superposition of Coulomb Forces):</strong></p>
-    <p>
-      Three charges along the x‑axis: \(q_1=+3.0\times10^{-7}\,C\) at \(x=0\), \(q_2=-1.0\times10^{-7}\,C\) at \(x=0.20\,m\), and \(q_3=+2.0\times10^{-7}\,C\) at \(x=0.35\,m\).<br>
-      <em>Force on \(q_2\) due to \(q_1\):</em><br>
-      \[
-      F_{12}=k\frac{|q_1q_2|}{(0.20)^2}\approx8.99\times10^9\times\frac{(3.0\times10^{-7})(1.0\times10^{-7})}{0.04}\approx6.74\times10^{-3}\,N.
-      \]
-      Since the force is attractive, it acts toward \(q_1\) (i.e. in the negative x‑direction).<br>
-      <em>Force on \(q_2\) due to \(q_3\):</em><br>
-      The separation between \(q_2\) and \(q_3\) is \(0.35-0.20=0.15\,m\).<br>
-      \[
-      F_{32}=k\frac{|q_3q_2|}{(0.15)^2}\approx8.99\times10^9\times\frac{(2.0\times10^{-7})(1.0\times10^{-7})}{0.0225}\approx8.00\times10^{-3}\,N.
-      \]
-      This force is directed toward \(q_3\) (i.e. in the positive x‑direction).<br>
-      <em>Net force on \(q_2\):</em><br>
-      \[
-      F_{net}\approx8.00\times10^{-3}\,N - 6.74\times10^{-3}\,N = 1.26\times10^{-3}\,N,
-      \]
-      directed to the right.
-    </p>
-  </div>
-  
-  <!-- Problem 8 -->
-  <div class="solution" id="hw1-sol-prob8">
-    <p><strong>Solution to Problem 8 (Effect of Separation on Coulomb Force):</strong></p>
-    <p>
-      Given \(q_1=+2.0\times10^{-7}\,C\) and \(q_2=-2.0\times10^{-7}\,C\) with initial separation \(r=0.10\,m\).<br>
-      (a) Calculate the initial force:
-      \[
-      F=k\frac{|q_1q_2|}{(0.10)^2}=8.99\times10^9\times\frac{4.0\times10^{-14}}{0.01}\approx0.0360\,N.
-      \]
-      (b) If the separation increases by 20%, then \(r=0.10\times1.20=0.12\,m\).<br>
-      \[
-      F_{new}=8.99\times10^9\times\frac{4.0\times10^{-14}}{(0.12)^2}\approx0.0250\,N.
-      \]
-      (c) The inverse square law shows that increasing \(r\) reduces the force approximately by a factor of \(\left(\frac{0.10}{0.12}\right)^2\approx0.69\).
-    </p>
-  </div>
-  
-  <!-- Problem 9 -->
-  <div class="solution" id="hw1-sol-prob9">
-    <p><strong>Solution to Problem 9 (Equilibrium Position for a Test Charge):</strong></p>
-    <p>
-      Two fixed charges: \(q_1=+3.0\times10^{-7}\,C\) at \(x=0\) and \(q_2=+1.0\times10^{-7}\,C\) at \(x=0.50\,m\).<br>
-      A test charge \(q_0=-1.0\times10^{-7}\,C\) is placed between them. Let the test charge be at a distance \(x\) from \(q_1\) (located at the origin) and \(0.50-x\) from \(q_2\).<br>
-      The forces on \(q_0\) are:
-      \[
-      F_1=k\frac{|q_0q_1|}{x^2}\quad \text{and} \quad F_2=k\frac{|q_0q_2|}{(0.50-x)^2}.
-      \]
-      For equilibrium, set \(F_1=F_2\):
-      \[
-      \frac{3.0\times10^{-7}}{x^2}=\frac{1.0\times10^{-7}}{(0.50-x)^2}.
-      \]
-      Rearranging:
-      \[
-      3(0.50-x)^2=x^2.
-      \]
-      Taking square roots:
-      \[
-      \sqrt{3}(0.50-x)=x.
-      \]
-      Solving:
-      \[
-      x=\frac{0.50\sqrt{3}}{1+\sqrt{3}}\approx\frac{0.50\times1.732}{2.732}\approx0.317\,m.
-      \]
-      Thus, the test charge should be placed about \(0.317\,m\) from \(q_1\) (and \(0.183\,m\) from \(q_2\)).
-    </p>
-  </div>
-  
-  <!-- Problem 10 -->
-  <div class="solution" id="hw1-sol-prob10">
-    <p><strong>Solution to Problem 10 (Coulomb Force in a Triangular Charge Configuration):</strong></p>
-    <p>
-      <em>Assumptions and Setup:</em><br>
-      Consider an equilateral triangle with side length \(L=0.20\,m\). Place the charges at:
-      <br>
-      - \(q_A=+1.0\times10^{-7}\,C\) at vertex A \((0,0)\),<br>
-      - \(q_B=+2.0\times10^{-7}\,C\) at vertex B \((0.20,0)\),<br>
-      - \(q_C=+3.0\times10^{-7}\,C\) at vertex C \((0.10,0.1732)\) (note: the height of an equilateral triangle is \(0.20\sqrt{3}/2\approx0.1732\,m\)).
-    </p>
-    <p>
-      <strong>Step 1: Force on \(q_A\) due to \(q_B\) (\(\vec{F}_{AB}\))</strong><br>
-      Using Coulomb’s law:
-      \[
-      F_{AB}=k\frac{|q_Aq_B|}{L^2}=8.99\times10^9\times\frac{(1.0\times10^{-7})(2.0\times10^{-7})}{(0.20)^2}.
-      \]
-      Evaluating:
-      \[
-      F_{AB}\approx8.99\times10^9\times\frac{2.0\times10^{-14}}{0.04}\approx4.50\times10^{-3}\,N.
-      \]
-      The force is repulsive, acting from \(q_B\) to \(q_A\) (i.e. in the negative x‑direction):
-      \[
-      \vec{F}_{AB}\approx4.50\times10^{-3}\,N\,(-\hat{i}).
-      \]
-    </p>
-    <p>
-      <strong>Step 2: Force on \(q_A\) due to \(q_C\) (\(\vec{F}_{AC}\))</strong><br>
-      Compute the magnitude:
-      \[
-      F_{AC}=k\frac{|q_Aq_C|}{L^2}=8.99\times10^9\times\frac{(1.0\times10^{-7})(3.0\times10^{-7})}{(0.20)^2}\approx6.74\times10^{-3}\,N.
-      \]
-      Determine the direction: The vector from \(q_C\) at \((0.10,0.1732)\) to \(q_A\) at \((0,0)\) is:
-      \[
-      \vec{r}_{AC} = -0.10\,\hat{i} - 0.1732\,\hat{j}.
-      \]
-      Its magnitude is \(0.20\,m\), so the unit vector is:
-      \[
-      \hat{r}_{AC} = \left(-\frac{0.10}{0.20}\hat{i} - \frac{0.1732}{0.20}\hat{j}\right) = -0.5\,\hat{i} - 0.866\,\hat{j}.
-      \]
-      Thus,
-      \[
-      \vec{F}_{AC}\approx6.74\times10^{-3}\,N\,(-0.5\,\hat{i}-0.866\,\hat{j}) \approx -3.37\times10^{-3}\,\hat{i} - 5.84\times10^{-3}\,\hat{j}\,N.
-      \]
-    </p>
-    <p>
-      <strong>Step 3: Net Force on \(q_A\)</strong><br>
-      Sum the forces component‑wise:
-      <br>
-      \( F_x = -4.50\times10^{-3} + (-3.37\times10^{-3}) = -7.87\times10^{-3}\,N \),<br>
-      \( F_y = 0 + (-5.84\times10^{-3}) = -5.84\times10^{-3}\,N \).<br>
-      The net force magnitude is:
-      \[
-      |\vec{F}_{net}| = \sqrt{(-7.87\times10^{-3})^2+(-5.84\times10^{-3})^2} \approx 9.80\times10^{-3}\,N.
-      \]
-      And the direction (angle measured from the negative x‑axis) is:
-      \[
-      \theta = \arctan\left(\frac{5.84\times10^{-3}}{7.87\times10^{-3}}\right)\approx36.5^\circ.
-      \]
-    </p>
-    <p>
-      <strong>Final Answer:</strong><br>
-      The net force on \(q_A\) is approximately \(9.80\times10^{-3}\,N\), directed \(36.5^\circ\) below the negative x‑axis.
-    </p>
-  </div>
-  
+<div class="container">
+  <h1>Format/Template Description for Homework Solutions</h1>
+
+  <p>
+    The general structure for the homework solutions document involves clear delineation
+    of each problem’s solution in its own dedicated HTML block. Below is a step-by-step
+    breakdown of how to format such a solutions file.
+  </p>
+
+  <!-- Section 1 -->
+  <h2 class="section-title">1. Document Setup</h2>
+  <ul>
+    <li>
+      Include the standard <strong>HTML5 DOCTYPE</strong> and a <code>lang="en"</code> attribute
+      for the <code>&lt;html&gt;</code> tag.
+    </li>
+    <li>
+      Inside the <code>&lt;head&gt;</code>, use <code>&lt;meta charset="UTF-8"&gt;</code>
+      for character encoding, and a descriptive <code>&lt;title&gt;</code> (e.g., “Homework 2 Solutions”).
+    </li>
+    <li>
+      Add an inline <code>&lt;style&gt;</code> block or link a CSS file that defines
+      the layout, typography, and appearance of the solutions blocks.
+    </li>
+    <li>
+      Optionally (and commonly for physics/mathematical content), load
+      <strong>MathJax</strong> via a <code>&lt;script&gt;</code> tag in the head:
+      <pre class="example"><code>&lt;script 
+  type="text/javascript" 
+  async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"&gt;
+&lt;/script&gt;</code></pre>
+      This allows LaTeX expressions to be displayed properly.
+    </li>
+  </ul>
+
+  <!-- Section 2 -->
+  <h2 class="section-title">2. Main Body Structure</h2>
+  <ul>
+    <li>
+      After the opening <code>&lt;body&gt;</code> tag, use a large heading (e.g., <code>&lt;h1&gt;</code>)
+      and possibly a subtitle (<code>&lt;h2&gt;</code>) to indicate the course name, homework number,
+      and relevant topic (e.g., “Gauss’s Law and Electric Fields”).
+    </li>
+    <li>
+      Enclose all solutions in a main container <code>&lt;div&gt;</code>, commonly given a class like
+      <code>assignment-solutions</code>. This container typically has border/padding styling
+      for readability:
+      <pre class="example"><code>&lt;div class="assignment-solutions" id="hw2-solutions"&gt;
+  ... all solutions ...
+&lt;/div&gt;</code></pre>
+    </li>
+  </ul>
+
+  <!-- Section 3 -->
+  <h2 class="section-title">3. Individual Solution Blocks</h2>
+  <ul>
+    <li>
+      Each problem’s solution is wrapped in its own <code>&lt;div&gt;</code> with a class
+      such as <code>solution</code> and a unique ID (e.g., <code>hw2-sol-prob1</code>).
+      This helps with styling and direct linking to that specific solution:
+      <pre class="example"><code>&lt;div class="solution" id="hw2-sol-prob1"&gt;
+  &lt;h3&gt;Problem 1: Title Here&lt;/h3&gt;
+  &lt;p&gt;Step-by-step explanation ...&lt;/p&gt;
+  &lt;!-- More content --&gt;
+&lt;/div&gt;</code></pre>
+    </li>
+    <li>
+      For multi-part problems, you can label sub-parts with <strong>(a)</strong>, <strong>(b)</strong>,
+      <strong>(c)</strong>, etc. These can be either separate paragraphs or lists. For instance:
+      <pre class="example"><code>&lt;p&gt;&lt;strong&gt;(a)&lt;/strong&gt; Explanation of part (a).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(b)&lt;/strong&gt; Explanation of part (b).&lt;/p&gt;</code></pre>
+    </li>
+  </ul>
+
+  <!-- Section 4 -->
+  <h2 class="section-title">4. Equations and MathJax</h2>
+  <ul>
+    <li>
+      Place inline math between <code>\( ...\)</code> and display math between <code>\[ ...\]</code>.
+      Example (inline): <code>\(E = \frac{q}{4\pi \varepsilon_0 r^2}\)</code> 
+      and example (displayed):
+      <pre class="example"><code>\[
+  E = \frac{1}{4 \pi \varepsilon_0} \frac{q}{r^2}.
+\]</code></pre>
+    </li>
+    <li>
+      Optionally, for styling, enclose equation blocks in a <code>&lt;div class="equation"&gt;</code>.
+    </li>
+  </ul>
+
+  <!-- Section 5 -->
+  <h2 class="section-title">5. Example Skeleton</h2>
+  <p>
+    A concise illustration of the final structure might look like:
+  </p>
+  <pre class="example"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Homework 2 Solutions&lt;/title&gt;
+  &lt;style&gt;
+    /* minimal CSS styles here */
+  &lt;/style&gt;
+  &lt;script 
+    async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"&gt;
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;h1&gt;Homework 2: Gauss’s Law and Electric Fields&lt;/h1&gt;
+  &lt;div class="assignment-solutions" id="hw2-solutions"&gt;
+
+    &lt;div class="solution" id="hw2-sol-prob1"&gt;
+      &lt;h3&gt;Problem 1: Spherical Gaussian Surface&lt;/h3&gt;
+      &lt;p&gt;Use Gauss’s Law \(\Phi_E = Q_{\text{enc}}/\varepsilon_0\)... etc.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="solution" id="hw2-sol-prob2"&gt;
+      &lt;h3&gt;Problem 2: Infinite Plane of Charge&lt;/h3&gt;
+      &lt;p&gt;(a) Derive the electric field: \[ E = \frac{\sigma}{2 \varepsilon_0} \].&lt;/p&gt;
+      &lt;p&gt;(b) Numerical example...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- more solutions --&gt;
+
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <p>
+    Following the above conventions yields a clean, consistent, and easily maintainable set of
+    homework solutions complete with well-rendered math, clear headings, and logical structure.
+  </p>
+
 </div>
 
 </body>
