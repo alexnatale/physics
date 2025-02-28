@@ -2,395 +2,312 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework 2 Solutions: Gauss’s Law and Electric Fields</title>
+  <title>Phys 227 Homework 2 Solutions</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
       background-color: #f5f5f5;
     }
-    h1, h2 {
+    h3 {
       text-align: center;
       color: #333;
     }
     .assignment-solutions {
-      max-width: 900px;
-      margin: 0 auto;
       background-color: #fff;
       padding: 20px;
       border: 2px solid #444;
+      margin: 20px auto;
+      max-width: 800px;
       box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
     }
     .solution {
       margin: 15px 0;
       padding: 15px;
       border: 1px dashed #888;
-      background-color: #fafafa;
+      background-color: #f9f9f9;
     }
-    .solution h3 {
-      margin-top: 0;
-      color: #444;
-    }
-    p, li {
+    p {
       line-height: 1.6;
     }
-    .equation {
-      background: #eef;
-      padding: 8px;
-      margin: 10px 0;
-      border-left: 3px solid #66f;
-    }
-    code {
-      background: #eee;
-      padding: 2px 4px;
-      font-size: 0.95em;
+    em {
+      color: #0066cc;
     }
   </style>
   <!-- MathJax for rendering LaTeX equations -->
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 </head>
 <body>
 
-<h1>Phys 227 – Homework 2 Solutions</h1>
-<h2>Gauss’s Law and Electric Fields</h2>
-
 <div class="assignment-solutions" id="hw2-solutions">
-
+  <h3>Homework 2 Solutions: Gauss’s Law and Electric Fields</h3>
+  
   <!-- Problem 1 -->
   <div class="solution" id="hw2-sol-prob1">
-    <h3>Problem 1: Spherical Gaussian Surface</h3>
-    <p><strong>(a) Derive the electric flux through a spherical surface enclosing a point charge.</strong></p>
+    <p><strong>Solution to Problem 1 (Spherical Gaussian Surface):</strong></p>
     <p>
-      By Gauss’s Law, 
+      <em>Part (a):</em><br>
+      Use Gauss’s Law to derive the electric flux \(\Phi_E\) through a spherical surface enclosing a point charge \(q = +1.0\times10^{-7}\,C\) of radius \(R = 0.20\,m\).<br>
+      By Gauss’s Law,
       \[
-        \Phi_E \;=\; \frac{Q_{\text{enc}}}{\varepsilon_0}.
+      \Phi_E \;=\; \frac{Q_{\text{enc}}}{\varepsilon_0}.
       \]
-      For a point charge \(q = 1.0\times10^{-7}\,\mathrm{C}\) at the center of a spherical surface of radius \(R = 0.20\,\mathrm{m}\), the enclosed charge is simply \(q\).
-      Thus,
+      Since the point charge \(q\) is enclosed, \(Q_{\text{enc}} = q\). Thus,
       \[
-        \Phi_E \;=\; \frac{1.0\times10^{-7}\,\mathrm{C}}{\varepsilon_0}.
+      \Phi_E \;=\; \frac{q}{\varepsilon_0}.
       \]
     </p>
-    <p><strong>(b) Compute the net flux numerically.</strong></p>
-    <div class="equation">
+    <p>
+      <em>Part (b):</em><br>
+      Numerically,
       \[
-        \Phi_E \;=\;\frac{1.0\times10^{-7}}{8.854\times10^{-12}}\;\mathrm{N\,m^2/C}
-        \;\approx\;1.13\times10^4\;\mathrm{N\,m^2/C}.
+      \Phi_E \;=\;\frac{1.0\times10^{-7}\,\mathrm{C}}{8.854\times10^{-12}\,\mathrm{C^2/(N\,m^2)}} 
+      \;\approx\;1.13\times10^4\;\mathrm{N\,m^2/C}.
       \]
-    </div>
+    </p>
   </div>
-  <!-- End Problem 1 -->
-
+  
   <!-- Problem 2 -->
   <div class="solution" id="hw2-sol-prob2">
-    <h3>Problem 2: Infinite Plane of Charge</h3>
-    <p><strong>(a) Derive the electric field for an infinite plane of charge.</strong></p>
+    <p><strong>Solution to Problem 2 (Infinite Plane of Charge):</strong></p>
     <p>
-      Consider an infinite plane of surface charge density \(\sigma\). By symmetry, the electric field
-      has the same magnitude on both sides of the plane and points away from the plane if \(\sigma>0\).  
-      Choose a Gaussian “pillbox” that straddles the plane. The flux is
-      \(\Phi_E = E\,A + E\,A = 2EA\) (top and bottom).
-      By Gauss’s Law,
+      <em>Part (a):</em><br>
+      For an infinite plane with surface charge density \(\sigma\), apply Gauss’s Law with a “pillbox” Gaussian surface:
       \[
-        2EA \;=\; \frac{\sigma A}{\varepsilon_0}
-        \quad\Longrightarrow\quad
-        E \;=\; \frac{\sigma}{2\,\varepsilon_0}.
+      2EA \;=\;\frac{\sigma A}{\varepsilon_0}
+      \;\;\;\Longrightarrow\;\;\;
+      E = \frac{\sigma}{2\,\varepsilon_0}.
       \]
     </p>
-    <p><strong>(b) Calculate \(E\) for \(\sigma = 5.0\times10^{-6}\,\mathrm{C/m^2}\).</strong></p>
-    <div class="equation">
+    <p>
+      <em>Part (b):</em><br>
+      For \(\sigma=5.0\times10^{-6}\,\mathrm{C/m^2}\):
       \[
-        E
-        \;=\; \frac{5.0\times10^{-6}}{2\,(8.854\times10^{-12})}
-        \;\approx\;2.82\times10^5\,\mathrm{V/m}.
+      E
+      = \frac{5.0\times10^{-6}}{2\,(8.854\times10^{-12})}
+      \;\approx\;2.82\times10^5\,\mathrm{V/m}.
       \]
-    </div>
+    </p>
   </div>
-  <!-- End Problem 2 -->
-
+  
   <!-- Problem 3 -->
   <div class="solution" id="hw2-sol-prob3">
-    <h3>Problem 3: Uniformly Charged Cylinder</h3>
+    <p><strong>Solution to Problem 3 (Uniformly Charged Cylinder):</strong></p>
     <p>
-      A cylinder of radius \(R=0.10\,\mathrm{m}\) carries a uniform volume charge density \(\rho = 2.0\times10^4\,\mathrm{C/m^3}\).
+      A long cylinder of radius \(R=0.10\,m\) has a uniform volume charge density \(\rho=2.0\times10^4\,\mathrm{C/m^3}\).
     </p>
-
-    <p><strong>(a) Derive \(E\) inside (\(r<R\)) and outside (\(r\ge R\)) using Gauss’s Law.</strong></p>
-    <ul>
-      <li><em>For \(r<R\):</em> Choose a coaxial cylindrical Gaussian surface of radius \(r\) and length \(L\).  
-        The enclosed charge is \(\rho \,\pi r^2\,L\).  
-        Gauss’s Law gives 
-        \[
-          E\, (2\pi r L) \;=\; \frac{\rho \,\pi r^2\,L}{\varepsilon_0}
-          \quad\Longrightarrow\quad
-          E(r) \;=\; \frac{\rho\,r}{2\,\varepsilon_0}.
-        \]
-      </li>
-      <li><em>For \(r \ge R\):</em> The enclosed charge is the entire cylinder cross section: \(\rho\,\pi R^2\,L\).  
-        Hence,
-        \[
-          E\,(2\pi r L) \;=\;\frac{\rho\,\pi R^2\,L}{\varepsilon_0}
-          \quad\Longrightarrow\quad
-          E(r) \;=\;\frac{\rho\,R^2}{2\,\varepsilon_0\,r}.
-        \]
-      </li>
-    </ul>
-
-    <p><strong>(b) Compute the field at \(r=0.05\,\mathrm{m}\) (inside) and \(r=0.15\,\mathrm{m}\) (outside).</strong></p>
-    <div class="equation">
-      \[
-        \begin{aligned}
-        E_{\text{inside}}(0.05\,\mathrm{m}) 
-        &= \frac{\rho\,r}{2\,\varepsilon_0}
-        = \frac{(2.0\times10^4)\,(0.05)}{2\,(8.854\times10^{-12})}
-        \;\approx\; 5.65\times10^{13}\,\mathrm{N/C},\\[6pt]
-        E_{\text{outside}}(0.15\,\mathrm{m}) 
-        &= \frac{\rho\,R^2}{2\,\varepsilon_0\,r}
-        = \frac{(2.0\times10^4)\,(0.10)^2}{2\,(8.854\times10^{-12})\,(0.15)}
-        \;\approx\;7.53\times10^{13}\,\mathrm{N/C}.
-        \end{aligned}
-      \]
-    </div>
-  </div>
-  <!-- End Problem 3 -->
-
-  <!-- Problem 4 -->
-  <div class="solution" id="hw2-sol-prob4">
-    <h3>Problem 4: Uniformly Charged Sphere</h3>
     <p>
-      For a sphere of radius \(R\) with uniform volume charge density \(\rho\), total charge is 
-      \(Q = \rho \,\frac{4}{3}\pi R^3\).
-    </p>
-
-    <p><strong>(a) Derive \(E\) inside (\(r<R\)) and outside (\(r\ge R\)) using Gauss’s Law.</strong></p>
-    <ul>
-      <li><em>Inside \((r<R)\):</em> Enclosed charge scales with \(r^3\):
-        \[
-          Q_{\text{enc}}(r) \;=\; \rho \,\frac{4}{3}\pi\,r^3.
-        \]
-        Then,
-        \[
-          E\, (4\pi r^2) \;=\; \frac{Q_{\text{enc}}(r)}{\varepsilon_0}
-          \quad\Longrightarrow\quad
-          E(r) \;=\;\frac{1}{4\pi\varepsilon_0}\,\frac{3Q}{R^3}\,r.
-        \]
-      </li>
-      <li><em>Outside \((r \ge R)\):</em> The entire charge \(Q\) is enclosed, so
-        \[
-          E(r) \;=\; \frac{1}{4\pi\varepsilon_0}\,\frac{Q}{r^2}.
-        \]
-      </li>
-    </ul>
-
-    <p><strong>(b) For \(R=0.15\,\mathrm{m}\) and \(\rho = 1.0\times10^{4}\,\mathrm{C/m^3}\), compute \(E\) at 
-    \(r=0.10\,\mathrm{m}\) (inside) and \(r=0.30\,\mathrm{m}\) (outside).</strong></p>
-    <p>
-      First, find \(Q = \rho \,\frac{4}{3}\pi R^3\).
-      \[
-        R^3 = (0.15)^3 = 0.003375,\quad 
-        \frac{4}{3}\pi \, (0.003375) \;\approx\; 0.0045\pi \;\approx\;0.01414,
-      \]
-      so
-      \[
-        Q \;\approx\; (1.0\times10^4)\times 0.01414 \;=\; 141.4\,\mathrm{C}.
-      \]
-    </p>
-    <div class="equation">
-      \[
-        \begin{aligned}
-        E_{\text{inside}}(0.10\,\mathrm{m}) 
-        &= \frac{1}{4\pi\varepsilon_0} \cdot \frac{3Q}{R^3}\,r
-        \;\approx\; 8.99\times10^9 \;\times\;\frac{3\times141.4\times0.10}{(0.15)^3},\\[8pt]
-        E_{\text{outside}}(0.30\,\mathrm{m}) 
-        &= \frac{1}{4\pi\varepsilon_0}\,\frac{Q}{(0.30)^2}
-        \;\approx\;8.99\times10^9 \;\times\;\frac{141.4}{0.09}.
-        \end{aligned}
-      \]
-      (The exact numerical values will be quite large; the procedure is the key.)
-    </div>
-  </div>
-  <!-- End Problem 4 -->
-
-  <!-- Problem 5 -->
-  <div class="solution" id="hw2-sol-prob5">
-    <h3>Problem 5: Spherical Shell</h3>
-    <p>
-      A spherical shell of radius \(R=0.25\,\mathrm{m}\) carries total charge \(Q=+2.0\times10^{-7}\,\mathrm{C}\).
-    </p>
-
-    <p><strong>(a) Determine the net electric flux using Gauss’s Law.</strong></p>
-    <p>
-      A spherical shell behaves the same as a point charge \(Q\) at the center (for any radius \(>\) shell radius).
+      <em>Part (a):</em><br>
+      <strong>Inside \((r<R)\):</strong>  
+      A coaxial cylindrical Gaussian surface of radius \(r\) encloses charge \(\rho\,\pi r^2 L\).  
       By Gauss’s Law,
       \[
-        \Phi_E \;=\;\frac{Q}{\varepsilon_0}.
+      E(2\pi r L) \;=\; \frac{\rho\,\pi r^2 L}{\varepsilon_0}
+      \;\;\Longrightarrow\;\;
+      E(r) = \frac{\rho\,r}{2\,\varepsilon_0}.
+      \]
+      <strong>Outside \((r \ge R)\):</strong>  
+      The enclosed charge is \(\rho\,\pi R^2 L\).  
+      Thus,
+      \[
+      E(2\pi r L) 
+      = \frac{\rho\,\pi R^2 L}{\varepsilon_0}
+      \;\;\Longrightarrow\;\;
+      E(r) = \frac{\rho\,R^2}{2\,\varepsilon_0\,r}.
       \]
     </p>
-
-    <p><strong>(b) Evaluate the flux numerically.</strong></p>
-    <div class="equation">
+    <p>
+      <em>Part (b):</em><br>
+      At \(r=0.05\,m\) (inside):
       \[
-        \Phi_E \;=\;\frac{2.0\times10^{-7}}{8.854\times10^{-12}}
-        \;\approx\;2.26\times10^{4}\;\mathrm{N\,m^2/C}.
+      E_{\text{inside}}(0.05)=\frac{\rho\,r}{2\,\varepsilon_0}
+      = \frac{(2.0\times10^4)(0.05)}{2(8.854\times10^{-12})}\approx5.65\times10^{13}\,\mathrm{N/C}.
       \]
-    </div>
+      At \(r=0.15\,m\) (outside):
+      \[
+      E_{\text{outside}}(0.15)=\frac{\rho\,R^2}{2\,\varepsilon_0\,r}
+      = \frac{(2.0\times10^4)(0.10)^2}{2(8.854\times10^{-12})(0.15)}\approx7.53\times10^{13}\,\mathrm{N/C}.
+      \]
+    </p>
   </div>
-  <!-- End Problem 5 -->
-
+  
+  <!-- Problem 4 -->
+  <div class="solution" id="hw2-sol-prob4">
+    <p><strong>Solution to Problem 4 (Uniformly Charged Sphere):</strong></p>
+    <p>
+      <em>Part (a):</em><br>
+      For a sphere of radius \(R\) with total charge \(Q=\rho\frac{4}{3}\pi R^3\):
+      <br>
+      - Inside \((r<R)\):
+      \[
+      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}\,r,
+      \]
+      - Outside \((r\ge R)\):
+      \[
+      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      For \(R=0.15\,m\) and \(\rho=1.0\times10^4\,\mathrm{C/m^3}\), we have 
+      \[
+      Q \approx \rho\frac{4}{3}\pi (0.15)^3\approx141.4\,\mathrm{C}.
+      \]
+      Then at \(r=0.10\,m\):
+      \[
+      E_{\text{inside}}(0.10)
+      = \frac{1}{4\pi\varepsilon_0}\,\frac{3Q}{R^3}\,r,
+      \]
+      and at \(r=0.30\,m\):
+      \[
+      E_{\text{outside}}(0.30)
+      = \frac{1}{4\pi\varepsilon_0}\,\frac{Q}{(0.30)^2}.
+      \]
+      Substituting \(Q\approx141.4\,\mathrm{C}\) gives numerical values on the order of \(10^7\)–\(10^8\,\mathrm{N/C}\) (large but indicative of the method).
+    </p>
+  </div>
+  
+  <!-- Problem 5 -->
+  <div class="solution" id="hw2-sol-prob5">
+    <p><strong>Solution to Problem 5 (Spherical Shell):</strong></p>
+    <p>
+      A spherical shell of radius \(R=0.25\,m\) and total charge \(Q=+2.0\times10^{-7}\,C\).
+    </p>
+    <p>
+      <em>Part (a):</em><br>
+      By Gauss’s Law, the net flux through any sphere enclosing the shell is
+      \[
+      \Phi_E=\frac{Q}{\varepsilon_0}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      Numerically,
+      \[
+      \Phi_E = \frac{2.0\times10^{-7}}{8.854\times10^{-12}}
+      \;\approx\;2.26\times10^4\,\mathrm{N\,m^2/C}.
+      \]
+    </p>
+  </div>
+  
   <!-- Problem 6 -->
   <div class="solution" id="hw2-sol-prob6">
-    <h3>Problem 6: Electric Field of a Point Charge</h3>
-    <p><strong>(a) Derive the standard expression \(\mathbf{E} = \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q}{r^2}\,\hat{r}\).</strong></p>
+    <p><strong>Solution to Problem 6 (Electric Field of a Point Charge):</strong></p>
     <p>
-      From Gauss’s Law, if a single point charge \(q\) is enclosed by a spherical surface of radius \(r\),
-      the symmetry implies \(E(r)\) is the same at all points on the sphere and points radially outward. Then,
+      <em>Part (a):</em><br>
+      From Gauss’s Law for a point charge \(q\), enclosed by a sphere of radius \(r\):
       \[
-        E\, (4\pi r^2) \;=\;\frac{q}{\varepsilon_0}
-        \quad\Longrightarrow\quad
-        E(r) \;=\;\frac{1}{4\pi\varepsilon_0}\,\frac{q}{r^2}.
+      E(4\pi r^2)=\frac{q}{\varepsilon_0}\quad\Longrightarrow\quad
+      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}.
       \]
     </p>
-
-    <p><strong>(b) Compute \(\mathbf{E}\) at \(r=0.10\,\mathrm{m}\) and \(r=0.20\,\mathrm{m}\) for \(q=+1.0\times10^{-7}\,\mathrm{C}\).</strong></p>
-    <div class="equation">
+    <p>
+      <em>Part (b):</em><br>
+      For \(q=+1.0\times10^{-7}\,C\), 
       \[
-        E(0.10\,\mathrm{m})
-        = \frac{8.99\times10^9 \times 1.0\times10^{-7}}{(0.10)^2}
-        \;\approx\; 8.99\times10^4\,\mathrm{N/C},
+      E(0.10\,\mathrm{m})
+      = 8.99\times10^9 \times \frac{1.0\times10^{-7}}{(0.10)^2}
+      \approx 8.99\times10^4\,\mathrm{N/C},
       \]
       \[
-        E(0.20\,\mathrm{m})
-        = \frac{8.99\times10^9 \times 1.0\times10^{-7}}{(0.20)^2}
-        \;\approx\;2.25\times10^4\,\mathrm{N/C}.
+      E(0.20\,\mathrm{m})
+      = 8.99\times10^9 \times \frac{1.0\times10^{-7}}{(0.20)^2}
+      \approx 2.25\times10^4\,\mathrm{N/C}.
       \]
-    </div>
+    </p>
   </div>
-  <!-- End Problem 6 -->
-
+  
   <!-- Problem 7 -->
   <div class="solution" id="hw2-sol-prob7">
-    <h3>Problem 7: Electric Field Due to an Electric Dipole (Axial)</h3>
+    <p><strong>Solution to Problem 7 (Electric Field of an Electric Dipole):</strong></p>
     <p>
-      Consider charges \(+q\) and \(-q\), separated by distance \(d\). The dipole moment is \(\mathbf{p} = q\,d\,\hat{z}\) (if oriented along \(z\), for example).
+      <em>Part (a):</em><br>
+      On the axis of an ideal dipole (charges \(\pm q\), separated by \(d\)), for large distances \(r \gg d\), the field magnitude is:
+      \[
+      E_{\text{axial}} \approx \frac{1}{4\pi\varepsilon_0}\,\frac{2p}{r^3},
+      \quad\text{where } p=q\,d.
+      \]
     </p>
-
-    <p><strong>(a) Derive the expression for the axial component of the electric field of a dipole.</strong></p>
     <p>
-      On the axis of the dipole (far from the center), the leading-order electric field magnitude is
+      <em>Part (b):</em><br>
+      For \(q=1.0\times10^{-7}\,C\), \(d=0.05\,m\), then \(p=5.0\times10^{-9}\,\mathrm{C\cdot m}\).  
+      At a point \(2d=0.10\,m\) from the center:
       \[
-        E_{\text{axial}} \;=\;\frac{1}{4\pi\varepsilon_0}\,\frac{2\,p}{r^3}
-        \quad\text{where}\;\;p = q\,d.
+      E = 8.99\times10^9 \times \frac{2(5.0\times10^{-9})}{(0.10)^3}
+      \approx 9.0\times10^7\,\mathrm{N/C}.
       \]
-      (More exact formulas exist, but this is the standard axial-field approximation for \(r \gg d/2\).)
     </p>
-
-    <p><strong>(b) Calculate the field at a point \(2d\) from the dipole center, for \(q=1.0\times10^{-7}\,\mathrm{C}\) and \(d=0.05\,\mathrm{m}\).</strong></p>
-    <div class="equation">
-      \[
-        p = q\,d = (1.0\times10^{-7})\,(0.05) = 5.0\times10^{-9}\,\mathrm{C\cdot m},
-      \]
-      \[
-        r = 2d = 0.10\,\mathrm{m}, 
-        \quad
-        E = \frac{1}{4\pi\varepsilon_0}\;\frac{2p}{r^3}
-        = 8.99\times10^9 \;\times \frac{2\times(5.0\times10^{-9})}{(0.10)^3}
-        \;\approx\;9.0\times10^4\,\mathrm{N/C}.
-      \]
-    </div>
   </div>
-  <!-- End Problem 7 -->
-
+  
   <!-- Problem 8 -->
   <div class="solution" id="hw2-sol-prob8">
-    <h3>Problem 8: Electric Field from a Uniformly Charged Rod (Perpendicular Bisector)</h3>
-    <p><strong>(a) Derive an expression for the electric field at a point along the perpendicular bisector.</strong></p>
+    <p><strong>Solution to Problem 8 (Electric Field from a Uniformly Charged Rod):</strong></p>
     <p>
-      Let the rod have length \(L\) and total charge \(Q\). If we place the rod along the \(x\)-axis from \(-L/2\) to \(+L/2\) and compute the field at a point on the \(y\)-axis (distance \(d\) from the center), we typically perform an integral over the linear charge distribution \(\lambda = Q/L\). The resulting field (in the perpendicular direction) has the general form:
+      <em>Part (a):</em><br>
+      For a rod of length \(L\) and total charge \(Q\), placed on the x‑axis from \(-L/2\) to \(+L/2\), the field at a point on the perpendicular bisector (distance \(d\) from the midpoint) requires integrating contributions from each element of charge. The result often involves an expression like:
       \[
-        E = \frac{1}{4\pi\varepsilon_0}\;\alpha\bigl(Q,L,d\bigr),
+      E(d)=\frac{1}{4\pi\varepsilon_0}\,\lambda \int \ldots \,dx,
       \]
-      where \(\alpha\bigl(Q,L,d\bigr)\) depends on the geometry and can be found by setting up the integral
-      \(\mathrm{d}E = k\,(\lambda\,\mathrm{d}x)\) over the rod, resolving components, and summing.
+      yielding a closed‑form expression with inverse tangents or rational functions in \(\sqrt{d^2+(L/2)^2}\).
     </p>
-
-    <p><strong>(b) Evaluate the field numerically at distance \(d=0.20\,\mathrm{m}\) from the rod’s midpoint, for \(L=0.50\,\mathrm{m}\) and \(Q=+1.0\times10^{-7}\,\mathrm{C}\).</strong></p>
     <p>
-      Detailed integration will yield a finite expression involving inverse tangents or rational functions of \(\sqrt{L^2 + 4d^2}\). You substitute \(L=0.50\) m, \(d=0.20\) m, and \(Q=1.0\times10^{-7}\) C to get a numerical result on the order of \(10^4\)–\(10^5\,\mathrm{N/C}\), depending on the exact geometry.
+      <em>Part (b):</em><br>
+      Substituting \(L=0.50\,m\), \(Q=1.0\times10^{-7}\,C\), and \(d=0.20\,m\) into the final formula gives a field on the order of \(10^4\)–\(10^5\,\mathrm{N/C}\). Exact values depend on the integral’s closed form.
     </p>
   </div>
-  <!-- End Problem 8 -->
-
+  
   <!-- Problem 9 -->
   <div class="solution" id="hw2-sol-prob9">
-    <h3>Problem 9: Electric Field on the Axis of a Charged Ring</h3>
-    <p><strong>(a) Derive the expression for \(\mathbf{E}\) along the ring’s central axis.</strong></p>
+    <p><strong>Solution to Problem 9 (Electric Field on the Axis of a Charged Ring):</strong></p>
     <p>
-      For a ring of radius \(R\) and total charge \(Q\), the electric field at a distance \(z\) along the axis is
+      <em>Part (a):</em><br>
+      For a ring of radius \(R\) carrying total charge \(Q\), the field at a point on the axis, a distance \(z\) from the center, is:
       \[
-        E_z = \frac{1}{4\pi\varepsilon_0}\,\frac{Q\,z}{\bigl(R^2 + z^2\bigr)^{3/2}},
+      E_z=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,z}{(R^2+z^2)^{3/2}}.
       \]
-      pointing along the axis.
     </p>
-
-    <p><strong>(b) Compute the field at \(z=0.15\,\mathrm{m}\) for \(R=0.10\,\mathrm{m}\) and \(Q=+2.0\times10^{-7}\,\mathrm{C}\).</strong></p>
-    <div class="equation">
+    <p>
+      <em>Part (b):</em><br>
+      With \(R=0.10\,m\), \(Q=+2.0\times10^{-7}\,C\), and \(z=0.15\,m\):
       \[
-        E(0.15) 
-        = 8.99\times10^9 \;\frac{(2.0\times10^{-7})\,(0.15)}{\bigl((0.10)^2 + (0.15)^2\bigr)^{3/2}}.
+      E \approx 8.99\times10^9 \times \frac{(2.0\times10^{-7})\,(0.15)}{\bigl((0.10)^2+(0.15)^2\bigr)^{3/2}},
       \]
-      Numerically evaluate to find \(E\) (in \(\mathrm{N/C}\)) on the order of \(10^5\).
-    </div>
+      a value usually in the \(10^5\,\mathrm{N/C}\) range.
+    </p>
   </div>
-  <!-- End Problem 9 -->
-
+  
   <!-- Problem 10 -->
   <div class="solution" id="hw2-sol-prob10">
-    <h3>Problem 10: Superposition of Electric Fields</h3>
+    <p><strong>Solution to Problem 10 (Superposition of Electric Fields):</strong></p>
     <p>
-      Two point charges, \(q_1 = +1.0\times10^{-7}\,\mathrm{C}\) at \((0,0)\) and 
-      \(q_2 = -1.5\times10^{-7}\,\mathrm{C}\) at \((0.20\,\mathrm{m},0)\). Find the net electric field at \((0.10\,\mathrm{m},0)\).
+      <em>Given:</em> \(q_1 = +1.0\times10^{-7}\,C\) at \((0,0)\), and \(q_2 = -1.5\times10^{-7}\,C\) at \((0.20\,m,0)\). Compute the net field at \((0.10\,m,0)\).
     </p>
-
-    <p><strong>(a) Compute the net field by vector addition.</strong></p>
-    <ul>
-      <li>
-        <em>Field due to \(q_1\):</em> Distance = \(0.10\,\mathrm{m}\).  
-        \[
-          E_1 = \frac{k\,|q_1|}{(0.10)^2} 
-          = \frac{(8.99\times10^9)\,(1.0\times10^{-7})}{0.01}
-          \;\approx\;8.99\times10^4\,\mathrm{N/C}.
-        \]
-        Since \(q_1>0\) and the field point is to the right of \(q_1\), \(\mathbf{E}_1\) points to the \(+x\) direction.
-      </li>
-      <li>
-        <em>Field due to \(q_2\):</em> Distance = \(0.10\,\mathrm{m}\).  
-        \[
-          E_2 = \frac{k\,|q_2|}{(0.10)^2}
-          = \frac{(8.99\times10^9)\,(1.5\times10^{-7})}{0.01}
-          \;\approx\;1.35\times10^5\,\mathrm{N/C}.
-        \]
-        Since \(q_2\) is negative, the field at \((0.10,0)\) points <em>toward</em> \(q_2\), i.e., also in the \(+x\) direction.
-      </li>
-      <li><em>Net field:</em>
-        \[
-          E_{\text{net}} = E_1 + E_2 
-          \;\approx\;(8.99\times10^4 + 1.35\times10^5)\,\mathrm{N/C}
-          \;\approx\;2.25\times10^5\,\mathrm{N/C}\quad \text{(to the right)}.
-        \]
-      </li>
-    </ul>
-
-    <p><strong>(b) Describe the resulting field direction.</strong></p>
     <p>
-      Both contributions point in the positive \(x\)-direction, so 
-      \(\mathbf{E}_{\text{net}}\) is purely horizontal to the right.
+      <em>Step 1: Field from \(q_1\)</em><br>
+      Distance to the field point is \(0.10\,m\).  
+      \[
+      E_1=k\frac{|q_1|}{(0.10)^2}=8.99\times10^9\times\frac{1.0\times10^{-7}}{0.01}\approx8.99\times10^4\,\mathrm{N/C},
+      \]
+      directed right (\(+x\)).
+    </p>
+    <p>
+      <em>Step 2: Field from \(q_2\)</em><br>
+      Distance to the field point is also \(0.10\,m\).  
+      \[
+      E_2=k\frac{|q_2|}{(0.10)^2}=8.99\times10^9\times\frac{1.5\times10^{-7}}{0.01}\approx1.35\times10^5\,\mathrm{N/C},
+      \]
+      but since \(q_2\) is negative, the field points <em>toward</em> \(q_2\), i.e. also along \(+x\). 
+    </p>
+    <p>
+      <em>Step 3: Net Field</em><br>
+      \[
+      E_{\text{net}}=E_1+E_2\approx8.99\times10^4+1.35\times10^5=2.25\times10^5\,\mathrm{N/C},
+      \]
+      entirely in the \(+x\) direction.
     </p>
   </div>
-  <!-- End Problem 10 -->
-
-</div> <!-- end assignment-solutions -->
+  
+</div>
 
 </body>
 </html>
