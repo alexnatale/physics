@@ -51,16 +51,7 @@
   </style>
   <!-- MathJax for rendering LaTeX equations -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  <script>
-    function copyHTML(divId) {
-      var element = document.getElementById(divId);
-      if (!element) return;
-      var elementHTML = element.outerHTML;
-      navigator.clipboard.writeText(elementHTML)
-        .then(function() { alert("HTML copied to clipboard!"); })
-        .catch(function(err) { alert("Error copying text: " + err); });
-    }
-  </script>
+
 </head>
 <body>
 
@@ -103,7 +94,7 @@
       Thus, 
       \(\mathbf{A}\times\mathbf{B} = 4\hat{i} + 8\hat{j} + 10\hat{k}\).
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob1')">Copy HTML</button>
+    
   </div>
   
   <!-- Problem 2 -->
@@ -130,7 +121,7 @@
     <p>
       <strong>(c)</strong> The computed magnitude from the components confirms the result in (b).
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob2')">Copy HTML</button>
+   
   </div>
   
   <!-- Problem 3 -->
@@ -164,7 +155,7 @@
       so
       \(\theta \approx \arccos(0.31) \approx 72.0^\circ.\)
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob3')">Copy HTML</button>
+    
   </div>
   
   <!-- Problem 4 -->
@@ -185,7 +176,7 @@
       |\mathbf{S}| = \sqrt{1^2+2^2+8^2} = \sqrt{1+4+64} = \sqrt{69} \approx 8.31.
       \]
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob4')">Copy HTML</button>
+   
   </div>
   
   <!-- Problem 5 -->
@@ -216,7 +207,7 @@
       \text{Area} = \sqrt{4^2+(-10)^2+(-13)^2} = \sqrt{16+100+169} = \sqrt{285} \approx 16.88.
       \]
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob5')">Copy HTML</button>
+   
   </div>
   
   <!-- Problem 6 -->
@@ -239,7 +230,7 @@
       \]
       (The force is attractive.)
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob6')">Copy HTML</button>
+   
   </div>
   
   <!-- Problem 7 -->
@@ -268,7 +259,7 @@
       \]
       directed to the right.
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob7')">Copy HTML</button>
+  
   </div>
   
   <!-- Problem 8 -->
@@ -287,7 +278,7 @@
       <strong>(c)</strong> The force is reduced by approximately 
       \(\left(\frac{0.10}{0.12}\right)^2 \approx 0.69\).
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob8')">Copy HTML</button>
+   
   </div>
   
   <!-- Problem 9 -->
@@ -319,7 +310,7 @@
       \]
       Thus, the test charge is about \(0.317\,m\) from \(q_1\) and \(0.183\,m\) from \(q_2\).
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob9')">Copy HTML</button>
+ 
   </div>
   
   <!-- Problem 10 -->
@@ -392,7 +383,7 @@
     <p>
       <strong>Final Answer:</strong> The net force on \(q_A\) is approximately \(0.0156\,N\), directed \(30^\circ\) above the +\(\hat{i}\) axis.
     </p>
-    <button class="copy-btn" onclick="copyHTML('hw1-sol-prob10')">Copy HTML</button>
+   
   </div>
   
 </div>
