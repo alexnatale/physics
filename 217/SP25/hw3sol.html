@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phys 217 Homework 3 Solutions – Projectile Motion &amp; Motion in 2 and 3 Dimensions</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+    .assignment-solutions {
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #444;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .solution {
+      background: #fafafa;
+      padding: 15px;
+      border-left: 3px solid #666;
+      margin: 15px 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    h3 {
+      color: #333;
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    code {
+      background: #eee;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    em {
+      color: #0066cc;
+    }
+    ol, ul {
+      margin-left: 20px;
+    }
+  </style>
+
+  <!-- MathJax for LaTeX rendering -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body>
+
+  <div class="assignment-solutions" id="hw3-solutions">
+
+    <h1>Phys 217 Homework 3 Solutions<br>(Projectile Motion &amp; Motion in 2 and 3 Dimensions)</h1>
+
+    <!-- Problem 1 -->
+    <div class="solution" id="hw3-prob1-solution">
+      <h3>Problem 1: Classic Projectile Variation</h3>
+      <ol>
+        <li>
+          <strong>(a) Time of Flight, Maximum Height, and Horizontal Range:</strong>
+          <ul>
+            <li>
+              Given \(v_0 = 18.0\,\text{m/s}\) and \(\theta = 35^\circ\), the initial components are:
+              <br>
+              \(v_{0x} = 18.0\cos35^\circ\) and \(v_{0y} = 18.0\sin35^\circ\).
+            </li>
+            <li>
+              Time of flight:
+              \[
+              T = \frac{2v_{0y}}{g} = \frac{2(18.0\sin35^\circ)}{9.8} \approx \frac{2(10.32)}{9.8} \approx 2.11\,\text{s}.
+              \]
+            </li>
+            <li>
+              Maximum height:
+              \[
+              H = \frac{v_{0y}^2}{2g} \approx \frac{(10.32)^2}{19.6} \approx 5.44\,\text{m}.
+              \]
+            </li>
+            <li>
+              Horizontal range:
+              \[
+              R = v_{0x}T = (18.0\cos35^\circ)(2.11) \approx (18.0\times0.8192)(2.11) \approx 31.07\,\text{m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Constant Horizontal Velocity Explanation:</strong>
+          <ul>
+            <li>
+              In the absence of air resistance there is no horizontal acceleration (\(a_x = 0\)), so the horizontal component of velocity remains constant.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="solution" id="hw3-prob2-solution">
+      <h3>Problem 2: Horizontal Launch Variation</h3>
+      <ol>
+        <li>
+          <strong>(a) Time Until Impact:</strong>
+          <ul>
+            <li>
+              For a drop from \(20.0\,\text{m}\):
+              \[
+              y = \frac{1}{2}gt^2 \quad\Rightarrow\quad t = \sqrt{\frac{2y}{g}} = \sqrt{\frac{2(20.0)}{9.8}} \approx 2.02\,\text{s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Horizontal Distance Traveled:</strong>
+          <ul>
+            <li>
+              With \(v_x = 6.0\,\text{m/s}\):
+              \[
+              x = v_x t \approx 6.0 \times 2.02 \approx 12.12\,\text{m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Velocity Just Before Impact:</strong>
+          <ul>
+            <li>
+              Final vertical speed:
+              \[
+              v_y = -9.8 \times 2.02 \approx -19.8\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              Resultant speed:
+              \[
+              v = \sqrt{(6.0)^2 + (19.8)^2} \approx \sqrt{36 + 392.04} \approx 20.7\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              The direction is given by:
+              \[
+              \theta = \arctan\left(\frac{19.8}{6.0}\right) \approx 73^\circ \text{ (below the horizontal)}.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="solution" id="hw3-prob3-solution">
+      <h3>Problem 3: Initial Velocity Components</h3>
+      <ol>
+        <li>
+          <strong>(a) Horizontal and Vertical Components:</strong>
+          <ul>
+            <li>
+              For \(v_0 = 30.0\,\text{m/s}\) at \(\theta = 50^\circ\):
+              \[
+              v_{0x} = 30.0\cos50^\circ \approx 19.28\,\text{m/s}, \quad
+              v_{0y} = 30.0\sin50^\circ \approx 22.98\,\text{m/s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Free-Body Diagram:</strong>
+          <ul>
+            <li>
+              The only force acting on the projectile (ignoring air resistance) is gravity (\(mg\)), which points downward.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Time to Return to Ground:</strong>
+          <ul>
+            <li>
+              Time of flight:
+              \[
+              T = \frac{2v_{0y}}{g} = \frac{2(22.98)}{9.8} \approx 4.69\,\text{s}.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="solution" id="hw3-prob4-solution">
+      <h3>Problem 4: Velocity at a Specific Time</h3>
+      <ol>
+        <li>
+          <strong>(a) Parametric Equations of Motion:</strong>
+          <ul>
+            <li>
+              For an object launched with \(v_0 = 12.0\,\text{m/s}\) at \(\theta = 70^\circ\):
+              \[
+              x(t) = 12.0\cos70^\circ\,t,\quad y(t) = 12.0\sin70^\circ\,t - 4.9t^2.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Velocity Vector at \(t = 1.5\,\text{s}\):</strong>
+          <ul>
+            <li>
+              The horizontal velocity remains constant:
+              \[
+              v_x = 12.0\cos70^\circ \approx 4.10\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              Vertical velocity:
+              \[
+              v_y = 12.0\sin70^\circ - 9.8(1.5) \approx 11.28 - 14.7 \approx -3.42\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              Thus, the velocity vector is approximately \((4.10\,\hat{i},\,-3.42\,\hat{j})\,\text{m/s}\).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Speed Comparison:</strong>
+          <ul>
+            <li>
+              The speed at \(t = 1.5\,\text{s}\) is
+              \[
+              |\mathbf{v}| \approx \sqrt{(4.10)^2 + (-3.42)^2} \approx 5.35\,\text{m/s},
+              \]
+              which is lower than the initial speed of \(12.0\,\text{m/s}\) due to the effect of gravity.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="solution" id="hw3-prob5-solution">
+      <h3>Problem 5: Launch from an Elevated Platform</h3>
+      <ol>
+        <li>
+          <strong>(a) Total Time in the Air:</strong>
+          <ul>
+            <li>
+              With \(y_0 = 10.0\,\text{m}\), \(v_0 = 20.0\,\text{m/s}\), and \(\theta = 25^\circ\):
+            </li>
+            <li>
+              Components:
+              \[
+              v_{0x} = 20.0\cos25^\circ \approx 18.13\,\text{m/s},\quad
+              v_{0y} = 20.0\sin25^\circ \approx 8.45\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              Setting \(y(t)=0\) for the motion:
+              \[
+              10.0 + 8.45t - 4.9t^2 = 0 \quad\Rightarrow\quad t \approx 2.53\,\text{s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Horizontal Range:</strong>
+          <ul>
+            <li>
+              \(R = v_{0x}t \approx 18.13 \times 2.53 \approx 45.82\,\text{m}.\)
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Height of \(15.0\,\text{m}\) Above Ground:</strong>
+          <ul>
+            <li>
+              The maximum height reached is:
+              \[
+              H_{\text{max}} = 10.0 + \frac{(8.45)^2}{2(9.8)} \approx 10.0 + 3.65 \approx 13.65\,\text{m}.
+              \]
+            </li>
+            <li>
+              Since \(15.0\,\text{m} > 13.65\,\text{m}\), the projectile never reaches \(15.0\,\text{m}\) above the ground.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="solution" id="hw3-prob6-solution">
+      <h3>Problem 6: Simultaneous Launches with Different Angles</h3>
+      <ol>
+        <li>
+          <strong>(a) Which Object Hits the Ground First:</strong>
+          <ul>
+            <li>
+              <em>Object A</em> (horizontal launch): From a \(15.0\,\text{m}\) ledge with \(v_{0y}=0\),
+              \[
+              t_A = \sqrt{\frac{15.0}{4.9}} \approx 1.75\,\text{s}.
+              \]
+            </li>
+            <li>
+              <em>Object B</em> (launched at \(45^\circ\)): With \(v_{0y} \approx 8.0\sin45^\circ \approx 5.66\,\text{m/s}\),
+              solving \(15.0 + 5.66t - 4.9t^2 = 0\) gives \(t_B \approx 2.42\,\text{s}\).
+            </li>
+            <li>
+              Thus, Object A hits the ground first.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Time of Flight and Final Speed:</strong>
+          <ul>
+            <li>
+              <em>Object A:</em>
+              <ul>
+                <li>Time: \(t_A \approx 1.75\,\text{s}\).</li>
+                <li>Final vertical speed: \(v_{Ay} \approx -9.8(1.75) \approx -17.15\,\text{m/s}\); horizontal remains \(8.0\,\text{m/s}\).</li>
+                <li>Final speed:
+                  \[
+                  |\mathbf{v}_A| \approx \sqrt{8.0^2 + 17.15^2} \approx 18.92\,\text{m/s}.
+                  \]
+                </li>
+              </ul>
+            </li>
+            <li>
+              <em>Object B:</em>
+              <ul>
+                <li>Time: \(t_B \approx 2.42\,\text{s}\).</li>
+                <li>Final vertical speed: \(v_{By} \approx 5.66 - 9.8(2.42) \approx -18.06\,\text{m/s}\); horizontal remains \(5.66\,\text{m/s}\).</li>
+                <li>Final speed:
+                  \[
+                  |\mathbf{v}_B| \approx \sqrt{(5.66)^2 + (18.06)^2} \approx 18.92\,\text{m/s}.
+                  \]
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="solution" id="hw3-prob7-solution">
+      <h3>Problem 7: 3D Projectile with Gravity in the \(z\)-Direction</h3>
+      <ol>
+        <li>
+          <strong>(a) Initial Speed and Angles:</strong>
+          <ul>
+            <li>
+              Given components: \(v_x = 5.0\,\text{m/s}\), \(v_y = 10.0\,\text{m/s}\), \(v_z = 15.0\,\text{m/s}\).
+            </li>
+            <li>
+              Initial speed:
+              \[
+              v_0 = \sqrt{5.0^2 + 10.0^2 + 15.0^2} \approx \sqrt{350} \approx 18.71\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              Angles with the axes:
+              \[
+              \theta_x = \arccos\left(\frac{5.0}{18.71}\right) \approx 74.5^\circ,\quad
+              \theta_y = \arccos\left(\frac{10.0}{18.71}\right) \approx 57.7^\circ,\quad
+              \theta_z = \arccos\left(\frac{15.0}{18.71}\right) \approx 36.9^\circ.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Velocity Vector as a Function of Time:</strong>
+          <ul>
+            <li>
+              Gravity only affects the \(z\)-component:
+              \[
+              \mathbf{v}(t) = \bigl(5.0\,\hat{i} + 10.0\,\hat{j} + (15.0 - 9.8t)\,\hat{k}\bigr)\,\text{m/s}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Velocity at \(t = 3.0\,\text{s}\):</strong>
+          <ul>
+            <li>
+              \(v_x = 5.0\,\text{m/s}\), \(v_y = 10.0\,\text{m/s}\), and 
+              \[
+              v_z = 15.0 - 9.8(3.0) \approx 15.0 - 29.4 \approx -14.4\,\text{m/s}.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="solution" id="hw3-prob8-solution">
+      <h3>Problem 8: Integration-Based Motion in 2D</h3>
+      <ol>
+        <li>
+          <strong>(a) Vertical Position Function \(y(t)\):</strong>
+          <ul>
+            <li>
+              For a stone thrown at \(22.0\,\text{m/s}\) at \(40^\circ\), the vertical component is:
+              \[
+              v_{0y} = 22.0\sin40^\circ \approx 14.14\,\text{m/s},
+              \]
+              so integrating the acceleration gives:
+              \[
+              y(t) = 14.14t - 4.9t^2.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Displacements after \(2.0\,\text{s}\):</strong>
+          <ul>
+            <li>
+              Horizontal displacement:
+              \[
+              x = 22.0\cos40^\circ \times 2.0 \approx 16.85 \times 2.0 \approx 33.70\,\text{m}.
+              \]
+            </li>
+            <li>
+              Vertical displacement:
+              \[
+              y(2.0) \approx 14.14(2.0) - 4.9(4.0) \approx 28.28 - 19.6 \approx 8.68\,\text{m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Comparison with Maximum Height:</strong>
+          <ul>
+            <li>
+              Maximum height is reached at:
+              \[
+              t_{\text{max}} = \frac{14.14}{9.8} \approx 1.44\,\text{s},
+              \]
+              with
+              \[
+              y_{\text{max}} \approx 14.14(1.44) - 4.9(1.44)^2 \approx 10.21\,\text{m}.
+              \]
+            </li>
+            <li>
+              At \(t = 2.0\,\text{s}\), \(y(2.0) \approx 8.68\,\text{m}\), which is lower than the maximum height.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="solution" id="hw3-prob9-solution">
+      <h3>Problem 9: Derivation of Range Expression via Integration</h3>
+      <ol>
+        <li>
+          <strong>(a) Derivation:</strong>
+          <ul>
+            <li>
+              The horizontal position is given by:
+              \[
+              x(t) = v\cos\theta\,t.
+              \]
+            </li>
+            <li>
+              The time of flight on level ground is:
+              \[
+              T = \frac{2v\sin\theta}{g}.
+              \]
+            </li>
+            <li>
+              Therefore, the range is:
+              \[
+              R = v\cos\theta\,T = \frac{2v^2\sin\theta\cos\theta}{g} = \frac{v^2\sin2\theta}{g}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Range Calculation:</strong>
+          <ul>
+            <li>
+              For \(v = 24.0\,\text{m/s}\) and \(\theta = 30^\circ\) (so \(\sin60^\circ \approx 0.866\)):
+              \[
+              R = \frac{(24.0)^2\times0.866}{9.8} \approx \frac{576\times0.866}{9.8} \approx 51.0\,\text{m}.
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Comparison with Standard Formula:</strong>
+          <ul>
+            <li>
+              The derived expression, \(R = \frac{v^2\sin2\theta}{g}\), is identical to the standard formula.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="solution" id="hw3-prob10-solution">
+      <h3>Problem 10: 3D Position &amp; Derivatives</h3>
+      <ol>
+        <li>
+          <strong>(a) Velocity:</strong>
+          <ul>
+            <li>
+              Given
+              \[
+              \mathbf{r}(t) = \bigl(2t\,\hat{i} + 3t^2\,\hat{j} + 4t^3\,\hat{k}\bigr),
+              \]
+              differentiating yields:
+              \[
+              \mathbf{v}(t) = \bigl(2\,\hat{i} + 6t\,\hat{j} + 12t^2\,\hat{k}\bigr).
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(b) Acceleration:</strong>
+          <ul>
+            <li>
+              Differentiating the velocity gives:
+              \[
+              \mathbf{a}(t) = \bigl(0\,\hat{i} + 6\,\hat{j} + 24t\,\hat{k}\bigr).
+              \]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>(c) Evaluation at \(t = 2.0\,\text{s}\):</strong>
+          <ul>
+            <li>
+              Velocity:
+              \[
+              \mathbf{v}(2.0) = \bigl(2,\, 6(2.0),\, 12(2.0)^2\bigr) = (2,\, 12,\, 48)\,\text{m/s}.
+              \]
+            </li>
+            <li>
+              Acceleration:
+              \[
+              \mathbf{a}(2.0) = \bigl(0,\, 6,\, 24(2.0)\bigr) = (0,\, 6,\, 48)\,\text{m/s}^2.
+              \]
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+  </div> <!-- /assignment-solutions -->
+
+</body>
+</html>
