@@ -260,21 +260,142 @@
     </p>
   </div>
   
-  <!-- Problem 8 -->
-  <div class="solution" id="hw2-sol-prob8">
-    <p><strong>Solution to Problem 8 (Electric Field from a Uniformly Charged Rod):</strong></p>
-    <p>
-      <em>Part (a):</em><br>
-      For a rod of length \(L\) and total charge \(Q\), placed on the x‑axis from \(-L/2\) to \(+L/2\), the field at a point on the perpendicular bisector (distance \(d\) from the midpoint) requires integrating contributions from each element of charge. The result often involves an expression like:
-      \[
-      E(d)=\frac{1}{4\pi\varepsilon_0}\,\lambda \int \ldots \,dx,
-      \]
-      yielding a closed‑form expression with inverse tangents or rational functions in \(\sqrt{d^2+(L/2)^2}\).
-    </p>
-    <p>
-      <em>Part (b):</em><br>
-      Substituting \(L=0.50\,m\), \(Q=1.0\times10^{-7}\,C\), and \(d=0.20\,m\) into the final formula gives a field on the order of \(10^4\)–\(10^5\,\mathrm{N/C}\). Exact values depend on the integral’s closed form.
-    </p>
+   <!-- Problem 8 -->
+    <div class="solution" id="hw2-sol-prob8">
+      <p><strong>Solution to Problem 8 (Electric Field from a Uniformly Charged Rod):</strong></p>
+      <p>
+        <em>Part (a):</em><br>
+        For a rod of length \(L\) and total charge \(Q\), placed on the x‑axis from \(-L/2\) to \(+L/2\), the field at a point on the perpendicular bisector (distance \(d\) from the midpoint) requires integrating contributions from each element of charge.
+      </p>
+      
+      <p>We need to set up a coordinate system:</p>
+      <ul>
+        <li>The rod lies along the x-axis from \(x = -L/2\) to \(x = +L/2\)</li>
+        <li>The point P where we want to find the field is at coordinates \((0, d)\)</li>
+        <li>The rod carries a total charge \(Q\)</li>
+      </ul>
+      
+      <p>The linear charge density \(\lambda\) is:</p>
+      <p>\[
+        \lambda = \frac{Q}{L}
+      \]</p>
+      
+      <p>For a small element \(dx\) at position \(x\), the charge is \(dq = \lambda\,dx\).</p>
+      
+      <p>The distance from this element to point P is:</p>
+      <p>\[
+        r = \sqrt{x^2 + d^2}
+      \]</p>
+      
+      <p>This element creates a field \(d\vec{E}\) at point P:</p>
+      <p>\[
+        d\vec{E} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{dq}{r^2} \cdot \hat{r}
+      \]</p>
+      
+      <p>The field has components:</p>
+      <p>\[
+        dE_x = dE \cdot \frac{x}{r} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{\lambda \, dx}{r^2} \cdot \frac{x}{r} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{\lambda \, x \, dx}{r^3}
+      \]</p>
+      
+      <p>\[
+        dE_y = dE \cdot \frac{d}{r} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{\lambda \, dx}{r^2} \cdot \frac{d}{r} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{\lambda \, d \, dx}{r^3}
+      \]</p>
+      
+      <p>Due to symmetry, the \(x\)-components from elements at \(+x\) and \(-x\) cancel out. So we only need the \(y\)-component.</p>
+      
+      <p>The total electric field in the \(y\)-direction is:</p>
+      <p>\[
+        E_y = \int_{-L/2}^{+L/2} dE_y = \int_{-L/2}^{+L/2} \frac{1}{4\pi\varepsilon_0} \cdot \frac{\lambda \, d \, dx}{(x^2 + d^2)^{3/2}}
+      \]</p>
+      
+      <p>Factoring out constants:</p>
+      <p>\[
+        E_y = \frac{1}{4\pi\varepsilon_0} \cdot \lambda \, d \cdot \int_{-L/2}^{+L/2} \frac{dx}{(x^2 + d^2)^{3/2}}
+      \]</p>
+      
+      <p>To solve this integral, use the substitution \(u = x/d\):</p>
+      <ul>
+        <li>\(dx = d \, du\)</li>
+        <li>When \(x = -L/2\), \(u = -L/(2d)\)</li>
+        <li>When \(x = L/2\), \(u = L/(2d)\)</li>
+      </ul>
+      
+      <p>The integral becomes:</p>
+      <p>\[
+        \int_{-L/2}^{+L/2} \frac{dx}{(x^2 + d^2)^{3/2}} = \int_{-L/(2d)}^{L/(2d)} \frac{d \, du}{[d^2(u^2 + 1)]^{3/2}} = \frac{1}{d^2} \int_{-L/(2d)}^{L/(2d)} \frac{du}{(u^2 + 1)^{3/2}}
+      \]</p>
+      
+      <p>Using the standard result \(\int \frac{du}{(u^2 + 1)^{3/2}} = \frac{u}{\sqrt{u^2 + 1}}\):</p>
+      <p>\[
+        \frac{1}{d^2} \left[ \frac{u}{\sqrt{u^2 + 1}} \right]_{-L/(2d)}^{L/(2d)} = \frac{1}{d^2} \left[ \frac{L/(2d)}{\sqrt{(L/(2d))^2 + 1}} - \frac{-L/(2d)}{\sqrt{(-L/(2d))^2 + 1}} \right]
+      \]</p>
+      
+      <p>Since \(\sqrt{(-L/(2d))^2 + 1} = \sqrt{(L/(2d))^2 + 1}\):</p>
+      <p>\[
+        \frac{1}{d^2} \left[ \frac{L/(2d)}{\sqrt{(L/(2d))^2 + 1}} + \frac{L/(2d)}{\sqrt{(L/(2d))^2 + 1}} \right] = \frac{1}{d^2} \cdot \frac{L/d}{\sqrt{(L/(2d))^2 + 1}}
+      \]</p>
+      
+      <p>Simplifying:</p>
+      <p>\[
+        \frac{L}{d^3} \cdot \frac{1}{\sqrt{L^2/(4d^2) + 1}} = \frac{L}{d^3} \cdot \frac{1}{\sqrt{(L/2)^2 + d^2}/d} = \frac{L}{d^2\sqrt{(L/2)^2 + d^2}}
+      \]</p>
+      
+      <p>Therefore:</p>
+      <p>\[
+        E_y = \frac{1}{4\pi\varepsilon_0} \cdot \lambda \, d \cdot \frac{L}{d^2\sqrt{(L/2)^2 + d^2}} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q}{L} \cdot d \cdot \frac{L}{d^2\sqrt{(L/2)^2 + d^2}}
+      \]</p>
+      
+      <p>Simplifying further:</p>
+      <p>\[
+        E_y = \frac{1}{4\pi\varepsilon_0} \cdot Q \cdot \frac{1}{d\sqrt{(L/2)^2 + d^2}}
+      \]</p>
+      
+      <p>This is our final expression for the electric field at a point along the perpendicular bisector of the uniformly charged rod.</p>
+      
+      <p>
+        <em>Part (b):</em><br>
+        Now we evaluate the field at \(d = 0.20\,\text{m}\) using the given values:
+        \(L = 0.50\,\text{m}\), \(Q = 1.0 \times 10^{-7}\,\text{C}\), and \(\varepsilon_0 = 8.85 \times 10^{-12}\,\text{F/m}\).
+      </p>
+      
+      <p>\[
+        E = \frac{1}{4\pi\varepsilon_0} \cdot Q \cdot \frac{1}{d\sqrt{(L/2)^2 + d^2}}
+      \]</p>
+      
+      <p>\[
+        E = \frac{1}{4\pi \cdot 8.85 \times 10^{-12}\,\text{F/m}} \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot \frac{1}{(0.20\,\text{m})\sqrt{(0.50/2)^2 + (0.20)^2\,\text{m}^2}}
+      \]</p>
+      
+      <p>\[
+        E = (9.0 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2) \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot \frac{1}{(0.20\,\text{m})\sqrt{(0.25)^2 + (0.20)^2\,\text{m}^2}}
+      \]</p>
+      
+      <p>\[
+        E = (9.0 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2) \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot \frac{1}{(0.20\,\text{m})\sqrt{0.0625 + 0.04\,\text{m}^2}}
+      \]</p>
+      
+      <p>\[
+        E = (9.0 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2) \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot \frac{1}{(0.20\,\text{m})\sqrt{0.1025\,\text{m}^2}}
+      \]</p>
+      
+      <p>\[
+        E = (9.0 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2) \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot \frac{1}{(0.20\,\text{m})(0.320\,\text{m})}
+      \]</p>
+      
+      <p>\[
+        E = (9.0 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2) \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot \frac{1}{0.064\,\text{m}^2}
+      \]</p>
+      
+      <p>\[
+        E = (9.0 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2) \cdot (1.0 \times 10^{-7}\,\text{C}) \cdot (15.625\,\text{m}^{-2})
+      \]</p>
+      
+      <p>\[
+        E = 1.41 \times 10^4\,\text{N/C}
+      \]</p>
+      
+      <p>Therefore, the electric field at a distance \(d = 0.20\,\text{m}\) from the center of the rod is \(1.41 \times 10^4\,\text{N/C}\).</p>
+    </div>
   </div>
   
   <!-- Problem 9 -->
