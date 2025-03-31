@@ -396,27 +396,100 @@
       
       <p>Therefore, the electric field at a distance \(d = 0.20\,\text{m}\) from the center of the rod is \(1.41 \times 10^4\,\text{N/C}\).</p>
     </div>
-  </div>
   
-  <!-- Problem 9 -->
-  <div class="solution" id="hw2-sol-prob9">
-    <p><strong>Solution to Problem 9 (Electric Field on the Axis of a Charged Ring):</strong></p>
-    <p>
-      <em>Part (a):</em><br>
-      For a ring of radius \(R\) carrying total charge \(Q\), the field at a point on the axis, a distance \(z\) from the center, is:
-      \[
-      E_z=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,z}{(R^2+z^2)^{3/2}}.
-      \]
-    </p>
-    <p>
-      <em>Part (b):</em><br>
-      With \(R=0.10\,m\), \(Q=+2.0\times10^{-7}\,C\), and \(z=0.15\,m\):
-      \[
-      E \approx 8.99\times10^9 \times \frac{(2.0\times10^{-7})\,(0.15)}{\bigl((0.10)^2+(0.15)^2\bigr)^{3/2}},
-      \]
-      a value usually in the \(10^5\,\mathrm{N/C}\) range.
-    </p>
-  </div>
+    <!-- Problem 9 -->
+    <div class="solution" id="hw2-sol-prob9">
+      <p><strong>Solution to Problem 9 (Electric Field on the Axis of a Charged Ring):</strong></p>
+      <p>
+        <em>Part (a):</em><br>
+        To derive the electric field at a point on the axis of a charged ring, we set up the following:
+      </p>
+      <ul>
+        <li>A ring of radius \(R\) carrying total charge \(Q\) lies in the x-y plane centered at the origin</li>
+        <li>We want to find the electric field at a point on the z-axis at a distance \(z\) from the center</li>
+      </ul>
+      
+      <p>Due to the symmetrical distribution of charge on the ring, we can immediately see that the x and y components of the electric field will cancel out when summed over the entire ring. Thus, only the z-component remains.</p>
+      
+      <p>For a differential element of charge \(dq\) on the ring, the distance to the field point is:</p>
+      <p>\[
+        r = \sqrt{R^2 + z^2}
+      \]</p>
+      
+      <p>The electric field contribution from this element is:</p>
+      <p>\[
+        d\vec{E} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{dq}{r^2} \cdot \hat{r}
+      \]</p>
+      
+      <p>The z-component of this field is:</p>
+      <p>\[
+        dE_z = dE \cdot \cos\theta = dE \cdot \frac{z}{r} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{dq}{r^2} \cdot \frac{z}{r} = \frac{1}{4\pi\varepsilon_0} \cdot \frac{z \, dq}{r^3}
+      \]</p>
+      
+      <p>Substituting \(r = \sqrt{R^2 + z^2}\):</p>
+      <p>\[
+        dE_z = \frac{1}{4\pi\varepsilon_0} \cdot \frac{z \, dq}{(R^2 + z^2)^{3/2}}
+      \]</p>
+      
+      <p>The total charge \(Q\) is uniformly distributed around the ring, so we can integrate:</p>
+      <p>\[
+        E_z = \int dE_z = \frac{1}{4\pi\varepsilon_0} \cdot \frac{z}{(R^2 + z^2)^{3/2}} \int dq = \frac{1}{4\pi\varepsilon_0} \cdot \frac{z \, Q}{(R^2 + z^2)^{3/2}}
+      \]</p>
+      
+      <p>Therefore, the electric field at a point on the axis of a charged ring is:</p>
+      <p>\[
+        E_z = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q \, z}{(R^2 + z^2)^{3/2}}
+      \]</p>
+      
+      <p>
+        <em>Part (b):</em><br>
+        Now we evaluate the field for the given values:
+        \(R = 0.10\,\text{m}\), \(Q = +2.0 \times 10^{-7}\,\text{C}\), and \(z = 0.15\,\text{m}\).
+      </p>
+      
+      <p>First, let's calculate \(4\pi\varepsilon_0\):</p>
+      <p>\[
+        4\pi\varepsilon_0 = 4\pi \times 8.85 \times 10^{-12}\,\text{F/m} = 1.11 \times 10^{-10}\,\text{F/m}
+      \]</p>
+      
+      <p>Or equivalently, we can use Coulomb's constant:</p>
+      <p>\[
+        k = \frac{1}{4\pi\varepsilon_0} = 8.99 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2
+      \]</p>
+      
+      <p>Now we substitute into our equation:</p>
+      <p>\[
+        E_z = 8.99 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2 \times \frac{2.0 \times 10^{-7}\,\text{C} \times 0.15\,\text{m}}{[(0.10\,\text{m})^2 + (0.15\,\text{m})^2]^{3/2}}
+      \]</p>
+      
+      <p>Let's calculate the denominator step by step:</p>
+      <p>\[
+        (0.10\,\text{m})^2 + (0.15\,\text{m})^2 = 0.01\,\text{m}^2 + 0.0225\,\text{m}^2 = 0.0325\,\text{m}^2
+      \]</p>
+      
+      <p>\[
+        (0.0325\,\text{m}^2)^{3/2} = 0.0325^{3/2}\,\text{m}^3 = 0.00586\,\text{m}^3
+      \]</p>
+      
+      <p>Now we can complete the calculation:</p>
+      <p>\[
+        E_z = 8.99 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2 \times \frac{2.0 \times 10^{-7}\,\text{C} \times 0.15\,\text{m}}{0.00586\,\text{m}^3}
+      \]</p>
+      
+      <p>\[
+        E_z = 8.99 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2 \times \frac{3.0 \times 10^{-8}\,\text{C}\cdot\text{m}}{0.00586\,\text{m}^3}
+      \]</p>
+      
+      <p>\[
+        E_z = 8.99 \times 10^9\,\text{N}\cdot\text{m}^2/\text{C}^2 \times 5.12 \times 10^{-6}\,\text{C}/\text{m}^2
+      \]</p>
+      
+      <p>\[
+        E_z = 4.60 \times 10^4\,\text{N/C}
+      \]</p>
+      
+      <p>Therefore, the electric field at a point \(z = 0.15\,\text{m}\) from the center of the ring is \(4.60 \times 10^4\,\text{N/C}\), directed along the positive z-axis (away from the ring, since both \(Q\) and \(z\) are positive).</p>
+    </div>
   
   <!-- Problem 10 -->
   <div class="solution" id="hw2-sol-prob10">
