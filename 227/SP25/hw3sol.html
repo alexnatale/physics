@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phys 227 Homework 3 Solutions: Gauss’s Law and Electric Dipoles</title>
+  
+  <!-- Inline styles for consistent formatting -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+    .assignment-solutions {
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #444;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .solution {
+      background: #fafafa;
+      padding: 15px;
+      border-left: 3px solid #666;
+      margin: 15px 0;
+    }
+    h3 {
+      color: #333;
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    code {
+      background: #eee;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    em {
+      color: #0066cc;
+    }
+    .copy-btn {
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  </style>
+  
+  <!-- MathJax for rendering LaTeX equations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+<body>
+
+<div class="assignment-solutions" id="hw3-solutions">
+  <h3>Homework 3 Solutions: Gauss’s Law and Electric Dipoles</h3>
+  
+  <!-- Problem 1 -->
+  <div class="solution" id="hw3-sol-prob1">
+    <p><strong>Solution to Problem 1 (Spherical Gaussian Surface):</strong></p>
+    <p>
+      <em>Part (a):</em><br>
+      For a spherical surface of radius \(R=0.20\,m\) enclosing a point charge \(q=+1.0\times10^{-7}\,C\), Gauss’s Law states that
+      \[
+      \Phi_E=\frac{Q_{\text{enc}}}{\varepsilon_0}.
+      \]
+      Since the point charge is enclosed, we have
+      \[
+      \Phi_E=\frac{q}{\varepsilon_0}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      Numerically, substituting \(q=1.0\times10^{-7}\,C\) and \(\varepsilon_0\approx8.85\times10^{-12}\,F/m\):
+      \[
+      \Phi_E=\frac{1.0\times10^{-7}}{8.85\times10^{-12}}
+      \approx1.13\times10^4\,\mathrm{N\cdot m^2/C}.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 2 -->
+  <div class="solution" id="hw3-sol-prob2">
+    <p><strong>Solution to Problem 2 (Infinite Plane of Charge):</strong></p>
+    <p>
+      <em>Part (a):</em><br>
+      Consider a “pillbox” Gaussian surface that straddles an infinite plane carrying surface charge density \(\sigma\). The flux through both flat faces is
+      \[
+      2EA=\frac{\sigma A}{\varepsilon_0}\quad\Longrightarrow\quad E=\frac{\sigma}{2\varepsilon_0}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      For \(\sigma=5.0\times10^{-6}\,C/m^2\):
+      \[
+      E=\frac{5.0\times10^{-6}}{2(8.85\times10^{-12})}\approx2.82\times10^5\,\mathrm{N/C}.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 3 -->
+  <div class="solution" id="hw3-sol-prob3">
+    <p><strong>Solution to Problem 3 (Uniformly Charged Cylinder):</strong></p>
+    <p>
+      A long cylinder of radius \(R=0.10\,m\) carries a uniform volume charge density \(\rho=2.0\times10^4\,C/m^3\).
+    </p>
+    <p>
+      <em>Part (a):</em><br>
+      <strong>Inside the Cylinder \((r<R)\):</strong><br>
+      Choose a coaxial cylindrical Gaussian surface of radius \(r\) and length \(L\). The enclosed charge is
+      \[
+      Q_{\text{enc}}=\rho\,\pi r^2L.
+      \]
+      The flux is given by
+      \[
+      E(2\pi rL)=\frac{\rho\,\pi r^2L}{\varepsilon_0}\quad\Longrightarrow\quad E(r)=\frac{\rho\,r}{2\varepsilon_0}.
+      \]
+      <br>
+      <strong>Outside the Cylinder \((r\ge R)\):</strong><br>
+      The enclosed charge is the full charge of the cylinder, \(Q_{\text{enc}}=\rho\,\pi R^2L\), so
+      \[
+      E(2\pi rL)=\frac{\rho\,\pi R^2L}{\varepsilon_0}\quad\Longrightarrow\quad E(r)=\frac{\rho\,R^2}{2\varepsilon_0\,r}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      At \(r=0.05\,m\) (inside):
+      \[
+      E(0.05)=\frac{(2.0\times10^4)(0.05)}{2(8.85\times10^{-12})}\approx5.65\times10^{13}\,\mathrm{N/C},
+      \]
+      and at \(r=0.15\,m\) (outside):
+      \[
+      E(0.15)=\frac{(2.0\times10^4)(0.10)^2}{2(8.85\times10^{-12})(0.15)}\approx7.53\times10^{13}\,\mathrm{N/C}.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 4 -->
+  <div class="solution" id="hw3-sol-prob4">
+    <p><strong>Solution to Problem 4 (Uniformly Charged Sphere):</strong></p>
+    <p>
+      For a sphere of radius \(R\) with a uniform charge density \(\rho\), the total charge is 
+      \[
+      Q=\rho\frac{4}{3}\pi R^3.
+      \]
+      <br><br>
+      <em>Part (a):</em><br>
+      <strong>Inside \((r<R)\):</strong> By symmetry, a Gaussian surface inside the sphere gives
+      \[
+      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}\,r.
+      \]
+      <br>
+      <strong>Outside \((r\ge R)\):</strong> For \(r\ge R\), the entire charge is enclosed:
+      \[
+      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      For \(R=0.15\,m\) and \(\rho=1.0\times10^4\,C/m^3\), we first compute
+      \[
+      Q=\rho\frac{4}{3}\pi (0.15)^3\approx141.4\,C.
+      \]
+      Then, at \(r=0.10\,m\),
+      \[
+      E_{\text{inside}}(0.10)=\frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}(0.10),
+      \]
+      and at \(r=0.30\,m\),
+      \[
+      E_{\text{outside}}(0.30)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{(0.30)^2}.
+      \]
+      These yield field magnitudes on the order of \(10^7\)–\(10^8\,N/C\).
+    </p>
+  </div>
+  
+  <!-- Problem 5 -->
+  <div class="solution" id="hw3-sol-prob5">
+    <p><strong>Solution to Problem 5 (Spherical Shell):</strong></p>
+    <p>
+      A spherical shell of radius \(R=0.25\,m\) carries a uniformly distributed total charge \(Q=+2.0\times10^{-7}\,C\).
+    </p>
+    <p>
+      <em>Part (a):</em><br>
+      By Gauss’s Law, the net electric flux through any closed surface enclosing the shell is
+      \[
+      \Phi_E=\frac{Q}{\varepsilon_0}.
+      \]
+    </p>
+    <p>
+      <em>Part (b):</em><br>
+      Numerically,
+      \[
+      \Phi_E=\frac{2.0\times10^{-7}}{8.85\times10^{-12}}\approx2.26\times10^4\,\mathrm{N\cdot m^2/C}.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 6 -->
+  <div class="solution" id="hw3-sol-prob6">
+    <p><strong>Solution to Problem 6 (Torque on an Electric Dipole):</strong></p>
+    <p>
+      An electric dipole consists of charges \(+q\) and \(-q\) separated by a distance \(d\), so its dipole moment is 
+      \[
+      p=q\,d.
+      \]
+      For \(q=2.0\times10^{-7}\,C\) and \(d=0.04\,m\), 
+      \[
+      p=2.0\times10^{-7}\times0.04=8.0\times10^{-9}\,C\cdot m.
+      \]
+    </p>
+    <p>
+      When placed in a uniform external field \(\mathbf{E}_0=5.0\times10^3\,N/C\) making an angle of \(30^\circ\) with the dipole, the torque is given by
+      \[
+      \tau=p\,E_0\sin\theta.
+      \]
+      Substituting the values and using \(\sin30^\circ=0.5\):
+      \[
+      \tau=8.0\times10^{-9}\times5.0\times10^3\times0.5=2.0\times10^{-5}\,N\cdot m.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 7 -->
+  <div class="solution" id="hw3-sol-prob7">
+    <p><strong>Solution to Problem 7 (Potential Energy of an Electric Dipole):</strong></p>
+    <p>
+      The potential energy \(U\) of an electric dipole in a uniform external electric field is given by
+      \[
+      U=-\mathbf{p}\cdot\mathbf{E}_0=-pE_0\cos\theta.
+      \]
+      For a dipole with \(q=2.0\times10^{-7}\,C\) and \(d=0.04\,m\),
+      \[
+      p=8.0\times10^{-9}\,C\cdot m.
+      \]
+      With \(\theta=45^\circ\) (so \(\cos45^\circ\approx0.7071\)) and \(E_0=5.0\times10^3\,N/C\):
+      \[
+      U=-8.0\times10^{-9}\times5.0\times10^3\times0.7071\approx-2.83\times10^{-5}\,J.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 8 -->
+  <div class="solution" id="hw3-sol-prob8">
+    <p><strong>Solution to Problem 8 (Electric Field on the Perpendicular Bisector of a Dipole):</strong></p>
+    <p>
+      The magnitude of the electric field on the perpendicular bisector of an ideal dipole is
+      \[
+      E_{\text{perp}}=\frac{1}{4\pi\varepsilon_0}\frac{p}{r^3},
+      \]
+      where the dipole moment is \(p=q\,d\). For \(q=1.0\times10^{-7}\,C\) and \(d=0.05\,m\),
+      \[
+      p=1.0\times10^{-7}\times0.05=5.0\times10^{-9}\,C\cdot m.
+      \]
+      At a distance \(r=0.25\,m\):
+      \[
+      E_{\text{perp}}=8.99\times10^9\times\frac{5.0\times10^{-9}}{(0.25)^3}.
+      \]
+      Since \((0.25)^3=0.015625\),
+      \[
+      E_{\text{perp}}\approx8.99\times10^9\times\frac{5.0\times10^{-9}}{0.015625}\approx2.88\times10^3\,N/C.
+      \]
+      <br>
+      <em>Note:</em> The field on the perpendicular bisector is directed opposite to the dipole moment.
+    </p>
+  </div>
+  
+  <!-- Problem 9 -->
+  <div class="solution" id="hw3-sol-prob9">
+    <p><strong>Solution to Problem 9 (Work Done to Rotate an Electric Dipole):</strong></p>
+    <p>
+      The work required to rotate an electric dipole from an initial angle \(0^\circ\) to a final angle \(\theta\) in a uniform electric field is given by
+      \[
+      W=p\,E_0\,(1-\cos\theta).
+      \]
+      For a dipole with \(q=1.0\times10^{-7}\,C\) and \(d=0.05\,m\),
+      \[
+      p=1.0\times10^{-7}\times0.05=5.0\times10^{-9}\,C\cdot m.
+      \]
+      With \(E_0=5.0\times10^3\,N/C\) and \(\theta=60^\circ\) (where \(\cos60^\circ=0.5\)):
+      \[
+      W=5.0\times10^{-9}\times5.0\times10^3\times(1-0.5)=5.0\times10^{-9}\times5.0\times10^3\times0.5.
+      \]
+      Evaluating,
+      \[
+      W=1.25\times10^{-5}\,J.
+      \]
+    </p>
+  </div>
+  
+  <!-- Problem 10 -->
+  <div class="solution" id="hw3-sol-prob10">
+    <p><strong>Solution to Problem 10 (Superposition of Electric Fields from a Point Charge and a Dipole):</strong></p>
+    <p>
+      A point charge \(q=+1.0\times10^{-7}\,C\) is at \((0,0)\) and an electric dipole is centered at \((0.20\,m,0)\) with charges \(+1.0\times10^{-7}\,C\) and \(-1.0\times10^{-7}\,C\) separated by \(d=0.05\,m\). We wish to find the net electric field at the point \((0.10\,m,0)\).
+    </p>
+    <p>
+      <em>Step 1: Field from the Point Charge</em><br>
+      The distance from \((0,0)\) to \((0.10,0)\) is \(0.10\,m\). Thus,
+      \[
+      E_1=k\frac{1.0\times10^{-7}}{(0.10)^2}=8.99\times10^9\times\frac{1.0\times10^{-7}}{0.01}\approx8.99\times10^4\,N/C.
+      \]
+      This field points radially away from the positive charge, i.e. along the \(+x\) direction.
+    </p>
+    <p>
+      <em>Step 2: Field from the Dipole</em><br>
+      Assume the dipole is aligned along the \(x\)-axis. With the dipole centered at \((0.20,0)\):
+      <br>
+      - The positive charge is at \((0.20+0.025,\,0)=(0.225,0)\).<br>
+      - The negative charge is at \((0.20-0.025,\,0)=(0.175,0)\).<br><br>
+      <strong>Field from the Positive Charge:</strong><br>
+      The distance from \((0.225,0)\) to \((0.10,0)\) is
+      \[
+      r_{+}=0.225-0.10=0.125\,m.
+      \]
+      Its field magnitude is
+      \[
+      E_{+}=8.99\times10^9\times\frac{1.0\times10^{-7}}{(0.125)^2}\approx8.99\times10^9\times\frac{1.0\times10^{-7}}{0.015625}\approx5.75\times10^4\,N/C.
+      \]
+      At \((0.10,0)\), the field due to the positive charge points <em>toward</em> the direction away from the charge (i.e. from \((0.225,0)\) to \((0.10,0)\)), which is in the \(-x\) direction.
+      <br><br>
+      <strong>Field from the Negative Charge:</strong><br>
+      The distance from \((0.175,0)\) to \((0.10,0)\) is
+      \[
+      r_{-}=0.175-0.10=0.075\,m.
+      \]
+      Its field magnitude is
+      \[
+      E_{-}=8.99\times10^9\times\frac{1.0\times10^{-7}}{(0.075)^2}\approx8.99\times10^9\times\frac{1.0\times10^{-7}}{0.005625}\approx1.60\times10^5\,N/C.
+      \]
+      For a negative charge the field points <em>toward</em> the charge; here, that is in the \(+x\) direction.
+    </p>
+    <p>
+      <em>Step 3: Net Dipole Field</em><br>
+      The contributions from the dipole are opposite in direction:
+      \[
+      E_{\text{dipole}}=E_{-}-E_{+}\approx1.60\times10^5-5.75\times10^4\approx1.02\times10^5\,N/C,
+      \]
+      directed along \(+x\).
+    </p>
+    <p>
+      <em>Step 4: Superposition</em><br>
+      Adding the field from the point charge,
+      \[
+      E_{\text{net}}=E_1+E_{\text{dipole}}\approx8.99\times10^4+1.02\times10^5\approx1.91\times10^5\,N/C.
+      \]
+      <br>
+      <em>Part (b):</em><br>
+      The resulting net electric field at \((0.10\,m,0)\) is approximately \(1.91\times10^5\,N/C\) directed entirely along the \(+x\) axis.
+    </p>
+  </div>
+  
+</div>
+
+</body>
+</html>
