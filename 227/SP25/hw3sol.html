@@ -140,43 +140,57 @@
     </p>
   </div>
   
-  <!-- Problem 4 -->
-  <div class="solution" id="hw3-sol-prob4">
-    <p><strong>Solution to Problem 4 (Uniformly Charged Sphere):</strong></p>
-    <p>
-      For a sphere of radius \(R\) with a uniform charge density \(\rho\), the total charge is 
-      \[
-      Q=\rho\frac{4}{3}\pi R^3.
-      \]
-      <br><br>
-      <em>Part (a):</em><br>
-      <strong>Inside \((r<R)\):</strong> By symmetry, a Gaussian surface inside the sphere gives
-      \[
-      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}\,r.
-      \]
-      <br>
-      <strong>Outside \((r\ge R)\):</strong> For \(r\ge R\), the entire charge is enclosed:
-      \[
-      E(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}.
-      \]
-    </p>
-    <p>
-      <em>Part (b):</em><br>
-      For \(R=0.15\,m\) and \(\rho=1.0\times10^4\,C/m^3\), we first compute
-      \[
-      Q=\rho\frac{4}{3}\pi (0.15)^3\approx141.4\,C.
-      \]
-      Then, at \(r=0.10\,m\),
-      \[
-      E_{\text{inside}}(0.10)=\frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}(0.10),
-      \]
-      and at \(r=0.30\,m\),
-      \[
-      E_{\text{outside}}(0.30)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{(0.30)^2}.
-      \]
-      These yield field magnitudes on the order of \(10^7\)–\(10^8\,N/C\).
-    </p>
-  </div>
+<div class="solution" id="hw3-sol-prob4">
+  <p><strong>Solution to Problem 4 (Uniformly Charged Sphere):</strong></p>
+  <p>
+    For a sphere of radius \(R\) with a uniform charge density \(\rho\), the total charge is 
+    \[
+    Q=\rho\frac{4}{3}\pi R^3.
+    \]
+    <br><br>
+    <em>Part (a):</em><br>
+    <strong>Inside \((r<R)\):</strong> By symmetry, a Gaussian surface inside the sphere gives
+    \[
+    E(r)=\frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}\,r.
+    \]
+    <br>
+    <strong>Outside \((r\ge R)\):</strong> For \(r\ge R\), the entire charge is enclosed:
+    \[
+    E(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}.
+    \]
+  </p>
+  <p>
+    <em>Part (b):</em><br>
+    For \(R=0.15\,m\) and \(\rho=1.0\times10^4\,C/m^3\), we first compute
+    \[
+    Q=\rho\frac{4}{3}\pi (0.15)^3\approx141.4\,C.
+    \]
+    
+    Then, at \(r=0.10\,m\) (inside the sphere):
+    \[
+    \begin{align}
+    E_{\text{inside}}(0.10) &= \frac{1}{4\pi\varepsilon_0}\frac{3Q}{R^3}(0.10)\\
+    &= 8.99\times10^9 \times \frac{3 \times 141.4}{(0.15)^3} \times 0.10\\
+    &= 8.99\times10^9 \times \frac{424.2}{0.003375} \times 0.10\\
+    &= 8.99\times10^9 \times 125,689 \times 0.10\\
+    &\approx 1.13\times10^{14}\,\text{N/C}
+    \end{align}
+    \]
+    
+    At \(r=0.30\,m\) (outside the sphere):
+    \[
+    \begin{align}
+    E_{\text{outside}}(0.30) &= \frac{1}{4\pi\varepsilon_0}\frac{Q}{(0.30)^2}\\
+    &= 8.99\times10^9 \times \frac{141.4}{(0.30)^2}\\
+    &= 8.99\times10^9 \times \frac{141.4}{0.09}\\
+    &= 8.99\times10^9 \times 1,571.1\\
+    &\approx 1.41\times10^{13}\,\text{N/C}
+    \end{align}
+    \]
+    
+    Note: These field values are extremely high due to the large charge density specified in the problem. In typical laboratory conditions, electric fields are usually many orders of magnitude smaller.
+  </p>
+</div>
   
   <!-- Problem 5 -->
   <div class="solution" id="hw3-sol-prob5">
