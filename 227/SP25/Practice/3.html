@@ -13,7 +13,7 @@
     }
     
     .page {
-      padding: 40px;
+      padding: 30px;
     }
     
     .header {
@@ -77,13 +77,6 @@
     
     .option {
       margin: 5px 0 5px 30px;
-    }
-    
-    .diagram-instructions {
-      font-style: italic;
-      color: #666;
-      font-size: 0.9em;
-      text-align: center;
     }
     
     .equation-section {
@@ -150,20 +143,32 @@
     
     /* Page break control for PDF printing */
     @media print {
-      .title-page {
+      .first-page {
         page-break-after: always;
       }
       
-      .mc-page {
+      .second-page {
         page-break-after: always;
       }
       
-      .calc-page {
+      .third-page {
         page-break-after: always;
       }
       
-      .constants-page {
-        page-break-after: always;
+      .fourth-page {
+        page-break-after: avoid;
+      }
+      
+      .no-break-before {
+        page-break-before: avoid;
+      }
+      
+      .no-break-after {
+        page-break-after: avoid;
+      }
+      
+      .no-break-inside {
+        page-break-inside: avoid;
       }
       
       h2, h3 {
@@ -173,20 +178,12 @@
       img, table {
         page-break-inside: avoid;
       }
-      
-      .keep-with-next {
-        page-break-after: avoid;
-      }
-      
-      .keep-together {
-        page-break-inside: avoid;
-      }
     }
   </style>
 </head>
 <body>
   <!-- Title Page with Instructions -->
-  <div class="page title-page">
+  <div class="page first-page">
     <div class="header">
       <div>Name: _____________________________</div>
       <div>Date: _____________________________</div>
@@ -198,7 +195,6 @@
     </div>
     <br>
     <br>
-    <br>
     <div class="instructions">
       <h3 class="instructions-heading">Instructions<span class="version-alpha">α</span></h3>
       <p>This exam consists of 10 multiple choice questions. 5 are conceptual, 5 involve calculations.</p>
@@ -207,11 +203,11 @@
   </div>
   
   <!-- Multiple Choice Section -->
-  <div class="page mc-page">
-    <h2 class="section-title keep-with-next">Multiple Choice Questions</h2>
+  <div class="page second-page">
+    <h2 class="section-title no-break-after">Multiple Choice Questions</h2>
     <p>There are 5 questions in this section, each is graded out of a total of <strong>5 points</strong>.</p>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q1]</span> A copper wire and an aluminum wire with identical length and cross-sectional area are connected in series. Which statement is correct?
       <div class="option">a. The current is larger in the copper wire than in the aluminum wire</div>
       <div class="option">b. The electric field is stronger in the copper wire than in the aluminum wire</div>
@@ -220,7 +216,7 @@
       <div class="option">e. The current density is the same in both wires</div>
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q2]</span> Which of the following statements about RC circuits is correct?
       <div class="option">a. The time constant of an RC circuit depends on the applied voltage</div>
       <div class="option">b. When a capacitor discharges through a resistor, the current decreases exponentially</div>
@@ -229,7 +225,7 @@
       <div class="option">e. The energy stored in a fully charged capacitor equals the product of charge and voltage (E = QV)</div>
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q3]</span> Three resistors with values R, 2R, and 3R are connected in parallel. The equivalent resistance is:
       <div class="option">a. 6R</div>
       <div class="option">b. R/6</div>
@@ -241,12 +237,12 @@
     <img
   src="e33rb.png"
   alt=""
-  style="display: block; width: 225px; height: auto;"
+  style="display: block; width: 200px; height: auto;"
 />
      
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q4]</span> A dielectric slab with constant κ = 3.0 is inserted halfway between the plates of a charged capacitor that has been disconnected from the battery. What happens to the electric field in the region with the dielectric?
       <div class="option">a. It decreases by a factor of 3</div>
       <div class="option">b. It increases by a factor of 3</div>
@@ -258,12 +254,12 @@
     <img
   src="dielectric_half.png"
   alt=""
-  style="display: block; width: 175px; height: auto;"
+  style="display: block; width: 150px; height: auto;"
 />
      
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q5]</span> What happens to the resistance of a copper wire if both its length and its diameter are doubled?
       <div class="option">a. The resistance doubles</div>
       <div class="option">b. The resistance stays the same</div>
@@ -274,11 +270,11 @@
   </div>
   
   <!-- Calculation Section -->
-  <div class="page calc-page">
-    <h2 class="section-title keep-with-next">Calculations</h2>
+  <div class="page third-page">
+    <h2 class="section-title no-break-after">Calculations</h2>
     <p>There are 5 questions in this section, each is graded out of a total of <strong>10 points</strong>.</p>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q6]</span> A 10.0-meter-long copper wire has a circular cross-section with diameter 1.5 mm. If copper has a resistivity of 1.68 × 10⁻⁸ Ω·m at 20°C, what is the resistance of the wire?
       <div class="option">a. 0.95 Ω</div>
       <div class="option">b. 9.5 Ω</div>
@@ -287,14 +283,14 @@
       <div class="option">e. 0.48 Ω</div>
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q7]</span> In the circuit shown below, what is the equivalent resistance between points A and B?
       
      
     <img
   src="e33R.png"
   alt=""
-  style="display: block; width: 225px; height: auto;"
+  style="display: block; width: 200px; height: auto;"
 />
       
       <div class="option">a. 18 Ω</div>
@@ -304,7 +300,7 @@
       <div class="option">e. 4.8 Ω</div>
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q8]</span> A 6.0 μF capacitor is charged to 120 V and then connected across a 20 kΩ resistor at t = 0. What is the time constant of this circuit?
       <div class="option">a. 120 ms</div>
       <div class="option">b. 833 ms</div>
@@ -313,7 +309,7 @@
       <div class="option">e. 83.3 ms</div>
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q9]</span> Two capacitors, C₁ = 4.0 μF and C₂ = 6.0 μF, are connected in series across a 12 V battery. A third capacitor, C₃ = 3.0 μF, is connected in parallel with the series combination. What is the equivalent capacitance of the entire circuit?
       <div class="option">a. 13.0 μF</div>
       <div class="option">b. 5.4 μF</div>
@@ -325,12 +321,12 @@
        <img
   src="e3eqc3.png"
   alt=""
-  style="display: block; width: 225px; height: auto;"
+  style="display: block; width: 200px; height: auto;"
 />
     
     </div>
     
-    <div class="question keep-together">
+    <div class="question no-break-inside">
       <span class="question-number">[Q10]</span> A battery with an EMF of 12.0 V and internal resistance of 0.50 Ω is connected to an external circuit. If a current of 2.0 A flows through the battery, what is the terminal voltage?
       <div class="option">a. 12.0 V</div>
       <div class="option">b. 11.0 V</div>
@@ -340,25 +336,23 @@
     </div>
   </div>
   
-  <!-- Reference Materials -->
-  <div class="page constants-page">
+  <!-- Reference Materials - COMBINED INTO ONE CONTINUOUS SECTION WITHOUT PAGE BREAKS -->
+  <div class="page fourth-page">
+    <h2 class="section-title no-break-after">Physical Constants & Useful Math Equations</h2>
     <img
       src="physical_constants.PNG"
       alt="Table of Physical Constants"
-      style="display: block; width: 700px; height: auto;"
+      style="display: block; width: 650px; height: auto; max-width: 100%;"
     />
   
-    <h2 class="section-title keep-with-next" style="margin-top: 40px; text-align: center;">Trigonometry & Calculus</h2>
+    <h2 class="section-title no-break-after" style="margin-top: 20px;">Trigonometry & Calculus</h2>
     <img
       src="trig_calc.PNG"
       alt="Table of Trig and Calc"
-      style="display: block; width: 960px; height: auto; max-width: 100%;"
+      style="display: block; width: 650px; height: auto; max-width: 100%;"
     />
-  </div>
   
-  <!-- Equation Sheet -->
-  <div class="page">
-    <h2 class="section-title keep-with-next" style="text-align: center;">Exam #3 Key Equations</h2>
+    <h2 class="section-title no-break-after" style="margin-top: 20px;">Exam #3 Key Equations</h2>
     
     <div class="grid-container">
       <!-- Left Column -->
