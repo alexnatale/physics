@@ -73,7 +73,7 @@
     }
     
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       padding-left: 5px;
     }
     
@@ -100,6 +100,13 @@
       justify-content: center;
       align-items: center;
       background-color: #f5f5f5;
+    }
+    
+    .diagram-instructions {
+      font-style: italic;
+      color: #666;
+      font-size: 0.9em;
+      text-align: center;
     }
     
     .calculation-section {
@@ -204,12 +211,12 @@
     </div>
     
     <div class="question">
-      <span class="question-number">[Q2]</span> An RC circuit with R = 2.0 kΩ and C = 5.0 μF is connected to a 12 V battery at t = 0. At t = 5.0 ms, which statement is true?
-      <div class="option">a. The current in the circuit is zero</div>
-      <div class="option">b. The capacitor is fully charged</div>
-      <div class="option">c. The capacitor voltage is 12 V</div>
-      <div class="option">d. The capacitor voltage is 6 V</div>
-      <div class="option">e. The current is the same as at t = 0</div>
+      <span class="question-number">[Q2]</span> Which of the following statements about RC circuits is correct?
+      <div class="option">a. The time constant of an RC circuit depends on the applied voltage</div>
+      <div class="option">b. When a capacitor discharges through a resistor, the current decreases exponentially</div>
+      <div class="option">c. In a charging RC circuit, the capacitor voltage increases linearly with time</div>
+      <div class="option">d. When a battery is connected to an RC circuit, the current is initially zero</div>
+      <div class="option">e. The energy stored in a fully charged capacitor equals the product of charge and voltage (E = QV)</div>
     </div>
     
     <div class="question">
@@ -219,6 +226,12 @@
       <div class="option">c. 11R/6</div>
       <div class="option">d. 6R/11</div>
       <div class="option">e. None of the above</div>
+      
+      <div class="image-placeholder">
+        <div class="diagram-instructions">
+          [Three resistors labeled R, 2R, and 3R connected in parallel between points A and B]
+        </div>
+      </div>
     </div>
     
     <div class="question">
@@ -229,7 +242,12 @@
       <div class="option">d. It decreases by a factor of 1.5</div>
       <div class="option">e. It increases by a factor of 1.5</div>
       
-      <div class="image-placeholder">[Image: Partially filled capacitor diagram]</div>
+      <div class="image-placeholder">
+        <div class="diagram-instructions">
+          [Parallel-plate capacitor with dielectric (κ = 3.0) filling half the space between plates. 
+          Plates shown with + and - charges, disconnected from any battery]
+        </div>
+      </div>
     </div>
     
     <div class="question">
@@ -248,53 +266,69 @@
     <p>There are 5 questions in this section, each is graded out of a total of <strong>10 points</strong>.</p>
     
     <div class="question">
-      <span class="question-number">[Q6]</span> A 10.0-meter-long copper wire has a circular cross-section with diameter 1.5 mm.
-      <p>(a) Calculate its resistance at 20°C, given that copper has a resistivity of 1.68 × 10⁻⁸ Ω·m at this temperature.</p>
-      <p>(b) If a current of 2.0 A flows through the wire, what is the potential difference across it?</p>
-      <p>(c) Calculate the drift velocity of electrons in the wire, assuming an electron density of 8.5 × 10²⁸ electrons/m³.</p>
+      <span class="question-number">[Q6]</span> A 10.0-meter-long copper wire has a circular cross-section with diameter 1.5 mm. If copper has a resistivity of 1.68 × 10⁻⁸ Ω·m at 20°C, what is the resistance of the wire?
+      <div class="option">a. 0.95 Ω</div>
+      <div class="option">b. 9.5 Ω</div>
+      <div class="option">c. 0.095 Ω</div>
+      <div class="option">d. 95 Ω</div>
+      <div class="option">e. 0.48 Ω</div>
     </div>
     
     <div class="question">
-      <span class="question-number">[Q7]</span> Consider the circuit shown below:
+      <span class="question-number">[Q7]</span> In the circuit shown below, what is the equivalent resistance between points A and B?
       
-      <div class="image-placeholder">[Image: Circuit diagram with 12V source, three resistors (6Ω, 4Ω, 8Ω)]</div>
+      <div class="image-placeholder">
+        <div class="diagram-instructions">
+          [Circuit with 12V battery connected to: 6Ω and 4Ω resistors in parallel, with 
+          this parallel combination in series with an 8Ω resistor. 
+          Points A and B labeled at the circuit endpoints]
+        </div>
+      </div>
       
-      <p>(a) Find the equivalent resistance of this circuit.</p>
-      <p>(b) Calculate the current through each resistor.</p>
-      <p>(c) Determine the voltage across each resistor.</p>
-      <p>(d) Calculate the power dissipated in each resistor.</p>
+      <div class="option">a. 18 Ω</div>
+      <div class="option">b. 2.2 Ω</div>
+      <div class="option">c. 5.3 Ω</div>
+      <div class="option">d. 8.4 Ω</div>
+      <div class="option">e. 4.8 Ω</div>
     </div>
     
     <div class="question">
-      <span class="question-number">[Q8]</span> A 6.0 μF capacitor is charged to 120 V and then connected across a 20 kΩ resistor at t = 0.
-      <p>(a) Calculate the time constant of the circuit.</p>
-      <p>(b) What is the voltage across the capacitor at t = 60 ms?</p>
-      <p>(c) What is the current through the resistor at t = 60 ms?</p>
-      <p>(d) How much energy was initially stored in the capacitor, and how much remains at t = 60 ms?</p>
+      <span class="question-number">[Q8]</span> A 6.0 μF capacitor is charged to 120 V and then connected across a 20 kΩ resistor at t = 0. What is the time constant of this circuit?
+      <div class="option">a. 120 ms</div>
+      <div class="option">b. 833 ms</div>
+      <div class="option">c. 1.2 s</div>
+      <div class="option">d. 0.3 s</div>
+      <div class="option">e. 83.3 ms</div>
+    </div>
+    
+    <div class="question">
+      <span class="question-number">[Q9]</span> Two capacitors, C₁ = 4.0 μF and C₂ = 6.0 μF, are connected in series across a 12 V battery. A third capacitor, C₃ = 3.0 μF, is connected in parallel with the series combination. What is the equivalent capacitance of the entire circuit?
+      <div class="option">a. 13.0 μF</div>
+      <div class="option">b. 5.4 μF</div>
+      <div class="option">c. 2.4 μF</div>
+      <div class="option">d. 3.4 μF</div>
+      <div class="option">e. 7.4 μF</div>
+      
+      <div class="image-placeholder">
+        <div class="diagram-instructions">
+          [Circuit showing C₁ = 4.0 μF and C₂ = 6.0 μF connected in series, 
+          with C₃ = 3.0 μF connected in parallel with the series combination.
+          12V battery connected across the entire circuit]
+        </div>
+      </div>
+    </div>
+    
+    <div class="question">
+      <span class="question-number">[Q10]</span> A battery with an EMF of 12.0 V and internal resistance of 0.50 Ω is connected to an external circuit. If a current of 2.0 A flows through the battery, what is the terminal voltage?
+      <div class="option">a. 12.0 V</div>
+      <div class="option">b. 11.0 V</div>
+      <div class="option">c. 13.0 V</div>
+      <div class="option">d. 10.0 V</div>
+      <div class="option">e. 11.5 V</div>
     </div>
   </div>
   
-  <!-- Calculation Section Continued -->
-  <div class="page">
-    <div class="question">
-      <span class="question-number">[Q9]</span> Two capacitors, C₁ = 4.0 μF and C₂ = 6.0 μF, are connected in series across a 12 V battery. A third capacitor, C₃ = 3.0 μF, is connected in parallel with the series combination.
-      <p>(a) Draw the circuit diagram.</p>
-      <p>(b) Calculate the equivalent capacitance of the entire circuit.</p>
-      <p>(c) Determine the charge on each capacitor.</p>
-      <p>(d) Calculate the voltage across each capacitor.</p>
-      <p>(e) What is the total energy stored in the system?</p>
-    </div>
-    
-    <div class="question">
-      <span class="question-number">[Q10]</span> A battery with an EMF of 12.0 V and internal resistance of 0.50 Ω is connected to an external circuit.
-      <p>(a) If a current of 2.0 A flows through the battery, calculate the terminal voltage.</p>
-      <p>(b) Determine the power supplied by the EMF.</p>
-      <p>(c) Calculate the power dissipated in the internal resistance.</p>
-      <p>(d) What is the power delivered to the external circuit?</p>
-      <p>(e) Calculate the resistance of the external circuit.</p>
-    </div>
-  </div>
-    <!-- Physical Constants Page Placeholder -->
+  <!-- Physical Constants Page -->
   <div class="page">
     <h2 class="section-title" style="text-align: center;">Physical Constants & Useful Math Equations</h2>
     <img
@@ -304,7 +338,7 @@
 />
   </div>
   
-  <!-- Trigonometry Page Placeholder -->
+  <!-- Trigonometry Page -->
   <div class="page">
     <h2 class="section-title" style="text-align: center;">Trigonometry & Calculus</h2>
     <img
@@ -490,7 +524,5 @@
       </div>
     </div>
   </div>
-  
-
 </body>
 </html>
