@@ -16,13 +16,6 @@
       padding: 40px;
     }
     
-    /* Compact the title page to keep instructions on first page */
-    .title-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    
     .header {
       margin-bottom: 20px;
     }
@@ -157,8 +150,20 @@
     
     /* Page break control for PDF printing */
     @media print {
-      .page-break {
-        page-break-before: always;
+      .title-page {
+        page-break-after: always;
+      }
+      
+      .mc-page {
+        page-break-after: always;
+      }
+      
+      .calc-page {
+        page-break-after: always;
+      }
+      
+      .constants-page {
+        page-break-after: always;
       }
       
       h2, h3 {
@@ -200,8 +205,7 @@
   </div>
   
   <!-- Multiple Choice Section -->
-  <div class="page-break"></div>
-  <div class="page">
+  <div class="page mc-page">
     <h2 class="section-title keep-with-next">Multiple Choice Questions</h2>
     <p>There are 5 questions in this section, each is graded out of a total of <strong>5 points</strong>.</p>
     
@@ -268,8 +272,7 @@
   </div>
   
   <!-- Calculation Section -->
-  <div class="page-break"></div>
-  <div class="page">
+  <div class="page calc-page">
     <h2 class="section-title keep-with-next">Calculations</h2>
     <p>There are 5 questions in this section, each is graded out of a total of <strong>10 points</strong>.</p>
     
@@ -335,18 +338,16 @@
     </div>
   </div>
   
-  <!-- Reference Materials - Combined to avoid blank pages -->
-  <div class="page-break"></div>
-  <div class="page">
-    <h2 class="section-title keep-with-next">Physical Constants</h2>
+  <!-- Reference Materials -->
+  <div class="page constants-page">
+    <h2 class="section-title keep-with-next">Physical Constants & Useful Math Equations</h2>
     <img
       src="physical_constants.PNG"
       alt="Table of Physical Constants"
       style="display: block; width: 920px; height: auto; max-width: 100%;"
     />
   
-    <div class="page-break"></div>
-    <h2 class="section-title keep-with-next" style="text-align: center;">Trigonometry & Calculus</h2>
+    <h2 class="section-title keep-with-next" style="margin-top: 40px; text-align: center;">Trigonometry & Calculus</h2>
     <img
       src="trig_calc.PNG"
       alt="Table of Trig and Calc"
@@ -355,7 +356,6 @@
   </div>
   
   <!-- Equation Sheet -->
-  <div class="page-break"></div>
   <div class="page">
     <h2 class="section-title keep-with-next" style="text-align: center;">Exam #3 Key Equations</h2>
     
