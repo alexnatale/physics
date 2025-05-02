@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics 227 Exam #3 Equation Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #222;
+      color: white;
+    }
+    h1 {
+      text-align: center;
+      color: #88b0ff;
+    }
+    .equation-section {
+      border: 1px solid #555;
+      margin-bottom: 15px;
+      background-color: #333;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px;
+      background-color: #444;
+      color: #88b0ff;
+    }
+    .equation-group {
+      margin: 10px;
+      padding: 5px;
+    }
+    .equation-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .equation {
+      margin-left: 20px;
+      margin-bottom: 8px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .note {
+      font-style: italic;
+      margin-left: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exam #3 Key Equations</h1>
+  
+  <div class="grid-container">
+    <!-- Left Column -->
+    <div>
+      <!-- Capacitance Section -->
+      <div class="equation-section">
+        <div class="section-title">Capacitance</div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Parallel-Plate Capacitor</div>
+          <div class="equation">C = ε₀ A/d</div>
+          <div class="equation">With dielectric: C = κε₀ A/d</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Spherical Capacitor</div>
+          <div class="equation">C = 4πε₀(ab)/(b-a)</div>
+          <div class="equation">With dielectric: C = 4πκε₀(ab)/(b-a)</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Cylindrical Capacitor</div>
+          <div class="equation">C = 2πε₀L/ln(b/a)</div>
+          <div class="equation">With dielectric: C = 2πκε₀L/ln(b/a)</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Capacitors in Series</div>
+          <div class="equation">1/C<sub>eq</sub> = 1/C₁ + 1/C₂ + 1/C₃ + ...</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Capacitors in Parallel</div>
+          <div class="equation">C<sub>eq</sub> = C₁ + C₂ + C₃ + ...</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Energy Stored in a Capacitor</div>
+          <div class="equation">U = ½QV = ½CV² = ½Q²/C</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Energy Density in Electric Field</div>
+          <div class="equation">u = ½ε₀E²</div>
+          <div class="equation">With dielectric: u = ½κε₀E²</div>
+        </div>
+      </div>
+      
+      <!-- Current and Resistance Section -->
+      <div class="equation-section">
+        <div class="section-title">Current and Resistance</div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Current and Current Density</div>
+          <div class="equation">I = dQ/dt</div>
+          <div class="equation">J = nev<sub>d</sub></div>
+          <div class="equation">I = ∫J·dA</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Drift Velocity</div>
+          <div class="equation">v<sub>d</sub> = I/(neA)</div>
+          <div class="note">n = number density of carriers</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Resistance and Resistivity</div>
+          <div class="equation">R = ρL/A</div>
+          <div class="equation">ρ = E/J = m/(ne²τ)</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Temperature Dependence</div>
+          <div class="equation">R = R₀[1 + α(T - T₀)]</div>
+          <div class="equation">ρ = ρ₀[1 + α(T - T₀)]</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Ohm's Law</div>
+          <div class="equation">V = IR</div>
+          <div class="equation">J = σE</div>
+          <div class="equation">σ = 1/ρ</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Column -->
+    <div>
+      <!-- DC Circuits Section -->
+      <div class="equation-section">
+        <div class="section-title">DC Circuits</div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Kirchhoff's Rules</div>
+          <div class="equation">Junction rule: ∑I<sub>in</sub> = ∑I<sub>out</sub></div>
+          <div class="equation">Loop rule: ∑V = 0</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Resistors in Series</div>
+          <div class="equation">R<sub>eq</sub> = R₁ + R₂ + R₃ + ...</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Resistors in Parallel</div>
+          <div class="equation">1/R<sub>eq</sub> = 1/R₁ + 1/R₂ + 1/R₃ + ...</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Voltage Divider</div>
+          <div class="equation">V<sub>out</sub> = (R<sub>out</sub>/(R₁ + R₂)) × V<sub>in</sub></div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Current Divider</div>
+          <div class="equation">I₁ = (R₂/(R₁ + R₂)) × I<sub>total</sub></div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Power</div>
+          <div class="equation">P = IV = I²R = V²/R</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">EMF and Terminal Voltage</div>
+          <div class="equation">V<sub>terminal</sub> = ε - Ir</div>
+          <div class="note">r = internal resistance of source</div>
+        </div>
+      </div>
+      
+      <!-- RC Circuits Section -->
+      <div class="equation-section">
+        <div class="section-title">RC Circuits</div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Time Constant</div>
+          <div class="equation">τ = RC</div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Charging a Capacitor</div>
+          <div class="equation">q = C·ε(1 - e<sup>-t/τ</sup>)</div>
+          <div class="equation">V<sub>C</sub> = ε(1 - e<sup>-t/τ</sup>)</div>
+          <div class="equation">I = (ε/R)e<sup>-t/τ</sup></div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Discharging a Capacitor</div>
+          <div class="equation">q = q₀e<sup>-t/τ</sup></div>
+          <div class="equation">V<sub>C</sub> = V₀e<sup>-t/τ</sup></div>
+          <div class="equation">I = (V₀/R)e<sup>-t/τ</sup></div>
+        </div>
+        
+        <div class="equation-group">
+          <div class="equation-title">Energy in RC Circuit</div>
+          <div class="equation">U = U₀e<sup>-2t/τ</sup></div>
+          <div class="note">Energy dissipated: U₀(1 - e<sup>-2t/τ</sup>)</div>
+        </div>
+      </div>
+      
+      <!-- Constants Section -->
+      <div class="equation-section">
+        <div class="section-title">Constants</div>
+        
+        <div class="equation-group">
+          <div class="equation">Elementary charge: e = 1.602 × 10<sup>-19</sup> C</div>
+          <div class="equation">Permittivity of free space: ε₀ = 8.85 × 10<sup>-12</sup> C²/(N·m²)</div>
+          <div class="equation">Boltzmann constant: k = 1.38 × 10<sup>-23</sup> J/K</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
