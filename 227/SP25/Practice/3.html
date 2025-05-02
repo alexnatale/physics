@@ -13,8 +13,36 @@
     }
     
     .page {
-      page-break-after: always;
       padding: 40px;
+      /* Removed the always page-break-after property */
+    }
+    
+    /* Use print media query to control page breaks */
+    @media print {
+      .title-page {
+        page-break-after: always;
+      }
+      
+      .multiple-choice-page {
+        page-break-after: always;
+      }
+      
+      .calculation-page {
+        page-break-after: always;
+      }
+      
+      .constants-page {
+        page-break-after: always;
+      }
+      
+      .trig-page {
+        page-break-after: always;
+      }
+      
+      /* Last page doesn't need a page break after */
+      .equations-page {
+        page-break-after: avoid;
+      }
     }
     
     .title-page {
@@ -197,7 +225,7 @@
   </div>
   
   <!-- Multiple Choice Section -->
-  <div class="page">
+  <div class="page multiple-choice-page">
     <h2 class="section-title">Multiple Choice Questions</h2>
     <p>There are 5 questions in this section, each is graded out of a total of <strong>5 points</strong>.</p>
     
@@ -264,7 +292,7 @@
   </div>
   
   <!-- Calculation Section -->
-  <div class="page">
+  <div class="page calculation-page">
     <h2 class="section-title">Calculations</h2>
     <p>There are 5 questions in this section, each is graded out of a total of <strong>10 points</strong>.</p>
     
@@ -286,7 +314,6 @@
   alt=""
   style="display: block; width: 325px; height: auto;"
 />
-      </div>
       
       <div class="option">a. 18 Ω</div>
       <div class="option">b. 2.2 Ω</div>
@@ -332,8 +359,9 @@
   </div>
   
   <!-- Physical Constants Page -->
-  <div class="page">
-        <img
+  <div class="page constants-page">
+    <h2 class="section-title">Physical Constants</h2>
+    <img
   src="physical_constants.PNG"
   alt="Table of Physical Constants"
   style="display: block; width: 920px; height: auto;"
@@ -341,7 +369,7 @@
   </div>
   
   <!-- Trigonometry Page -->
-  <div class="page">
+  <div class="page trig-page">
     <h2 class="section-title" style="text-align: center;">Trigonometry & Calculus</h2>
     <img
   src="trig_calc.PNG"
@@ -351,7 +379,7 @@
   </div>
   
   <!-- Equation Sheet -->
-  <div class="page">
+  <div class="page equations-page">
     <h2 class="section-title" style="text-align: center;">Exam #3 Key Equations</h2>
     
     <div class="grid-container">
