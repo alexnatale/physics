@@ -54,150 +54,125 @@
 <!-- Homework 9: AC Circuits & Electromagnetic Waves -->
 <div class="assignment" id="hw9">
   <h3>Homework 9: AC Circuits & Electromagnetic Waves</h3>
-  <p><strong>Due:</strong> Friday, May&nbsp;30,&nbsp;2025, 11:59&nbsp;PM</p>
-  
-  <!-- Problem 1 -->
+  <p>
+    <strong>Due:</strong> Friday, May&nbsp;30, 2025, 11:59 PM<br>
+    <strong>Topics:</strong> AC Sources; Simple AC Circuits; Series RLC Circuits; Power & Resonance in AC; Transformers; Maxwell’s Equations; Electromagnetic Waves; Radiation Pressure.<br>
+    <strong>Note:</strong> All key equations have been derived and explained in class. Use these equations to complete the problems.
+  </p>
+
+  <!-- Problem 1: AC RMS Values -->
   <div class="problem" id="hw9-prob1">
-    <p><strong>Problem&nbsp;1 (AC&nbsp;RMS&nbsp;Values):</strong><br>
-      An AC source is described by \(V(t)=V_0 \sin(\omega t)\), where \(V_0 = 170\text{ V}\) and \(\omega = 2\pi(60\text{ Hz})\). A purely resistive load of \(R = 15\ \Omega\) is connected.<br>
-      <em>Use the formulas</em> \(V_{\text{rms}}=\dfrac{V_0}{\sqrt{2}},\; I_{\text{rms}}=\dfrac{V_{\text{rms}}}{R},\;
-      P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}}\). Calculate:<br>
-      (a) \(V_{\text{rms}}\)<br>
-      (b) \(I_{\text{rms}}\)<br>
-      (c) The average power delivered to the resistor
+    <p><strong>Problem 1 (AC RMS Values):</strong><br>
+      An AC source is described by \( V(t)=V_0\sin(\omega t) \) with \( V_0 = 170\text{ V} \) and \( \omega = 2\pi(60\text{ Hz}) \). It drives a purely resistive load of \( R = 15\ \Omega \). Using&nbsp;\( V_{\text{rms}}=\dfrac{V_0}{\sqrt{2}},\; I_{\text{rms}}=\dfrac{V_{\text{rms}}}{R},\; P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}} \), calculate:<br>
+      (a) \( V_{\text{rms}} \)<br>
+      (b) \( I_{\text{rms}} \)<br>
+      (c) \( P_{\text{avg}} \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob1')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 2 -->
+
+  <!-- Problem 2: Capacitive Reactance -->
   <div class="problem" id="hw9-prob2">
-    <p><strong>Problem&nbsp;2 (Capacitive&nbsp;Reactance):</strong><br>
-      A 60&nbsp;Hz sinusoidal source of \(V_{\text{rms}} = 120\text{ V}\) is applied across a capacitor of \(C = 47\ \mu\text{F}\).<br>
-      <em>Use the formulas</em> \(X_C=\dfrac{1}{2\pi f C},\; I_{\text{rms}}=\dfrac{V_{\text{rms}}}{X_C},\;
-      I_0 = \sqrt{2}\, I_{\text{rms}}\). Calculate:<br>
-      (a) The capacitive reactance \(X_C\)<br>
-      (b) The rms current \(I_{\text{rms}}\)<br>
-      (c) The peak current \(I_0\)
+    <p><strong>Problem 2 (Capacitive Reactance):</strong><br>
+      A 60 Hz source of \( V_{\text{rms}} = 120\text{ V} \) is applied across a capacitor of \( C = 47\ \mu\text{F} \). Using&nbsp;\( X_C = \dfrac{1}{2\pi f C},\; I_{\text{rms}} = \dfrac{V_{\text{rms}}}{X_C},\; I_0 = \sqrt{2}\,I_{\text{rms}} \), calculate:<br>
+      (a) \( X_C \)<br>
+      (b) \( I_{\text{rms}} \)<br>
+      (c) \( I_0 \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob2')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 3 -->
+
+  <!-- Problem 3: Inductive Reactance -->
   <div class="problem" id="hw9-prob3">
-    <p><strong>Problem&nbsp;3 (Inductive&nbsp;Reactance):</strong><br>
-      A coil with inductance \(L = 120\ \text{mH}\) is connected to a 50&nbsp;Hz source of \(V_{\text{rms}} = 85\text{ V}\).<br>
-      <em>Use the formulas</em> \(X_L = 2\pi f L,\; I_{\text{rms}}=\dfrac{V_{\text{rms}}}{X_L},\;
-      I_0 = \sqrt{2}\, I_{\text{rms}}\). Calculate:<br>
-      (a) The inductive reactance \(X_L\)<br>
-      (b) The rms current through the inductor<br>
-      (c) The peak current
+    <p><strong>Problem 3 (Inductive Reactance):</strong><br>
+      A coil with \( L = 120\ \text{mH} \) is connected to a 50 Hz source of \( V_{\text{rms}} = 85\text{ V} \). Using&nbsp;\( X_L = 2\pi f L,\; I_{\text{rms}} = \dfrac{V_{\text{rms}}}{X_L},\; I_0 = \sqrt{2}\,I_{\text{rms}} \), calculate:<br>
+      (a) \( X_L \)<br>
+      (b) \( I_{\text{rms}} \)<br>
+      (c) \( I_0 \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob3')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 4 -->
+
+  <!-- Problem 4: Average Power in a Resistive Load -->
   <div class="problem" id="hw9-prob4">
-    <p><strong>Problem&nbsp;4 (Average&nbsp;Power&nbsp;in&nbsp;a&nbsp;Resistive&nbsp;Load):</strong><br>
-      An electric heater with resistance \(R = 50\ \Omega\) is plugged into a 230&nbsp;V&nbsp;rms, 50&nbsp;Hz outlet.<br>
-      <em>Use the formulas</em> \(P_{\text{avg}} = \dfrac{V_{\text{rms}}^{2}}{R},\;
-      E = P_{\text{avg}}\,\Delta t\). Calculate:<br>
-      (a) The average power dissipated by the heater<br>
-      (b) The electrical energy consumed in 3.0&nbsp;h<br>
-      (c) The cost of this energy at \$0.15&nbsp;per&nbsp;kWh
+    <p><strong>Problem 4 (Average Power – Resistive Load):</strong><br>
+      An electric heater with \( R = 50\ \Omega \) is connected to a 230 V rms, 50 Hz outlet. Using&nbsp;\( P_{\text{avg}} = \dfrac{V_{\text{rms}}^{2}}{R},\; E = P_{\text{avg}}\Delta t \), calculate:<br>
+      (a) \( P_{\text{avg}} \)<br>
+      (b) The energy \( E \) consumed in \( \Delta t = 3.0\text{ h} \)<br>
+      (c) The cost at \$0.15 per kWh
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob4')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 5 -->
+
+  <!-- Problem 5: Series RLC Impedance -->
   <div class="problem" id="hw9-prob5">
-    <p><strong>Problem&nbsp;5 (Series&nbsp;RLC&nbsp;Impedance):</strong><br>
-      A series RLC circuit has \(R = 40\ \Omega,\; L = 80\ \text{mH},\; C = 120\ \mu\text{F}\) and is driven by a sinusoidal source of \(V_{\text{rms}} = 120\text{ V}\) at \(f = 60\text{ Hz}\).<br>
-      <em>Use the formulas</em> \(X_L = 2\pi f L,\; X_C = \dfrac{1}{2\pi f C},\;
-      Z = \sqrt{R^{2} + (X_L - X_C)^{2}},\;
-      I_{\text{rms}} = \dfrac{V_{\text{rms}}}{Z},\;
-      \phi = \tan^{-1}\!\bigl(\dfrac{X_L - X_C}{R}\bigr),\;
-      P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}} \cos\phi\). Calculate:<br>
-      (a) The impedance \(Z\)<br>
-      (b) The rms current \(I_{\text{rms}}\)<br>
-      (c) The phase angle \(\phi\)<br>
-      (d) The average power delivered to the circuit
+    <p><strong>Problem 5 (Series RLC Impedance):</strong><br>
+      A series RLC circuit has \( R = 40\ \Omega,\; L = 80\ \text{mH},\; C = 120\ \mu\text{F} \) and is driven by \( V_{\text{rms}} = 120\text{ V} \) at \( f = 60\text{ Hz} \). Using&nbsp;\( X_L = 2\pi f L,\; X_C = \dfrac{1}{2\pi f C},\; Z = \sqrt{R^{2} + (X_L - X_C)^{2}},\; I_{\text{rms}} = \dfrac{V_{\text{rms}}}{Z},\; \phi = \tan^{-1}\!\bigl(\dfrac{X_L - X_C}{R}\bigr),\; P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}}\cos\phi \), calculate:<br>
+      (a) \( Z \)<br>
+      (b) \( I_{\text{rms}} \)<br>
+      (c) \( \phi \)<br>
+      (d) \( P_{\text{avg}} \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob5')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 6 -->
+
+  <!-- Problem 6: Resonance and Quality Factor -->
   <div class="problem" id="hw9-prob6">
-    <p><strong>Problem&nbsp;6 (Resonance&nbsp;and&nbsp;Quality&nbsp;Factor):</strong><br>
-      Using the same component values as in Problem&nbsp;5 (\(R = 40\ \Omega,\; L = 80\ \text{mH},\; C = 120\ \mu\text{F}\)):<br>
-      <em>Use the formulas</em> \(f_0 = \dfrac{1}{2\pi\sqrt{LC}},\;
-      \Delta f = \dfrac{R}{2\pi L},\;
-      Q = \dfrac{f_0}{\Delta f}\). Calculate:<br>
-      (a) The resonant frequency \(f_0\)<br>
-      (b) The bandwidth \(\Delta f\)<br>
-      (c) The quality factor \(Q\)
+    <p><strong>Problem 6 (Resonance & Quality Factor):</strong><br>
+      Using \( R = 40\ \Omega,\; L = 80\ \text{mH},\; C = 120\ \mu\text{F} \):<br>
+      With \( f_0 = \dfrac{1}{2\pi\sqrt{LC}},\; \Delta f = \dfrac{R}{2\pi L},\; Q = \dfrac{f_0}{\Delta f} \), calculate:<br>
+      (a) \( f_0 \)<br>
+      (b) \( \Delta f \)<br>
+      (c) \( Q \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob6')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 7 -->
+
+  <!-- Problem 7: Ideal Transformer -->
   <div class="problem" id="hw9-prob7">
-    <p><strong>Problem&nbsp;7 (Ideal&nbsp;Transformer):</strong><br>
-      An ideal transformer has \(N_p = 600\) primary turns and \(N_s = 120\) secondary turns. The primary is connected to a 240&nbsp;V&nbsp;rms source.<br>
-      <em>Use the relations</em> \(\dfrac{V_s}{V_p} = \dfrac{N_s}{N_p},\;
-      P_p = P_s,\;
-      P = V_{\text{rms}} I_{\text{rms}}\). Calculate:<br>
-      (a) The secondary rms voltage \(V_s\)<br>
-      (b) The primary rms current if the secondary current is 4.0&nbsp;A<br>
+    <p><strong>Problem 7 (Ideal Transformer):</strong><br>
+      An ideal transformer has \( N_p = 600 \) primary turns and \( N_s = 120 \) secondary turns. The primary is supplied with 240 V rms. Using&nbsp;\( \dfrac{V_s}{V_p} = \dfrac{N_s}{N_p},\; P_p = P_s,\; P = V_{\text{rms}} I_{\text{rms}} \), calculate:<br>
+      (a) \( V_s \)<br>
+      (b) The primary rms current if \( I_s = 4.0\text{ A} \)<br>
       (c) The power delivered to the load
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob7')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 8 -->
+
+  <!-- Problem 8: Energy in an Electromagnetic Wave -->
   <div class="problem" id="hw9-prob8">
-    <p><strong>Problem&nbsp;8 (Energy&nbsp;in&nbsp;an&nbsp;Electromagnetic&nbsp;Wave):</strong><br>
-      A plane electromagnetic wave in vacuum has peak electric field amplitude \(E_0 = 250\text{ V/m}\).<br>
-      <em>Use the constants</em> \(c = 3.00\times10^8\text{ m/s},\;
-      \varepsilon_0 = 8.85\times10^{-12}\text{ F/m}\).<br>
-      <em>Use the formulas</em> \(I_{\text{avg}} = \dfrac{1}{2}\varepsilon_0 c E_0^2,\;
-      P_{\text{rad}} = \dfrac{I_{\text{avg}}}{c},\;
-      p = F\,\Delta t = P_{\text{rad}} A \,\Delta t\). Calculate:<br>
-      (a) The average intensity \(I_{\text{avg}}\)<br>
-      (b) The radiation pressure on a perfectly absorbing surface<br>
-      (c) The momentum delivered to a \(2.0\text{ m}^2\) absorbing surface in 10&nbsp;s
+    <p><strong>Problem 8 (Energy in an EM Wave):</strong><br>
+      A plane electromagnetic wave in vacuum has \( E_0 = 250\text{ V/m} \). With \( c = 3.00\times10^{8}\text{ m/s},\; \varepsilon_0 = 8.85\times10^{-12}\text{ F/m} \) and&nbsp;\( I_{\text{avg}} = \dfrac{1}{2}\varepsilon_0 c E_0^{2},\; P_{\text{rad}} = \dfrac{I_{\text{avg}}}{c},\; p = P_{\text{rad}} A \Delta t \), calculate:<br>
+      (a) \( I_{\text{avg}} \)<br>
+      (b) \( P_{\text{rad}} \) on a perfectly absorbing surface<br>
+      (c) The momentum delivered to a \( 2.0\text{ m}^{2} \) surface in \( \Delta t = 10\text{ s} \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob8')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 9 -->
+
+  <!-- Problem 9: Radiation Pressure and Force -->
   <div class="problem" id="hw9-prob9">
-    <p><strong>Problem&nbsp;9 (Radiation&nbsp;Pressure&nbsp;and&nbsp;Force):</strong><br>
-      The interior of a microwave oven produces an average intensity of \(I = 700\text{ W/m}^2\). The mesh-covered window has an effective absorbing area of \(A = 0.015\text{ m}^2\).<br>
-      <em>Use the formulas</em> \(P_{\text{rad}} = \dfrac{I}{c},\;
-      F = P_{\text{rad}} A\). Calculate:<br>
-      (a) The radiation pressure on the window<br>
-      (b) The resultant force exerted on the window
+    <p><strong>Problem 9 (Radiation Pressure & Force):</strong><br>
+      Inside a microwave oven the average intensity is \( I = 700\text{ W/m}^{2} \). The mesh window has absorbing area \( A = 0.015\text{ m}^{2} \). Using&nbsp;\( P_{\text{rad}} = \dfrac{I}{c},\; F = P_{\text{rad}} A \), calculate:<br>
+      (a) \( P_{\text{rad}} \)<br>
+      (b) \( F \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob9')">Copy HTML</button>
   </div>
-  
-  <!-- Problem 10 -->
+
+  <!-- Problem 10: Combined RLC and EM Wave -->
   <div class="problem" id="hw9-prob10">
-    <p><strong>Problem&nbsp;10 (Combined&nbsp;RLC&nbsp;and&nbsp;EM&nbsp;Wave):</strong><br>
-      A series RLC antenna tuner uses an inductance \(L = 2.5\ \mu\text{H}\) and a variable capacitor \(C\). It is driven by a transmitter supplying \(V_{\text{rms}} = 30\text{ V}\) at
-      \(f = 7.20\text{ MHz}\). The radiation resistance (effective series resistance) is \(R = 5.0\ \Omega\).<br>
-      <em>Use the formulas</em> \(C = \dfrac{1}{(2\pi f)^2 L},\;
-      I_{\text{rms}} = \dfrac{V_{\text{rms}}}{R}\ \text{(at resonance)},\;
-      P = I_{\text{rms}}^{2} R,\;
-      I_{\text{wave}} = \dfrac{P}{4\pi r^{2}}\). Calculate:<br>
-      (a) The capacitance \(C\) required for resonance<br>
-      (b) The rms current \(I_{\text{rms}}\) at resonance<br>
-      (c) The power radiated by the antenna<br>
-      (d) The average intensity of the emitted electromagnetic wave at a distance of \(r = 1.0\text{ km}\)
+    <p><strong>Problem 10 (Antenna Tuner – RLC & EM Wave):</strong><br>
+      A series RLC antenna tuner uses \( L = 2.5\ \mu\text{H} \) and a variable \( C \). It is driven by \( V_{\text{rms}} = 30\text{ V} \) at \( f = 7.20\text{ MHz} \); the radiation resistance is \( R = 5.0\ \Omega \). With&nbsp;\( C = \dfrac{1}{(2\pi f)^{2}L},\; I_{\text{rms}} = \dfrac{V_{\text{rms}}}{R}\ \text{(at resonance)},\; P = I_{\text{rms}}^{2} R,\; I_{\text{wave}} = \dfrac{P}{4\pi r^{2}} \), calculate:<br>
+      (a) \( C \) for resonance<br>
+      (b) \( I_{\text{rms}} \) at resonance<br>
+      (c) \( P \) radiated by the antenna<br>
+      (d) \( I_{\text{wave}} \) at \( r = 1.0\text{ km} \)
     </p>
     <button class="copy-btn" onclick="copyHTML('hw9-prob10')">Copy HTML</button>
   </div>
 </div>
+
 
 
 <!-- Copy Function Script -->
