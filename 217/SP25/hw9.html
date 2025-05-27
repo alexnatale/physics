@@ -170,17 +170,29 @@
 <div class="problem" id="hw5-prob10">
   <p><strong>Problem 10 (Damped and driven oscillations – resonance curve):</strong>
     A mass–spring system of mass <em>m</em> and spring constant <em>k</em> experiences a damping force −<em>b v</em> and is driven by an external sinusoidal force
-    <em>F</em>(<em>t</em>) = <em>F</em><sub>0</sub> cos ω<sub>d</sub><em>t</em>.<br>
-    (a) Derive an expression for the steady-state amplitude <em>A</em>(ω<sub>d</sub>) in terms of <em>F</em><sub>0</sub>, <em>m</em>, <em>b</em>, and the natural angular frequency
-        ω<sub>0</sub> = √(<em>k</em>/<em>m</em>).<br>
-    (b) On a qualitative sketch of <em>A</em> versus ω<sub>d</sub>, indicate how increasing <em>b</em> (light, moderate, heavy damping) affects the height and width of the resonance peak.
-        (No numerical plotting required.)<br>
-    (c) Show that, for light damping (<em>b</em> ≪ 2<em>m</em> ω<sub>0</sub>), the resonance frequency is
-        ω<sub>res</sub> ≈ ω<sub>0</sub> √{1 − (<em>b</em><sup>2</sup> / 2 <em>m</em><sup>2</sup> ω<sub>0</sub><sup>2</sup>)}.
-        Explain physically why ω<sub>res</sub> is less than ω<sub>0</sub>.<br>
-    (d) Give one engineered example where intentionally high damping (large <em>b</em>) is beneficial and briefly state why.</p>
+    <em>F</em>(<em>t</em>) = <em>F</em><sub>0</sub> cos ω<sub>d</sub><em>t</em>.  
+    The steady-state amplitude is
+    <br><br>
+    <center><em>A</em>(ω<sub>d</sub>) =
+      <span style="white-space:nowrap;">
+        <em>F</em><sub>0</sub> /
+        √[ (<em>k</em> − <em>m</em> ω<sub>d</sub><sup>2</sup>)<sup>2</sup> + (<em>b</em> ω<sub>d</sub>)<sup>2</sup> ]
+      </span></center>
+    <br>
+    Use this expression in all parts below—no derivation or sketching required.<br><br>
+
+    (a) Qualitatively describe how each parameter (<em>m</em>, <em>k</em>, and <em>b</em>) affects the location, height, and width of the resonance peak in <em>A</em>(ω<sub>d</sub>).<br>
+
+    (b) Explain in words (no diagram) how increasing the damping coefficient <em>b</em> from light to heavy changes (i) the maximum amplitude at resonance and (ii) the range of driving frequencies over which the amplitude is significantly large.<br>
+
+    (c) For light damping (<em>b</em> ≪ 2<em>m</em> ω<sub>0</sub>, with ω<sub>0</sub> = √(<em>k</em>/<em>m</em>)), show that the resonance frequency is
+        ω<sub>res</sub> ≈ ω<sub>0</sub> √{1 − (<em>b</em><sup>2</sup>/<span style="white-space:nowrap;">2 <em>m</em><sup>2</sup> ω<sub>0</sub><sup>2</sup>)}</span>,  
+        and explain physically why ω<sub>res</sub> is slightly less than ω<sub>0</sub>.<br>
+
+    (d) Give one engineered example where deliberately high damping (large <em>b</em>) is advantageous and state the benefit.</p>
   <button class="copy-btn" onclick="copyHTML('hw5-prob10')">Copy HTML</button>
 </div>
+
 </div>
 
 
