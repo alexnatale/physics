@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 6 Solutions: Circuits</title>
+  <style>
+    body{font-family:system-ui,Arial,sans-serif;line-height:1.5;margin:2rem;color:#222;background:#fafafa;}
+    h3{margin-top:0;font-size:1.6rem;}
+    .problem{background:#fff;border:1px solid #ddd;border-radius:10px;padding:1rem;margin-bottom:1.5rem;box-shadow:0 2px 4px rgba(0,0,0,.05);}
+    .problem strong{color:#333;}
+    .solution{margin-top:.75rem;padding-left:1rem;border-left:4px solid #4CAF50;}
+    .solution p{margin:.4rem 0;}
+    code{background:#f0f0f0;padding:0 .25rem;border-radius:4px;}
+  </style>
+  <!-- Include MathJax for LaTeX rendering if available -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<div class="assignment" id="hw6-solutions">
+  <h3>Homework 6 — Circuits (Full Solutions)</h3>
+
+  <!-- Problem 1 -->
+  <div class="problem" id="hw6-prob1-sol">
+    <p><strong>Problem 1 (Drift Velocity): Solution</strong></p>
+    <div class="solution">
+      <p>The drift speed is given by
+        \[
+          v_d = \frac{I}{n e A}, \qquad A = \pi r^2.
+        \]</p>
+      <p>
+        \[
+          A = \pi(1.5\,\text{mm})^2 = 7.07\times10^{-6}\,\text{m}^2
+        \]</p>
+      <p>
+        \[
+          v_d = \frac{5.0\,\text{A}}{(8.5\times10^{28}\,\text{m}^{-3})(1.602\times10^{-19}\,\text{C})(7.07\times10^{-6}\,\text{m}^2)}
+               \approx 5.2\times10^{-5}\,\text{m\,s}^{-1}.
+        \]</p>
+      <p>(b) <em>≈ 0.05 mm s⁻¹</em>, far slower than everyday motions; charge carriers themselves drift very slowly.</p>
+    </div>
+  </div>
+
+  <!-- Problem 2 -->
+  <div class="problem" id="hw6-prob2-sol">
+    <p><strong>Problem 2 (Resistance from Resistivity): Solution</strong></p>
+    <div class="solution">
+      <p>For a uniform cylinder \(R = \rho L / A\).</p>
+      <p>
+        \[
+          A = \pi(2.0\,\text{mm})^2 = 1.26\times10^{-5}\,\text{m}^2
+        \]</p>
+      <p>
+        \[
+          R = \frac{2.65\times10^{-8}\,\Omega\,\text{m}\;(2.0\,\text{m})}{1.26\times10^{-5}\,\text{m}^2}
+            \approx 4.2\times10^{-3}\,\Omega.
+        \]</p>
+      <p><em>≈ 4.2 mΩ</em></p>
+    </div>
+  </div>
+
+  <!-- Problem 3 -->
+  <div class="problem" id="hw6-prob3-sol">
+    <p><strong>Problem 3 (Temperature Dependence of Resistivity): Solution</strong></p>
+    <div class="solution">
+      <p>(a) \(\rho_T = \rho_0[1+\alpha(T-T_0)]\).</p>
+      <p>
+        \[
+          \rho_{75^{\circ}\text{C}} = 1.68\times10^{-8}[1 + (3.9\times10^{-3})(55)]
+          = 2.04\times10^{-8}\,\Omega\,\text{m}.
+        \]</p>
+      <p>(b) With \(A = 1.0\,\text{mm}^2 = 1.0\times10^{-6}\,\text{m}^2\),</p>
+      <p>
+        \[
+          R_{20^{\circ}\text{C}} = \frac{1.68\times10^{-8}}{1\times10^{-6}} = 0.0168\,\Omega,\quad
+          R_{75^{\circ}\text{C}} = 0.0204\,\Omega.
+        \]</p>
+      <p>
+        \[
+          \%\,\Delta R = \frac{0.0204-0.0168}{0.0168}\times100\% \approx 21\%.
+        \]</p>
+    </div>
+  </div>
+
+  <!-- Problem 4 -->
+  <div class="problem" id="hw6-prob4-sol">
+    <p><strong>Problem 4 (Ohm’s Law Check): Solution</strong></p>
+    <div class="solution">
+      <p>Using \(R = V/I\):</p>
+      <ul>
+        <li>At 5 V, 0.20 A: \(R = 25\,\Omega\).</li>
+        <li>At 10 V, 0.40 A: \(R = 25\,\Omega\).</li>
+      </ul>
+      <p>The ratio \(V/I\) is constant, so the device obeys Ohm’s law (it is Ohmic).</p>
+    </div>
+  </div>
+
+  <!-- Problem 5 -->
+  <div class="problem" id="hw6-prob5-sol">
+    <p><strong>Problem 5 (Electrical Power &amp; Energy): Solution</strong></p>
+    <div class="solution">
+      <p>(a) \(P = VI = (120\,\text{V})(8.0\,\text{A}) = 9.6\times10^{2}\,\text{W} = 960\,\text{W}.\)</p>
+      <p>(b) Energy in kilowatt-hours: \(E = (0.960\,\text{kW})(2.5\,\text{h}) = 2.4\,\text{kWh}.\)</p>
+    </div>
+  </div>
+
+  <!-- Problem 6 -->
+  <div class="problem" id="hw6-prob6-sol">
+    <p><strong>Problem 6 (Mesh Analysis): Solution</strong></p>
+    <div class="solution">
+      <p>(a) Clockwise mesh currents \(I_1\) and \(I_2\):</p>
+      <p>
+        \[
+          -V_1 + R_1 I_1 + R_3(I_1 - I_2) = 0,\\
+          -V_2 + R_2 I_2 + R_3(I_2 - I_1) = 0.
+        \]</p>
+      <p>(b) Substituting values and solving,</p>
+      <p>
+        \[
+          I_1 = 0.080\,\text{A},\quad I_2 = 0.060\,\text{A},\quad
+          I_{R_3}=I_1-I_2 = 0.020\,\text{A}.
+        \]</p>
+    </div>
+  </div>
+
+  <!-- Problem 7 -->
+  <div class="problem" id="hw6-prob7-sol">
+    <p><strong>Problem 7 (Power Rating): Solution</strong></p>
+    <div class="solution">
+      <p>(a) Maximum current: \(I_{\max} = \sqrt{P/R} = \sqrt{5.0\,\text{W}/10\,\Omega} = 0.707\,\text{A}.\)</p>
+      <p>(b) Corresponding voltage: \(V_{\max} = I_{\max}R = 0.707\,\text{A}\times10\,\Omega \approx 7.07\,\text{V}.\)</p>
+    </div>
+  </div>
+
+  <!-- Problem 8 -->
+  <div class="problem" id="hw6-prob8-sol">
+    <p><strong>Problem 8 (Voltage Divider): Solution</strong></p>
+    <div class="solution">
+      <p>
+        \[
+          V_{R_2} = V\frac{R_2}{R_1+R_2} = 12\,\text{V}\times\frac{200\,\Omega}{100\,\Omega+200\,\Omega} = 8.0\,\text{V}.
+        \]</p>
+    </div>
+  </div>
+
+  <!-- Problem 9 -->
+  <div class="problem" id="hw6-prob9-sol">
+    <p><strong>Problem 9 (Current Divider): Solution</strong></p>
+    <div class="solution">
+      <p>Total current \(I_{\text{tot}} = 2.0\,\text{A}\).</p>
+
+      <p>For two resistors in parallel, the branch currents are</p>
+      <p>
+        \[
+          I_{R_1} = I_{\text{tot}}\frac{R_2}{R_1+R_2}
+          = 2.0\,\text{A}\times\frac{300\,\Omega}{150\,\Omega+300\,\Omega}
+          = 1.33\,\text{A},
+        \]
+      </p>
+      <p>
+        \[
+          I_{R_2} = I_{\text{tot}}\frac{R_1}{R_1+R_2}
+          = 2.0\,\text{A}\times\frac{150\,\Omega}{150\,\Omega+300\,\Omega}
+          = 0.67\,\text{A}.
+        \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Problem 10 -->
+  <div class="problem" id="hw6-prob10-sol">
+    <p><strong>Problem 10 (RC Circuit Transient Response): Solution</strong></p>
+    <div class="solution">
+      <p>(a) Time constant:</p>
+      <p>
+        \[
+          \tau = RC = (1.0\times10^{3}\,\Omega)(10\,\mu\text{F}) = 0.010\,\text{s}.
+        \]
+      </p>
+      <p>(b) Voltage at \(t = 2\tau\):</p>
+      <p>
+        \[
+          V_C(2\tau) = V_\infty\bigl(1 - e^{-2}\bigr)
+          = 12\,\text{V}\bigl(1 - e^{-2}\bigr)
+          \approx 12\,\text{V}(1 - 0.1353)
+          \approx 10.4\,\text{V}.
+        \]
+      </p>
+    </div>
+  </div>
+
+  
+</div> <!-- close .assignment -->
+</body>
+</html>
