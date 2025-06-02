@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics 217 - Homework 5 Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+        }
+        .problem {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .problem strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .solution {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .solution h4 {
+            color: #28a745;
+            margin-top: 0;
+        }
+        .part {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .formula {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .answer {
+            background-color: #d4edda;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .note {
+            color: #6c757d;
+            font-style: italic;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Physics 217 Homework 5 Solutions: Applications of Newton's Laws</h1>
+    <p style="text-align: center; color: #666;">Due: Tuesday, April 1, 2025, 11:59 PM</p>
+
+    <!-- Problem 1 -->
+    <div class="problem">
+        <p><strong>Problem 1 (Force & Friction):</strong> 
+        A 25.0 kg crate is initially at rest on a horizontal floor. The coefficient of static friction is 0.40 and the coefficient of kinetic friction is 0.30.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Minimum force to start the crate moving:</strong>
+                <p>To overcome static friction, we need:</p>
+                <div class="formula">
+                    \(F_{min} = \mu_s \cdot N = \mu_s \cdot mg\)
+                </div>
+                <p>Where \(N = mg\) (normal force equals weight on horizontal surface)</p>
+                <p>\(F_{min} = 0.40 \times 25.0 \times 9.8 = 98.0\) N</p>
+                <div class="answer">Minimum force = 98.0 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Force needed to maintain constant velocity:</strong>
+                <p>For constant velocity, net force = 0, so applied force must equal kinetic friction:</p>
+                <div class="formula">
+                    \(F_{constant} = \mu_k \cdot N = \mu_k \cdot mg\)
+                </div>
+                <p>\(F_{constant} = 0.30 \times 25.0 \times 9.8 = 73.5\) N</p>
+                <div class="answer">Force for constant velocity = 73.5 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Acceleration with 130 N applied force:</strong>
+                <p>Using Newton's second law:</p>
+                <div class="formula">
+                    \(F_{net} = F_{applied} - f_k = ma\)
+                </div>
+                <p>\(130 - 73.5 = 25.0 \times a\)</p>
+                <p>\(a = \frac{56.5}{25.0} = 2.26\) m/s²</p>
+                <div class="answer">Acceleration = 2.26 m/s²</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem">
+        <p><strong>Problem 2 (Connected Blocks with Friction):</strong> 
+        Two blocks with masses m₁ = 5.0 kg and m₂ = 3.0 kg are connected by a light string that passes over a frictionless pulley. Block m₁ sits on a rough horizontal surface with coefficient of kinetic friction μₖ = 0.25, while m₂ hangs freely.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Acceleration of the system:</strong>
+                <p>For block m₁ (horizontal): \(T - f_k = m_1a\)</p>
+                <p>Where \(f_k = \mu_k m_1 g = 0.25 \times 5.0 \times 9.8 = 12.25\) N</p>
+                <p>For block m₂ (vertical): \(m_2g - T = m_2a\)</p>
+                <p>Adding the equations:</p>
+                <div class="formula">
+                    \(m_2g - f_k = (m_1 + m_2)a\)
+                </div>
+                <p>\(3.0 \times 9.8 - 12.25 = (5.0 + 3.0)a\)</p>
+                <p>\(29.4 - 12.25 = 8.0a\)</p>
+                <p>\(a = \frac{17.15}{8.0} = 2.14\) m/s²</p>
+                <div class="answer">Acceleration = 2.14 m/s²</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Tension in the string:</strong>
+                <p>Using the equation for m₂:</p>
+                <div class="formula">
+                    \(T = m_2g - m_2a = m_2(g - a)\)
+                </div>
+                <p>\(T = 3.0(9.8 - 2.14) = 3.0 \times 7.66 = 23.0\) N</p>
+                <div class="answer">Tension = 23.0 N</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem">
+        <p><strong>Problem 3 (Inclined Plane & Friction):</strong> 
+        A 4.0 kg block slides down a 30° inclined plane. The coefficient of kinetic friction between the block and the plane is 0.20.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Component of weight parallel to incline:</strong>
+                <div class="formula">
+                    \(F_{\parallel} = mg\sin\theta = 4.0 \times 9.8 \times \sin(30°)\)
+                </div>
+                <p>\(F_{\parallel} = 4.0 \times 9.8 \times 0.5 = 19.6\) N</p>
+                <div class="answer">Parallel component = 19.6 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Normal force and frictional force:</strong>
+                <p>Normal force:</p>
+                <div class="formula">
+                    \(N = mg\cos\theta = 4.0 \times 9.8 \times \cos(30°)\)
+                </div>
+                <p>\(N = 4.0 \times 9.8 \times 0.866 = 33.9\) N</p>
+                <p>Frictional force:</p>
+                <div class="formula">
+                    \(f_k = \mu_k N = 0.20 \times 33.9 = 6.78\) N
+                </div>
+                <div class="answer">Normal force = 33.9 N, Friction = 6.78 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Net force and acceleration:</strong>
+                <div class="formula">
+                    \(F_{net} = F_{\parallel} - f_k = 19.6 - 6.78 = 12.8\) N
+                </div>
+                <p>\(a = \frac{F_{net}}{m} = \frac{12.8}{4.0} = 3.20\) m/s²</p>
+                <div class="answer">Net force = 12.8 N, Acceleration = 3.20 m/s²</div>
+            </div>
+
+            <div class="part">
+                <strong>(d) Speed after sliding 3.0 m:</strong>
+                <p>Using kinematics: \(v^2 = v_0^2 + 2as\)</p>
+                <p>Starting from rest: \(v^2 = 0 + 2(3.20)(3.0) = 19.2\)</p>
+                <p>\(v = \sqrt{19.2} = 4.38\) m/s</p>
+                <div class="answer">Final speed = 4.38 m/s</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem">
+        <p><strong>Problem 4 (Connected Blocks on Inclined Surfaces):</strong> 
+        Block A (6.0 kg) rests on a 25° incline. It is connected by a light cord over a frictionless pulley to Block B (4.0 kg) on a 40° incline. Both inclines are frictionless.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Acceleration and direction of motion:</strong>
+                <p>Forces parallel to inclines:</p>
+                <p>Block A: \(F_A = m_A g \sin(25°) = 6.0 \times 9.8 \times 0.4226 = 24.85\) N</p>
+                <p>Block B: \(F_B = m_B g \sin(40°) = 4.0 \times 9.8 \times 0.6428 = 25.20\) N</p>
+                <p class="note">Since F_B > F_A, Block B moves down its incline</p>
+                <p>Net force equation:</p>
+                <div class="formula">
+                    \(F_B - F_A = (m_A + m_B)a\)
+                </div>
+                <p>\(25.20 - 24.85 = (6.0 + 4.0)a\)</p>
+                <p>\(0.35 = 10.0a\)</p>
+                <p>\(a = 0.035\) m/s²</p>
+                <div class="answer">Acceleration = 0.035 m/s² (Block A moves up, Block B moves down)</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Tension in the cord:</strong>
+                <p>Using Block A equation: \(T - F_A = m_A a\)</p>
+                <div class="formula">
+                    \(T = F_A + m_A a = 24.85 + 6.0(0.035)\)
+                </div>
+                <p>\(T = 24.85 + 0.21 = 25.06\) N</p>
+                <div class="answer">Tension = 25.1 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Time to reach the pulley:</strong>
+                <p>Using kinematics: \(s = v_0 t + \frac{1}{2}at^2\)</p>
+                <p>Starting from rest: \(2.0 = 0 + \frac{1}{2}(0.035)t^2\)</p>
+                <p>\(t^2 = \frac{4.0}{0.035} = 114.3\)</p>
+                <p>\(t = 10.7\) s</p>
+                <div class="answer">Time = 10.7 s</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="problem">
+        <p><strong>Problem 5 (Stacked Blocks with External Force):</strong>
+        A 5.0 kg block (Block A) sits on top of a 10.0 kg block (Block B), which rests on a horizontal, frictionless surface. The coefficient of static friction between the blocks is 0.35.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Maximum force before slipping:</strong>
+                <p>For no slipping, both blocks have same acceleration:</p>
+                <p>Maximum friction on A: \(f_{s,max} = \mu_s m_A g = 0.35 \times 5.0 \times 9.8 = 17.15\) N</p>
+                <p>This provides maximum acceleration for A: \(a_{max} = \frac{f_{s,max}}{m_A} = \frac{17.15}{5.0} = 3.43\) m/s²</p>
+                <p>For the system:</p>
+                <div class="formula">
+                    \(F_{max} = (m_A + m_B)a_{max} = (5.0 + 10.0) \times 3.43 = 51.5\) N
+                </div>
+                <div class="answer">Maximum force = 51.5 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Accelerations if blocks slip:</strong>
+                <p>Kinetic friction: \(f_k = \mu_k m_A g = 0.30 \times 5.0 \times 9.8 = 14.7\) N</p>
+                <p>Block A: \(a_A = \frac{f_k}{m_A} = \frac{14.7}{5.0} = 2.94\) m/s²</p>
+                <p>Block B: If F > 51.5 N, say F = 60 N:</p>
+                <p>\(a_B = \frac{F - f_k}{m_B} = \frac{60 - 14.7}{10.0} = 4.53\) m/s²</p>
+                <div class="answer">Block A: 2.94 m/s², Block B: 4.53 m/s² (for F = 60 N)</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Acceleration with F = 40.0 N (no slipping):</strong>
+                <p>Since 40.0 N < 51.5 N, blocks move together:</p>
+                <div class="formula">
+                    \(a = \frac{F}{m_A + m_B} = \frac{40.0}{15.0} = 2.67\) m/s²
+                </div>
+                <div class="answer">Acceleration = 2.67 m/s²</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="problem">
+        <p><strong>Problem 6 (Centripetal Force & Banked Curves):</strong> 
+        A 1200 kg car travels on a circular banked curve with radius 50.0 m. The curve is banked at an angle of 20°.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Speed on frictionless banked curve:</strong>
+                <p>For no friction, the horizontal component of normal force provides centripetal force:</p>
+                <div class="formula">
+                    \(v = \sqrt{rg\tan\theta} = \sqrt{50.0 \times 9.8 \times \tan(20°)}\)
+                </div>
+                <p>\(v = \sqrt{50.0 \times 9.8 \times 0.364} = \sqrt{178.4} = 13.4\) m/s</p>
+                <div class="answer">Speed = 13.4 m/s</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Maximum speed with friction:</strong>
+                <p>With friction pointing down the bank:</p>
+                <div class="formula">
+                    \(v_{max} = \sqrt{\frac{rg(\sin\theta + \mu_s\cos\theta)}{\cos\theta - \mu_s\sin\theta}}\)
+                </div>
+                <p>\(v_{max} = \sqrt{\frac{50.0 \times 9.8(0.342 + 0.40 \times 0.940)}{0.940 - 0.40 \times 0.342}}\)</p>
+                <p>\(v_{max} = \sqrt{\frac{490(0.718)}{0.803}} = \sqrt{438} = 20.9\) m/s</p>
+                <div class="answer">Maximum speed = 20.9 m/s</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Minimum speed with friction:</strong>
+                <p>With friction pointing up the bank:</p>
+                <div class="formula">
+                    \(v_{min} = \sqrt{\frac{rg(\sin\theta - \mu_s\cos\theta)}{\cos\theta + \mu_s\sin\theta}}\)
+                </div>
+                <p>\(v_{min} = \sqrt{\frac{50.0 \times 9.8(0.342 - 0.40 \times 0.940)}{0.940 + 0.40 \times 0.342}}\)</p>
+                <p>Since numerator is negative, minimum speed is 0 m/s</p>
+                <div class="answer">Minimum speed = 0 m/s</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="problem">
+        <p><strong>Problem 7 (Uniform Circular Motion & Conical Pendulum):</strong> 
+        A 0.50 kg object is attached to a 1.2 m string and rotates in a horizontal circle. The string makes an angle of 30° with the vertical.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Tension in the string:</strong>
+                <p>Vertical equilibrium: \(T\cos\theta = mg\)</p>
+                <div class="formula">
+                    \(T = \frac{mg}{\cos\theta} = \frac{0.50 \times 9.8}{\cos(30°)} = \frac{4.9}{0.866} = 5.66\) N
+                </div>
+                <div class="answer">Tension = 5.66 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Speed of the object:</strong>
+                <p>Radius of circular path: \(r = L\sin\theta = 1.2 \times \sin(30°) = 0.60\) m</p>
+                <p>Centripetal force: \(T\sin\theta = \frac{mv^2}{r}\)</p>
+                <div class="formula">
+                    \(v = \sqrt{\frac{rT\sin\theta}{m}} = \sqrt{\frac{0.60 \times 5.66 \times 0.5}{0.50}} = \sqrt{3.40} = 1.84\) m/s
+                </div>
+                <div class="answer">Speed = 1.84 m/s</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Period of rotation:</strong>
+                <div class="formula">
+                    \(T = \frac{2\pi r}{v} = \frac{2\pi \times 0.60}{1.84} = 2.05\) s
+                </div>
+                <div class="answer">Period = 2.05 s</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="problem">
+        <p><strong>Problem 8 (Modified Atwood Machine with Incline):</strong> 
+        A 3.0 kg block (mass m₁) slides without friction on a 35° incline. It is connected by a light string that passes over a frictionless pulley to a hanging 2.5 kg block (mass m₂).</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Acceleration of the system:</strong>
+                <p>For m₁ on incline: \(T - m_1g\sin\theta = m_1a\)</p>
+                <p>For m₂ hanging: \(m_2g - T = m_2a\)</p>
+                <p>Adding equations:</p>
+                <div class="formula">
+                    \(m_2g - m_1g\sin\theta = (m_1 + m_2)a\)
+                </div>
+                <p>\(2.5 \times 9.8 - 3.0 \times 9.8 \times \sin(35°) = (3.0 + 2.5)a\)</p>
+                <p>\(24.5 - 16.85 = 5.5a\)</p>
+                <p>\(a = \frac{7.65}{5.5} = 1.39\) m/s²</p>
+                <div class="answer">Acceleration = 1.39 m/s²</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Tension in the string:</strong>
+                <p>Using m₂ equation: \(T = m_2(g - a) = 2.5(9.8 - 1.39) = 2.5 \times 8.41 = 21.0\) N</p>
+                <div class="answer">Tension = 21.0 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Final velocity after 0.80 m descent:</strong>
+                <p>Using \(v^2 = v_0^2 + 2as\) with \(v_0 = 0\):</p>
+                <p>\(v^2 = 0 + 2(1.39)(0.80) = 2.22\)</p>
+                <p>\(v = 1.49\) m/s</p>
+                <div class="answer">Final velocity = 1.49 m/s</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="problem">
+        <p><strong>Problem 9 (Artificial Gravity in a Rotating Space Station):</strong> 
+        A space station is designed as a rotating cylinder with radius 85.0 m to create artificial gravity through centripetal acceleration.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Angular velocity for Earth gravity:</strong>
+                <p>For centripetal acceleration equal to g:</p>
+                <div class="formula">
+                    \(a_c = \omega^2 r = g\)
+                </div>
+                <p>\(\omega = \sqrt{\frac{g}{r}} = \sqrt{\frac{9.8}{85.0}} = 0.339\) rad/s</p>
+                <div class="answer">Angular velocity = 0.339 rad/s</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Linear speed at the rim:</strong>
+                <div class="formula">
+                    \(v = \omega r = 0.339 \times 85.0 = 28.8\) m/s
+                </div>
+                <div class="answer">Linear speed = 28.8 m/s</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Period of rotation:</strong>
+                <div class="formula">
+                    \(T = \frac{2\pi}{\omega} = \frac{2\pi}{0.339} = 18.5\) s
+                </div>
+                <div class="answer">Period = 18.5 s</div>
+            </div>
+
+            <div class="part">
+                <strong>(d) Scale reading for 70.0 kg astronaut:</strong>
+                <p>The scale reads the normal force, which equals the "artificial weight":</p>
+                <div class="formula">
+                    \(F = ma_c = mg = 70.0 \times 9.8 = 686\) N
+                </div>
+                <div class="answer">Scale reading = 686 N</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="problem">
+        <p><strong>Problem 10 (Multiple Blocks with Different Surfaces):</strong> 
+        Three blocks with masses m₁ = 4.0 kg, m₂ = 2.0 kg, and m₃ = 3.0 kg are connected by light strings. Block m₁ is on a horizontal surface with coefficient of kinetic friction μ₁ = 0.30, Block m₂ is on a frictionless 25° incline, and Block m₃ hangs vertically.</p>
+        
+        <div class="solution">
+            <h4>Solution:</h4>
+            
+            <div class="part">
+                <strong>(a) Acceleration of the system:</strong>
+                <p>Forces on each block:</p>
+                <p>m₁: \(T_1 - f_k = m_1a\) where \(f_k = 0.30 \times 4.0 \times 9.8 = 11.76\) N</p>
+                <p>m₂: \(T_2 - T_1 - m_2g\sin(25°) = m_2a\)</p>
+                <p>m₃: \(m_3g - T_2 = m_3a\)</p>
+                <p>Adding all equations:</p>
+                <div class="formula">
+                    \(m_3g - f_k - m_2g\sin(25°) = (m_1 + m_2 + m_3)a\)
+                </div>
+                <p>\(3.0 \times 9.8 - 11.76 - 2.0 \times 9.8 \times 0.423 = 9.0a\)</p>
+                <p>\(29.4 - 11.76 - 8.29 = 9.0a\)</p>
+                <p>\(a = \frac{9.35}{9.0} = 1.04\) m/s²</p>
+                <div class="answer">Acceleration = 1.04 m/s²</div>
+            </div>
+
+            <div class="part">
+                <strong>(b) Tensions in both strings:</strong>
+                <p>For T₂ (using m₃): \(T_2 = m_3(g - a) = 3.0(9.8 - 1.04) = 26.3\) N</p>
+                <p>For T₁ (using m₁): \(T_1 = f_k + m_1a = 11.76 + 4.0 \times 1.04 = 15.9\) N</p>
+                <div class="answer">T₁ = 15.9 N, T₂ = 26.3 N</div>
+            </div>
+
+            <div class="part">
+                <strong>(c) Distance m₃ falls in 2.0 s:</strong>
+                <p>Using \(s = v_0t + \frac{1}{2}at^2\) with \(v_0 = 0\):</p>
+                <p>\(s = 0 + \frac{1}{2}(1.04)(2.0)^2 = 2.08\) m</p>
+                <div class="answer">Distance = 2.08 m</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
