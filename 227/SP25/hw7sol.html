@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Physics 217 – Homework 6 Solutions</title>
+  <style>
+    body{font-family:system-ui, sans-serif;line-height:1.45;margin:2rem;}
+    h3{margin-top:0;}
+    .problem{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #ccc;}
+    ol{margin-left:1.25rem;}
+  </style>
+  <!-- MathJax for LaTeX rendering -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div class="solutions" id="hw6-sol">
+  <h3>Homework 6: Magnetic Fields – Solutions</h3>
+  <p><strong>Course:</strong> Physics 217 (Calculus‑based introductory physics)<br>
+     <strong>Term:</strong> Spring 2025<br>
+     <strong>Topics:</strong> Magnetic forces and fields (OpenStax Univ. Physics Vol. 2, Ch. 11)</p>
+
+  <!-- Problem 1 Solution -->
+  <div class="problem" id="hw6-prob1-sol">
+    <h4>Problem 1 Solution (Lorentz‑Force Concepts & Calculation)</h4>
+    <ol type="a">
+      <li>The magnetic force on a moving charge is \( \mathbf{F} = q\,\mathbf{v} \times \mathbf{B} \). For a <em>positive</em> charge, the right‑hand rule (fingers from \( \mathbf{v} \) to \( \mathbf{B} \), thumb gives \( \mathbf{F} \)) indicates the direction; for a <em>negative</em> charge the force points opposite that direction.</li>
+      <li>With \( \mathbf{v}=5.00\times10^{3}\,\hat{\mathbf{x}}\,\text{m/s} \) and \( \mathbf{B}=0.50\,\hat{\mathbf{z}}\,\text{T} \), \( \mathbf{v}\times\mathbf{B} = -2.50\times10^{3}\,\hat{\mathbf{y}}\,\text{m·T/s} \). Multiplying by \( q = 1.00\times10^{-7}\,\text{C} \) gives <strong>\( \mathbf{F} = -2.5\times10^{-4}\,\hat{\mathbf{y}}\;\text{N} \)</strong>.</li>
+      <li>If \( \mathbf{v} \) is parallel to \( \mathbf{B} \), the angle is 0°, so \( \sin\theta = 0 \) and the magnetic force is zero.</li>
+      <li>Because \( |\mathbf{F}| \propto |q| \), doubling the charge doubles the magnitude of the force.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 2 Solution -->
+  <div class="problem" id="hw6-prob2-sol">
+    <h4>Problem 2 Solution (Uniform Circular Motion of a Charged Particle)</h4>
+    <ol type="a">
+      <li>\( r = \dfrac{m v}{|q| B} = \dfrac{(2.00\times10^{-3})\,(3.00\times10^{3})}{(1.00\times10^{-7})(0.75)} = 8.0\times10^{7}\,\text{m} \).</li>
+      <li>Cyclotron angular frequency: \( \omega = \dfrac{|q|B}{m} = 3.75\times10^{-5}\,\text{rad/s} \). Period: \( T = \dfrac{2\pi}{\omega} \approx 1.68\times10^{5}\,\text{s} \;(46.6\,\text{h}) \).</li>
+      <li>With mass halved, \( r \propto m \) is halved, while \( \omega \propto 1/m \) doubles, so the frequency doubles.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 3 Solution -->
+  <div class="problem" id="hw6-prob3-sol">
+    <h4>Problem 3 Solution (Field Around a Long Straight Wire)</h4>
+    <ol type="a">
+      <li>\( B = \dfrac{\mu_0 I}{2\pi r} = \dfrac{(4\pi\times10^{-7})(5.00)}{2\pi(0.10)} = 1.0\times10^{-5}\,\text{T} \;(10\,\mu\text{T}) \).</li>
+      <li>Field lines form concentric circles centered on the wire. Point your right‑hand thumb along the current; your curled fingers show the field direction.</li>
+      <li>Since \( B \propto I \), doubling the current doubles the field.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 4 Solution -->
+  <div class="problem" id="hw6-prob4-sol">
+    <h4>Problem 4 Solution (Field at the Center of a Circular Loop)</h4>
+    <ol type="a">
+      <li>Single loop: \( B = \dfrac{\mu_0 I}{2r} = \dfrac{(4\pi\times10^{-7})(3.00)}{2(0.15)} = 1.26\times10^{-5}\,\text{T} \;(12.6\,\mu\text{T}) \).</li>
+      <li>For \( N = 25 \) turns: \( B = N B_{\text{single}} = 25(1.26\times10^{-5}) = 3.14\times10^{-4}\,\text{T} \;(314\,\mu\text{T}) \).</li>
+      <li>Each turn contributes the same field at the center, so the total adds linearly with \( N \). Inter‑turn interactions are negligible, hence the field scales linearly, not quadratically.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 5 Solution -->
+  <div class="problem" id="hw6-prob5-sol">
+    <h4>Problem 5 Solution (Field Inside a Long Solenoid)</h4>
+    <ol type="a">
+      <li>\( B = \mu_0 n I = (4\pi\times10^{-7})(500)(2.00) = 1.26\times10^{-3}\,\text{T} \;(1.26\,\text{mT}) \).</li>
+      <li>Energy density: \( u = \dfrac{B^{2}}{2\mu_0} = 0.628\,\text{J·m}^{-3} \).</li>
+      <li>Near the ends the field lines spread outward (fringe), so \( B \) decreases; the ideal formula assumes an infinitely long solenoid where edge effects vanish.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 6 Solution -->
+  <div class="problem" id="hw6-prob6-sol">
+    <h4>Problem 6 Solution (Field Inside a Toroid)</h4>
+    <ol type="a">
+      <li>Mean radius \( r = (a+b)/2 = 0.07\,\text{m} \). \( B = \dfrac{\mu_0 N I}{2\pi r} = 3.43\times10^{-3}\,\text{T} \;(3.43\,\text{mT}) \).</li>
+      <li>Approximate core volume \( V \approx 1.38\times10^{-4}\,\text{m}^{3} \). Energy density \( u = B^{2}/(2\mu_0) = 4.68\,\text{J·m}^{-3} \). Total energy \( U = uV \approx 6.5\times10^{-4}\,\text{J} \).</li>
+      <li>Because \( B \propto 1/r \), increasing the inner radius \( a \) (keeping \( b \) fixed) increases the mean radius, thus reducing the field at that radius.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 7 Solution -->
+  <div class="problem" id="hw6-prob7-sol">
+    <h4>Problem 7 Solution (Magnetic Dipole Moment & Energy)</h4>
+    <ol type="a">
+      <li>\( \mu = I\pi r^{2} = (4.00)(\pi)(0.10)^{2} = 1.26\times10^{-1}\,\text{A·m}^{2} \).</li>
+      <li>Maximum potential energy (\( \boldsymbol{\mu} \perp \mathbf{B} \)):
+          \( U_{\max} = \mu B = (1.26\times10^{-1})(0.30) = 3.77\times10^{-2}\,\text{J} \).</li>
+      <li>Energy is minimum when \( \boldsymbol{\mu} \) aligns with \( \mathbf{B} \) because the system is then in its most stable (lowest‑energy) orientation and experiences no torque.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 8 Solution -->
+  <div class="problem" id="hw6-prob8-sol">
+    <h4>Problem 8 Solution (Force Between Parallel Wires)</h4>
+    <ol type="a">
+      <li>\( \dfrac{F}{L} = \dfrac{\mu_0 I^{2}}{2\pi r} = \dfrac{(4\pi\times10^{-7})(3.00)^{2}}{2\pi(0.05)} = 3.6\times10^{-5}\,\text{N·m}^{-1} \).</li>
+      <li>With currents opposite, the force is <em>repulsive</em>; the magnetic fields exert forces pushing the wires apart.</li>
+      <li>This interaction underlies the SI definition of the ampere: two straight, parallel conductors 1 m apart carrying identical currents of 1 A attract with a force of exactly \(2\times10^{-7}\,\text{N·m}^{-1}\).</li>
+    </ol>
+  </div>
+
+  <!-- Problem 9 Solution -->
+  <div class="problem" id="hw6-prob9-sol">
+    <h4>Problem 9 Solution (Current Loop in a Non‑Uniform Field)</h4>
+    <ol type="a">
+      <li>The vertical sides experience unequal fields. Net force:
+          \( F_{\text{net}} = I L\,[B(0.10) - B(0)] = (2)(0.10)[0.25(1 + 1.5) - 0.25] = 7.5\times10^{-2}\,\text{N} \) toward negative x.</li>
+      <li>Torque about the loop’s center (z‑axis): \( \tau = F_{\text{net}} (L/2) \approx 3.8\times10^{-3}\,\text{N·m} \), rotating the loop so its right side moves toward the lower‑field region.</li>
+      <li>Magnetic‑field gradients are exploited, for example, in MRI gradient coils and in magnetic trapping of neutral atoms.</li>
+    </ol>
+  </div>
+
+  <!-- Problem 10 Solution -->
+  <div class="problem" id="hw6-prob10-sol">
+    <h4>Problem 10 Solution (Designing a Hall‑Effect Magnetic Sensor)</h4>
+    <ol type="a">
+      <li>Key design parameters: (1) carrier density \( n \), (2) device thickness \( t \) (and geometry), (3) bias current \( I \) (also mobility and temperature management).</li>
+      <li>Hall voltage: \( V_H = \dfrac{I B}{n q t} = \dfrac{(0.020)(0.10)}{(8.0\times10^{22})(1.602\times10^{-19})(50\,\mu\text{m})} \approx 3.1\,\text{mV} \).</li>
+      <li>Doubling the current doubles \( V_H \) but increases power \( P \propto I^{2} \) four‑fold, raising Joule heating and thermal drift.</li>
+      <li>Greater sensitivity via higher current or thinner devices must be balanced against increased thermal noise and power dissipation.</li>
+    </ol>
+  </div>
+
+</div>
+</body>
+</html>
