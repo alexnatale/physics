@@ -21,7 +21,7 @@ body{
   page-break-after:always;
   position:relative;
 }
-.last-page{ page-break-after:never; }
+.last-page{ height:auto; /* instead of 11 in */ page-break-after:auto; /* default, so extra length spills onto a new sheet when printing */}
 
 /* ==========  Front-matter  ========== */
 .header{ margin-bottom:20px; }
@@ -35,7 +35,7 @@ body{
 .instructions-heading{
   color:#3366cc; margin-bottom:10px; font-size:18px; position:relative;
 }
-.version-gamma{
+.version-beta{
   font-size:5px; position:absolute; top:3px; left:87px; color:#666;
 }
 .instructions p{ margin:5px 0; line-height:1.2; }
@@ -44,10 +44,11 @@ body{
 .question,
 .calculation-question{
   margin:0 0 24px;
-  /* keep each question intact on one page */
-  break-inside:avoid-page;
-  page-break-inside:avoid;
+  /* ----- NEW: keep each question intact on one page ----- */
+  break-inside:avoid-page;      /* modern spec */
+  page-break-inside:avoid;      /* legacy engines */
 }
+/* fixed-width labels so [EC] aligns with [Q10] */
 .question-number{
   display:inline-block;
   width:3em;
@@ -56,16 +57,19 @@ body{
   color:#3366cc;
   font-weight:bold;
 }
+/* answer choices indent under body text */
 .option{
   display:block;
   margin:4px 0 4px calc(3em + 0.5em);
 }
+/* section headings */
 .section-title{
   color:#3366cc;
   font-size:20px;
   margin:0 0 10px;
-  break-after:avoid-page;
+  break-after:avoid-page;   /* don’t orphan a heading */
 }
+/* add breathing room when two section titles follow back-to-back */
 .section-title + .section-title{ margin-top:32px; }
 
 /* ==========  Equation sheets & grid  ========== */
@@ -82,10 +86,24 @@ body{
   grid-gap:8px;
 }
 
+/* ==========  Print overrides  ========== */
 @media print{
   .page{ page-break-after:always; }
-  .last-page{ page-break-after:never; }
+  
   h2, h3, img, table{ page-break-inside:avoid; }
+}
+
+    @media screen, print{
+  .last-page{
+    font-size:0.92em;         /* shrink just enough to fit */
+  }
+
+  /* Prevent individual equation boxes from splitting across pages
+     (keeps headings with their blocks after the font change). */
+  .equation-section{
+    break-inside:avoid-page;
+    page-break-inside:avoid;
+  }
 }
 </style>
 </head>
@@ -209,7 +227,8 @@ body{
       <div class="option">d.&nbsp;15 V</div>
       <div class="option">e.&nbsp;18 V</div>
     </div>
-
+      </div>
+ <div class="page">
     <!-- Q9 – Energy stored in inductor -->
     <div class="calculation-question">
       <span class="question-number">[Q9]</span>
@@ -223,11 +242,7 @@ body{
 
     <!-- Q10 – Average power in RLC -->
     <div class="calculation-question">
-          <br>
-      <br>
-       <br>
-      <br>
-       <br>
+     
       <span class="question-number">[Q10]</span>
       A series RLC circuit has R = 25 Ω, L = 60 mH, and C = 6.0 µF. It is driven by a source
       v(t) = 100 sin(2π <strong>62</strong> t) V. What is the average power dissipated in the resistor?
@@ -237,20 +252,11 @@ body{
       <div class="option">d.&nbsp;1.2 W</div>
       <div class="option">e.&nbsp;2.5 W</div>
     </div>
-  </div>
+
 
   <!-- Extra‑Credit Quantitative Question -->
-  <div class="page">
-        <br>
-      <br>
-       <br>
-      <br>
-       <br>
-        <br>
-      <br>
-       <br>
-      <br>
-       <br>
+ 
+ 
     <div class="calculation-question">
       <span class="question-number">[EC]</span>
       <strong>Extra Credit Q2 (10 pts):</strong>
@@ -264,7 +270,7 @@ body{
  <!-- Reference: Physical Constants -->
   <div class="page">
     <h2 class="section-title">Physical Constants &amp; Useful Math</h2>
-    <img src="physical_constants.PNG" class="reference" alt="Table of physical constants" style="width:100%; max-width:6.5in;">
+    <img src="physical_constants.PNG" class="reference" alt="Table of physical constants"  style="width:100%; max-height:8.5in; height:auto;" max-width:6.5in;">
   </div>
 
   <!-- Reference: Trigonometry & Calculus -->
@@ -409,19 +415,12 @@ body{
             <div class="equation">⟨S⟩ = ½ ε<sub>0</sub> c E<sub>0</sub><sup>2</sup></div>
           </div>
         </div>
-
-        <div class="equation-section">
-          <div class="equation-title">Fundamental Constants</div>
-          <div class="equation-group">
-            <div class="equation">μ<sub>0</sub> = 4π × 10<sup>−7</sup> T·m/A</div>
-            <div class="equation">ε<sub>0</sub> = 8.854 × 10<sup>−12</sup> C²/(N·m²)</div>
-            <div class="equation">c = 2.998 × 10<sup>8</sup> m/s</div>
-            <div class="equation">e = 1.602 × 10<sup>−19</sup> C</div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
+
+</body>
+</html>
 
 </body>
 </html>
