@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Homework 6 Solutions – Work & Energy</title>
+
+  <!-- Styling for a clean, readable layout -->
+  <style>
+    :root {
+      --bg: #f7f7f9;
+      --card-bg: #ffffff;
+      --border: #ddd;
+      --text: #333;
+    }
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto,
+                   'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .assignment {
+      max-width: 800px;
+      margin: auto;
+    }
+    h3, h4 {
+      margin-top: 0;
+      font-weight: 600;
+    }
+    .problem {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .problem ol {
+      margin: 0 0 0.5rem 1.25rem;
+      padding-left: 0;
+    }
+    .problem li {
+      margin-bottom: 0.6rem;
+    }
+    /* Keep inline math from wrapping awkwardly */
+    .math { white-space: nowrap; }
+  </style>
+
+  <!-- MathJax for LaTeX rendering -->
+  <script async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+<body>
+  <div class="assignment" id="hw6-solutions">
+    <h3>Homework 6 Solutions: Work &amp; Energy</h3>
+    <p><strong>Posted:</strong> Tuesday, June 3 2025</p>
+
+    <!-- Problem 1 -->
+    <div class="problem" id="hw6-prob1-sol">
+      <h4>Problem 1 – Basic Work Calculation</h4>
+      <ol type="a">
+        <li>Work by applied force:  
+          <span class="math">\(W = Fd\cos\theta
+            = 75.0\,\text{N}\times12.0\,\text{m}\times\cos25^{\circ}
+            = 8.16\times10^{2}\,\text{J}\)</span></li>
+
+        <li>Work by friction:  
+          <span class="math">\(W_f = -\mu_k\,N\,d
+            = -0.15\!\left(mg+F\sin25^{\circ}\right)\!d
+            = -6.74\times10^{2}\,\text{J}\)</span></li>
+
+        <li>Net work:  
+          <span class="math">\(W_{\text{net}} = W + W_f
+            = 1.41\times10^{2}\,\text{J}\)</span></li>
+      </ol>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem" id="hw6-prob2-sol">
+      <h4>Problem 2 – Work–Energy Theorem</h4>
+      <ol type="a">
+        <li><span class="math">\(\Delta K
+            = \tfrac12 m v^{2}
+            = 0.5(1500)(25.0)^{2}
+            = 4.69\times10^{5}\,\text{J}\)</span></li>
+
+        <li>Work done (equals \(\Delta K\)): <strong>4.69 × 10<sup>5</sup> J</strong></li>
+
+        <li><span class="math">\(F_{\text{avg}}
+            = \dfrac{W}{d}
+            = \dfrac{4.69\times10^{5}\,\text{J}}{120\,\text{m}}
+            = 3.91\times10^{3}\,\text{N}\)</span></li>
+      </ol>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem" id="hw6-prob3-sol">
+      <h4>Problem 3 – Power Calculations</h4>
+      <ol type="a">
+        <li><span class="math">\(W = mgh = (65.0)(9.8)(4.5)
+            = 2.87\times10^{3}\,\text{J}\)</span></li>
+
+        <li><span class="math">\(P
+            = \dfrac{W}{t}
+            = \dfrac{2.87\times10^{3}\,\text{J}}{6.0\,\text{s}}
+            = 4.78\times10^{2}\,\text{W}\)</span></li>
+
+        <li><span class="math">\(P
+            = \dfrac{4.78\times10^{2}\,\text{W}}{746\,\text{W/hp}}
+            \approx 0.64\,\text{hp}\)</span></li>
+
+        <li><span class="math">\(\text{Efficiency}
+            = \dfrac{P_{\text{actual}}}{P}
+            = \dfrac{380}{478}\approx79.5\%\)</span></li>
+      </ol>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem" id="hw6-prob4-sol">
+      <h4>Problem 4 – Gravitational Potential Energy</h4>
+      <ol type="a">
+        <li><span class="math">\(K_i
+            = 0.5(2.0)(15.0)^{2}
+            = 225\,\text{J}\)</span></li>
+
+        <li><span class="math">\(U_i
+            = mgh
+            = (2.0)(9.8)(1.2)
+            = 23.5\,\text{J}\)</span></li>
+
+        <li><span class="math">\(h_{\max}
+            = \dfrac{K_i+U_i}{mg}
+            \approx 12.7\,\text{m}\)</span></li>
+
+        <li><span class="math">\(v
+            = \sqrt{\dfrac{2(K_i+U_i)}{m}}
+            \approx 15.8\,\text{m/s}\)</span></li>
+      </ol>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="problem" id="hw6-prob5-sol">
+      <h4>Problem 5 – Elastic Potential Energy</h4>
+      <ol type="a">
+        <li><span class="math">\(U
+            = \tfrac12 kx^{2}
+            = 0.5(200)(0.150)^{2}
+            = 2.25\,\text{J}\)</span></li>
+
+        <li><span class="math">\(v
+            = \sqrt{\dfrac{2U}{m}}
+            = 3.00\,\text{m/s}\)</span></li>
+
+        <li><span class="math">\(h
+            = \dfrac{U}{mg}
+            \approx 0.46\,\text{m}\)</span></li>
+      </ol>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="problem" id="hw6-prob6-sol">
+      <h4>Problem 6 – Energy with Non-Conservative Forces</h4>
+      <ol type="a">
+        <li><span class="math">\(W_g
+            = mgd\sin\theta
+            = 73.5\,\text{J}\)</span></li>
+
+        <li><span class="math">\(W_f
+            = -\mu_k mgd\cos\theta
+            = -31.8\,\text{J}\)</span></li>
+
+        <li><span class="math">\(v
+            = \sqrt{\dfrac{2(W_g+W_f)}{m}}
+            = 4.08\,\text{m/s}\)</span></li>
+
+        <li>Thermal energy generated: <strong>31.8 J</strong></li>
+      </ol>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="problem" id="hw6-prob7-sol">
+      <h4>Problem 7 – Conservation of Mechanical Energy</h4>
+      <ol type="a">
+        <li><span class="math">\(U_i
+            = mgL(1-\cos\theta)
+            = 2.63\,\text{J}\)</span></li>
+
+        <li><span class="math">\(v
+            = \sqrt{\dfrac{2U_i}{m}}
+            = 2.29\,\text{m/s}\)</span></li>
+
+        <li>Ideal return angle: <strong>30°</strong></li>
+
+        <li>With 8 % loss: <strong>≈ 29°</strong></li>
+      </ol>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="problem" id="hw6-prob8-sol">
+      <h4>Problem 8 – Energy Conversion (Roller Coaster)</h4>
+      <ol type="a">
+        <li><span class="math">\(U_i
+            = mgh
+            = 1.41\times10^{5}\,\text{J}\)</span></li>
+
+        <li>Thermal energy lost: <strong>5.25 × 10<sup>4</sup> J</strong></li>
+
+        <li>Percentage lost: <strong>37 %</strong></li>
+      </ol>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="problem" id="hw6-prob9-sol">
+      <h4>Problem 9 – Potential Energy & Stability</h4>
+      <ol type="a">
+        <li>Equilibrium: <strong>x = 3 m</strong></li>
+        <li>Nature: <strong>Stable</strong> (\(d^{2}U/dx^{2}=4\gt0\))</li>
+        <li>Allowed positions for \(E_{\text{tot}}=0\): <strong>only x = 3 m</strong></li>
+        <li>Maximum speed at \(E_{\text{tot}}=0\): <strong>0 m/s</strong></li>
+      </ol>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="problem" id="hw6-prob10-sol">
+      <h4>Problem 10 – Energy Conversion Efficiency</h4>
+      <ol type="a">
+        <li>Incident power: <strong>8.0 kW</strong></li>
+        <li>Electrical output (18 %): <strong>1.44 kW</strong></li>
+        <li>Height a 50 kg mass can be lifted in 10 s: <strong>29.4 m</strong></li>
+        <li>Overall efficiency: <strong>8.1 %</strong></li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
