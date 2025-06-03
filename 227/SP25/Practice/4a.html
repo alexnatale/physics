@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>Physics 227 – Exam #4</title>
   <style>
-/* ───────────────────────────────
-   Page sheet & global text
-   ─────────────────────────────── */
+/* ==========  Global page setup  ========== */
 body{
   font-family:Calibri,"Segoe UI",sans-serif;
   margin:0;
@@ -14,7 +12,6 @@ body{
   background:#fff;
   color:#333;
 }
-
 .page{
   width:8.5in;
   height:11in;
@@ -24,14 +21,10 @@ body{
   page-break-after:always;
   position:relative;
 }
-
 .last-page{ page-break-after:never; }
 
-/* ───────────────────────────────
-   Front-matter
-   ─────────────────────────────── */
+/* ==========  Front-matter  ========== */
 .header{ margin-bottom:20px; }
-
 .title-section{ text-align:center; margin:2in 0 1in; }
 .title{ font-size:32px; margin:0; }
 .subtitle{ font-size:28px; margin:0; }
@@ -39,100 +32,53 @@ body{
 .instructions{
   position:absolute; bottom:1in; left:1in; right:1in;
 }
-
 .instructions-heading{
-  color:#3366cc;
-  margin-bottom:10px;
-  font-size:18px;
-  position:relative;
+  color:#3366cc; margin-bottom:10px; font-size:18px; position:relative;
 }
-
 .version-beta{
-  font-size:5px;
-  position:absolute;
-  top:3px; left:87px;
-  color:#666;
+  font-size:5px; position:absolute; top:3px; left:87px; color:#666;
 }
-
 .instructions p{ margin:5px 0; line-height:1.2; }
 
-/* ───────────────────────────────
-   Question blocks
-   ─────────────────────────────── */
+/* ==========  Question blocks  ========== */
 .question,
 .calculation-question{
-  margin:0 0 24px;           /* vertical rhythm */
+  margin:0 0 24px;
+  /* ----- NEW: keep each question intact on one page ----- */
+  break-inside:avoid-page;      /* modern spec */
+  page-break-inside:avoid;      /* legacy engines */
 }
-
-/* optional class for short items you never want split */
-.keep-together{
-  break-inside:avoid-page;   /* modern */
-  page-break-inside:avoid;   /* legacy */
-}
-
-/* fixed-width label so [EC] & [Q10] align */
+/* fixed-width labels so [EC] aligns with [Q10] */
 .question-number{
   display:inline-block;
-  width:3em;                 /* tweak if you ever need wider */
+  width:3em;
   margin-right:0.5em;
   text-align:right;
   color:#3366cc;
   font-weight:bold;
 }
-
-/* answer choices line up under the question text */
+/* answer choices indent under body text */
 .option{
   display:block;
-  margin:4px 0 4px calc(3em + 0.5em); /* indent equals label width + gap */
+  margin:4px 0 4px calc(3em + 0.5em);
 }
-
 /* section headings */
 .section-title{
   color:#3366cc;
   font-size:20px;
   margin:0 0 10px;
-  break-after:avoid-page;    /* don’t leave a heading dangling at bottom */
+  break-after:avoid-page;   /* don’t orphan a heading */
 }
-
-/* keep a little air above the first Quantitative heading */
+/* add breathing room when two section titles follow back-to-back */
 .section-title + .section-title{ margin-top:32px; }
 
-/* ───────────────────────────────
-   Equation sheets & 2-column grid
-   ─────────────────────────────── */
-.equation-section{
-  border:1px solid #ccc;
-  background:#f9f9f9;
-  margin-bottom:12px;
-}
-
-.equation-title{
-  background:#eaeaea;
-  color:#3366cc;
-  font-size:16px;
-  font-weight:bold;
-  padding:8px;
-}
-
+/* ==========  Equation sheets & grid  ========== */
+.equation-section{ border:1px solid #ccc; background:#f9f9f9; margin-bottom:12px; }
+.equation-title{ background:#eaeaea; color:#3366cc; font-size:16px; font-weight:bold; padding:8px; }
 .equation-group{ margin:8px; padding:2px; }
-
-.equation-subtitle{
-  font-weight:bold;
-  margin-bottom:3px;
-  font-size:0.85em;
-}
-
-.equation{
-  margin:0 0 3px 10px;
-  font-size:0.95em;
-}
-
-.note{
-  font-style:italic;
-  margin-left:15px;
-  font-size:0.85em;
-  color:#666;
-}
+.equation-subtitle{ font-weight:bold; margin-bottom:3px; font-size:0.85em; }
+.equation{ margin:0 0 3px 10px; font-size:0.95em; }
+.note{ font-style:italic; margin-left:15px; font-size:0.85em; color:#666; }
 
 .grid-container{
   display:grid;
@@ -140,16 +86,11 @@ body{
   grid-gap:8px;
 }
 
-/* ───────────────────────────────
-   Print overrides
-   ─────────────────────────────── */
+/* ==========  Print overrides  ========== */
 @media print{
   .page{ page-break-after:always; }
   .last-page{ page-break-after:never; }
-
-  h2, h3, img, table{
-    page-break-inside:avoid; /* stay together if they fit */
-  }
+  h2, h3, img, table{ page-break-inside:avoid; }
 }
 </style>
 </head>
