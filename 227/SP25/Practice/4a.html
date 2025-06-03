@@ -18,15 +18,7 @@
     .instructions p { margin:5px 0; line-height:1.2; }
 
    
-.question,
-.calculation-question {
-  display:inline-block;      /* makes the entire question atomic         */
-  width:100%;                /* still behave like a block in normal flow */
-  margin:0 0 24px;           /* breathing room after each question       */
-  page-break-inside:avoid;   /* older WebKit / Edge                      */
-  break-inside:avoid-page;   /* modern spec                              */
-  vertical-align:top;        /* kill the inline-block baseline dip       */
-}
+
 
 /* 2.  Fixed-width label so “[EC]” and “[Q10]” occupy the same space. */
 .question-number {
@@ -71,14 +63,15 @@
 
     /* Give every question label the same width so the body text
    always lines up, whether the label is [Q1] or [EC]. */
-.question-number {
+.question-number{
+  display:inline-block;
+  width:3em;          /* same width for [Q10] and [EC] */
+  margin-right:0.5em;
+  text-align:right;
   color:#3366cc;
   font-weight:bold;
-  display:inline-block;
-  width:3em;        /* tweak to taste */
-  text-align:right; /* keeps bracket tight to the number */
-  margin-right:8px; /* a hair more breathing room */
 }
+
 
 /* Keep a little vertical air above the first “Quantitative” heading.
    (Only needed because the EC conceptual question now sits right above it.) */
@@ -87,12 +80,16 @@
 }
 
 /* Make sure blocks never split across pages. */
+/* QUESTION BLOCKS
+   — back to “normal” blocks so a tall question can flow onto the next page.
+   — keep some breathing room below each one. */
 .question,
 .calculation-question {
-  break-inside:avoid-page; /* modern spec */
-  page-break-inside:avoid; /* older engines */
+  margin:0 0 24px;
+  /* If you really need to avoid splitting a *short* item (like EC),
+     you can add a class and keep break-inside there. */
 }
-    
+
 
 
   </style>
