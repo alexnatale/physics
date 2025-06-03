@@ -21,7 +21,7 @@ body{
   page-break-after:always;
   position:relative;
 }
-.last-page{ page-break-after:never; }
+.last-page{ height:auto; /* instead of 11 in */ page-break-after:auto; /* default, so extra length spills onto a new sheet when printing */}
 
 /* ==========  Front-matter  ========== */
 .header{ margin-bottom:20px; }
