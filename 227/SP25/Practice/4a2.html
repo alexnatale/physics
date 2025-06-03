@@ -92,6 +92,19 @@ body{
   
   h2, h3, img, table{ page-break-inside:avoid; }
 }
+
+    @media screen, print{
+  .last-page{
+    font-size:0.92em;         /* shrink just enough to fit */
+  }
+
+  /* Prevent individual equation boxes from splitting across pages
+     (keeps headings with their blocks after the font change). */
+  .equation-section{
+    break-inside:avoid-page;
+    page-break-inside:avoid;
+  }
+}
 </style>
 </head>
 <body>
