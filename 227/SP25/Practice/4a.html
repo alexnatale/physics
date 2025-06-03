@@ -4,93 +4,154 @@
   <meta charset="UTF-8">
   <title>Physics 227 – Exam #4</title>
   <style>
-    body { font-family: Calibri,"Segoe UI",sans-serif; margin:0; padding:0; background:#fff; color:#333; }
-    .page { width:8.5in; height:11in; padding:1in; margin:0 auto; box-sizing:border-box; page-break-after:always; position:relative; }
-    .last-page { page-break-after:never; }
-    .header { margin-bottom:20px; }
-    .title-section { text-align:center; margin:2in 0 1in; }
-    .title { font-size:32px; margin:0; }
-    .subtitle { font-size:28px; margin:0; }
-    .instructions { position:absolute; bottom:1in; left:1in; right:1in; }
-    .instructions-heading { color:#3366cc; margin-bottom:10px; font-size:18px; position:relative; }
-    /* Renamed to match the beta release and corrected the displayed character */
-    .version-beta { font-size:5px; position:absolute; top:3px; left:87px; color:#666; }
-    .instructions p { margin:5px 0; line-height:1.2; }
+/* ───────────────────────────────
+   Page sheet & global text
+   ─────────────────────────────── */
+body{
+  font-family:Calibri,"Segoe UI",sans-serif;
+  margin:0;
+  padding:0;
+  background:#fff;
+  color:#333;
+}
 
-   
+.page{
+  width:8.5in;
+  height:11in;
+  padding:1in;
+  margin:0 auto;
+  box-sizing:border-box;
+  page-break-after:always;
+  position:relative;
+}
 
+.last-page{ page-break-after:never; }
 
-/* 2.  Fixed-width label so “[EC]” and “[Q10]” occupy the same space. */
-.question-number {
-  width:3em;                 /* adjust if you prefer wider/narrower      */
-  margin-right:0.5em;
-  text-align:right;
+/* ───────────────────────────────
+   Front-matter
+   ─────────────────────────────── */
+.header{ margin-bottom:20px; }
+
+.title-section{ text-align:center; margin:2in 0 1in; }
+.title{ font-size:32px; margin:0; }
+.subtitle{ font-size:28px; margin:0; }
+
+.instructions{
+  position:absolute; bottom:1in; left:1in; right:1in;
+}
+
+.instructions-heading{
   color:#3366cc;
-  font-weight:bold;
-  vertical-align:top;
+  margin-bottom:10px;
+  font-size:18px;
+  position:relative;
 }
 
-/* 3.  Indent the answer choices by *exactly* the label width. */
-.option {
-  display:block;                               /* one line per choice   */
-  margin:4px 0 4px calc(3em + 0.5em);          /* indent matches label  */
+.version-beta{
+  font-size:5px;
+  position:absolute;
+  top:3px; left:87px;
+  color:#666;
 }
 
-/* (Optional but nice) keep headings from splitting, too. */
-.section-title {
-  break-after:avoid-page;
-}
+.instructions p{ margin:5px 0; line-height:1.2; }
 
-    
- 
-
-    .equation-section { border:1px solid #ccc; background:#f9f9f9; margin-bottom:12px; }
-    .equation-title { background:#eaeaea; color:#3366cc; font-size:16px; font-weight:bold; padding:8px; }
-    .equation-group { margin:8px; padding:2px; }
-    .equation-subtitle { font-weight:bold; margin-bottom:3px; font-size:0.85em; }
-    .equation { margin:0 0 3px 10px; font-size:0.95em; }
-    .note { font-style:italic; margin-left:15px; font-size:0.85em; color:#666; }
-
-    .grid-container { display:grid; grid-template-columns:1fr 1fr; grid-gap:8px; }
-
-    @media print {
-      .page { page-break-after:always; }
-      .last-page { page-break-after:never; }
-      h2, h3, img, table { page-break-inside:avoid; }
-    }
-
-
-    /* Give every question label the same width so the body text
-   always lines up, whether the label is [Q1] or [EC]. */
-.question-number{
-  width:3em;          /* same width for [Q10] and [EC] */
-  margin-right:0.5em;
-  text-align:right;
-  color:#3366cc;
-  font-weight:bold;
-}
-
-
-/* Keep a little vertical air above the first “Quantitative” heading.
-   (Only needed because the EC conceptual question now sits right above it.) */
-.section-title + .section-title {
-  margin-top:32px;  /* bump if you still see crowding */
-}
-
-/* Make sure blocks never split across pages. */
-/* QUESTION BLOCKS
-   — back to “normal” blocks so a tall question can flow onto the next page.
-   — keep some breathing room below each one. */
+/* ───────────────────────────────
+   Question blocks
+   ─────────────────────────────── */
 .question,
-.calculation-question {
-  margin:0 0 24px;
-  /* If you really need to avoid splitting a *short* item (like EC),
-     you can add a class and keep break-inside there. */
+.calculation-question{
+  margin:0 0 24px;           /* vertical rhythm */
 }
 
+/* optional class for short items you never want split */
+.keep-together{
+  break-inside:avoid-page;   /* modern */
+  page-break-inside:avoid;   /* legacy */
+}
 
+/* fixed-width label so [EC] & [Q10] align */
+.question-number{
+  display:inline-block;
+  width:3em;                 /* tweak if you ever need wider */
+  margin-right:0.5em;
+  text-align:right;
+  color:#3366cc;
+  font-weight:bold;
+}
 
-  </style>
+/* answer choices line up under the question text */
+.option{
+  display:block;
+  margin:4px 0 4px calc(3em + 0.5em); /* indent equals label width + gap */
+}
+
+/* section headings */
+.section-title{
+  color:#3366cc;
+  font-size:20px;
+  margin:0 0 10px;
+  break-after:avoid-page;    /* don’t leave a heading dangling at bottom */
+}
+
+/* keep a little air above the first Quantitative heading */
+.section-title + .section-title{ margin-top:32px; }
+
+/* ───────────────────────────────
+   Equation sheets & 2-column grid
+   ─────────────────────────────── */
+.equation-section{
+  border:1px solid #ccc;
+  background:#f9f9f9;
+  margin-bottom:12px;
+}
+
+.equation-title{
+  background:#eaeaea;
+  color:#3366cc;
+  font-size:16px;
+  font-weight:bold;
+  padding:8px;
+}
+
+.equation-group{ margin:8px; padding:2px; }
+
+.equation-subtitle{
+  font-weight:bold;
+  margin-bottom:3px;
+  font-size:0.85em;
+}
+
+.equation{
+  margin:0 0 3px 10px;
+  font-size:0.95em;
+}
+
+.note{
+  font-style:italic;
+  margin-left:15px;
+  font-size:0.85em;
+  color:#666;
+}
+
+.grid-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:8px;
+}
+
+/* ───────────────────────────────
+   Print overrides
+   ─────────────────────────────── */
+@media print{
+  .page{ page-break-after:always; }
+  .last-page{ page-break-after:never; }
+
+  h2, h3, img, table{
+    page-break-inside:avoid; /* stay together if they fit */
+  }
+}
+</style>
 </head>
 <body>
 
