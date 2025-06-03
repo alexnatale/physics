@@ -36,6 +36,32 @@
       .last-page { page-break-after:never; }
       h2, h3, img, table { page-break-inside:avoid; }
     }
+
+
+    /* Give every question label the same width so the body text
+   always lines up, whether the label is [Q1] or [EC]. */
+.question-number {
+  color:#3366cc;
+  font-weight:bold;
+  display:inline-block;
+  width:3em;        /* tweak to taste */
+  text-align:right; /* keeps bracket tight to the number */
+  margin-right:8px; /* a hair more breathing room */
+}
+
+/* Keep a little vertical air above the first “Quantitative” heading.
+   (Only needed because the EC conceptual question now sits right above it.) */
+.section-title + .section-title {
+  margin-top:32px;  /* bump if you still see crowding */
+}
+
+/* Make sure blocks never split across pages. */
+.question,
+.calculation-question {
+  break-inside:avoid-page; /* modern spec */
+  page-break-inside:avoid; /* older engines */
+}
+    
   </style>
 </head>
 <body>
