@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics 227 – Exam #4 (γ version)</title>
+  <style>
+/* ==========  Global page setup  ========== */
+body{
+  font-family:Calibri,"Segoe UI",sans-serif;
+  margin:0;
+  padding:0;
+  background:#fff;
+  color:#333;
+}
+.page{
+  width:8.5in;
+  height:11in;
+  padding:1in;
+  margin:0 auto;
+  box-sizing:border-box;
+  page-break-after:always;
+  position:relative;
+}
+.last-page{ page-break-after:never; }
+
+/* ==========  Front-matter  ========== */
+.header{ margin-bottom:20px; }
+.title-section{ text-align:center; margin:2in 0 1in; }
+.title{ font-size:32px; margin:0; }
+.subtitle{ font-size:28px; margin:0; }
+
+.instructions{
+  position:absolute; bottom:1in; left:1in; right:1in;
+}
+.instructions-heading{
+  color:#3366cc; margin-bottom:10px; font-size:18px; position:relative;
+}
+.version-gamma{
+  font-size:5px; position:absolute; top:3px; left:87px; color:#666;
+}
+.instructions p{ margin:5px 0; line-height:1.2; }
+
+/* ==========  Question blocks  ========== */
+.question,
+.calculation-question{
+  margin:0 0 24px;
+  /* keep each question intact on one page */
+  break-inside:avoid-page;
+  page-break-inside:avoid;
+}
+.question-number{
+  display:inline-block;
+  width:3em;
+  margin-right:0.5em;
+  text-align:right;
+  color:#3366cc;
+  font-weight:bold;
+}
+.option{
+  display:block;
+  margin:4px 0 4px calc(3em + 0.5em);
+}
+.section-title{
+  color:#3366cc;
+  font-size:20px;
+  margin:0 0 10px;
+  break-after:avoid-page;
+}
+.section-title + .section-title{ margin-top:32px; }
+
+/* ==========  Equation sheets & grid  ========== */
+.equation-section{ border:1px solid #ccc; background:#f9f9f9; margin-bottom:12px; }
+.equation-title{ background:#eaeaea; color:#3366cc; font-size:16px; font-weight:bold; padding:8px; }
+.equation-group{ margin:8px; padding:2px; }
+.equation-subtitle{ font-weight:bold; margin-bottom:3px; font-size:0.85em; }
+.equation{ margin:0 0 3px 10px; font-size:0.95em; }
+.note{ font-style:italic; margin-left:15px; font-size:0.85em; color:#666; }
+
+.grid-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:8px;
+}
+
+@media print{
+  .page{ page-break-after:always; }
+  .last-page{ page-break-after:never; }
+  h2, h3, img, table{ page-break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Title & Instructions Page -->
+  <div class="page">
+    <div class="header">Name: _____________________________</div>
+    <div class="title-section">
+      <h1 class="title">Physics 227</h1>
+      <h2 class="subtitle">Exam #4</h2>
+    </div>
+    <div class="instructions">
+      <h3 class="instructions-heading">Instructions<span class="version-gamma">γ</span></h3>
+      <p>This exam consists of 10 multiple‑choice questions: 5 conceptual and 5 quantitative.</p>
+      <p>Complete all problems in the allotted time. <em>Show all work</em>. Scratch paper will be provided on request and may be submitted for partial‑credit consideration. Equation sheets and constants appear at the back of the hand‑out.</p>
+    </div>
+  </div>
+
+  <!-- Conceptual Questions -->
+  <div class="page">
+    <h2 class="section-title">Conceptual Questions (5 pts each)</h2>
+
+    <!-- Q1–Q5 identical to α/β versions -->
+    <div class="question">
+      <span class="question-number">[Q1]</span>
+      A beam of electrons (charge –e) enters a uniform magnetic field <em>B</em> directed out of the page and is deflected downward (–<em>y</em>). Which statement best describes the electrons’ initial velocity?
+      <div class="option">a.&nbsp;Toward +<em>x</em></div>
+      <div class="option">b.&nbsp;Toward –<em>x</em></div>
+      <div class="option">c.&nbsp;Toward +<em>y</em></div>
+      <div class="option">d.&nbsp;Toward –<em>y</em></div>
+      <div class="option">e.&nbsp;Parallel to the magnetic field</div>
+    </div>
+
+    <div class="question">
+      <span class="question-number">[Q2]</span>
+      In a Hall‑effect sensor made of <em>p</em>-type semiconductor, a current <em>I</em> flows to the left in a magnetic field into the page. Which edge of the strip becomes positively charged?
+      <div class="option">a.&nbsp;Top edge</div>
+      <div class="option">b.&nbsp;Bottom edge</div>
+      <div class="option">c.&nbsp;Both edges equally</div>
+      <div class="option">d.&nbsp;Neither edge</div>
+      <div class="option">e.&nbsp;Depends only on |<em>I</em>|</div>
+    </div>
+
+    <div class="question">
+      <span class="question-number">[Q3]</span>
+      A rectangular conducting loop is pulled steadily into a region where the magnetic field points into the page. Viewed from above, the induced current in the loop is
+      <div class="option">a.&nbsp;Clockwise, producing <em>B</em> out of the page</div>
+      <div class="option">b.&nbsp;Counter‑clockwise, producing <em>B</em> out of the page</div>
+      <div class="option">c.&nbsp;Clockwise, producing <em>B</em> into the page</div>
+      <div class="option">d.&nbsp;Counter‑clockwise, producing <em>B</em> into the page</div>
+      <div class="option">e.&nbsp;No current is induced</div>
+    </div>
+
+    <div class="question">
+      <span class="question-number">[Q4]</span>
+      In a series RLC circuit driven at angular frequency ω, which of the following is true exactly at resonance?
+      <div class="option">a.&nbsp;Impedance equals <em>R</em> and current and voltage are in phase</div>
+      <div class="option">b.&nbsp;Impedance equals <em>X</em><sub>L</sub> and the circuit behaves purely inductive</div>
+      <div class="option">c.&nbsp;Impedance equals <em>X</em><sub>C</sub> and the circuit behaves purely capacitive</div>
+      <div class="option">d.&nbsp;Current leads the source voltage by 90°</div>
+      <div class="option">e.&nbsp;Average power delivered is zero</div>
+    </div>
+
+    <div class="question">
+      <span class="question-number">[Q5]</span>
+      A perfectly reflecting solar sail accelerates when illuminated by sunlight. Which statement best explains this phenomenon?
+      <div class="option">a.&nbsp;The electric field of light pushes charges on the sail steadily forward.</div>
+      <div class="option">b.&nbsp;Photons carry momentum and transfer twice that momentum upon reflection.</div>
+      <div class="option">c.&nbsp;Electromagnetic waves carry energy but not momentum, so there is no force.</div>
+      <div class="option">d.&nbsp;Light heats nearby space, creating a pressure difference that drives the sail.</div>
+      <div class="option">e.&nbsp;Radiation pressure acts only on charged objects, not on a neutral sail.</div>
+    </div>
+  </div>
+
+  <!-- Extra‑Credit Conceptual Question -->
+  <div class="page">
+    <div class="question">
+      <span class="question-number">[EC]</span>
+      <strong>Extra Credit Q1 (5 pts):</strong>
+      Which of the following factors <em>does not</em> affect the cyclotron frequency ω = |q|B/m of a non‑relativistic charged particle moving perpendicular to a uniform magnetic field?
+      <div class="option">a.&nbsp;The mass <em>m</em> of the particle</div>
+      <div class="option">b.&nbsp;The magnitude of the magnetic field <em>B</em></div>
+      <div class="option">c.&nbsp;The magnitude of the particle’s charge |q|</div>
+      <div class="option">d.&nbsp;The particle’s speed <em>v</em></div>
+      <div class="option">e.&nbsp;The ratio |q| / m</div>
+    </div>
+
+    <!-- Quantitative Questions -->
+    <h2 class="section-title">Quantitative Questions (10 pts each)</h2>
+
+    <!-- Q6 – Cyclotron period -->
+    <div class="calculation-question">
+      <span class="question-number">[Q6]</span>
+      A proton (q = +e, m = 1.67 × 10<sup>−27</sup> kg) enters a <strong>0.65 T</strong> uniform magnetic field at 2.5 × 10<sup>6</sup> m/s, moving perpendicular to <em>B</em>. What is the period of its circular motion?
+      <div class="option">a.&nbsp;4.1 × 10<sup>−8</sup> s</div>
+      <div class="option">b.&nbsp;6.1 × 10<sup>−8</sup> s</div>
+      <div class="option">c.&nbsp;8.2 × 10<sup>−8</sup> s</div>
+      <div class="option">d.&nbsp;1.0 × 10<sup>−7</sup> s</div>
+      <div class="option">e.&nbsp;1.2 × 10<sup>−7</sup> s</div>
+    </div>
+
+    <!-- Q7 – Field inside an ideal solenoid -->
+    <div class="calculation-question">
+      <span class="question-number">[Q7]</span>
+      An ideal solenoid is 0.50 m long and has 1500 tightly‑wound turns. If it carries a current of <strong>2.0 A</strong>, what is the magnitude of the magnetic field inside the solenoid?
+      <div class="option">a.&nbsp;5.0 × 10<sup>−3</sup> T</div>
+      <div class="option">b.&nbsp;7.5 × 10<sup>−3</sup> T</div>
+      <div class="option">c.&nbsp;1.1 × 10<sup>−2</sup> T</div>
+      <div class="option">d.&nbsp;1.5 × 10<sup>−2</sup> T</div>
+      <div class="option">e.&nbsp;2.0 × 10<sup>−2</sup> T</div>
+    </div>
+
+    <!-- Q8 – Average induced emf -->
+    <div class="calculation-question">
+      <span class="question-number">[Q8]</span>
+      A single‑turn circular loop (radius = <strong>10 cm</strong>) lies in a uniform 0.40 T magnetic field, with the field initially perpendicular to the plane of the loop. The loop is flipped through 90° in 1.5 ms so that the flux through the loop drops to zero. What is the magnitude of the average induced emf during the flip?
+      <div class="option">a.&nbsp;6.0 V</div>
+      <div class="option">b.&nbsp;8.0 V</div>
+      <div class="option">c.&nbsp;12 V</div>
+      <div class="option">d.&nbsp;15 V</div>
+      <div class="option">e.&nbsp;18 V</div>
+    </div>
+
+    <!-- Q9 – Energy stored in inductor -->
+    <div class="calculation-question">
+      <span class="question-number">[Q9]</span>
+      In the RL circuit shown, a 15 V battery is connected in series with a 20 mH inductor and a 10 Ω resistor at t = 0. What energy is stored in the inductor <strong>2.1 ms</strong> after the switch is closed?
+      <div class="option">a.&nbsp;9.5 × 10<sup>−3</sup> J</div>
+      <div class="option">b.&nbsp;1.3 × 10<sup>−2</sup> J</div>
+      <div class="option">c.&nbsp;1.9 × 10<sup>−2</sup> J</div>
+      <div class="option">d.&nbsp;2.6 × 10<sup>−2</sup> J</div>
+      <div class="option">e.&nbsp;3.2 × 10<sup>−2</sup> J</div>
+    </div>
+
+    <!-- Q10 – Average power in RLC -->
+    <div class="calculation-question">
+      <span class="question-number">[Q10]</span>
+      A series RLC circuit has R = 25 Ω, L = 60 mH, and C = 6.0 µF. It is driven by a source
+      v(t) = 100 sin(2π <strong>62</strong> t) V. What is the average power dissipated in the resistor?
+      <div class="option">a.&nbsp;0.30 W</div>
+      <div class="option">b.&nbsp;0.48 W</div>
+      <div class="option">c.&nbsp;0.75 W</div>
+      <div class="option">d.&nbsp;1.2 W</div>
+      <div class="option">e.&nbsp;2.5 W</div>
+    </div>
+  </div>
+
+  <!-- Extra‑Credit Quantitative Question -->
+  <div class="page">
+    <div class="calculation-question">
+      <span class="question-number">[EC]</span>
+      <strong>Extra Credit Q2 (10 pts):</strong>
+      A single‑turn circular loop of radius 10 cm is placed in a region where the magnetic field varies with time as B(t) = 0.50 t (with B in tesla and t in seconds), always perpendicular to the loop.
+      (a) Write an expression for the magnetic flux Φ(t) through the loop.
+      (b) Determine the magnitude of the induced emf at t = 0.020 s.
+      <div class="option">(No choices—show full calculation for credit.)</div>
+    </div>
+  </div>
+
+ <!-- Reference: Physical Constants -->
+  <div class="page">
+    <h2 class="section-title">Physical Constants &amp; Useful Math</h2>
+    <img src="physical_constants.PNG" class="reference" alt="Table of physical constants" style="width:100%; max-width:6.5in;">
+  </div>
+
+  <!-- Reference: Trigonometry & Calculus -->
+  <div class="page">
+    <h2 class="section-title">Trigonometry &amp; Calculus Identities</h2>
+    <img src="trig_calc.PNG" class="reference" alt="Common trigonometric and calculus identities" style="width:100%; max-width:6.5in;">
+  </div>
+
+  <!-- Key Equations Page -->
+  <div class="page last-page">
+    <div class="grid-container">
+      <!-- Left Column -->
+      <div>
+        <div class="equation-section">
+          <div class="equation-title">Magnetic Forces &amp; Motion</div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Lorentz Force</div>
+            <div class="equation">F = q ( <strong>v</strong> × <strong>B</strong> )</div>
+            <div class="equation">F = I ℓ × <strong>B</strong> (straight conductor)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Charged‑Particle Circular Motion</div>
+            <div class="equation">r = m v / (|q| B)</div>
+            <div class="equation">T = 2π m / (|q| B)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Torque on Loop</div>
+            <div class="equation">τ = N I A B sin θ</div>
+            <div class="note">μ = N I A</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Force Between Parallel Currents</div>
+            <div class="equation">F/L = μ<sub>0</sub> I<sub>1</sub> I<sub>2</sub> / (2π d)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Hall Voltage</div>
+            <div class="equation">V<sub>H</sub> = I B / (n q A)</div>
+          </div>
+        </div>
+
+        <div class="equation-section">
+          <div class="equation-title">Common B‑Fields</div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Biot–Savart</div>
+            <div class="equation">dB = (μ<sub>0</sub>/4π) I dℓ × r̂ / r²</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Long Straight Wire</div>
+            <div class="equation">B = μ<sub>0</sub> I / (2π r)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Circular Coil Center</div>
+            <div class="equation">B = μ<sub>0</sub> N I / (2 R)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Solenoid (ideal)</div>
+            <div class="equation">B = μ<sub>0</sub> n I</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Toroid (inside)</div>
+            <div class="equation">B = μ<sub>0</sub> N I / (2π r)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Ampère’s Law</div>
+            <div class="equation">∮ B·dℓ = μ<sub>0</sub> I<sub>enc</sub></div>
+          </div>
+        </div>
+
+        <div class="equation-section">
+          <div class="equation-title">Induction</div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Magnetic Flux</div>
+            <div class="equation">Φ<sub>B</sub> = B A cos θ</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Faraday’s Law</div>
+            <div class="equation">ε = −N dΦ<sub>B</sub>/dt</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Motional emf</div>
+            <div class="equation">ε = B ℓ v</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div>
+        <div class="equation-section">
+          <div class="equation-title">Inductance &amp; RL/LC</div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Self‑Inductance</div>
+            <div class="equation">ε = −L dI/dt</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Energy in Inductor</div>
+            <div class="equation">U = ½ L I²</div>
+            <div class="equation">u = B² / (2 μ<sub>0</sub>)</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">RL Time Constant</div>
+            <div class="equation">τ = L / R</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Current in RL Circuit</div>
+            <div class="equation">Growth: I(t) = (ε/R) (1 − e<sup>−t/τ</sup>)</div>
+            <div class="equation">Decay: I(t) = I<sub>0</sub> e<sup>−t/τ</sup></div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">LC Oscillations</div>
+            <div class="equation">ω<sub>0</sub> = 1/√(L C)</div>
+          </div>
+        </div>
+
+        <div class="equation-section">
+          <div class="equation-title">AC Circuits</div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Reactances</div>
+            <div class="equation">X<sub>C</sub> = 1/(ω C)</div>
+            <div class="equation">X<sub>L</sub> = ω L</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Series RLC Impedance</div>
+            <div class="equation">Z = √[ R² + (X<sub>L</sub> − X<sub>C</sub>)² ]</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Average Power</div>
+            <div class="equation">P<sub>avg</sub> = V<sub>rms</sub> I<sub>rms</sub> cos φ</div>
+            <div class="note">φ = tan<sup>−1</sup>[(X<sub>L</sub> − X<sub>C</sub>)/R]</div>
+          </div>
+        </div>
+
+        <div class="equation-section">
+          <div class="equation-title">Electromagnetic Waves</div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Wave Relations</div>
+            <div class="equation">c = 1/√(μ<sub>0</sub> ε<sub>0</sub>)</div>
+            <div class="equation">B<sub>0</sub> = E<sub>0</sub>/c</div>
+          </div>
+          <div class="equation-group">
+            <div class="equation-subtitle">Poynting Vector</div>
+            <div class="equation">S = (1/μ<sub>0</sub>) E × B</div>
+            <div class="equation">⟨S⟩ = ½ ε<sub>0</sub> c E<sub>0</sub><sup>2</sup></div>
+          </div>
+        </div>
+
+        <div class="equation-section">
+          <div class="equation-title">Fundamental Constants</div>
+          <div class="equation-group">
+            <div class="equation">μ<sub>0</sub> = 4π × 10<sup>−7</sup> T·m/A</div>
+            <div class="equation">ε<sub>0</sub> = 8.854 × 10<sup>−12</sup> C²/(N·m²)</div>
+            <div class="equation">c = 2.998 × 10<sup>8</sup> m/s</div>
+            <div class="equation">e = 1.602 × 10<sup>−19</sup> C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
